@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Parcial.Entities
+﻿namespace Parcial.Login
 {
     public class User
     {
