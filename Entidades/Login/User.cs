@@ -34,6 +34,7 @@ namespace Parcial.Login
         {
             User.entityCounter = 100;
         }
+
         private User(string fullName) : base(fullName)
         {   
             base.id = User.entityCounter;
@@ -44,6 +45,28 @@ namespace Parcial.Login
         {
             this.username = username;
             this.password = password;
+        }
+
+        public static bool operator ==(User userA, User userB)
+        {
+            bool returnAux;
+            if(userA is null)
+            {
+                returnAux = userB is null;
+            }
+            else if(userB is null)
+            {
+                returnAux = userA is null;
+            } else
+            {
+                returnAux = userA.Id == userB.Id;
+            }
+            return returnAux;
+        }
+
+        public static bool operator !=(User userA, User userB)
+        {
+            return !(userA == userB);
         }
 
         public override string ToString()

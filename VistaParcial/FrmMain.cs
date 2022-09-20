@@ -22,6 +22,7 @@ namespace VistaParcial
         public FrmMain(User user) : this()
         {
             this.user = user;
+            this.Text = $"{user}";
         }
     }
 }
