@@ -17,7 +17,6 @@ namespace Parcial.Util
         }
         public static void ValidStringValidation(string stringParam)
         {
-            Validator.NullValidation(stringParam);
             if(String.IsNullOrWhiteSpace(stringParam))
             {
                 throw new FormatException("Dato ingresado no valido.");
