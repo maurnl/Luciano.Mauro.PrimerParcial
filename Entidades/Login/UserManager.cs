@@ -23,7 +23,7 @@ namespace Parcial.Login
 
         public bool TryRegisterUser(string fullName, string username, string password)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullName))
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(fullName))
             {
                 throw new ArgumentException("Datos ingresados invalidos.");
             }
@@ -57,15 +57,12 @@ namespace Parcial.Login
         public User FindByUsername(string username)
         {
             User userMatch = null;
-            if (!string.IsNullOrEmpty(username))
+            foreach (User user in this.users)
             {
-                foreach (User user in this.users)
+                if (user.Username == username)
                 {
-                    if (user.Username == username)
-                    {
-                        userMatch = user;
-                        break;
-                    }
+                    userMatch = user;
+                    break;
                 }
             }
             return userMatch;

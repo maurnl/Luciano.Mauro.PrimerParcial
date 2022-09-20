@@ -1,36 +1,12 @@
-﻿namespace Parcial.Login
+﻿using Parcial.Entities;
+
+namespace Parcial.Login
 {
-    public class User
+    public class User : PersonBase
     {
         private static int entityCounter;
-        private int id;
         private string username;
         private string password;
-        private string name;
-        private string lastName;
-        public int Id { 
-            get
-            {
-                return this.id;
-            }
-            private set 
-            { 
-                this.id = value; 
-            } 
-        }
-        public string FullName
-        {
-            get
-            { 
-                return $"{this.name} {this.lastName}"; 
-            }
-            private set
-            {
-                string[] splitName = value.Split(" ");
-                name = splitName[0];
-                lastName = splitName[1];
-            }
-        }
         public string Username
         {
             get
@@ -58,26 +34,21 @@
         {
             User.entityCounter = 100;
         }
-        public User()
-        {
-            this.Id = User.entityCounter;
+        private User(string fullName) : base(fullName)
+        {   
+            base.id = User.entityCounter;
             User.entityCounter++;
-            this.FullName = "unnamed user";
         }
 
-        public User(string username, string password) : this()
+        public User(string fullName, string username, string password) : this(fullName)
         {
             this.username = username;
             this.password = password;
         }
-        public User(string username, string password, string fullName) : this(username, password)
-        {
-            this.FullName = fullName;
-        }
 
         public override string ToString()
         {
-            return $"NOMBRE Y APELLIDO: {FullName}";
+            return $"{base.ToString()} Usuario: {this.username}";
         }
     }
 }
