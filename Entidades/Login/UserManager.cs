@@ -23,10 +23,9 @@ namespace Parcial.Login
 
         public bool TryRegisterUser(string fullName, string username, string password)
         {
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(fullName))
-            {
-                throw new ArgumentException("Datos ingresados invalidos.");
-            }
+            Validator.ValidStringValidation(username);
+            Validator.ValidStringValidation(password);
+            Validator.AlphabeticStringValidation(fullName);
 
             if(FindByUsername(username)!=null)
             {
@@ -35,7 +34,7 @@ namespace Parcial.Login
 
             string hashedPassword = Hasher.HashText(password, SHA512.Create());
 
-            User newUser = new User(username, hashedPassword, fullName);
+            User newUser = new User(fullName, username, hashedPassword);
 
             users.Add(newUser);
             return true;

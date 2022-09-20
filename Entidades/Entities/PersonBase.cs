@@ -27,9 +27,9 @@ namespace Parcial.Entities
             }
             private set
             {
-                string[] splitName = value.Split(" ");
-                name = splitName[0];
-                lastName = splitName[1];
+                var splitName = value.Split(" ");
+                this.name = splitName[0];
+                this.lastName = splitName[1];
             }
         }
 

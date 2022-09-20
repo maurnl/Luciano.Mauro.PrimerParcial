@@ -1,0 +1,184 @@
+﻿
+namespace VistaParcial
+{
+    partial class FrmLogin
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.gpbLogin = new System.Windows.Forms.GroupBox();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAutologin = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.gpbLogin.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Location = new System.Drawing.Point(55, 75);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.PlaceholderText = "Ingrese usuario...";
+            this.txtUsername.Size = new System.Drawing.Size(172, 23);
+            this.txtUsername.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(55, 150);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PlaceholderText = "Ingrese contrasenia...";
+            this.txtPassword.Size = new System.Drawing.Size(172, 23);
+            this.txtPassword.TabIndex = 1;
+            // 
+            // gpbLogin
+            // 
+            this.gpbLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpbLogin.Controls.Add(this.lblError);
+            this.gpbLogin.Controls.Add(this.btnLogin);
+            this.gpbLogin.Controls.Add(this.label2);
+            this.gpbLogin.Controls.Add(this.label1);
+            this.gpbLogin.Controls.Add(this.txtPassword);
+            this.gpbLogin.Controls.Add(this.txtUsername);
+            this.gpbLogin.Location = new System.Drawing.Point(12, 12);
+            this.gpbLogin.Name = "gpbLogin";
+            this.gpbLogin.Size = new System.Drawing.Size(284, 325);
+            this.gpbLogin.TabIndex = 2;
+            this.gpbLogin.TabStop = false;
+            this.gpbLogin.Text = "Iniciar sesion";
+            // 
+            // lblError
+            // 
+            this.lblError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(32, 289);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(38, 15);
+            this.lblError.TabIndex = 5;
+            this.lblError.Text = "label3";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLogin.Location = new System.Drawing.Point(84, 223);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(113, 36);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Iniciar sesion";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Contrasenia:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuario:";
+            // 
+            // btnAutologin
+            // 
+            this.btnAutologin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAutologin.Location = new System.Drawing.Point(12, 399);
+            this.btnAutologin.Name = "btnAutologin";
+            this.btnAutologin.Size = new System.Drawing.Size(105, 36);
+            this.btnAutologin.TabIndex = 3;
+            this.btnAutologin.Text = "Autocompletar";
+            this.btnAutologin.UseVisualStyleBackColor = true;
+            this.btnAutologin.Click += new System.EventHandler(this.btnAutologin_Click);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegister.Location = new System.Drawing.Point(191, 399);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(105, 36);
+            this.btnRegister.TabIndex = 4;
+            this.btnRegister.Text = "Registrarse";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // FrmLogin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(308, 447);
+            this.Controls.Add(this.btnAutologin);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.gpbLogin);
+            this.Name = "FrmLogin";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.gpbLogin.ResumeLayout(false);
+            this.gpbLogin.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.GroupBox gpbLogin;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnAutologin;
+        private System.Windows.Forms.Button btnRegister;
+    }
+}
+

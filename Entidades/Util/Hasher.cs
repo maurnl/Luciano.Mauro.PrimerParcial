@@ -10,7 +10,6 @@ namespace Parcial.Util
         /// Hasher class. For storing passwords securely using SHA512.
         /// </summary>
         /// <param name="text">Text to hash</param>
-        /// <param name="salt"></param>
         /// <param name="hasher"></param>
         /// <returns></returns>
         public static string HashText(string text, HashAlgorithm hasher)
