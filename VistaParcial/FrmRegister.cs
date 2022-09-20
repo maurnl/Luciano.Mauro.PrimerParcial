@@ -38,19 +38,8 @@ namespace VistaParcial
             string username = this.txtUsername.Text;
             string password = this.txtPassword.Text;
             string fullName = this.txtName.Text + " " + this.txtLastName.Text;
-
-            try
-            {
-                Validator.ValidStringValidation(password);
-                Validator.ValidStringValidation(username);
-                Validator.AlphabeticStringValidation(fullName);
-
-                this.user = new User(fullName, username, password);
-                this.DialogResult = DialogResult.OK;
-            }catch(Exception registerException)
-            {
-                this.lblError.Text = registerException.Message;
-            }
+            this.user = new User(fullName, username, password);
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

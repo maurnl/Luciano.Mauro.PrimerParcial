@@ -1,4 +1,5 @@
 ﻿using Parcial.Login;
+using Parcial.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace VistaParcial
             InitializeComponent();
             this.userManager = new UserManager();
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+            Hardcoder.HardcodearUsuarios(this.userManager);
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
