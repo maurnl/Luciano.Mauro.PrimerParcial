@@ -56,10 +56,9 @@ namespace VistaParcial
 
             if(formRegister.ShowDialog() == DialogResult.OK)
             {
-                Usuario newUser = formRegister.User;
                 try
                 {
-                    this.userManager.TryRegistrarUsuario(newUser.NombreCompleto, newUser.Username, newUser.Password);
+                    this.userManager.TryCrearUsuario(formRegister.NombreCompleto, formRegister.Username, formRegister.Password);
                     this.lblError.ForeColor = Color.DarkGreen;
                     this.lblError.Text = "Registrado correctamente!";
                 }

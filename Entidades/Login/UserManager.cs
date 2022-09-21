@@ -21,7 +21,7 @@ namespace Parcial.Login
             this.users = new List<Usuario>();
         }
 
-        public bool TryRegistrarUsuario(string nombreCompleto, string username, string password)
+        public Usuario TryCrearUsuario(string nombreCompleto, string username, string password)
         {
             Validador.ValidarStringVacia(username);
             Validador.ValidarStringVacia(password);
@@ -36,8 +36,9 @@ namespace Parcial.Login
 
             Usuario newUser = new Usuario(nombreCompleto, username, hashedPassword);
 
-            users.Add(newUser);
-            return true;
+            this.users.Add(newUser);
+
+            return newUser;
         }
 
         public bool VerificarPassword(string username, string password)

@@ -14,15 +14,32 @@ namespace VistaParcial
 {
     public partial class FrmRegister : Form
     {
-        private Usuario user;
+        private string nombreCompleto;
+        private string username;
+        private string password;
 
-        public Usuario User
+        public string NombreCompleto
         {
             get
             {
-                return this.user;
+                return this.nombreCompleto;
             }
         }
+        public string Username
+        {
+            get
+            {
+                return this.username;
+            }
+        }
+        public string Password
+        {
+            get
+            {
+                return this.password;
+            }
+        }
+
         public FrmRegister()
         {
             InitializeComponent();
@@ -37,9 +54,24 @@ namespace VistaParcial
         {
             string username = this.txtUsername.Text;
             string password = this.txtPassword.Text;
-            string fullName = this.txtName.Text + " " + this.txtLastName.Text;
-            this.user = new Usuario(fullName, username, password);
-            this.DialogResult = DialogResult.OK;
+            string nombreCompleto = this.txtName.Text + " " + this.txtLastName.Text;
+
+            try
+            {
+                Validador.ValidarStringAlfabetica(nombreCompleto);
+                Validador.ValidarStringVacia(username);
+                Validador.ValidarStringVacia(password);
+
+                this.username = username;
+                this.password = password;
+                this.nombreCompleto = nombreCompleto;
+
+                this.DialogResult = DialogResult.OK;
+            } catch (Exception registerEx)
+            {
+                this.lblError.Text = registerEx.Message;
+            }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

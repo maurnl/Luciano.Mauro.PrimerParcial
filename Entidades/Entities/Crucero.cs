@@ -9,7 +9,7 @@ namespace Parcial.Entities
     public class Crucero : EntidadBase
     {
         private static int contadorCrucero;
-        private string matricula; // Identificador
+        private string matricula;
         private string nombre;
         private int cantidadCamarotesPremium;
         private int cantidadCamarotesTurista;
