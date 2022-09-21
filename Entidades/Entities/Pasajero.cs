@@ -8,6 +8,7 @@ namespace Parcial.Entities
 {
     public class Pasajero : PersonaBase
     {
+        private static int contadorEntidades;
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
@@ -27,7 +28,18 @@ namespace Parcial.Entities
             }
         }
 
-        public Pasajero(string nombreCompleto, int dni, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : base(nombreCompleto, dni)
+        static Pasajero()
+        {
+            Pasajero.contadorEntidades = 1000;
+        }
+
+        private Pasajero(string nombreCompleto, int dni) : base(nombreCompleto, dni)
+        {
+            base.id = Pasajero.contadorEntidades;
+            Pasajero.contadorEntidades++;
+        }
+
+        public Pasajero(string nombreCompleto, int dni, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto, dni)
         {
             this.fechaNacimiento = fechaNacimiento;
             this.tipoPasajero = tipoPasajero;
@@ -56,6 +68,29 @@ namespace Parcial.Entities
             return pasajero;
         }
 
+        public static bool operator ==(Pasajero pasajeroA, Pasajero pasajeroB)
+        {
+            bool returnAux;
+            if (pasajeroA is null)
+            {
+                returnAux = pasajeroB is null;
+            }
+            else if (pasajeroB is null)
+            {
+                returnAux = pasajeroA is null;
+            }
+            else
+            {
+                returnAux = pasajeroA.Dni == pasajeroB.Dni;
+            }
+            return returnAux;
+        }
+
+        public static bool operator !=(Pasajero pasajeroA, Pasajero pasajeroB)
+        {
+            return !(pasajeroA == pasajeroB);
+        }
+
         private int ContarCantidadValijas()
         {
             int cantidad = 0;
@@ -80,6 +115,11 @@ namespace Parcial.Entities
                 }
             }
             return acumuladorPeso;
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}.";
         }
     }
 }

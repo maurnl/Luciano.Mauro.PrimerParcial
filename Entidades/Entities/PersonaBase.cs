@@ -48,7 +48,7 @@ namespace Parcial.Entities
         }
         public override string ToString()
         {
-            return $"DNI: {Dni}. Nombre completo: {NombreCompleto}.";
+            return $"DNI: {Dni}. Nombre: {NombreCompleto}.";
         }
     }
 }
