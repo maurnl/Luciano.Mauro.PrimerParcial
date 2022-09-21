@@ -10,17 +10,102 @@ namespace Parcial.Entities
     {
         private string matricula;
         private string nombre;
-        private int cantidadCamarotes;
-        private int cantidadSalones;
-        private int cantidadCasinos;
+        private int cantidadCamarotesPremium;
+        private int cantidadCamarotesTurista;
         private float capacidadBodega;
+        private bool estaEnViaje;
+        private List<Salon> salones;
 
-        public Crucero()
+        public string Matricula
         {
-            this.cantidadCamarotes = 1;
-            this.cantidadCasinos = 0;
-            this.capacidadBodega = 500F;
-            this.nombre = "Nave sin nombre";
-        }                          
+            get
+            {
+                return this.matricula;
+            }
+            private set
+            {
+                this.matricula = value;
+            }
+        }
+        public string Nombre
+        {
+            get
+            {
+                return this.nombre;
+            }
+        }
+        public int CapacidadPasajeros
+        {
+            get
+            {
+                return (this.cantidadCamarotesPremium + this.cantidadCamarotesTurista) * 4;
+            }
+            set
+            {
+                this.cantidadCamarotesPremium = value * 35 / 100;
+                this.cantidadCamarotesTurista = value * 65 / 100;
+            }
+        }
+        public float CapacidadBodega
+        {
+            get
+            {
+                return this.capacidadBodega;
+            }
+        }
+        public bool TieneGimnasio
+        {
+            get
+            {
+                return ContarSalonesPorTipo(Salon.Gimnasio) > 0;
+            }
+        }
+        public bool TienePiscina
+        {
+            get
+            {
+                return ContarSalonesPorTipo(Salon.Piscina) > 0;
+            }
+        }
+        public bool EstaEnViaje
+        {
+            get
+            {
+                return this.estaEnViaje;
+            }
+            set
+            {
+                this.estaEnViaje = value;
+            }
+        }
+
+        public Crucero(string matricula, string nombre,int capacidadPasajeros,
+            float capacidadBodega, List<Salon> salones)
+        {
+            this.matricula = matricula;
+            this.nombre = nombre;
+            this.CapacidadPasajeros = capacidadPasajeros;
+            this.capacidadBodega = capacidadBodega;
+            this.estaEnViaje = false;
+            this.salones = salones;
+        }                   
+
+        private int ContarSalonesPorTipo(Salon salonParam)
+        {
+            int returnAux = 0;
+            foreach (Salon salonDelBarco in this.salones)
+            {
+                if(salonDelBarco == salonParam)
+                {
+                    returnAux++;
+                }
+            }
+            return returnAux;
+        }
+
+        public override string ToString()
+        {
+            return $"Crucero '{this.nombre}'.";
+        }
     }
 }
