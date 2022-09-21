@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public class Pasajero : PersonaBase
+    public sealed class Pasajero : PersonaBase
     {
-        private static int contadorEntidades;
+        private static int contadorPasajero;
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
@@ -30,13 +30,13 @@ namespace Parcial.Entities
 
         static Pasajero()
         {
-            Pasajero.contadorEntidades = 1000;
+            Pasajero.contadorPasajero = 1000;
         }
 
         private Pasajero(string nombreCompleto, int dni) : base(nombreCompleto, dni)
         {
-            base.id = Pasajero.contadorEntidades;
-            Pasajero.contadorEntidades++;
+            base.id = Pasajero.contadorPasajero;
+            Pasajero.contadorPasajero++;
         }
 
         public Pasajero(string nombreCompleto, int dni, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto, dni)

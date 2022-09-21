@@ -6,20 +6,12 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public abstract class PersonaBase
+    public abstract class PersonaBase : EntidadBase
     {
-        protected int id; 
         private int dni;
         private string nombre;
         private string apellido;
 
-        public int Id
-        {
-            get
-            {
-                return this.id;
-            }
-        }
         public int Dni
         {
             get

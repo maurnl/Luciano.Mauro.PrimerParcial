@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public class Crucero
+    public class Crucero : EntidadBase
     {
+        private static int contadorCrucero;
         private string matricula; // Identificador
         private string nombre;
         private int cantidadCamarotesPremium;
@@ -86,9 +87,15 @@ namespace Parcial.Entities
             }
         }
 
+        static Crucero()
+        {
+            Crucero.contadorCrucero = 1000;
+        }
         public Crucero(string matricula, string nombre, int capacidadPasajeros,
             float capacidadBodega)
         {
+            base.id = Crucero.contadorCrucero;
+            Crucero.contadorCrucero++;
             this.matricula = matricula;
             this.nombre = nombre;
             this.CapacidadPasajeros = capacidadPasajeros;

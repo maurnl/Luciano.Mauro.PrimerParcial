@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    class Viaje
+    public class Viaje
     {
+
     }
 }

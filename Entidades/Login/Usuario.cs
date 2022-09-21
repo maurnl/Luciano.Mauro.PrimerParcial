@@ -4,7 +4,7 @@ namespace Parcial.Login
 {
     public class Usuario : PersonaBase
     {
-        private static int contadorEntidad;
+        private static int contadorUsuario;
         private string username;
         private string password;
         public string Username
@@ -32,12 +32,12 @@ namespace Parcial.Login
 
         static Usuario()
         {
-            Usuario.contadorEntidad = 100;
+            Usuario.contadorUsuario = 100;
         }
         private Usuario(string nombreCompleto, int dni) : base(nombreCompleto, dni)
         {   
-            base.id = Usuario.contadorEntidad;
-            Usuario.contadorEntidad++;
+            base.id = Usuario.contadorUsuario;
+            Usuario.contadorUsuario++;
         }
 
         public Usuario(string nombreCompleto,int dni, string username, string password) : this(nombreCompleto, dni)
