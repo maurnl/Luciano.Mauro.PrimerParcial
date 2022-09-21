@@ -8,7 +8,7 @@ namespace Parcial.Entities
 {
     public class Crucero
     {
-        private string matricula;
+        private string matricula; // Identificador
         private string nombre;
         private int cantidadCamarotesPremium;
         private int cantidadCamarotesTurista;
@@ -79,14 +79,20 @@ namespace Parcial.Entities
             }
         }
 
-        public Crucero(string matricula, string nombre,int capacidadPasajeros,
-            float capacidadBodega, List<Salon> salones)
+        public Crucero(string matricula, string nombre, int capacidadPasajeros,
+            float capacidadBodega)
         {
             this.matricula = matricula;
             this.nombre = nombre;
             this.CapacidadPasajeros = capacidadPasajeros;
             this.capacidadBodega = capacidadBodega;
             this.estaEnViaje = false;
+            this.salones = new List<Salon>();
+            this.salones.Add(Salon.Comedor);
+        }
+        public Crucero(string matricula, string nombre,int capacidadPasajeros,
+            float capacidadBodega, List<Salon> salones) : this(matricula, nombre, capacidadPasajeros, capacidadBodega)
+        {
             this.salones = salones;
         }                   
 
