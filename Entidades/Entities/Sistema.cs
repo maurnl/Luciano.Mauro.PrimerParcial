@@ -12,6 +12,28 @@ namespace Parcial.Entities
         private List<Viaje> viajes;
         private List<Venta> ventas;
 
+        public List<Crucero> Flota
+        {
+            get
+            {
+                return this.flota;
+            }
+        }
+        public List<Viaje> Viajes
+        {
+            get
+            {
+                return this.viajes;
+            }
+        }
+        public List<Venta> Ventas
+        {
+            get
+            {
+                return this.ventas;
+            }
+        }
+
         public Sistema()
         {
             this.flota = new List<Crucero>();
