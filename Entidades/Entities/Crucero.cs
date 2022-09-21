@@ -104,6 +104,29 @@ namespace Parcial.Entities
             return crucero;
         }
 
+        public static bool operator ==(Crucero cruceroA, Crucero cruceroB)
+        {
+            bool returnAux;
+            if(cruceroA is null)
+            {
+                returnAux = cruceroB is null;
+            }
+            else if (cruceroB is null)
+            {
+                returnAux = cruceroA is null;
+            }
+            else
+            {
+                returnAux = cruceroA.Matricula == cruceroB.Matricula;
+            }
+            return returnAux;
+        }
+
+        public static bool operator !=(Crucero cruceroA, Crucero cruceroB)
+        {
+            return !(cruceroA == cruceroB);
+        }
+
         private int ContarSalonesPorTipo(Salon salonParam)
         {
             int returnAux = 0;
