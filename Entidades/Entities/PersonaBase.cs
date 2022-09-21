@@ -8,17 +8,9 @@ namespace Parcial.Entities
 {
     public abstract class PersonaBase : EntidadBase
     {
-        private int dni;
         private string nombre;
         private string apellido;
 
-        public int Dni
-        {
-            get
-            {
-                return this.dni;
-            }
-        }
         public string NombreCompleto
         {
             get
@@ -33,14 +25,13 @@ namespace Parcial.Entities
             }
         }
 
-        public PersonaBase(string nombreCompleto, int dni)
+        public PersonaBase(string nombreCompleto)
         {
             this.NombreCompleto = nombreCompleto;
-            this.dni = dni;
         }
         public override string ToString()
         {
-            return $"DNI: {Dni}. Nombre: {NombreCompleto}.";
+            return $"Nombre: {NombreCompleto}.";
         }
     }
 }

@@ -34,13 +34,13 @@ namespace Parcial.Login
         {
             Usuario.contadorUsuario = 100;
         }
-        private Usuario(string nombreCompleto, int dni) : base(nombreCompleto, dni)
+        private Usuario(string nombreCompleto) : base(nombreCompleto)
         {   
             base.id = Usuario.contadorUsuario;
             Usuario.contadorUsuario++;
         }
 
-        public Usuario(string nombreCompleto,int dni, string username, string password) : this(nombreCompleto, dni)
+        public Usuario(string nombreCompleto,string username, string password) : this(nombreCompleto)
         {
             this.username = username;
             this.password = password;

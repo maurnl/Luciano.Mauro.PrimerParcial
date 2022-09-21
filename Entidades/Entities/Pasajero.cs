@@ -9,6 +9,7 @@ namespace Parcial.Entities
     public sealed class Pasajero : PersonaBase
     {
         private static int contadorPasajero;
+        private Pasaporte pasaporte;
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
@@ -18,6 +19,13 @@ namespace Parcial.Entities
             get
             {
                 return (DateTime.Now - this.fechaNacimiento).Days / 365;
+            }
+        }
+        public Pasaporte Pasaporte
+        {
+            get
+            {
+                return this.pasaporte;
             }
         }
         public TipoPasajero TipoPasajero
@@ -40,13 +48,14 @@ namespace Parcial.Entities
             Pasajero.contadorPasajero = 1000;
         }
 
-        private Pasajero(string nombreCompleto, int dni) : base(nombreCompleto, dni)
+        private Pasajero(string nombreCompleto, Pasaporte pasaporte) : base(nombreCompleto)
         {
             base.id = Pasajero.contadorPasajero;
             Pasajero.contadorPasajero++;
+            this.pasaporte = pasaporte;
         }
 
-        public Pasajero(string nombreCompleto, int dni, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto, dni)
+        public Pasajero(string nombreCompleto, Pasaporte pasaporte, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto, pasaporte)
         {
             this.fechaNacimiento = fechaNacimiento;
             this.tipoPasajero = tipoPasajero;
@@ -88,7 +97,7 @@ namespace Parcial.Entities
             }
             else
             {
-                returnAux = pasajeroA.Dni == pasajeroB.Dni;
+                returnAux = pasajeroA.Pasaporte.Dni == pasajeroB.Pasaporte.Dni;
             }
             return returnAux;
         }

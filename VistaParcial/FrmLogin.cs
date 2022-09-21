@@ -59,7 +59,7 @@ namespace VistaParcial
                 Usuario newUser = formRegister.User;
                 try
                 {
-                    this.userManager.TryRegistrarUsuario(newUser.NombreCompleto, newUser.Dni, newUser.Username, newUser.Password);
+                    this.userManager.TryRegistrarUsuario(newUser.NombreCompleto, newUser.Username, newUser.Password);
                     this.lblError.ForeColor = Color.DarkGreen;
                     this.lblError.Text = "Registrado correctamente!";
                 }

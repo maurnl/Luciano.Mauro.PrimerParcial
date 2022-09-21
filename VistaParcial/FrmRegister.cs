@@ -38,8 +38,7 @@ namespace VistaParcial
             string username = this.txtUsername.Text;
             string password = this.txtPassword.Text;
             string fullName = this.txtName.Text + " " + this.txtLastName.Text;
-            int dni = int.Parse(this.txtDni.Text);
-            this.user = new Usuario(fullName, dni, username, password);
+            this.user = new Usuario(fullName, username, password);
             this.DialogResult = DialogResult.OK;
         }
 

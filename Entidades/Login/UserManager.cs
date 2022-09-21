@@ -21,7 +21,7 @@ namespace Parcial.Login
             this.users = new List<Usuario>();
         }
 
-        public bool TryRegistrarUsuario(string nombreCompleto, int dni, string username, string password)
+        public bool TryRegistrarUsuario(string nombreCompleto, string username, string password)
         {
             Validador.ValidarStringVacia(username);
             Validador.ValidarStringVacia(password);
@@ -34,7 +34,7 @@ namespace Parcial.Login
 
             string hashedPassword = Hasher.HashText(password, SHA512.Create());
 
-            Usuario newUser = new Usuario(nombreCompleto, dni, username, hashedPassword);
+            Usuario newUser = new Usuario(nombreCompleto, username, hashedPassword);
 
             users.Add(newUser);
             return true;
