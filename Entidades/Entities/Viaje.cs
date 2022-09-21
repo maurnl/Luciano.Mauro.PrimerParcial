@@ -50,7 +50,7 @@ namespace Parcial.Entities
         {
             get
             {
-                return precioPasaje + (precioPasaje * 15 / 100);
+                return precioPasaje + (precioPasaje * 20 / 100);
             }
         }
         public float Duracion
@@ -121,7 +121,8 @@ namespace Parcial.Entities
             this.destino = destino;
             this.crucero = crucero;
             this.fechaSalida = fechaSalida;
-            this.duracion = GenerarDuracionDeViaje(origen, destino);
+            this.precioPasaje = CalcularPrecioDeViaje(origen, destino);
+            this.duracion = CalcularDuracionDeViaje(origen, destino);
         }
 
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
@@ -164,7 +165,20 @@ namespace Parcial.Entities
             return contador;
         }
 
-        private float GenerarDuracionDeViaje(Puerto origen, Puerto destino)
+        private float CalcularPrecioDeViaje(Puerto origen, Puerto destino)
+        {
+            float precioViaje;
+            if(origen.Pais == Pais.Argentina && origen.Pais != destino.Pais)
+            {
+                precioViaje = 120;
+            }
+            else
+            {
+                precioViaje = 57;
+            }
+            return precioViaje;
+        }
+        private float CalcularDuracionDeViaje(Puerto origen, Puerto destino)
         {
             TimeSpan intervaloAleatorio;
             if (origen.Pais == Pais.Argentina && origen.Pais != destino.Pais)
