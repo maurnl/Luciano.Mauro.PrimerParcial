@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public class PersonaBase
+    public abstract class PersonaBase
     {
-        protected int id;
+        protected int id; 
         private int dni;
         private string nombre;
         private string apellido;
@@ -35,15 +35,15 @@ namespace Parcial.Entities
             }
             private set
             {
-                var splitName = value.Split(" ");
-                this.nombre = splitName[0];
-                this.apellido = splitName[1];
+                var nombreSeparado = value.Split(" ");
+                this.nombre = nombreSeparado[0];
+                this.apellido = nombreSeparado[1];
             }
         }
 
-        public PersonaBase(string fullName, int dni)
+        public PersonaBase(string nombreCompleto, int dni)
         {
-            this.NombreCompleto = fullName;
+            this.NombreCompleto = nombreCompleto;
             this.dni = dni;
         }
         public override string ToString()
