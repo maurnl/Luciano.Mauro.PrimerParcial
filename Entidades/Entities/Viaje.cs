@@ -191,5 +191,10 @@ namespace Parcial.Entities
             }
             return intervaloAleatorio.Hours;
         }
+
+        public override string ToString()
+        {
+            return $"Viaje Id {this.id}. De {this.origen} a {this.destino} el dia {this.fechaSalida}";
+        }
     }
 }
