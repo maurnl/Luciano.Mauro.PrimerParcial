@@ -53,6 +53,13 @@ namespace Parcial.Entities
                 return this.capacidadBodega;
             }
         }
+        public int CantidadSalones
+        {
+            get
+            {
+                return this.salones.Count;
+            }
+        }
         public bool TieneGimnasio
         {
             get
