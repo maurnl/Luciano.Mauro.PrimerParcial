@@ -12,20 +12,83 @@ namespace Parcial.Entities
         private static Random random;
         private int duracion;
         private float precioPasaje;
+        private Puerto origen;
+        private Puerto destino;
+        private Crucero crucero;
         private List<Pasajero> pasajeros;
         private DateTime salida;
         private DateTime llegada;
 
-        public Aeropuerto Origen { get; set; }
-        public Aeropuerto Destino { get; set; }
-        public Avion Avion { get; set; }
-        public float PrecioTurista { get => precioPasaje; private set => precioPasaje = value; }
-        public float PrecioPremium { get => precioPasaje + (precioPasaje * 15 / 100); }
-        public int Duracion { get => this.duracion; private set => this.duracion = value; }
-        public int PasajerosABordo { get => this.pasajeros.Count; }
-        public List<Pasajero> Pasajeros { get => pasajeros; private set => pasajeros = value; }
-        public DateTime Salida { get => this.salida; private set => this.salida = value; }
-        public DateTime Llegada { get => this.llegada; private set => this.llegada = value; }
+        public Puerto Origen
+        {
+            get
+            {
+                return this.origen;
+            }
+        }
+        public Puerto Destino
+        {
+            get
+            {
+                return this.destino;
+            }
+        }
+        public Crucero Crucero
+        {
+            get
+            {
+                return this.crucero;
+            }
+        }
+        public float PrecioTurista
+        {
+            get
+            {
+                return this.precioPasaje;
+            }
+        }
+        public float PrecioPremium
+        {
+            get
+            {
+                return precioPasaje + (precioPasaje * 15 / 100);
+            }
+        }
+        public int Duracion
+        {
+            get
+            {
+                return this.duracion;
+            }
+        }
+        public int PasajerosABordo
+        {
+            get
+            {
+                return this.pasajeros.Count;
+            }
+        }
+        public List<Pasajero> Pasajeros
+        {
+            get
+            {
+                return this.pasajeros;
+            }
+        }
+        public DateTime Salida
+        {
+            get
+            {
+                return this.salida;
+            }
+        }
+        public DateTime Llegada
+        {
+            get
+            {
+                return this.llegada;
+            }
+        }
 
     }
 }
