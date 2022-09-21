@@ -27,6 +27,13 @@ namespace Parcial.Entities
                 return this.tipoPasajero;
             }
         }
+        public List<Equipaje> Equipaje
+        {
+            get
+            {
+                return this.equipaje;
+            }
+        }
 
         static Pasajero()
         {
