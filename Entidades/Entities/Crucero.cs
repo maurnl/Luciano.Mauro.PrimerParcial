@@ -46,18 +46,18 @@ namespace Parcial.Entities
                 this.cantidadCamarotesTurista = value * 65 / 100;
             }
         }
-        public float CapacidadBodega
-        {
-            get
-            {
-                return this.capacidadBodega;
-            }
-        }
         public int CantidadSalones
         {
             get
             {
                 return this.salones.Count;
+            }
+        }
+        public float CapacidadBodega
+        {
+            get
+            {
+                return this.capacidadBodega;
             }
         }
         public bool TieneGimnasio
