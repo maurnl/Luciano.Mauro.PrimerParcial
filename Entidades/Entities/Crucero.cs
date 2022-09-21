@@ -13,7 +13,8 @@ namespace Parcial.Entities
         private string nombre;
         private int cantidadCamarotesPremium;
         private int cantidadCamarotesTurista;
-        private float capacidadBodega;
+        private float pesoBodegaActual;
+        private float pesoBodegaMaximo;
         private bool estaEnViaje;
         private List<Salon> salones;
 
@@ -35,6 +36,20 @@ namespace Parcial.Entities
                 return this.nombre;
             }
         }
+        public int CapacidadPasajerosTurista
+        {
+            get
+            {
+                return this.cantidadCamarotesTurista * 4;
+            }
+        }
+        public int CapacidadPasajerosPremium
+        {
+            get
+            {
+                return this.cantidadCamarotesPremium * 4;
+            }
+        }
         public int CapacidadPasajeros
         {
             get
@@ -53,12 +68,19 @@ namespace Parcial.Entities
             {
                 return this.salones.Count;
             }
-        }
-        public float CapacidadBodega
+        } 
+        public float PesoBodegaActual
         {
             get
             {
-                return this.capacidadBodega;
+                return this.pesoBodegaActual;
+            }
+        }
+        public float PesoBodegaMaximo
+        {
+            get
+            {
+                return this.pesoBodegaMaximo;
             }
         }
         public bool TieneGimnasio
@@ -99,7 +121,7 @@ namespace Parcial.Entities
             this.matricula = matricula;
             this.nombre = nombre;
             this.CapacidadPasajeros = capacidadPasajeros;
-            this.capacidadBodega = capacidadBodega;
+            this.pesoBodegaMaximo = capacidadBodega;
             this.estaEnViaje = false;
             this.salones = new List<Salon>();
             this.salones.Add(Salon.Comedor);
@@ -108,6 +130,16 @@ namespace Parcial.Entities
         public static Crucero operator +(Crucero crucero, Salon salon)
         {
             crucero.salones.Add(salon);
+            return crucero;
+        }
+
+        public static Crucero operator +(Crucero crucero, float pesoCarga)
+        {
+            if (crucero.pesoBodegaActual + pesoCarga > crucero.pesoBodegaMaximo)
+            {
+                throw new Exception("El crucero no tiene mas capacidad en la bodega.");
+            }
+            crucero.pesoBodegaActual += pesoCarga;
             return crucero;
         }
 
