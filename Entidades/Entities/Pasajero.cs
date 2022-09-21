@@ -60,7 +60,7 @@ namespace Parcial.Entities
             if (!equipaje.EsDeMano)
             {
                 if (pasajero.tipoPasajero == TipoPasajero.Turista && pasajero.CalcularPesoDeValijas() + equipaje.Peso > 25
-                    || pasajero.tipoPasajero == TipoPasajero.Premium && pasajero.CalcularPesoDeValijas() + equipaje.Peso > 42)
+                    || pasajero.tipoPasajero == TipoPasajero.Premium && pasajero.CalcularPesoDeValijas() + equipaje.Peso > 50)
                     throw new Exception("Se ha excedido del peso maximo permitido");
             }
 
