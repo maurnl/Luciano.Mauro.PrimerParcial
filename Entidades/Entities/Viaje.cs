@@ -183,11 +183,11 @@ namespace Parcial.Entities
             TimeSpan intervaloAleatorio;
             if (origen.Pais == Pais.Argentina && origen.Pais != destino.Pais)
             {
-                intervaloAleatorio = TimeSpan.FromMinutes(Viaje.random.Next(480, 720));
+                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(480, 720));
             }
             else
             {
-                intervaloAleatorio = TimeSpan.FromMinutes(Viaje.random.Next(60, 240));
+                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(72, 360));
             }
             return intervaloAleatorio.Hours;
         }
