@@ -97,11 +97,12 @@ namespace Parcial.Entities
             this.salones = new List<Salon>();
             this.salones.Add(Salon.Comedor);
         }
-        public Crucero(string matricula, string nombre,int capacidadPasajeros,
-            float capacidadBodega, List<Salon> salones) : this(matricula, nombre, capacidadPasajeros, capacidadBodega)
+
+        public static Crucero operator +(Crucero crucero, Salon salon)
         {
-            this.salones = salones;
-        }                   
+            crucero.salones.Add(salon);
+            return crucero;
+        }
 
         private int ContarSalonesPorTipo(Salon salonParam)
         {
