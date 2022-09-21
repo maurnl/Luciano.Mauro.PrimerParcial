@@ -1,4 +1,4 @@
-﻿public enum Estado
+﻿public enum Provincia
 {
     Ushuaia,
     PuertoMadryn,
