@@ -13,13 +13,13 @@ namespace VistaParcial
 {
     public partial class FrmMain : Form
     {
-        private User user;
+        private Usuario user;
         public FrmMain()
         {
             InitializeComponent();
         }
 
-        public FrmMain(User user) : this()
+        public FrmMain(Usuario user) : this()
         {
             this.user = user;
         }

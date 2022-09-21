@@ -11,7 +11,7 @@ namespace Parcial.Util
     {
         public static void HardcodearUsuarios(UserManager userManager)
         {
-            userManager.TryRegisterUser("Mauro Luciano", "maurnl", "contrasenia123");
+            userManager.TryRegistrarUsuario("Mauro Luciano", 41352310, "maurnl", "contrasenia123");
         }
     }
 }

@@ -41,25 +41,29 @@ namespace VistaParcial
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(38, 48);
+            this.txtUsername.Location = new System.Drawing.Point(38, 37);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(163, 23);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(38, 101);
+            this.txtPassword.Location = new System.Drawing.Point(38, 81);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(163, 23);
             this.txtPassword.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDni);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblError);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtLastName);
@@ -71,7 +75,7 @@ namespace VistaParcial
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 258);
+            this.groupBox1.Size = new System.Drawing.Size(250, 290);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
@@ -79,7 +83,7 @@ namespace VistaParcial
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(6, 240);
+            this.lblError.Location = new System.Drawing.Point(6, 272);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(38, 15);
             this.lblError.TabIndex = 9;
@@ -88,7 +92,7 @@ namespace VistaParcial
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 188);
+            this.label4.Location = new System.Drawing.Point(34, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 7;
@@ -96,7 +100,7 @@ namespace VistaParcial
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(38, 206);
+            this.txtLastName.Location = new System.Drawing.Point(38, 169);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(163, 23);
             this.txtLastName.TabIndex = 6;
@@ -104,7 +108,7 @@ namespace VistaParcial
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 137);
+            this.label3.Location = new System.Drawing.Point(38, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 5;
@@ -113,7 +117,7 @@ namespace VistaParcial
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 83);
+            this.label2.Location = new System.Drawing.Point(38, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 15);
             this.label2.TabIndex = 4;
@@ -122,7 +126,7 @@ namespace VistaParcial
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 30);
+            this.label1.Location = new System.Drawing.Point(38, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 3;
@@ -130,7 +134,7 @@ namespace VistaParcial
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(38, 155);
+            this.txtName.Location = new System.Drawing.Point(38, 125);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(163, 23);
             this.txtName.TabIndex = 2;
@@ -154,6 +158,22 @@ namespace VistaParcial
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(38, 195);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 15);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "DNI:";
+            // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(38, 213);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(163, 23);
+            this.txtDni.TabIndex = 11;
             // 
             // FrmRegister
             // 
@@ -186,5 +206,7 @@ namespace VistaParcial
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.Label label5;
     }
 }

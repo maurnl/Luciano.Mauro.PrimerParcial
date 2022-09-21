@@ -27,7 +27,6 @@ namespace VistaParcial
         {
             this.Text = "Inicio de sesion";
             this.lblError.Text = "";
-            this.lblError.ForeColor = Color.Red;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -36,15 +35,16 @@ namespace VistaParcial
             string password = this.txtPassword.Text;
 
 
-            if (!userManager.CheckPassword(username, password))
+            if (!userManager.VerificarPassword(username, password))
             {
-                lblError.Text = "Credenciales invalidas! Reintente...";
+                this.lblError.ForeColor = Color.Red;
+                this.lblError.Text = "Credenciales invalidas! Reintente...";
                 return;
             }
 
-            User user = userManager.FindByUsername(username);
+            Usuario user = userManager.BuscarPorUsuario(username);
 
-            MessageBox.Show($"{user.FullName}");
+            MessageBox.Show($"{user.NombreCompleto}");
             FrmMain app = new FrmMain(user);
             app.Show();
             this.Hide();
@@ -56,13 +56,16 @@ namespace VistaParcial
 
             if(formRegister.ShowDialog() == DialogResult.OK)
             {
-                User newUser = formRegister.User;
+                Usuario newUser = formRegister.User;
                 try
                 {
-                    this.userManager.TryRegisterUser(newUser.FullName, newUser.Username, newUser.Password);
+                    this.userManager.TryRegistrarUsuario(newUser.NombreCompleto, newUser.Dni, newUser.Username, newUser.Password);
+                    this.lblError.ForeColor = Color.DarkGreen;
+                    this.lblError.Text = "Registrado correctamente!";
                 }
                 catch (Exception newUserException)
                 {
+                    this.lblError.ForeColor = Color.Red;
                     this.lblError.Text = newUserException.Message;
                 }
             }

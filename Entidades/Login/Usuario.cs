@@ -2,9 +2,9 @@
 
 namespace Parcial.Login
 {
-    public class User : PersonBase
+    public class Usuario : PersonaBase
     {
-        private static int entityCounter;
+        private static int contadorEntidad;
         private string username;
         private string password;
         public string Username
@@ -30,17 +30,17 @@ namespace Parcial.Login
             }
         }
 
-        static User()
+        static Usuario()
         {
-            User.entityCounter = 100;
+            Usuario.contadorEntidad = 100;
         }
-        private User(string fullName) : base(fullName)
+        private Usuario(string nombreCompleto, int dni) : base(nombreCompleto, dni)
         {   
-            base.id = User.entityCounter;
-            User.entityCounter++;
+            base.id = Usuario.contadorEntidad;
+            Usuario.contadorEntidad++;
         }
 
-        public User(string fullName, string username, string password) : this(fullName)
+        public Usuario(string nombreCompleto,int dni, string username, string password) : this(nombreCompleto, dni)
         {
             this.username = username;
             this.password = password;

@@ -14,9 +14,9 @@ namespace VistaParcial
 {
     public partial class FrmRegister : Form
     {
-        private User user;
+        private Usuario user;
 
-        public User User
+        public Usuario User
         {
             get
             {
@@ -38,7 +38,8 @@ namespace VistaParcial
             string username = this.txtUsername.Text;
             string password = this.txtPassword.Text;
             string fullName = this.txtName.Text + " " + this.txtLastName.Text;
-            this.user = new User(fullName, username, password);
+            int dni = int.Parse(this.txtDni.Text);
+            this.user = new Usuario(fullName, dni, username, password);
             this.DialogResult = DialogResult.OK;
         }
 

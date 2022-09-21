@@ -7,9 +7,9 @@ namespace Parcial.Login
 {
     public class UserManager
     {
-        private List<User> users;
+        private List<Usuario> users;
 
-        public List<User> Users {
+        public List<Usuario> Users {
             get
             {
                 return users;
@@ -18,31 +18,31 @@ namespace Parcial.Login
 
         public UserManager()
         {
-            this.users = new List<User>();
+            this.users = new List<Usuario>();
         }
 
-        public bool TryRegisterUser(string fullName, string username, string password)
+        public bool TryRegistrarUsuario(string nombreCompleto, int dni, string username, string password)
         {
-            Validator.ValidStringValidation(username);
-            Validator.ValidStringValidation(password);
-            Validator.AlphabeticStringValidation(fullName);
+            Validador.ValidarStringVacia(username);
+            Validador.ValidarStringVacia(password);
+            Validador.ValidarStringAlfabetica(nombreCompleto);
 
-            if(FindByUsername(username)!=null)
+            if(BuscarPorUsuario(username)!=null)
             {
                 throw new Exception("El nombre de usuario ingresado esta en uso.");
             }
 
             string hashedPassword = Hasher.HashText(password, SHA512.Create());
 
-            User newUser = new User(fullName, username, hashedPassword);
+            Usuario newUser = new Usuario(nombreCompleto, dni, username, hashedPassword);
 
             users.Add(newUser);
             return true;
         }
 
-        public bool CheckPassword(string username, string password)
+        public bool VerificarPassword(string username, string password)
         {
-            User user = FindByUsername(username);
+            Usuario user = BuscarPorUsuario(username);
 
             if (user == null)
             {
@@ -53,10 +53,10 @@ namespace Parcial.Login
             return hashedPassword == user.Password;
         }
 
-        public User FindByUsername(string username)
+        public Usuario BuscarPorUsuario(string username)
         {
-            User userMatch = null;
-            foreach (User user in this.users)
+            Usuario userMatch = null;
+            foreach (Usuario user in this.users)
             {
                 if (user.Username == username)
                 {
