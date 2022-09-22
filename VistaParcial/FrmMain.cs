@@ -15,21 +15,19 @@ namespace VistaParcial
 {
     public partial class FrmMain : Form
     {
-        private FrmLogin login;
         private Usuario user;
+        private FrmLogin login;
         private SistemaApp sistema;
         public FrmMain()
         {
             InitializeComponent();
         }
 
-        public FrmMain(Usuario user, FrmLogin login) : this()
+        public FrmMain(Usuario user, FrmLogin login, SistemaApp sistema) : this()
         {
             this.user = user;
             this.login = login;
-            this.sistema = new SistemaApp();
-            Hardcoder.HardcodearFlota(this.sistema.Flota);
-            Hardcoder.HardcodearPuertos(this.sistema.Puertos);
+            this.sistema = sistema;
             this.Text = $"Operador conectado ID {this.user.Id}: {this.user.NombreCompleto}";
         }
         private void btnAltaViaje_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace VistaParcial
             {
                 this.sistema.Viajes.Add(formViaje.Viaje);
             }
-            CargarListado();
+            CargarListado("listadoViajes");
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -57,10 +55,23 @@ namespace VistaParcial
             this.login.Show();
         }
 
-        private void CargarListado()
+        private void CargarListado(string listado)
         {
             this.dgvListado.DataSource = null;
-            this.dgvListado.DataSource = this.sistema.Viajes;
+            switch (listado)
+            {
+                case "listadoViajes":
+                    if(this.sistema.Viajes.Count > 0)
+                    {
+                        this.dgvListado.DataSource = this.sistema.Viajes;
+                    }
+                    break;
+            }
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            CargarListado("listadoViajes");
         }
     }
 }

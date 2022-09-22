@@ -1,4 +1,5 @@
-﻿using Parcial.Login;
+﻿using Parcial.Entities;
+using Parcial.Login;
 using Parcial.Util;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,16 @@ namespace VistaParcial
     public partial class FrmLogin : Form
     {
         private SistemaUsuarios sistemaUsuarios;
+        private SistemaApp sistemaApp;
         public FrmLogin()
         {
             InitializeComponent();
             this.sistemaUsuarios = new SistemaUsuarios();
+            this.sistemaApp = new SistemaApp();
             this.StartPosition = FormStartPosition.CenterScreen;
             Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
+            Hardcoder.HardcodearFlota(this.sistemaApp.Flota);
+            Hardcoder.HardcodearPuertos(this.sistemaApp.Puertos);
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -45,7 +50,7 @@ namespace VistaParcial
             Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
 
             MessageBox.Show($"{user.NombreCompleto}");
-            FrmMain app = new FrmMain(user, this);
+            FrmMain app = new FrmMain(user, this, this.sistemaApp);
             app.Show();
             this.Hide();
         }
