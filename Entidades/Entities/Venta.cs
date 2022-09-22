@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public class Venta
+    public class Venta : EntidadBase
     {
+        private static int contadorVenta;
         private List<Pasajero> clientes;
         private DateTime fecha;
         private Viaje viaje;
@@ -42,8 +43,14 @@ namespace Parcial.Entities
             }
         }
 
+        static Venta()
+        {
+            Venta.contadorVenta = 0;
+        }
         public Venta(DateTime fecha, Viaje viaje, float precioBruto, List<Pasajero> clientes)
         {
+            base.id = Venta.contadorVenta;
+            Venta.contadorVenta++;
             this.fecha = fecha;
             this.viaje = viaje;
             this.precioBruto = precioBruto;

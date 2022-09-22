@@ -14,10 +14,22 @@ namespace Parcial.Entities
         private Puerto destino;
         private Crucero crucero;
         private float precioPasaje;
-        private float duracion;
+        private float duracionEnHoras;
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
+        private bool viajeFinalizado;
 
+        public bool ViajeFinalizado
+        {
+            get
+            {
+                return this.viajeFinalizado;
+            }
+            set
+            {
+                this.viajeFinalizado = value;
+            }
+        }
         public Puerto Origen
         {
             get
@@ -53,11 +65,11 @@ namespace Parcial.Entities
                 return precioPasaje + (precioPasaje * 20 / 100);
             }
         }
-        public float Duracion
+        public float DuracionEnHoras
         {
             get
             {
-                return this.duracion;
+                return this.duracionEnHoras;
             }
         }
         public int PasajerosABordo
@@ -99,7 +111,7 @@ namespace Parcial.Entities
         {
             get
             {
-                return this.fechaSalida + TimeSpan.FromHours(duracion);
+                return this.fechaSalida + TimeSpan.FromHours(duracionEnHoras);
             }
         }
 
@@ -121,6 +133,7 @@ namespace Parcial.Entities
             }
             base.id = Viaje.contadorViaje;
             Viaje.contadorViaje++;
+            this.viajeFinalizado = false;
             this.origen = origen;
             this.destino = destino;
             this.crucero = crucero;
@@ -128,7 +141,7 @@ namespace Parcial.Entities
             this.fechaSalida = fechaSalida;
             this.pasajeros = new List<Pasajero>();
             this.precioPasaje = CalcularPrecioDeViaje(destino);
-            this.duracion = CalcularDuracionDeViaje(destino);
+            this.duracionEnHoras = CalcularDuracionDeViaje(destino);
         }
 
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)

@@ -1,7 +1,7 @@
 ﻿
 namespace VistaParcial
 {
-    partial class FrmMain
+    partial class FrmListadoBase
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,11 @@ namespace VistaParcial
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbMenu = new System.Windows.Forms.ComboBox();
-            this.btnListaVentas = new System.Windows.Forms.Button();
-            this.btnListaPasajeros = new System.Windows.Forms.Button();
-            this.btnAltaViaje = new System.Windows.Forms.Button();
+            this.btnReiniciarFiltros = new System.Windows.Forms.Button();
+            this.btnFiltroDos = new System.Windows.Forms.Button();
+            this.lblOrden = new System.Windows.Forms.Label();
+            this.cboOrden = new System.Windows.Forms.ComboBox();
+            this.btnFiltroUno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTitulo = new System.Windows.Forms.Label();
             this.dgvListado = new System.Windows.Forms.DataGridView();
@@ -44,10 +45,11 @@ namespace VistaParcial
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cmbMenu);
-            this.panel1.Controls.Add(this.btnListaVentas);
-            this.panel1.Controls.Add(this.btnListaPasajeros);
-            this.panel1.Controls.Add(this.btnAltaViaje);
+            this.panel1.Controls.Add(this.btnReiniciarFiltros);
+            this.panel1.Controls.Add(this.btnFiltroDos);
+            this.panel1.Controls.Add(this.lblOrden);
+            this.panel1.Controls.Add(this.cboOrden);
+            this.panel1.Controls.Add(this.btnFiltroUno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(15);
@@ -55,47 +57,52 @@ namespace VistaParcial
             this.panel1.Size = new System.Drawing.Size(1179, 66);
             this.panel1.TabIndex = 0;
             // 
-            // cmbMenu
+            // btnReiniciarFiltros
             // 
-            this.cmbMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMenu.FormattingEnabled = true;
-            this.cmbMenu.Location = new System.Drawing.Point(937, 20);
-            this.cmbMenu.Name = "cmbMenu";
-            this.cmbMenu.Size = new System.Drawing.Size(236, 23);
-            this.cmbMenu.TabIndex = 3;
+            this.btnReiniciarFiltros.Location = new System.Drawing.Point(382, 12);
+            this.btnReiniciarFiltros.Name = "btnReiniciarFiltros";
+            this.btnReiniciarFiltros.Size = new System.Drawing.Size(161, 39);
+            this.btnReiniciarFiltros.TabIndex = 6;
+            this.btnReiniciarFiltros.Text = "Eliminar filtros";
+            this.btnReiniciarFiltros.UseVisualStyleBackColor = true;
             // 
-            // btnListaVentas
+            // btnFiltroDos
             // 
-            this.btnListaVentas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnListaVentas.Location = new System.Drawing.Point(406, 12);
-            this.btnListaVentas.Name = "btnListaVentas";
-            this.btnListaVentas.Size = new System.Drawing.Size(161, 39);
-            this.btnListaVentas.TabIndex = 2;
-            this.btnListaVentas.Text = "Listado de ventas";
-            this.btnListaVentas.UseVisualStyleBackColor = true;
+            this.btnFiltroDos.Location = new System.Drawing.Point(196, 12);
+            this.btnFiltroDos.Name = "btnFiltroDos";
+            this.btnFiltroDos.Size = new System.Drawing.Size(161, 39);
+            this.btnFiltroDos.TabIndex = 5;
+            this.btnFiltroDos.Text = "Filtrar 2";
+            this.btnFiltroDos.UseVisualStyleBackColor = true;
             // 
-            // btnListaPasajeros
+            // lblOrden
             // 
-            this.btnListaPasajeros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnListaPasajeros.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnListaPasajeros.Location = new System.Drawing.Point(207, 12);
-            this.btnListaPasajeros.Name = "btnListaPasajeros";
-            this.btnListaPasajeros.Size = new System.Drawing.Size(161, 39);
-            this.btnListaPasajeros.TabIndex = 1;
-            this.btnListaPasajeros.Text = "Listado de pasajeros";
-            this.btnListaPasajeros.UseVisualStyleBackColor = true;
+            this.lblOrden.AutoSize = true;
+            this.lblOrden.Location = new System.Drawing.Point(848, 24);
+            this.lblOrden.Name = "lblOrden";
+            this.lblOrden.Size = new System.Drawing.Size(80, 15);
+            this.lblOrden.TabIndex = 4;
+            this.lblOrden.Text = "Ordenar por...";
             // 
-            // btnAltaViaje
+            // cboOrden
             // 
-            this.btnAltaViaje.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAltaViaje.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAltaViaje.Location = new System.Drawing.Point(10, 12);
-            this.btnAltaViaje.Name = "btnAltaViaje";
-            this.btnAltaViaje.Size = new System.Drawing.Size(161, 39);
-            this.btnAltaViaje.TabIndex = 0;
-            this.btnAltaViaje.Text = "Nuevo viaje...";
-            this.btnAltaViaje.UseVisualStyleBackColor = true;
-            this.btnAltaViaje.Click += new System.EventHandler(this.btnAltaViaje_Click);
+            this.cboOrden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboOrden.FormattingEnabled = true;
+            this.cboOrden.Location = new System.Drawing.Point(934, 21);
+            this.cboOrden.Name = "cboOrden";
+            this.cboOrden.Size = new System.Drawing.Size(236, 23);
+            this.cboOrden.TabIndex = 3;
+            // 
+            // btnFiltroUno
+            // 
+            this.btnFiltroUno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnFiltroUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnFiltroUno.Location = new System.Drawing.Point(10, 12);
+            this.btnFiltroUno.Name = "btnFiltroUno";
+            this.btnFiltroUno.Size = new System.Drawing.Size(161, 39);
+            this.btnFiltroUno.TabIndex = 0;
+            this.btnFiltroUno.Text = "Filtrar 1";
+            this.btnFiltroUno.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -130,7 +137,7 @@ namespace VistaParcial
             this.dgvListado.Size = new System.Drawing.Size(1165, 541);
             this.dgvListado.TabIndex = 0;
             // 
-            // FrmMain
+            // FrmListadoBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,12 +145,10 @@ namespace VistaParcial
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1195, 650);
-            this.Name = "FrmMain";
-            this.Text = "FrmMain";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Name = "FrmListadoBase";
+            this.Text = "9";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
@@ -154,12 +159,13 @@ namespace VistaParcial
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbMenu;
-        private System.Windows.Forms.Button btnListaVentas;
-        private System.Windows.Forms.Button btnListaPasajeros;
-        private System.Windows.Forms.Button btnAltaViaje;
+        private System.Windows.Forms.ComboBox cboOrden;
+        private System.Windows.Forms.Button btnFiltroUno;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvListado;
         private System.Windows.Forms.Label txtTitulo;
+        private System.Windows.Forms.Label lblOrden;
+        private System.Windows.Forms.Button btnFiltroDos;
+        private System.Windows.Forms.Button btnReiniciarFiltros;
     }
 }
