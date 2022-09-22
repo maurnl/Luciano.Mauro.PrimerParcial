@@ -17,13 +17,16 @@ namespace VistaParcial
         {
             InitializeComponent();
         }
-        public FrmListadoPasajeros(List<Pasajero> listaEntidades) : this()
+        public FrmListadoPasajeros(List<Viaje> listaEntidades) : this()
         {
             if (listaEntidades != null && listaEntidades.Count == 0)
             {
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
-            this.fuenteDeDatos.DataSource = listaEntidades;
+            this.lblCombobox.Text = "Mostrando viaje...";
+            this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboCombobox.DataSource = listaEntidades;
+            this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
             ActualizarListado();
         }
     }

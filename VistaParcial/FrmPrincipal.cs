@@ -82,5 +82,19 @@ namespace VistaParcial
                 }
             }
         }
+
+        private void btnListadoPasajeros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmListadoPasajeros formListado = new FrmListadoPasajeros(this.sistema.Viajes);
+                formListado.Show();
+            }
+            catch (Exception listadoPasajerosEx)
+            {
+                this.lblError.ForeColor = Color.Red;
+                this.lblError.Text = listadoPasajerosEx.Message;
+            }
+        }
     }
 }

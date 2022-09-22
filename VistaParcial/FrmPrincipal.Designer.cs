@@ -55,6 +55,7 @@ namespace VistaParcial
             this.btnListadoPasajeros.TabIndex = 1;
             this.btnListadoPasajeros.Text = "Listado pasajeros";
             this.btnListadoPasajeros.UseVisualStyleBackColor = true;
+            this.btnListadoPasajeros.Click += new System.EventHandler(this.btnListadoPasajeros_Click);
             // 
             // btnListadoVentas
             // 

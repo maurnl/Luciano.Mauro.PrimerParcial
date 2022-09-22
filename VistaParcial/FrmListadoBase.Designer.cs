@@ -32,8 +32,8 @@ namespace VistaParcial
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReiniciarFiltros = new System.Windows.Forms.Button();
             this.btnFiltroDos = new System.Windows.Forms.Button();
-            this.lblOrden = new System.Windows.Forms.Label();
-            this.cboOrden = new System.Windows.Forms.ComboBox();
+            this.lblCombobox = new System.Windows.Forms.Label();
+            this.cboCombobox = new System.Windows.Forms.ComboBox();
             this.btnFiltroUno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTitulo = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@ namespace VistaParcial
             // 
             this.panel1.Controls.Add(this.btnReiniciarFiltros);
             this.panel1.Controls.Add(this.btnFiltroDos);
-            this.panel1.Controls.Add(this.lblOrden);
-            this.panel1.Controls.Add(this.cboOrden);
+            this.panel1.Controls.Add(this.lblCombobox);
+            this.panel1.Controls.Add(this.cboCombobox);
             this.panel1.Controls.Add(this.btnFiltroUno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -75,23 +75,23 @@ namespace VistaParcial
             this.btnFiltroDos.Text = "Filtrar 2";
             this.btnFiltroDos.UseVisualStyleBackColor = true;
             // 
-            // lblOrden
+            // lblCombobox
             // 
-            this.lblOrden.AutoSize = true;
-            this.lblOrden.Location = new System.Drawing.Point(848, 24);
-            this.lblOrden.Name = "lblOrden";
-            this.lblOrden.Size = new System.Drawing.Size(80, 15);
-            this.lblOrden.TabIndex = 4;
-            this.lblOrden.Text = "Ordenar por...";
+            this.lblCombobox.AutoSize = true;
+            this.lblCombobox.Location = new System.Drawing.Point(848, 24);
+            this.lblCombobox.Name = "lblCombobox";
+            this.lblCombobox.Size = new System.Drawing.Size(80, 15);
+            this.lblCombobox.TabIndex = 4;
+            this.lblCombobox.Text = "Ordenar por...";
             // 
-            // cboOrden
+            // cboCombobox
             // 
-            this.cboOrden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboOrden.FormattingEnabled = true;
-            this.cboOrden.Location = new System.Drawing.Point(934, 21);
-            this.cboOrden.Name = "cboOrden";
-            this.cboOrden.Size = new System.Drawing.Size(236, 23);
-            this.cboOrden.TabIndex = 3;
+            this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCombobox.FormattingEnabled = true;
+            this.cboCombobox.Location = new System.Drawing.Point(934, 21);
+            this.cboCombobox.Name = "cboCombobox";
+            this.cboCombobox.Size = new System.Drawing.Size(236, 23);
+            this.cboCombobox.TabIndex = 3;
             // 
             // btnFiltroUno
             // 
@@ -159,13 +159,13 @@ namespace VistaParcial
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cboOrden;
-        private System.Windows.Forms.Button btnFiltroUno;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvListado;
-        private System.Windows.Forms.Label txtTitulo;
-        private System.Windows.Forms.Label lblOrden;
-        private System.Windows.Forms.Button btnFiltroDos;
-        private System.Windows.Forms.Button btnReiniciarFiltros;
+        protected System.Windows.Forms.ComboBox cboCombobox;
+        protected System.Windows.Forms.Button btnFiltroUno;
+        protected System.Windows.Forms.Label txtTitulo;
+        protected System.Windows.Forms.Label lblCombobox;
+        protected System.Windows.Forms.Button btnFiltroDos;
+        protected System.Windows.Forms.Button btnReiniciarFiltros;
     }
 }
