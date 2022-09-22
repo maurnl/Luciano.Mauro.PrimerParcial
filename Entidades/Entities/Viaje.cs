@@ -115,14 +115,20 @@ namespace Parcial.Entities
             {
                 throw new Exception("El origen y el destino no deben coincidir.");
             }
+            if (crucero.EstaEnViaje)
+            {
+                throw new Exception("El crucero elegido esta en viaje.");
+            }
             base.id = Viaje.contadorViaje;
             Viaje.contadorViaje++;
             this.origen = origen;
             this.destino = destino;
             this.crucero = crucero;
+            this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
-            this.precioPasaje = CalcularPrecioDeViaje(origen, destino);
-            this.duracion = CalcularDuracionDeViaje(origen, destino);
+            this.pasajeros = new List<Pasajero>();
+            this.precioPasaje = CalcularPrecioDeViaje(destino);
+            this.duracion = CalcularDuracionDeViaje(destino);
         }
 
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
@@ -165,29 +171,29 @@ namespace Parcial.Entities
             return contador;
         }
 
-        private float CalcularPrecioDeViaje(Puerto origen, Puerto destino)
+        private float CalcularPrecioDeViaje(Puerto destino)
         {
             float precioViaje;
-            if(origen.Pais == Pais.Argentina && origen.Pais != destino.Pais)
-            {
-                precioViaje = 120;
-            }
-            else
+            if(destino.EsDestinoRegional)
             {
                 precioViaje = 57;
             }
+            else
+            {
+                precioViaje = 120;
+            }
             return precioViaje;
         }
-        private float CalcularDuracionDeViaje(Puerto origen, Puerto destino)
+        private float CalcularDuracionDeViaje(Puerto destino)
         {
             TimeSpan intervaloAleatorio;
-            if (origen.Pais == Pais.Argentina && origen.Pais != destino.Pais)
+            if (destino.EsDestinoRegional)
             {
-                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(480, 720));
+                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(72, 360));
             }
             else
             {
-                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(72, 360));
+                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(480, 720));
             }
             return intervaloAleatorio.Hours;
         }

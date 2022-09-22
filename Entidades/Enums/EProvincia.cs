@@ -4,10 +4,19 @@
     PuertoMadryn,
     Recife,
     RioDeJaneiro,
-    Cargagena,
+    Cartagena,
     IslaDePascua,
+    Montevideo,
     Santiago,
     IslaGalapagos,
     Lima,
-    Uruguay
+    Uruguay,
+    LaHabana,
+    Miami,
+    Taipei,
+    Venecia,
+    NuevaYork,
+    Atenas,
+    Acapulco,
+    Bangkok
 }

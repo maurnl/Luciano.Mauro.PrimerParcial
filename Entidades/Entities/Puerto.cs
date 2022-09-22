@@ -10,6 +10,7 @@ namespace Parcial.Entities
     {
         private Pais pais;
         private Provincia provincia;
+        private bool esDestinoRegional;
 
         public Pais Pais
         {
@@ -25,11 +26,19 @@ namespace Parcial.Entities
                 return this.provincia;
             }
         }
+        public bool EsDestinoRegional
+        {
+            get
+            {
+                return this.esDestinoRegional;
+            }
+        }
 
-        public Puerto(Provincia provincia, Pais pais)
+        public Puerto(Provincia provincia, Pais pais, bool esDestinoRegional)
         {
             this.provincia = provincia;
             this.pais = pais;
+            this.esDestinoRegional = esDestinoRegional;
         }
 
         public static bool operator ==(Puerto puertoA, Puerto puertoB)

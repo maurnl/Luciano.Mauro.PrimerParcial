@@ -6,5 +6,12 @@
     Colombia,
     Ecuador,
     Peru,
-    Uruguay
+    Uruguay,
+    Cuba,
+    EEUU,
+    Taiwan,
+    Italia,
+    Grecia,
+    Mexico,
+    Tailandia
 }

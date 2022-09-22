@@ -45,7 +45,7 @@ namespace VistaParcial
             Usuario user = userManager.BuscarPorUsuario(username);
 
             MessageBox.Show($"{user.NombreCompleto}");
-            FrmMain app = new FrmMain(user);
+            FrmMain app = new FrmMain(user, this);
             app.Show();
             this.Hide();
         }
@@ -53,7 +53,6 @@ namespace VistaParcial
         private void btnRegister_Click(object sender, EventArgs e)
         {
             FrmRegister formRegister = new FrmRegister();
-
             if(formRegister.ShowDialog() == DialogResult.OK)
             {
                 try
