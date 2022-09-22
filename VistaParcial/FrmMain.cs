@@ -17,7 +17,7 @@ namespace VistaParcial
     {
         private FrmLogin login;
         private Usuario user;
-        private Sistema sistema;
+        private SistemaApp sistema;
         public FrmMain()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace VistaParcial
         {
             this.user = user;
             this.login = login;
-            this.sistema = new Sistema();
+            this.sistema = new SistemaApp();
             Hardcoder.HardcodearFlota(this.sistema.Flota);
             Hardcoder.HardcodearPuertos(this.sistema.Puertos);
             this.Text = $"Operador conectado ID {this.user.Id}: {this.user.NombreCompleto}";

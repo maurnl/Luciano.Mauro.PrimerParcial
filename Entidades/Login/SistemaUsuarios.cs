@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace Parcial.Login
 {
-    public class UserManager
+    public class SistemaUsuarios
     {
         private List<Usuario> users;
 
@@ -16,7 +16,7 @@ namespace Parcial.Login
             }
         }
 
-        public UserManager()
+        public SistemaUsuarios()
         {
             this.users = new List<Usuario>();
         }
@@ -27,23 +27,23 @@ namespace Parcial.Login
             Validador.ValidarStringVacia(password);
             Validador.ValidarStringAlfabetica(nombreCompleto);
 
-            if(BuscarPorUsuario(username)!=null)
+            if(BuscarPorNombreDeUsuario(username)!=null)
             {
                 throw new Exception("El nombre de usuario ingresado esta en uso.");
             }
 
             string hashedPassword = Hasher.HashText(password, SHA512.Create());
 
-            Usuario newUser = new Usuario(nombreCompleto, username, hashedPassword);
+            Usuario nuevoUsuario = new Usuario(nombreCompleto, username, hashedPassword);
 
-            this.users.Add(newUser);
+            this.users.Add(nuevoUsuario);
 
-            return newUser;
+            return nuevoUsuario;
         }
 
         public bool VerificarPassword(string username, string password)
         {
-            Usuario user = BuscarPorUsuario(username);
+            Usuario user = BuscarPorNombreDeUsuario(username);
 
             if (user == null)
             {
@@ -54,7 +54,7 @@ namespace Parcial.Login
             return hashedPassword == user.Password;
         }
 
-        public Usuario BuscarPorUsuario(string username)
+        public Usuario BuscarPorNombreDeUsuario(string username)
         {
             Usuario userMatch = null;
             foreach (Usuario user in this.users)

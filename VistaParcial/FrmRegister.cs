@@ -67,9 +67,9 @@ namespace VistaParcial
                 this.nombreCompleto = nombreCompleto;
 
                 this.DialogResult = DialogResult.OK;
-            } catch (Exception registerEx)
+            } catch (Exception datosRegistroEx)
             {
-                this.lblError.Text = registerEx.Message;
+                this.lblError.Text = datosRegistroEx.Message;
             }
 
         }

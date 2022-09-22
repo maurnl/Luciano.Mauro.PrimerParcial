@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public class Sistema
+    public class SistemaApp
     {
         private List<Crucero> flota;
         private List<Viaje> viajes;
@@ -42,7 +42,7 @@ namespace Parcial.Entities
             }
         }
 
-        public Sistema()
+        public SistemaApp()
         {
             this.flota = new List<Crucero>();
             this.viajes = new List<Viaje>();

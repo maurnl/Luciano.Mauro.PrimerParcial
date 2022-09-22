@@ -10,7 +10,7 @@ namespace Parcial.Util
 {
     public static class Hardcoder
     {
-        public static void HardcodearUsuarios(UserManager userManager)
+        public static void HardcodearUsuarios(SistemaUsuarios userManager)
         {
             userManager.TryCrearUsuario("Mauro Luciano", "maurnl", "contrasenia123");
         }

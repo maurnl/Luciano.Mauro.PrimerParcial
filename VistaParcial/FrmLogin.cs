@@ -14,13 +14,13 @@ namespace VistaParcial
 {
     public partial class FrmLogin : Form
     {
-        private UserManager userManager;
+        private SistemaUsuarios sistemaUsuarios;
         public FrmLogin()
         {
             InitializeComponent();
-            this.userManager = new UserManager();
+            this.sistemaUsuarios = new SistemaUsuarios();
             this.StartPosition = FormStartPosition.CenterScreen;
-            Hardcoder.HardcodearUsuarios(this.userManager);
+            Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -35,14 +35,14 @@ namespace VistaParcial
             string password = this.txtPassword.Text;
 
 
-            if (!userManager.VerificarPassword(username, password))
+            if (!sistemaUsuarios.VerificarPassword(username, password))
             {
                 this.lblError.ForeColor = Color.Red;
                 this.lblError.Text = "Credenciales invalidas! Reintente...";
                 return;
             }
 
-            Usuario user = userManager.BuscarPorUsuario(username);
+            Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
 
             MessageBox.Show($"{user.NombreCompleto}");
             FrmMain app = new FrmMain(user, this);
@@ -57,14 +57,14 @@ namespace VistaParcial
             {
                 try
                 {
-                    this.userManager.TryCrearUsuario(formRegister.NombreCompleto, formRegister.Username, formRegister.Password);
+                    this.sistemaUsuarios.TryCrearUsuario(formRegister.NombreCompleto, formRegister.Username, formRegister.Password);
                     this.lblError.ForeColor = Color.DarkGreen;
                     this.lblError.Text = "Registrado correctamente!";
                 }
-                catch (Exception newUserException)
+                catch (Exception nuevoUsuarioEx)
                 {
                     this.lblError.ForeColor = Color.Red;
-                    this.lblError.Text = newUserException.Message;
+                    this.lblError.Text = nuevoUsuarioEx.Message;
                 }
             }
         }
