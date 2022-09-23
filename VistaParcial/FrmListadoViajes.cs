@@ -24,29 +24,29 @@ namespace VistaParcial
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
             base.fuenteDeDatos.DataSource = listaEntidades;
-
-            base.btnFiltroUno.Text = "Agregar pasajero...";
+            base.btnAccionUno.Text = "Agregar pasajero...";
             ActualizarListado();
         }
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
+
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
         {
-            ToggleFiltros();
+            AplicarFiltros();
             this.chkFiltroUno.Enabled = false;
         }
 
         private void chkFiltroDos_CheckedChanged(object sender, EventArgs e)
         {
-            ToggleFiltros();
+            AplicarFiltros();
             this.chkFiltroDos.Enabled = false;
 
         }
 
-        private void ToggleFiltros()
+        private void AplicarFiltros()
         {
             bool checkGimnasio = this.chkFiltroUno.Checked;
             bool checkPiscina = this.chkFiltroDos.Checked;

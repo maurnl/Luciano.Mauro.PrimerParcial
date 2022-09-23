@@ -40,22 +40,22 @@ namespace VistaParcial
             this.panel1.Controls.Add(this.chkFiltroDos);
             this.panel1.Controls.Add(this.chkFiltroUno);
             this.panel1.Size = new System.Drawing.Size(1186, 66);
-            this.panel1.Controls.SetChildIndex(this.btnFiltroUno, 0);
+            this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
             this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
             this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
-            this.panel1.Controls.SetChildIndex(this.btnFiltroDos, 0);
+            this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
             this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
             this.panel1.Controls.SetChildIndex(this.chkFiltroUno, 0);
             this.panel1.Controls.SetChildIndex(this.chkFiltroDos, 0);
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Size = new System.Drawing.Size(257, 23);
+            this.cboCombobox.Size = new System.Drawing.Size(264, 23);
             // 
             // btnFiltroUno
             // 
-            this.btnFiltroUno.Location = new System.Drawing.Point(22, 12);
-            this.btnFiltroUno.Click += new System.EventHandler(this.btnFiltroUno_Click);
+            this.btnAccionUno.Location = new System.Drawing.Point(26, 12);
+            this.btnAccionUno.Click += new System.EventHandler(this.btnFiltroUno_Click);
             // 
             // btnReiniciarFiltros
             // 
@@ -66,9 +66,9 @@ namespace VistaParcial
             this.chkFiltroUno.AutoSize = true;
             this.chkFiltroUno.Location = new System.Drawing.Point(561, 13);
             this.chkFiltroUno.Name = "chkFiltroUno";
-            this.chkFiltroUno.Size = new System.Drawing.Size(83, 19);
+            this.chkFiltroUno.Size = new System.Drawing.Size(179, 19);
             this.chkFiltroUno.TabIndex = 7;
-            this.chkFiltroUno.Text = "checkBox1";
+            this.chkFiltroUno.Text = "Filtrar cruceros con gimnasio";
             this.chkFiltroUno.UseVisualStyleBackColor = true;
             this.chkFiltroUno.CheckedChanged += new System.EventHandler(this.chkFiltroUno_CheckedChanged);
             // 
@@ -77,9 +77,9 @@ namespace VistaParcial
             this.chkFiltroDos.AutoSize = true;
             this.chkFiltroDos.Location = new System.Drawing.Point(561, 32);
             this.chkFiltroDos.Name = "chkFiltroDos";
-            this.chkFiltroDos.Size = new System.Drawing.Size(83, 19);
+            this.chkFiltroDos.Size = new System.Drawing.Size(167, 19);
             this.chkFiltroDos.TabIndex = 8;
-            this.chkFiltroDos.Text = "checkBox2";
+            this.chkFiltroDos.Text = "Filtrar cruceros con piscina";
             this.chkFiltroDos.UseVisualStyleBackColor = true;
             this.chkFiltroDos.CheckedChanged += new System.EventHandler(this.chkFiltroDos_CheckedChanged);
             // 

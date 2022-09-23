@@ -31,10 +31,10 @@ namespace VistaParcial
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReiniciarFiltros = new System.Windows.Forms.Button();
-            this.btnFiltroDos = new System.Windows.Forms.Button();
+            this.btnAccionDos = new System.Windows.Forms.Button();
             this.lblCombobox = new System.Windows.Forms.Label();
             this.cboCombobox = new System.Windows.Forms.ComboBox();
-            this.btnFiltroUno = new System.Windows.Forms.Button();
+            this.btnAccionUno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvListado = new System.Windows.Forms.DataGridView();
@@ -46,10 +46,10 @@ namespace VistaParcial
             // panel1
             // 
             this.panel1.Controls.Add(this.btnReiniciarFiltros);
-            this.panel1.Controls.Add(this.btnFiltroDos);
+            this.panel1.Controls.Add(this.btnAccionDos);
             this.panel1.Controls.Add(this.lblCombobox);
             this.panel1.Controls.Add(this.cboCombobox);
-            this.panel1.Controls.Add(this.btnFiltroUno);
+            this.panel1.Controls.Add(this.btnAccionUno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(15);
@@ -67,14 +67,14 @@ namespace VistaParcial
             this.btnReiniciarFiltros.UseVisualStyleBackColor = true;
             this.btnReiniciarFiltros.Click += new System.EventHandler(this.btnReiniciarFiltros_Click);
             // 
-            // btnFiltroDos
+            // btnAccionDos
             // 
-            this.btnFiltroDos.Location = new System.Drawing.Point(196, 12);
-            this.btnFiltroDos.Name = "btnFiltroDos";
-            this.btnFiltroDos.Size = new System.Drawing.Size(161, 39);
-            this.btnFiltroDos.TabIndex = 5;
-            this.btnFiltroDos.Text = "Filtrar 2";
-            this.btnFiltroDos.UseVisualStyleBackColor = true;
+            this.btnAccionDos.Location = new System.Drawing.Point(196, 12);
+            this.btnAccionDos.Name = "btnAccionDos";
+            this.btnAccionDos.Size = new System.Drawing.Size(161, 39);
+            this.btnAccionDos.TabIndex = 5;
+            this.btnAccionDos.Text = "Boton 2";
+            this.btnAccionDos.UseVisualStyleBackColor = true;
             // 
             // lblCombobox
             // 
@@ -94,16 +94,16 @@ namespace VistaParcial
             this.cboCombobox.Size = new System.Drawing.Size(236, 23);
             this.cboCombobox.TabIndex = 3;
             // 
-            // btnFiltroUno
+            // btnAccionUno
             // 
-            this.btnFiltroUno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFiltroUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFiltroUno.Location = new System.Drawing.Point(10, 12);
-            this.btnFiltroUno.Name = "btnFiltroUno";
-            this.btnFiltroUno.Size = new System.Drawing.Size(161, 39);
-            this.btnFiltroUno.TabIndex = 0;
-            this.btnFiltroUno.Text = "Filtrar 1";
-            this.btnFiltroUno.UseVisualStyleBackColor = true;
+            this.btnAccionUno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAccionUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAccionUno.Location = new System.Drawing.Point(10, 12);
+            this.btnAccionUno.Name = "btnAccionUno";
+            this.btnAccionUno.Size = new System.Drawing.Size(161, 39);
+            this.btnAccionUno.TabIndex = 0;
+            this.btnAccionUno.Text = "Boton 1";
+            this.btnAccionUno.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -164,10 +164,10 @@ namespace VistaParcial
         private System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.DataGridView dgvListado;
         protected System.Windows.Forms.ComboBox cboCombobox;
-        protected System.Windows.Forms.Button btnFiltroUno;
+        protected System.Windows.Forms.Button btnAccionUno;
         protected System.Windows.Forms.Label lblTitulo;
         protected System.Windows.Forms.Label lblCombobox;
-        protected System.Windows.Forms.Button btnFiltroDos;
+        protected System.Windows.Forms.Button btnAccionDos;
         protected System.Windows.Forms.Button btnReiniciarFiltros;
     }
 }
