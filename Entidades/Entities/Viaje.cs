@@ -159,6 +159,11 @@ namespace Parcial.Entities
 
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
         {
+            if(viaje.ObtenerIndicePasajero(pasajero) != -1)
+            {
+                throw new Exception("Este pasajero ya esta a bordo.");
+            }
+
             if(viaje.PasajerosABordo + 1 > viaje.crucero.CapacidadPasajeros)
             {
                 throw new Exception("Este crucero esta lleno.");
@@ -224,6 +229,21 @@ namespace Parcial.Entities
                 cantidadHorasAleatoria = Viaje.random.Next(480, 720);
             }
             return cantidadHorasAleatoria;
+        }
+
+        private int ObtenerIndicePasajero(Pasajero pasajero)
+        {
+            int returnAux = -1;
+            for (int i = 0; i < this.pasajeros.Count; i++)
+            {
+                if(pasajero == this.pasajeros[i])
+                {
+                    returnAux = i;
+                    break;
+                }
+
+            }
+            return returnAux;
         }
 
         public override string ToString()

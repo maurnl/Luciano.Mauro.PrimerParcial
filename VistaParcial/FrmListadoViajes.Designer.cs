@@ -50,12 +50,16 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Size = new System.Drawing.Size(250, 23);
+            this.cboCombobox.Size = new System.Drawing.Size(257, 23);
             // 
             // btnFiltroUno
             // 
-            this.btnFiltroUno.Location = new System.Drawing.Point(18, 12);
+            this.btnFiltroUno.Location = new System.Drawing.Point(22, 12);
             this.btnFiltroUno.Click += new System.EventHandler(this.btnFiltroUno_Click);
+            // 
+            // btnReiniciarFiltros
+            // 
+            this.btnReiniciarFiltros.Click += new System.EventHandler(this.btnReiniciarFiltros_Click);
             // 
             // chkFiltroUno
             // 

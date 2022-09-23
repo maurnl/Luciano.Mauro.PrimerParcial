@@ -54,18 +54,15 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Bangkok, Pais.Tailandia, false));
         }
 
-        public static void HardcodearPasajeros(Viaje viaje, TipoPasajero tipo)
+        public static void HardcodearPasajeros(Viaje viaje, TipoPasajero tipo, int cantidad)
         {
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            Random random = new Random();
+            int dni;
+            for (int i = 0; i < cantidad; i++)
+            {
+                dni = random.Next(2000000, 5000000);
+                viaje += new Pasajero("Pepito Pepe", new Pasaporte(dni, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            }
         }
 
         public static void HardcodearViajes(List<Viaje> viajes, List<Puerto> puertos, List<Crucero> cruceros)

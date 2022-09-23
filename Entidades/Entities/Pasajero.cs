@@ -14,6 +14,13 @@ namespace Parcial.Entities
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
 
+        public int Dni
+        {
+            get
+            {
+                return this.Pasaporte.Dni;
+            }
+        }
         public int Edad
         {
             get

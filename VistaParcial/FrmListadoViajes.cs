@@ -24,45 +24,79 @@ namespace VistaParcial
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
             base.fuenteDeDatos.DataSource = listaEntidades;
+
             base.btnFiltroUno.Text = "Agregar pasajero...";
             ActualizarListado();
         }
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
-
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
         {
             ToggleFiltros();
+            this.chkFiltroUno.Enabled = false;
         }
 
         private void chkFiltroDos_CheckedChanged(object sender, EventArgs e)
         {
             ToggleFiltros();
+            this.chkFiltroDos.Enabled = false;
+
         }
 
         private void ToggleFiltros()
         {
             bool checkGimnasio = this.chkFiltroUno.Checked;
             bool checkPiscina = this.chkFiltroDos.Checked;
-
-            if (checkGimnasio && checkPiscina)
+            if (checkPiscina || checkGimnasio)
             {
-                base.fuenteDeDatos.Filter = "OfrecePiscina like '%SI%'";
-            }else if(checkGimnasio && !checkPiscina)
-            { 
-                base.fuenteDeDatos.Filter = "OfreceGimnasio like '%SI%'";
-
-            }else if (!checkGimnasio && checkPiscina)
-            {
-                base.fuenteDeDatos.Filter = "OfrecePiscina like '%SI%'";
-            } else
-            {
-                base.LimpiarFiltros();
+                foreach (DataGridViewRow fila in base.dgvListado.Rows)
+                {
+                    if(!((Viaje)fila.DataBoundItem).Crucero.TieneGimnasio && checkGimnasio
+                        || !((Viaje)fila.DataBoundItem).Crucero.TienePiscina && checkPiscina)
+                    {
+                        fila.Height = 0;
+                    }
+                }
             }
-            ActualizarListado();
+        }
+
+        protected internal override void LimpiarFiltros()
+        {
+            base.LimpiarFiltros();
+            this.chkFiltroUno.Enabled = true;            
+            this.chkFiltroDos.Enabled = true;
+            this.chkFiltroUno.Checked = false;
+            this.chkFiltroDos.Checked = false;
+        }
+
+        protected override void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
+            if (filaActual.DataBoundItem is Viaje viaje)
+            {
+                if (viaje.ViajeFinalizado)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    filaActual.Visible = false;
+                }
+                else
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                if (viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.Yellow;
+                }
+            }
+        }
+
+        private void btnReiniciarFiltros_Click(object sender, EventArgs e)
+        {
+            base.LimpiarFiltros();
+            LimpiarFiltros();
         }
     }
 }

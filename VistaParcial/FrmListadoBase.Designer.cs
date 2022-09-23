@@ -65,6 +65,7 @@ namespace VistaParcial
             this.btnReiniciarFiltros.TabIndex = 6;
             this.btnReiniciarFiltros.Text = "Eliminar filtros";
             this.btnReiniciarFiltros.UseVisualStyleBackColor = true;
+            this.btnReiniciarFiltros.Click += new System.EventHandler(this.btnReiniciarFiltros_Click);
             // 
             // btnFiltroDos
             // 
