@@ -29,6 +29,7 @@ namespace VistaParcial
             this.fuenteDeDatos = new BindingSource();
             this.dgvListado.DataSource = this.fuenteDeDatos;
             this.dgvListado.ScrollBars = ScrollBars.Both;
+            this.dgvListado.ReadOnly = true;
         }
 
         protected internal void LimpiarFiltros()
@@ -44,10 +45,28 @@ namespace VistaParcial
         private void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
-            if (filaActual.Cells[0].GetType() == typeof(bool) && (bool)filaActual.Cells[0].Value)
+            if (filaActual.DataBoundItem is Viaje viaje)
             {
-                filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
+                if (viaje.ViajeFinalizado)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
+                } 
+                else
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
+                }
+            } else if (filaActual.DataBoundItem is Pasajero pasajero)
+            {
+                if (pasajero.TipoPasajero == TipoPasajero.Premium)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightYellow;
+                }
+                else
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightBlue;
+                }
             }
+
         }
     }
 }

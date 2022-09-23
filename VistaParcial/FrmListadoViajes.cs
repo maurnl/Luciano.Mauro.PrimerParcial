@@ -23,7 +23,7 @@ namespace VistaParcial
             {
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
-            this.fuenteDeDatos.DataSource = listaEntidades;
+            base.fuenteDeDatos.DataSource = listaEntidades;
             ActualizarListado();
         }
 
