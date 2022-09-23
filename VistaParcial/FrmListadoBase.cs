@@ -47,33 +47,6 @@ namespace VistaParcial
 
         protected virtual void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
-            //DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
-            //if (filaActual.DataBoundItem is Viaje viaje)
-            //{
-            //    if (viaje.ViajeFinalizado)
-            //    {
-            //        filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
-            //    } 
-            //    else
-            //    {
-            //        filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
-            //    }
-            //    if(viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
-            //    {
-            //        filaActual.DefaultCellStyle.BackColor = Color.Yellow;
-            //    }
-            //} else if (filaActual.DataBoundItem is Pasajero pasajero)
-            //{
-            //    if (pasajero.TipoPasajero == TipoPasajero.Premium)
-            //    {
-            //        filaActual.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-            //    }
-            //    else
-            //    {
-            //        filaActual.DefaultCellStyle.BackColor = Color.LightBlue;
-            //    }
-            //}
-
         }
 
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)

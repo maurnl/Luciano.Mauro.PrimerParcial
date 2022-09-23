@@ -27,7 +27,12 @@ namespace VistaParcial
         public FrmAltaPasajero()
         {
             InitializeComponent();
+        }
+
+        public FrmAltaPasajero(Viaje viaje) : this()
+        {
             this.pasajeros = new List<Pasajero>();
+            this.viaje = viaje;
         }
 
         private void FrmAltaPasajero_Load(object sender, EventArgs e)
@@ -60,7 +65,6 @@ namespace VistaParcial
             this.btnEliminarPasajero.Enabled = true;
             ActualizarListados();
         }
-
         private void lstPasajeros_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(this.lstPasajeros.SelectedIndex != -1)
