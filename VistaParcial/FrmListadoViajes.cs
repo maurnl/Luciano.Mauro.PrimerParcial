@@ -24,9 +24,13 @@ namespace VistaParcial
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
             base.fuenteDeDatos.DataSource = listaEntidades;
+            base.btnFiltroUno.Text = "Agregar pasajero...";
             ActualizarListado();
         }
 
+        private void btnFiltroUno_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

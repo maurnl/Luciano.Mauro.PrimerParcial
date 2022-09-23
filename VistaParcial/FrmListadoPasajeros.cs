@@ -35,6 +35,5 @@ namespace VistaParcial
             this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
             base.ActualizarListado();
         }
-
     }
 }

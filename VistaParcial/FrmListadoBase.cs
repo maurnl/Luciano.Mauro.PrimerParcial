@@ -49,17 +49,21 @@ namespace VistaParcial
             {
                 if (viaje.ViajeFinalizado)
                 {
-                    filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
+                    filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
                 } 
                 else
                 {
-                    filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
+                }
+                if(viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.Yellow;
                 }
             } else if (filaActual.DataBoundItem is Pasajero pasajero)
             {
                 if (pasajero.TipoPasajero == TipoPasajero.Premium)
                 {
-                    filaActual.DefaultCellStyle.BackColor = Color.LightYellow;
+                    filaActual.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
                 }
                 else
                 {

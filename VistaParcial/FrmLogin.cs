@@ -27,9 +27,26 @@ namespace VistaParcial
             Hardcoder.HardcodearFlota(this.sistemaApp.Flota);
             Hardcoder.HardcodearPuertos(this.sistemaApp.Puertos);
             Hardcoder.HardcodearViajes(this.sistemaApp.Viajes, this.sistemaApp.Puertos, this.sistemaApp.Flota);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[0]);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1]);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1]);
+            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[0], TipoPasajero.Premium);
+            try
+            {
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Premium);
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Premium);
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Premium);
+            }
+            catch (Exception)
+            {
+
+            }
+            try
+            {
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Turista);
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Turista);
+                Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Turista);
+            }catch(Exception)
+            {
+
+            }
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

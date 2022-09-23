@@ -64,7 +64,7 @@ namespace Parcial.Entities
         }
         public override string ToString()
         {
-            return $"{this.provincia}, {this.pais}";
+            return $"{(EsDestinoRegional ? "Regional: " : "Extraregional: ")}{this.provincia}, {this.pais}";
         }
     }
 }

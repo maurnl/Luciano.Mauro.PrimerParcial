@@ -18,7 +18,7 @@ namespace Parcial.Util
         public static void HardcodearFlota(List<Crucero> flota)
         {
             flota.Add(new Crucero("AXCK1000", "Popeye", 100, 1000));
-            flota.Add(new Crucero("CLKF1349", "Barba Negra", 100, 1000));
+            flota.Add(new Crucero("CLKF1349", "Barba Negra", 3, 1000));
             flota.Add(new Crucero("VOLF4931", "La Sirena", 100, 1000));
             flota.Add(new Crucero("CSBV1593", "Alto Barco", 100, 1000));
             flota.Add(new Crucero("GGHB3555", "El choca puertos", 100, 1000));
@@ -28,9 +28,9 @@ namespace Parcial.Util
 
         public static void HardcodearPuertos(List<Puerto> puertos)
         {
-            puertos.Add(new Puerto(Provincia.Montevideo, Pais.Uruguay, true));
-            puertos.Add(new Puerto(Provincia.Ushuaia, Pais.Argentina, true));
+            puertos.Add(new Puerto(Provincia.BuenosAires, Pais.Argentina, true));
             puertos.Add(new Puerto(Provincia.PuertoMadryn, Pais.Argentina, true));
+            puertos.Add(new Puerto(Provincia.Ushuaia, Pais.Argentina, true));
             puertos.Add(new Puerto(Provincia.Recife, Pais.Brasil, true));
             puertos.Add(new Puerto(Provincia.RioDeJaneiro, Pais.Brasil, true));
             puertos.Add(new Puerto(Provincia.IslaDePascua, Pais.Chile, true));
@@ -38,6 +38,7 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Cartagena, Pais.Colombia, true));
             puertos.Add(new Puerto(Provincia.IslaGalapagos, Pais.Ecuador, true));
             puertos.Add(new Puerto(Provincia.Lima, Pais.Peru, true));
+            puertos.Add(new Puerto(Provincia.Montevideo, Pais.Uruguay, true));
 
             puertos.Add(new Puerto(Provincia.LaHabana, Pais.Cuba, false));
             puertos.Add(new Puerto(Provincia.Miami, Pais.EEUU, false));
@@ -49,18 +50,18 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Bangkok, Pais.Tailandia, false));
         }
 
-        public static void HardcodearPasajeros(Viaje viaje)
+        public static void HardcodearPasajeros(Viaje viaje, TipoPasajero tipo)
         {
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
-            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), TipoPasajero.Premium);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+            viaje += new Pasajero("Pepito Pepe", new Pasaporte(4012345, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
         }
 
         public static void HardcodearViajes(List<Viaje> viajes, List<Puerto> puertos, List<Crucero> cruceros)

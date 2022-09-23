@@ -181,7 +181,7 @@ namespace Parcial.Entities
 
         public override string ToString()
         {
-            return $"Crucero '{this.nombre}'.";
+            return $"[{(this.EstaEnViaje ? "EN VIAJE" : "DISPONIBLE")}] Crucero '{this.nombre}'.";
         }
     }
 }

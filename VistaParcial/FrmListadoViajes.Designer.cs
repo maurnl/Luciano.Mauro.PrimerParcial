@@ -32,6 +32,10 @@ namespace VistaParcial
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnFiltroUno
+            // 
+            this.btnFiltroUno.Click += new System.EventHandler(this.btnFiltroUno_Click);
+            // 
             // FrmListadoViajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

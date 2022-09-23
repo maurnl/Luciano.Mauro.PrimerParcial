@@ -32,9 +32,13 @@ namespace VistaParcial
         public FrmViaje(List<Crucero> cruceros, List<Puerto> puertos) : this()
         {
             this.cboCrucero.DataSource = cruceros;
-            this.cboOrigen.DataSource = new List<Puerto>(puertos);
-            this.cboDestino.DataSource = new List<Puerto>(puertos);
 
+            this.cboDestino.DataSource = new List<Puerto>(puertos);
+            this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            this.cboOrigen.DataSource = new List<Puerto>(puertos);
+            this.cboOrigen.SelectedIndex = 0;
+            this.cboOrigen.Enabled = false;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

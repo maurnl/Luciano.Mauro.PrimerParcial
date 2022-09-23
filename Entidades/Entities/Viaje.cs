@@ -13,7 +13,7 @@ namespace Parcial.Entities
         private Puerto origen;
         private Puerto destino;
         private Crucero crucero;
-        private float precioPasaje;
+        private float precioPasajePorHora;
         private float duracionEnHoras;
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
@@ -55,14 +55,14 @@ namespace Parcial.Entities
         {
             get
             {
-                return this.precioPasaje;
+                return this.precioPasajePorHora * this.duracionEnHoras;
             }
         }
         public float PrecioPremium
         {
             get
             {
-                return precioPasaje + (precioPasaje * 20 / 100);
+                return this.PrecioTurista + (this.PrecioTurista * 20 / 100);
             }
         }
         public float DuracionEnHoras
@@ -140,7 +140,7 @@ namespace Parcial.Entities
             this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
             this.pasajeros = new List<Pasajero>();
-            this.precioPasaje = CalcularPrecioDeViaje(destino);
+            this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
         }
 
@@ -201,16 +201,16 @@ namespace Parcial.Entities
         }
         private float CalcularDuracionDeViaje(Puerto destino)
         {
-            TimeSpan intervaloAleatorio;
+            float cantidadHorasAleatoria;
             if (destino.EsDestinoRegional)
             {
-                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(72, 360));
+                cantidadHorasAleatoria = Viaje.random.Next(72, 360);
             }
             else
             {
-                intervaloAleatorio = TimeSpan.FromHours(Viaje.random.Next(480, 720));
+                cantidadHorasAleatoria = Viaje.random.Next(480, 720);
             }
-            return intervaloAleatorio.Hours;
+            return cantidadHorasAleatoria;
         }
 
         public override string ToString()

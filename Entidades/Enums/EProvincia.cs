@@ -1,5 +1,6 @@
 ﻿public enum Provincia 
 {
+    BuenosAires,
     Ushuaia,
     PuertoMadryn,
     Recife,
