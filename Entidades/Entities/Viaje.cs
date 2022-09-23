@@ -114,7 +114,20 @@ namespace Parcial.Entities
                 return this.fechaSalida + TimeSpan.FromHours(duracionEnHoras);
             }
         }
-
+        public string OfreceGimnasio
+        {
+            get
+            {
+                return this.crucero.TieneGimnasio ? "SI" : "NO";
+            }
+        }
+        public string OfrecePiscina
+        {
+            get
+            {
+                return this.crucero.TienePiscina ? "SI" : "NO";
+            }
+        }
         static Viaje()
         {
             Viaje.random = new Random();

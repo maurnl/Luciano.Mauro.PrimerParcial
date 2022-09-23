@@ -181,7 +181,8 @@ namespace Parcial.Entities
 
         public override string ToString()
         {
-            return $"[{(this.EstaEnViaje ? "EN VIAJE" : "DISPONIBLE")}] Crucero '{this.nombre}'.";
+            return $"[{(this.EstaEnViaje ? "EN VIAJE" : "DISPONIBLE")}] Crucero '{this.nombre}'. " +
+                $"Capacidad Total: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg.";
         }
     }
 }

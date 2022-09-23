@@ -32,5 +32,37 @@ namespace VistaParcial
         {
 
         }
+
+        private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
+        {
+            ToggleFiltros();
+        }
+
+        private void chkFiltroDos_CheckedChanged(object sender, EventArgs e)
+        {
+            ToggleFiltros();
+        }
+
+        private void ToggleFiltros()
+        {
+            bool checkGimnasio = this.chkFiltroUno.Checked;
+            bool checkPiscina = this.chkFiltroDos.Checked;
+
+            if (checkGimnasio && checkPiscina)
+            {
+                base.fuenteDeDatos.Filter = "OfrecePiscina like '%SI%'";
+            }else if(checkGimnasio && !checkPiscina)
+            { 
+                base.fuenteDeDatos.Filter = "OfreceGimnasio like '%SI%'";
+
+            }else if (!checkGimnasio && checkPiscina)
+            {
+                base.fuenteDeDatos.Filter = "OfrecePiscina like '%SI%'";
+            } else
+            {
+                base.LimpiarFiltros();
+            }
+            ActualizarListado();
+        }
     }
 }

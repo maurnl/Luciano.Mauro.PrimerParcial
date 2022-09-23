@@ -18,8 +18,12 @@ namespace Parcial.Util
         public static void HardcodearFlota(List<Crucero> flota)
         {
             flota.Add(new Crucero("AXCK1000", "Popeye", 100, 1000));
-            flota.Add(new Crucero("CLKF1349", "Barba Negra", 3, 1000));
+            flota[0] += Salon.Gimnasio;
+            flota.Add(new Crucero("CLKF1349", "Barba Negra", 100, 1000));
+            flota[1] += Salon.Piscina;
             flota.Add(new Crucero("VOLF4931", "La Sirena", 100, 1000));
+            flota[2] += Salon.Gimnasio;
+            flota[2] += Salon.Piscina;
             flota.Add(new Crucero("CSBV1593", "Alto Barco", 100, 1000));
             flota.Add(new Crucero("GGHB3555", "El choca puertos", 100, 1000));
             flota.Add(new Crucero("CASC1314", "La langosta", 100, 1000));

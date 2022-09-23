@@ -34,7 +34,7 @@ namespace VistaParcial
 
         protected internal void LimpiarFiltros()
         {
-            this.fuenteDeDatos.Filter = null;
+            this.fuenteDeDatos.RemoveFilter();
         }
         
         protected internal void ActualizarListado()
