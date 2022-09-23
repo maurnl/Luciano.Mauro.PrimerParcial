@@ -68,11 +68,11 @@ namespace Parcial.Util
         public static void HardcodearViajes(List<Viaje> viajes, List<Puerto> puertos, List<Crucero> cruceros)
         {
             viajes.Add(new Viaje(puertos[0], puertos[1], cruceros[0], DateTime.Now));
-            viajes.Add(new Viaje(puertos[1], puertos[2], cruceros[1], DateTime.Now));
-            viajes.Add(new Viaje(puertos[1], puertos[3], cruceros[2], DateTime.Now));
+            viajes.Add(new Viaje(puertos[0], puertos[2], cruceros[1], DateTime.Now));
+            viajes.Add(new Viaje(puertos[0], puertos[3], cruceros[2], DateTime.Now));
             viajes.Add(new Viaje(puertos[0], puertos[6], cruceros[3], DateTime.Now));
-            viajes.Add(new Viaje(puertos[4], puertos[3], cruceros[4], DateTime.Now));
-            viajes.Add(new Viaje(puertos[2], puertos[1], cruceros[5], DateTime.Now));
+            viajes.Add(new Viaje(puertos[0], puertos[3], cruceros[4], DateTime.Now));
+            viajes.Add(new Viaje(puertos[0], puertos[1], cruceros[5], DateTime.Now));
         }
     }
 }

@@ -30,7 +30,8 @@ namespace VistaParcial
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
-
+            FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero();
+            formAltaPasajero.ShowDialog();
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace VistaParcial
             DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
             if (filaActual.DataBoundItem is Viaje viaje)
             {
-                if (viaje.ViajeFinalizado)
+                if (viaje.ViajeEstaFinalizado)
                 {
                     filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
                     filaActual.Visible = false;

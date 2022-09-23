@@ -17,17 +17,17 @@ namespace Parcial.Entities
         private float duracionEnHoras;
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
-        private bool viajeFinalizado;
+        private bool viajeEstaFinalizado;
 
-        public bool ViajeFinalizado
+        public bool ViajeEstaFinalizado
         {
             get
             {
-                return this.viajeFinalizado;
+                return this.viajeEstaFinalizado;
             }
             set
             {
-                this.viajeFinalizado = value;
+                this.viajeEstaFinalizado = value;
             }
         }
         public Puerto Origen
@@ -146,7 +146,7 @@ namespace Parcial.Entities
             }
             base.id = Viaje.contadorViaje;
             Viaje.contadorViaje++;
-            this.viajeFinalizado = false;
+            this.viajeEstaFinalizado = false;
             this.origen = origen;
             this.destino = destino;
             this.crucero = crucero;
