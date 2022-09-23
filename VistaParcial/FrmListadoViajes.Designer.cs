@@ -29,10 +29,19 @@ namespace VistaParcial
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // FrmListadoViajes
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1179, 611);
+            this.Name = "FrmListadoViajes";
             this.Text = "FrmListadoViajes";
+            ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

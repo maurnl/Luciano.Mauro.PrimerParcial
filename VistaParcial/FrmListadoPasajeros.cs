@@ -27,7 +27,14 @@ namespace VistaParcial
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = listaEntidades;
             this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
-            ActualizarListado();
+            base.ActualizarListado();
         }
+
+        private void cboCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
+            base.ActualizarListado();
+        }
+
     }
 }

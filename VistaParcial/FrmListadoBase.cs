@@ -27,6 +27,8 @@ namespace VistaParcial
         {
             InitializeComponent();
             this.fuenteDeDatos = new BindingSource();
+            this.dgvListado.DataSource = this.fuenteDeDatos;
+            this.dgvListado.ScrollBars = ScrollBars.Both;
         }
 
         protected internal void LimpiarFiltros()
@@ -36,10 +38,15 @@ namespace VistaParcial
         
         protected internal void ActualizarListado()
         {
-            this.dgvListado.DataSource = null;
-            if (this.TieneDatosCargados)
+            this.fuenteDeDatos.ResetBindings(false);
+        }
+
+        private void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
+            if (filaActual.Cells[0].GetType() == typeof(bool) && (bool)filaActual.Cells[0].Value)
             {
-                this.dgvListado.DataSource = this.fuenteDeDatos;
+                filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
             }
         }
     }

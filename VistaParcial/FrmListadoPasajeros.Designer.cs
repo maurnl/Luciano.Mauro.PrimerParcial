@@ -32,6 +32,10 @@ namespace VistaParcial
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
             this.SuspendLayout();
             // 
+            // cboCombobox
+            // 
+            this.cboCombobox.SelectedIndexChanged += new System.EventHandler(this.cboCombobox_SelectedIndexChanged);
+            // 
             // FrmListadoPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

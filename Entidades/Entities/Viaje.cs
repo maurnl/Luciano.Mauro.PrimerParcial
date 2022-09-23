@@ -168,6 +168,8 @@ namespace Parcial.Entities
                 viaje.crucero += valija.Peso;
             }
 
+            viaje.pasajeros.Add(pasajero);
+
             return viaje;
         }
 

@@ -25,5 +25,11 @@ namespace Parcial.Entities
                 return this.fechaExpedido + TimeSpan.FromDays(1460);
             }
         }
+
+        public Pasaporte(int dni, DateTime fechaExpedido)
+        {
+            this.dni = dni;
+            this.fechaExpedido = fechaExpedido;
+        }
     }
 }

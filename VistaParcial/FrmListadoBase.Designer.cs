@@ -134,8 +134,9 @@ namespace VistaParcial
             this.dgvListado.Location = new System.Drawing.Point(3, 26);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.RowTemplate.Height = 25;
-            this.dgvListado.Size = new System.Drawing.Size(1165, 541);
+            this.dgvListado.Size = new System.Drawing.Size(1165, 495);
             this.dgvListado.TabIndex = 0;
+            this.dgvListado.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvListado_RowPrePaint);
             // 
             // FrmListadoBase
             // 
@@ -160,7 +161,7 @@ namespace VistaParcial
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvListado;
+        protected System.Windows.Forms.DataGridView dgvListado;
         protected System.Windows.Forms.ComboBox cboCombobox;
         protected System.Windows.Forms.Button btnFiltroUno;
         protected System.Windows.Forms.Label txtTitulo;
