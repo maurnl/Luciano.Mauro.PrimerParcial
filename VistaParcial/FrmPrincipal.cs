@@ -21,16 +21,15 @@ namespace VistaParcial
         public FrmPrincipal()
         {
             InitializeComponent();
-
-            this.lblError.Text = "";
         }
 
         public FrmPrincipal(Usuario user, FrmLogin login, SistemaApp sistema) : this()
         {
+            this.lblError.Text = "";
             this.user = user;
             this.login = login;
             this.sistema = sistema;
-            this.formsListadoAbiertos = new List<FrmListadoBase>();
+            this.formsListadoAbiertos = new List<FrmListadoBase>(3);
             this.Text = $"Operador conectado ID {this.user.Id}: {this.user.NombreCompleto}";
         }
 
@@ -56,18 +55,33 @@ namespace VistaParcial
 
         private void ActualizarFormListados()
         {
-            foreach (FrmListadoBase formAbierto in this.formsListadoAbiertos)
+            foreach (FrmListadoBase formListadoAbierto in this.formsListadoAbiertos)
             {
-                formAbierto.ActualizarListado();
+                formListadoAbierto.ActualizarListado();
             }
         }
 
         private void CerrarFormListados()
         {
-            foreach (FrmListadoBase formAbierto in this.formsListadoAbiertos)
+            foreach (FrmListadoBase formListadoAbierto in this.formsListadoAbiertos)
             {
-                formAbierto.Close();
+                formListadoAbierto.Close();
             }
+        }
+
+        private FrmListadoBase ObtenerListadoAbierto(string tipo)
+        {
+            FrmListadoBase formRetorno = null;
+            foreach (FrmListadoBase formListadoAbierto in this.formsListadoAbiertos)
+            {
+                if(tipo == "viajes" && formListadoAbierto is FrmListadoViajes formListadoViajes)
+                {
+                    formRetorno = formListadoViajes;
+                } else if(tipo == "pasajeros" && formListadoAbierto is FrmListadoPasajeros formListadoPasajeros){
+                    formRetorno = formListadoPasajeros;
+                }
+            }
+            return formRetorno;
         }
 
         private void AbrirFormListado(string listado)
@@ -101,7 +115,6 @@ namespace VistaParcial
         {
             CerrarFormListados();
             this.login.Show();
-
         }
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -111,6 +124,38 @@ namespace VistaParcial
             {
                 e.Cancel = true;
             }
+        }
+
+        private void btnAltaPasajero_Click(object sender, EventArgs e)
+        {
+            FrmListadoViajes formListadoViajesAbierto = (FrmListadoViajes)ObtenerListadoAbierto("viajes");
+            if(formListadoViajesAbierto == null)
+            {
+                return;
+            }
+            Viaje viajeSeleccionado = formListadoViajesAbierto.ViajeSeleccionado;
+            FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero(viajeSeleccionado);
+            if(formAltaPasajero.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    foreach(Pasajero pasajeroPosible in formAltaPasajero.PasajerosPosibles)
+                    {
+                        viajeSeleccionado += pasajeroPosible;
+                    }
+                }catch(Exception agregarPasajerosEx)
+                {
+                    this.lblError.ForeColor = Color.Red;
+                    this.lblError.Text = agregarPasajerosEx.Message;
+                }
+            }
+            FrmListadoPasajeros frmListadoPasajeros = ((FrmListadoPasajeros)ObtenerListadoAbierto("pasajeros"));
+            if (frmListadoPasajeros != null)
+            {
+                frmListadoPasajeros.ViajeSeleccionado = viajeSeleccionado;
+
+            }
+            ActualizarFormListados();
         }
     }
 }

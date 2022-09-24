@@ -84,6 +84,7 @@ namespace VistaParcial
             this.btnAltaPasajero.TabIndex = 4;
             this.btnAltaPasajero.Text = "Alta pasajero";
             this.btnAltaPasajero.UseVisualStyleBackColor = true;
+            this.btnAltaPasajero.Click += new System.EventHandler(this.btnAltaPasajero_Click);
             // 
             // lblError
             // 

@@ -13,6 +13,13 @@ namespace VistaParcial
 {
     public partial class FrmListadoViajes : FrmListadoBase
     {
+        public Viaje ViajeSeleccionado
+        {
+            get
+            {
+                return (Viaje) this.fuenteDeDatos.Current;
+            }
+        }
         public FrmListadoViajes()
         {
             InitializeComponent();
@@ -30,8 +37,7 @@ namespace VistaParcial
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
-            FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero();
-            formAltaPasajero.ShowDialog();
+
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)

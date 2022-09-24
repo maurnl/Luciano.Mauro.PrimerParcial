@@ -13,6 +13,13 @@ namespace VistaParcial
 {
     public partial class FrmListadoPasajeros : FrmListadoBase
     {
+        public Viaje ViajeSeleccionado
+        {
+            set
+            {
+                this.fuenteDeDatos.DataSource = value.Pasajeros;
+            }
+        }
         public FrmListadoPasajeros()
         {
             InitializeComponent();

@@ -146,7 +146,7 @@ namespace VistaParcial
             this.ClientSize = new System.Drawing.Size(1179, 649);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1195, 650);
+            this.MinimumSize = new System.Drawing.Size(1195, 350);
             this.Name = "FrmListadoBase";
             this.Text = "9";
             this.panel1.ResumeLayout(false);
