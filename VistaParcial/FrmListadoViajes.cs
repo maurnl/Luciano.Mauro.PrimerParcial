@@ -33,6 +33,7 @@ namespace VistaParcial
             }
             base.fuenteDeDatos.DataSource = listaEntidades;
             base.btnAccionUno.Text = "Agregar pasajero...";
+            this.MdiParent.Click
             ActualizarListado();
         }
 

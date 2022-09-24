@@ -23,6 +23,10 @@ namespace VistaParcial
             this.sistemaUsuarios = new SistemaUsuarios();
             this.sistemaApp = new SistemaApp();
             this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
             Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
             Hardcoder.HardcodearFlota(this.sistemaApp.Flota);
             Hardcoder.HardcodearPuertos(this.sistemaApp.Puertos);
@@ -31,10 +35,6 @@ namespace VistaParcial
             Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[0], TipoPasajero.Turista, 30);
             Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Premium, 10);
             Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Turista, 30);
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
             this.Text = "Inicio de sesion";
             this.lblError.Text = "";
         }
@@ -53,9 +53,6 @@ namespace VistaParcial
             }
 
             Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
-
-            MessageBox.Show($"{user.NombreCompleto}");
-            //FrmPrincipal app = new FrmPrincipal(user, this, this.sistemaApp);
             FrmPrincipalContenedor app = new FrmPrincipalContenedor(user, this, this.sistemaApp);
             app.Show();
             this.Hide();
