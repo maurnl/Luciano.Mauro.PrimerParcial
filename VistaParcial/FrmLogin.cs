@@ -55,7 +55,8 @@ namespace VistaParcial
             Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
 
             MessageBox.Show($"{user.NombreCompleto}");
-            FrmPrincipal app = new FrmPrincipal(user, this, this.sistemaApp);
+            //FrmPrincipal app = new FrmPrincipal(user, this, this.sistemaApp);
+            FrmPrincipalContenedor app = new FrmPrincipalContenedor(user, this, this.sistemaApp);
             app.Show();
             this.Hide();
         }

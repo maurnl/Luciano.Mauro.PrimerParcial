@@ -13,6 +13,7 @@ namespace VistaParcial
 {
     public partial class FrmListadoViajes : FrmListadoBase
     {
+        private Viaje viajeSeleccionado;
         public Viaje ViajeSeleccionado
         {
             get
@@ -37,7 +38,25 @@ namespace VistaParcial
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
-
+            Viaje viajeSeleccionado = (Viaje)this.fuenteDeDatos.Current;
+            FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero(viajeSeleccionado);
+            if (formAltaPasajero.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    foreach (Pasajero pasajeroPosible in formAltaPasajero.PasajerosPosibles)
+                    {
+                        viajeSeleccionado += pasajeroPosible;
+                    }
+                }
+                catch (Exception agregarPasajerosEx)
+                {
+                    MessageBox.Show(agregarPasajerosEx.Message);
+                    //this.lblError.ForeColor = Color.Red;
+                    //this.lblError.Text = agregarPasajerosEx.Message;
+                }
+            }
+            this.ActualizarListado();
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
