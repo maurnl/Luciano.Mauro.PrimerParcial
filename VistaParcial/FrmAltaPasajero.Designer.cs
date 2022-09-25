@@ -49,21 +49,22 @@ namespace VistaParcial
             this.btnEliminarPasajero = new System.Windows.Forms.Button();
             this.lstPasajeros = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.lblPesoDisponible = new System.Windows.Forms.Label();
             this.lblLugaresDisponibles = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gpbEquipajes = new System.Windows.Forms.GroupBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.btnRegistrarEquipaje = new System.Windows.Forms.Button();
             this.chkEsDeMano = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
-            this.btnRegistrarVenta = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gpbEquipajes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPeso)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@ namespace VistaParcial
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.gpbEquipajes, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -274,6 +275,26 @@ namespace VistaParcial
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del crucero";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(52, 119);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(160, 37);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnRegistrarVenta
+            // 
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(52, 70);
+            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
+            this.btnRegistrarVenta.Size = new System.Drawing.Size(160, 37);
+            this.btnRegistrarVenta.TabIndex = 2;
+            this.btnRegistrarVenta.Text = "Registrar nueva venta";
+            this.btnRegistrarVenta.UseVisualStyleBackColor = true;
+            this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
+            // 
             // lblPesoDisponible
             // 
             this.lblPesoDisponible.AutoSize = true;
@@ -292,19 +313,29 @@ namespace VistaParcial
             this.lblLugaresDisponibles.TabIndex = 0;
             this.lblLugaresDisponibles.Text = "label7";
             // 
-            // groupBox4
+            // gpbEquipajes
             // 
-            this.groupBox4.Controls.Add(this.btnRegistrarEquipaje);
-            this.groupBox4.Controls.Add(this.chkEsDeMano);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.lstEquipajes);
-            this.groupBox4.Controls.Add(this.nudPeso);
-            this.groupBox4.Location = new System.Drawing.Point(281, 483);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(494, 167);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Equipajes del pasajero";
+            this.gpbEquipajes.Controls.Add(this.lblError);
+            this.gpbEquipajes.Controls.Add(this.btnRegistrarEquipaje);
+            this.gpbEquipajes.Controls.Add(this.chkEsDeMano);
+            this.gpbEquipajes.Controls.Add(this.label9);
+            this.gpbEquipajes.Controls.Add(this.lstEquipajes);
+            this.gpbEquipajes.Controls.Add(this.nudPeso);
+            this.gpbEquipajes.Location = new System.Drawing.Point(281, 483);
+            this.gpbEquipajes.Name = "gpbEquipajes";
+            this.gpbEquipajes.Size = new System.Drawing.Size(494, 167);
+            this.gpbEquipajes.TabIndex = 3;
+            this.gpbEquipajes.TabStop = false;
+            this.gpbEquipajes.Text = "Equipajes del pasajero";
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(39, 101);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(38, 15);
+            this.lblError.TabIndex = 8;
+            this.lblError.Text = "label7";
             // 
             // btnRegistrarEquipaje
             // 
@@ -314,6 +345,7 @@ namespace VistaParcial
             this.btnRegistrarEquipaje.TabIndex = 7;
             this.btnRegistrarEquipaje.Text = "Registrar equipaje";
             this.btnRegistrarEquipaje.UseVisualStyleBackColor = true;
+            this.btnRegistrarEquipaje.Click += new System.EventHandler(this.btnRegistrarEquipaje_Click);
             // 
             // chkEsDeMano
             // 
@@ -350,26 +382,6 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
-            // btnRegistrarVenta
-            // 
-            this.btnRegistrarVenta.Location = new System.Drawing.Point(52, 70);
-            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
-            this.btnRegistrarVenta.Size = new System.Drawing.Size(160, 37);
-            this.btnRegistrarVenta.TabIndex = 2;
-            this.btnRegistrarVenta.Text = "Registrar nueva venta";
-            this.btnRegistrarVenta.UseVisualStyleBackColor = true;
-            this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(52, 119);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(160, 37);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // FrmAltaPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -385,8 +397,8 @@ namespace VistaParcial
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gpbEquipajes.ResumeLayout(false);
+            this.gpbEquipajes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPeso)).EndInit();
             this.ResumeLayout(false);
 
@@ -398,7 +410,7 @@ namespace VistaParcial
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gpbEquipajes;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.ComboBox cboTipoPasajero;
         private System.Windows.Forms.TextBox txtDni;
@@ -424,5 +436,6 @@ namespace VistaParcial
         private System.Windows.Forms.NumericUpDown nudPeso;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrarVenta;
+        private System.Windows.Forms.Label lblError;
     }
 }

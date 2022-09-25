@@ -25,5 +25,24 @@ namespace Parcial.Entities
                 return this.esDeMano;
             }
         }
+
+        public Equipaje(float peso, bool esDeMano)
+        {
+            this.peso = peso;
+            this.esDeMano = esDeMano;
+            if (this.esDeMano)
+            {
+                this.peso = 0;
+            }
+        }
+        private string Mostrar()
+        {
+            return $"Peso: {this.peso} kg. Es equipaje de mano: {(this.esDeMano ? "Si" : "No")}";
+        }
+
+        public static string Mostrar(Equipaje equipaje)
+        {
+            return equipaje.Mostrar();
+        }
     }
 }

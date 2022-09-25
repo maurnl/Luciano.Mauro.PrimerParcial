@@ -39,7 +39,7 @@ namespace VistaParcial
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 634);
             this.Name = "FrmListadoVentas";
-            this.Text = "FrmListadoVentas";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

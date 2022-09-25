@@ -141,7 +141,6 @@ namespace Parcial.Entities
             Viaje.random = new Random();
             Viaje.contadorViaje = 5000;
         }
-
         public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
         {
             if(origen == destino)
@@ -211,7 +210,6 @@ namespace Parcial.Entities
             }
             return contador;
         }
-
         private float CalcularPrecioDeViaje(Puerto destino)
         {
             float precioViaje;
@@ -238,7 +236,6 @@ namespace Parcial.Entities
             }
             return cantidadHorasAleatoria;
         }
-
         private int ObtenerIndicePasajero(Pasajero pasajero)
         {
             int returnAux = -1;

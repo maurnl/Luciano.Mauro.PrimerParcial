@@ -50,6 +50,33 @@ namespace Parcial.Entities
                 return this.equipaje;
             }
         }
+        public int CantidadEquipaje
+        {
+            get
+            {
+                return this.equipaje.Count;
+            }
+        }
+
+        public Equipaje this[int indice]
+        {
+            get
+            {
+                Equipaje equipajeRetorno = null;
+                if(indice >= 0 && indice < this.equipaje.Count)
+                {
+                    equipajeRetorno = this.equipaje[indice];
+                }
+                return equipajeRetorno;
+            }
+            set
+            {
+                if (indice >= 0 && indice < this.equipaje.Count)
+                {
+                    this.equipaje[indice] = value;
+                }
+            }
+        }
 
         static Pasajero()
         {
@@ -73,8 +100,8 @@ namespace Parcial.Entities
 
         public static Pasajero operator +(Pasajero pasajero, Equipaje equipaje)
         {
-            if (pasajero.TipoPasajero == TipoPasajero.Turista && pasajero.ContarCantidadValijas() >= 1
-            || pasajero.TipoPasajero == TipoPasajero.Premium && pasajero.ContarCantidadValijas() >= 2)
+            if (!equipaje.EsDeMano && (pasajero.TipoPasajero == TipoPasajero.Turista && pasajero.ContarCantidadValijas() >= 1
+            || pasajero.TipoPasajero == TipoPasajero.Premium && pasajero.ContarCantidadValijas() >= 2))
             {
                 throw new Exception($"Se ha excedido el maximo de valijas permitidos (MAX {(pasajero.tipoPasajero == TipoPasajero.Turista ? '1' : '2')})");
             }

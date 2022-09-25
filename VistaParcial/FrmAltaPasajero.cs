@@ -39,14 +39,21 @@ namespace VistaParcial
         {
             this.cboTipoPasajero.DataSource = Enum.GetValues(typeof(TipoPasajero));
             this.btnEliminarPasajero.Enabled = false;
+            SetEquipajeControlsActivados(false);
         }
 
-        private void ActualizarListados()
+        private void ActualizarEquipajes()
         {
+            int cantidadEquipajes = this.pasajeroActual.CantidadEquipaje;
             this.lstEquipajes.Items.Clear();
-            foreach (Equipaje valijasDelPasajero in this.pasajeroActual.Equipaje)
+            this.lstEquipajes.Items.Add("No se registraron equipajes...");
+            if (cantidadEquipajes > 0)
             {
-                this.lstEquipajes.Items.Add(valijasDelPasajero.ToString());
+                this.lstEquipajes.Items.Clear();
+                for (int i = 0; i < cantidadEquipajes; i++)
+                {
+                    this.lstEquipajes.Items.Add(Equipaje.Mostrar(this.pasajeroActual[i]));
+                }
             }
         }
 
@@ -63,13 +70,19 @@ namespace VistaParcial
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());
             this.pasajeroActual = nuevoPasajero;
             this.btnEliminarPasajero.Enabled = true;
-            ActualizarListados();
+            ActualizarEquipajes();
         }
         private void lstPasajeros_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(this.lstPasajeros.SelectedIndex != -1)
             {
                 this.pasajeroActual = this.pasajeros[this.lstPasajeros.SelectedIndex];
+                ActualizarEquipajes();
+                SetEquipajeControlsActivados(true);
+            }
+            else
+            {
+                SetEquipajeControlsActivados(false);
             }
         }
 
@@ -86,7 +99,7 @@ namespace VistaParcial
             }
             this.lstPasajeros.SelectedIndex = indiceSeleccionado - 1;
             this.pasajeroActual = this.pasajeros[indiceSeleccionado - 1];
-            ActualizarListados();
+            ActualizarEquipajes();
         }
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
@@ -97,6 +110,34 @@ namespace VistaParcial
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnRegistrarEquipaje_Click(object sender, EventArgs e)
+        {
+            float peso = (int)this.nudPeso.Value;
+            bool esDeMano = this.chkEsDeMano.Checked;
+            Equipaje nuevoEquipaje = new Equipaje(peso, esDeMano);
+            try
+            {
+                this.pasajeroActual += nuevoEquipaje;
+            }catch(Exception agregarEquipajeEx)
+            {
+                this.lblError.Text = agregarEquipajeEx.Message;
+            }
+            ActualizarEquipajes();
+        }
+
+        private void SetEquipajeControlsActivados(bool valor)
+        {
+            this.lstEquipajes.BackColor = Color.LightGray;
+            if(valor)
+            {
+                this.lstEquipajes.BackColor = Color.White;
+            }
+            foreach (Control control in this.gpbEquipajes.Controls)
+            {
+                control.Enabled = valor;
+            }
         }
     }
 }
