@@ -30,6 +30,7 @@ namespace VistaParcial
             this.dgvListado.DataSource = this.fuenteDeDatos;
             this.dgvListado.ScrollBars = ScrollBars.Both;
             this.dgvListado.ReadOnly = true;
+            this.lblError.Text = "";
         }
 
         protected virtual void LimpiarFiltros()

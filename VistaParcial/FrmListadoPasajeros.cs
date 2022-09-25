@@ -36,5 +36,15 @@ namespace VistaParcial
             this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
             base.ActualizarListado();
         }
+        protected override void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            DataGridViewRow filaActual = base.dgvListado.Rows[e.RowIndex];
+            Pasajero pasajero = (Pasajero) filaActual.DataBoundItem;
+            filaActual.DefaultCellStyle.BackColor = Color.LightBlue;
+            if (pasajero.TipoPasajero == TipoPasajero.Premium)
+            {
+                filaActual.DefaultCellStyle.BackColor = Color.Goldenrod;
+            }
+        }
     }
 }

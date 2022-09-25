@@ -36,7 +36,7 @@ namespace VistaParcial
             this.cboCombobox = new System.Windows.Forms.ComboBox();
             this.btnAccionUno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,21 +109,21 @@ namespace VistaParcial
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.lblTitulo);
+            this.panel2.Controls.Add(this.lblError);
             this.panel2.Controls.Add(this.dgvListado);
             this.panel2.Location = new System.Drawing.Point(2, 72);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1174, 565);
             this.panel2.TabIndex = 1;
             // 
-            // lblTitulo
+            // lblError
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(10, 8);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(38, 15);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "label1";
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(10, 8);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(38, 15);
+            this.lblError.TabIndex = 1;
+            this.lblError.Text = "label1";
             // 
             // dgvListado
             // 
@@ -164,7 +164,7 @@ namespace VistaParcial
         protected System.Windows.Forms.DataGridView dgvListado;
         protected System.Windows.Forms.ComboBox cboCombobox;
         protected System.Windows.Forms.Button btnAccionUno;
-        protected System.Windows.Forms.Label lblTitulo;
+        protected System.Windows.Forms.Label lblError;
         protected System.Windows.Forms.Label lblCombobox;
         protected System.Windows.Forms.Button btnAccionDos;
         protected System.Windows.Forms.Button btnReiniciarFiltros;

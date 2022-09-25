@@ -35,6 +35,8 @@ namespace VistaParcial
             this.simularPasoDelTiempoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unaHoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,16 +65,18 @@ namespace VistaParcial
             // nuevoViajeToolStripMenuItem
             // 
             this.nuevoViajeToolStripMenuItem.Name = "nuevoViajeToolStripMenuItem";
-            this.nuevoViajeToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.nuevoViajeToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.nuevoViajeToolStripMenuItem.Text = "Nuevo viaje...";
             this.nuevoViajeToolStripMenuItem.Click += new System.EventHandler(this.nuevoViajeToolStripMenuItem_Click);
             // 
             // simularPasoDelTiempoToolStripMenuItem
             // 
+            this.simularPasoDelTiempoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unaHoraToolStripMenuItem,
+            this.otroToolStripMenuItem});
             this.simularPasoDelTiempoToolStripMenuItem.Name = "simularPasoDelTiempoToolStripMenuItem";
-            this.simularPasoDelTiempoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.simularPasoDelTiempoToolStripMenuItem.Text = "Simular paso del tiempo...";
-            this.simularPasoDelTiempoToolStripMenuItem.Click += new System.EventHandler(this.simularPasoDelTiempoToolStripMenuItem_Click);
+            this.simularPasoDelTiempoToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.simularPasoDelTiempoToolStripMenuItem.Text = "Simular paso del tiempo";
             // 
             // pasajerosToolStripMenuItem
             // 
@@ -87,6 +91,20 @@ namespace VistaParcial
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
+            // 
+            // unaHoraToolStripMenuItem
+            // 
+            this.unaHoraToolStripMenuItem.Name = "unaHoraToolStripMenuItem";
+            this.unaHoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unaHoraToolStripMenuItem.Text = "Avanzar 5 dias";
+            this.unaHoraToolStripMenuItem.Click += new System.EventHandler(this.unaHoraToolStripMenuItem_Click);
+            // 
+            // otroToolStripMenuItem
+            // 
+            this.otroToolStripMenuItem.Name = "otroToolStripMenuItem";
+            this.otroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otroToolStripMenuItem.Text = "Otro...";
+            this.otroToolStripMenuItem.Click += new System.EventHandler(this.otroToolStripMenuItem_Click);
             // 
             // FrmPrincipalContenedor
             // 
@@ -115,5 +133,7 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoViajeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem simularPasoDelTiempoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unaHoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otroToolStripMenuItem;
     }
 }

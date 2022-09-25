@@ -29,6 +29,7 @@ namespace VistaParcial
             {
                 try
                 {
+                    lblError.Text = "";
                     List<Pasajero> clientes = new List<Pasajero>();
                     foreach (Pasajero pasajeroPosible in formAltaPasajero.PasajerosPosibles)
                     {
@@ -40,9 +41,8 @@ namespace VistaParcial
                 }
                 catch (Exception agregarPasajerosEx)
                 {
-                    MessageBox.Show(agregarPasajerosEx.Message);
-                    //this.lblError.ForeColor = Color.Red;
-                    //this.lblError.Text = agregarPasajerosEx.Message;
+                    base.lblError.ForeColor = Color.Red;
+                    base.lblError.Text = agregarPasajerosEx.Message;
                 }
             }
             base.ActualizarListado();
