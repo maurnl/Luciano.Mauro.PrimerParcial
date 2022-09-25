@@ -14,6 +14,18 @@ namespace Parcial.Entities
         private Viaje viaje;
         private float precioBruto;
 
+        public string Clientes
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (Pasajero cliente in this.clientes)
+                {
+                    sb.Append(cliente.ToString() + " / ");
+                }
+                return sb.ToString();
+            }
+        }
         public string Fecha
         {
             get

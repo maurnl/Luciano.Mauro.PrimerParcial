@@ -9,6 +9,7 @@ namespace Parcial.Entities
     public sealed class Pasajero : PersonaBase
     {
         private static int contadorPasajero;
+        private bool estaViajando;
         private Pasaporte pasaporte;
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
@@ -66,6 +67,7 @@ namespace Parcial.Entities
         {
             this.fechaNacimiento = fechaNacimiento;
             this.tipoPasajero = tipoPasajero;
+            this.estaViajando = true;
             this.equipaje = new List<Equipaje>();
         }
 
@@ -142,7 +144,7 @@ namespace Parcial.Entities
 
         public override string ToString()
         {
-            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}.";
+            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. DNI: {Pasaporte.Dni}";
         }
     }
 }
