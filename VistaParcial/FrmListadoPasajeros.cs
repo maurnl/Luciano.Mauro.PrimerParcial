@@ -20,22 +20,21 @@ namespace VistaParcial
                 this.fuenteDeDatos.DataSource = value.Pasajeros;
             }
         }
+
         public FrmListadoPasajeros()
         {
             InitializeComponent();
-        }
-        public FrmListadoPasajeros(List<Viaje> listaEntidades) : this()
-        {
-            if (listaEntidades != null && listaEntidades.Count == 0)
+            if (SistemaCruceros.Viajes.Count == 0)
             {
                 throw new Exception("Cargue algun dato a la lista primero.");
             }
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboCombobox.DataSource = listaEntidades;
+            this.cboCombobox.DataSource = SistemaCruceros.Viajes;
             this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
             base.ActualizarListado();
         }
+
 
         private void cboCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {

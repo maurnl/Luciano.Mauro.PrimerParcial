@@ -14,12 +14,12 @@ namespace VistaParcial
     public partial class FrmViaje : Form
     {
         private bool estaEditando;
-        private Viaje viajeNuevo;
+        private Viaje viajeDelForm;
         public Viaje Viaje
         {
             get
             {
-                return this.viajeNuevo;
+                return this.viajeDelForm;
             }
         }
         public FrmViaje()
@@ -29,29 +29,23 @@ namespace VistaParcial
             this.Text = "Registro de viaje";
             this.lblError.ForeColor = Color.Red;
             this.lblError.Text = "";
-        }
-        
-        public FrmViaje(List<Crucero> cruceros, List<Puerto> puertos) : this()
-        {
-            this.cboCrucero.DataSource = cruceros;
-
-            this.cboDestino.DataSource = new List<Puerto>(puertos);
+            this.cboCrucero.DataSource = SistemaCruceros.Flota;
+            this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
+            this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
+            this.cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            this.cboOrigen.DataSource = new List<Puerto>(puertos);
             this.cboOrigen.Enabled = false;
         }
 
-        public FrmViaje(List<Crucero> cruceros, List<Puerto> puertos, Viaje viaje) : this(cruceros, puertos)
+        public FrmViaje(Viaje viaje) : this()
         {
             this.estaEditando = true;
-            this.viajeNuevo = viaje;
+            this.viajeDelForm = viaje;
             this.cboCrucero.SelectedItem = viaje.Crucero;
             this.cboOrigen.SelectedItem = viaje.Origen;
             this.cboDestino.SelectedItem = viaje.Destino;
-            this.cboDestino.Enabled = false;
             this.dtpFechaSalida.Value = viaje.Salida;
-            viaje.Crucero.EstaEnViaje = false;
+            this.viajeDelForm.Crucero.EstaEnViaje = false;
             this.btnAceptar.Text = "Aplicar cambios";
         }
 
@@ -65,11 +59,13 @@ namespace VistaParcial
             {
                 if (estaEditando)
                 {
-                    this.viajeNuevo.Salida = this.dtpFechaSalida.Value;
+                    this.viajeDelForm.Salida = this.dtpFechaSalida.Value;
+                    this.viajeDelForm.Destino = (Puerto)this.cboDestino.SelectedItem;
+                    this.viajeDelForm.Crucero.EstaEnViaje = true;
                 }
                 else
                 {
-                    this.viajeNuevo = new Viaje(origen, destino, crucero, fechaSalida);
+                    this.viajeDelForm = new Viaje(origen, destino, crucero, fechaSalida);
                 }
                 this.DialogResult = DialogResult.OK;
             }catch(Exception viajeEx)
@@ -82,7 +78,7 @@ namespace VistaParcial
         {
             if (estaEditando)
             {
-                this.viajeNuevo.Crucero.EstaEnViaje = true;
+                this.viajeDelForm.Crucero.EstaEnViaje = true;
             }
             this.DialogResult = DialogResult.Cancel;
         }

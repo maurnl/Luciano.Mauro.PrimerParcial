@@ -16,25 +16,23 @@ namespace VistaParcial
     public partial class FrmLogin : Form
     {
         private SistemaUsuarios sistemaUsuarios;
-        private SistemaApp sistemaApp;
         public FrmLogin()
         {
             InitializeComponent();
             this.sistemaUsuarios = new SistemaUsuarios();
-            this.sistemaApp = new SistemaApp();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
-            Hardcoder.HardcodearFlota(this.sistemaApp.Flota);
-            Hardcoder.HardcodearPuertos(this.sistemaApp.Puertos);
-            Hardcoder.HardcodearViajes(this.sistemaApp.Viajes, this.sistemaApp.Puertos, this.sistemaApp.Flota);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[0], TipoPasajero.Premium, 10);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[0], TipoPasajero.Turista, 30);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Premium, 10);
-            Hardcoder.HardcodearPasajeros(this.sistemaApp.Viajes[1], TipoPasajero.Turista, 30);
+            Hardcoder.HardcodearFlota(SistemaCruceros.Flota);
+            Hardcoder.HardcodearPuertos(SistemaCruceros.Puertos);
+            Hardcoder.HardcodearViajes(SistemaCruceros.Viajes, SistemaCruceros.Puertos, SistemaCruceros.Flota);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.Viajes[0], TipoPasajero.Premium, 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.Viajes[0], TipoPasajero.Turista, 30);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.Viajes[1], TipoPasajero.Premium, 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.Viajes[1], TipoPasajero.Turista, 30);
             this.Text = "Inicio de sesion";
             this.lblError.Text = "";
         }
@@ -53,7 +51,7 @@ namespace VistaParcial
             }
 
             Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
-            FrmPrincipalContenedor app = new FrmPrincipalContenedor(user, this, this.sistemaApp);
+            FrmPrincipalContenedor app = new FrmPrincipalContenedor(user, this);
             app.Show();
             this.Hide();
         }

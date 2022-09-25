@@ -16,18 +16,16 @@ namespace VistaParcial
     {
         private Usuario user;
         private FrmLogin login;
-        private SistemaApp sistema;
         private FrmListadoViajes formListadoViajes;
         private FrmListadoPasajeros formListadoPasajeros;
 
-        public FrmPrincipalContenedor(Usuario user, FrmLogin login, SistemaApp sistema)
+        public FrmPrincipalContenedor(Usuario user, FrmLogin login)
         {
             InitializeComponent();
             this.user = user;
             this.login = login;
-            this.sistema = sistema;
-            this.formListadoViajes = new FrmListadoViajes(this.sistema.Viajes);
-            this.formListadoPasajeros = new FrmListadoPasajeros(this.sistema.Viajes);
+            this.formListadoViajes = new FrmListadoViajes();
+            this.formListadoPasajeros = new FrmListadoPasajeros();
         }
 
         private void FrmPrincipalContenedor_Load(object sender, EventArgs e)
@@ -52,10 +50,10 @@ namespace VistaParcial
 
         private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmViaje formViaje = new FrmViaje(this.sistema.Flota, this.sistema.Puertos);
+            FrmViaje formViaje = new FrmViaje();
             if (formViaje.ShowDialog() == DialogResult.OK)
             {
-                this.sistema.Viajes.Add(formViaje.Viaje);
+                SistemaCruceros.Viajes.Add(formViaje.Viaje);
                 ActualizarFormListados();
             }
         }

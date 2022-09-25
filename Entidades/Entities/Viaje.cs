@@ -43,6 +43,10 @@ namespace Parcial.Entities
             {
                 return this.destino;
             }
+            set
+            {
+                this.destino = value;
+            }
         }
         public Crucero Crucero
         {

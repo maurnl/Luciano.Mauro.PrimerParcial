@@ -16,14 +16,11 @@ namespace VistaParcial
         public FrmListadoViajes()
         {
             InitializeComponent();
-        }
-        public FrmListadoViajes(List<Viaje> listaEntidades) : this()
-        {
-            if (listaEntidades != null && listaEntidades.Count == 0)
+            if (SistemaCruceros.Viajes.Count == 0)
             {
-                throw new Exception("Cargue algun dato a la lista primero.");
+                throw new Exception("Cargue algun viaje a la lista primero.");
             }
-            base.fuenteDeDatos.DataSource = listaEntidades;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.Viajes;
             base.btnAccionUno.Text = "Agregar pasajero...";
             base.ActualizarListado();
         }
@@ -119,7 +116,7 @@ namespace VistaParcial
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
             Viaje viajeAEditar = ((Viaje)base.fuenteDeDatos.Current);
-            FrmViaje formEditarViaje = new FrmViaje(new List<Crucero> { viajeAEditar.Crucero }, new List<Puerto> { viajeAEditar.Origen, viajeAEditar.Destino }, viajeAEditar); ;
+            FrmViaje formEditarViaje = new FrmViaje(viajeAEditar);
             if (formEditarViaje.ShowDialog() == DialogResult.OK)
             {
                 base.ActualizarListado();
