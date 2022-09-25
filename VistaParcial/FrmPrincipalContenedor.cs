@@ -18,6 +18,7 @@ namespace VistaParcial
         private FrmLogin login;
         private FrmListadoViajes formListadoViajes;
         private FrmListadoPasajeros formListadoPasajeros;
+        private FrmListadoVentas formListadoVentas;
 
         public FrmPrincipalContenedor(Usuario user, FrmLogin login)
         {
@@ -26,6 +27,7 @@ namespace VistaParcial
             this.login = login;
             this.formListadoViajes = new FrmListadoViajes();
             this.formListadoPasajeros = new FrmListadoPasajeros();
+            this.formListadoVentas = new FrmListadoVentas();
         }
 
         private void FrmPrincipalContenedor_Load(object sender, EventArgs e)
@@ -34,24 +36,17 @@ namespace VistaParcial
             this.IsMdiContainer = true;
             this.formListadoPasajeros.MdiParent = this;
             this.formListadoViajes.MdiParent = this;
+            this.formListadoVentas.MdiParent = this;
         }
 
         private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.formListadoPasajeros.Hide();
-            this.formListadoViajes.Show();
+            MostrarListado("viajes");
         }
 
         private void pasajerosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.formListadoViajes.Hide();
-            this.formListadoPasajeros.Show();
-        }
-
-        private void ActualizarFormListados()
-        {
-            formListadoPasajeros.ActualizarListado();
-            formListadoViajes.ActualizarListado();
+            MostrarListado("pasajeros");
         }
 
         private void FrmPrincipalContenedor_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,6 +61,33 @@ namespace VistaParcial
         private void FrmPrincipalContenedor_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.login.Show();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarListado("ventas");
+        }
+
+        private void MostrarListado(string nombreListado)
+        {
+            this.formListadoPasajeros.Hide();
+            this.formListadoVentas.Hide();
+            this.formListadoViajes.Hide();
+            switch (nombreListado)
+            {
+                case "viajes":
+                    this.formListadoViajes.Show();
+                    break;
+                case "pasajeros":
+                    this.formListadoPasajeros.Show();
+                    break;
+                case "ventas":
+                    this.formListadoVentas.Show();
+                    break;
+                default:
+                    this.formListadoViajes.Show();
+                    break;
+            }
         }
     }
 }

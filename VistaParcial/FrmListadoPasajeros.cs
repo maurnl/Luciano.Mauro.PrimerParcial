@@ -24,10 +24,6 @@ namespace VistaParcial
         public FrmListadoPasajeros()
         {
             InitializeComponent();
-            if (SistemaCruceros.Viajes.Count == 0)
-            {
-                throw new Exception("Cargue algun dato a la lista primero.");
-            }
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = SistemaCruceros.Viajes;

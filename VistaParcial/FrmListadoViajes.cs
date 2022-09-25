@@ -16,10 +16,6 @@ namespace VistaParcial
         public FrmListadoViajes()
         {
             InitializeComponent();
-            if (SistemaCruceros.Viajes.Count == 0)
-            {
-                throw new Exception("Cargue algun viaje a la lista primero.");
-            }
             base.fuenteDeDatos.DataSource = SistemaCruceros.Viajes;
             base.btnAccionUno.Text = "Agregar pasajero...";
             base.ActualizarListado();
