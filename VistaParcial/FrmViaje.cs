@@ -49,6 +49,7 @@ namespace VistaParcial
             this.cboCrucero.SelectedItem = viaje.Crucero;
             this.cboOrigen.SelectedItem = viaje.Origen;
             this.cboDestino.SelectedItem = viaje.Destino;
+            this.cboDestino.Enabled = false;
             this.dtpFechaSalida.Value = viaje.Salida;
             viaje.Crucero.EstaEnViaje = false;
             this.btnAceptar.Text = "Aplicar cambios";
