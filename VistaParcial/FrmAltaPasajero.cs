@@ -15,13 +15,13 @@ namespace VistaParcial
     {
         private Pasajero? pasajeroActual;
         private Viaje viaje;
-        private List<Pasajero> pasajeros;
+        private List<Pasajero> pasajerosPosibles;
 
         public List<Pasajero> PasajerosPosibles
         {
             get
             {
-                return this.pasajeros;
+                return this.pasajerosPosibles;
             }
         }
         public FrmAltaPasajero()
@@ -31,7 +31,7 @@ namespace VistaParcial
 
         public FrmAltaPasajero(Viaje viaje) : this()
         {
-            this.pasajeros = new List<Pasajero>();
+            this.pasajerosPosibles = new List<Pasajero>();
             this.viaje = viaje;
         }
 
@@ -67,8 +67,13 @@ namespace VistaParcial
             DateTime fechaNacimiento = this.dtpFechaNacimiento.Value;
             DateTime fechaExpedido = this.dtpFechaPasaporte.Value;
             TipoPasajero tipo = (TipoPasajero)this.cboTipoPasajero.SelectedItem;
-            Pasajero nuevoPasajero = new Pasajero(nombreCompleto, new Pasaporte(int.Parse(dni), fechaExpedido), fechaNacimiento, tipo);
-            this.pasajeros.Add(nuevoPasajero);
+
+            Pasajero nuevoPasajero = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(dni));
+            if (nuevoPasajero == null)
+            {
+                nuevoPasajero = new Pasajero(nombreCompleto, new Pasaporte(int.Parse(dni), fechaExpedido), fechaNacimiento, tipo);
+            }
+            this.pasajerosPosibles.Add(nuevoPasajero);
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());
             this.pasajeroActual = nuevoPasajero;
             this.btnEliminarPasajero.Enabled = true;
@@ -78,7 +83,7 @@ namespace VistaParcial
         {
             if(this.lstPasajeros.SelectedIndex != -1)
             {
-                this.pasajeroActual = this.pasajeros[this.lstPasajeros.SelectedIndex];
+                this.pasajeroActual = this.pasajerosPosibles[this.lstPasajeros.SelectedIndex];
                 ActualizarEquipajes();
                 SetEquipajeControlsActivados(true);
             }
@@ -91,7 +96,7 @@ namespace VistaParcial
         private void btnEliminarPasajero_Click(object sender, EventArgs e)
         {
             int indiceSeleccionado = this.lstPasajeros.SelectedIndex;
-            this.pasajeros.RemoveAt(indiceSeleccionado);
+            this.pasajerosPosibles.RemoveAt(indiceSeleccionado);
             this.lstPasajeros.Items.RemoveAt(indiceSeleccionado);
             if (indiceSeleccionado == 0)
             {
@@ -100,7 +105,7 @@ namespace VistaParcial
                 return;
             }
             this.lstPasajeros.SelectedIndex = indiceSeleccionado - 1;
-            this.pasajeroActual = this.pasajeros[indiceSeleccionado - 1];
+            this.pasajeroActual = this.pasajerosPosibles[indiceSeleccionado - 1];
             ActualizarEquipajes();
         }
 
@@ -174,6 +179,28 @@ namespace VistaParcial
             this.lblLugaresPremiumDisponible.Text = $"Pasajeros Premium: {pasajerosPremiumABordo}/{capacidadPasajerosPremium}.";
             this.lblLugaresTuristaDisponibles.Text = $"Pasajeros Turista: {pasajerosTuristaABordo}/{capacidadPasajerosTurista}.";
             this.lblPesoDisponible.Text = $"Peso en bodega: {capacidadBodegaActual}/{capacidadBodegaTotal} kg";
+        }
+
+        private void btnBuscarPasajero_Click(object sender, EventArgs e)
+        {
+            Pasajero pasajeroBusqueda = null;
+            try
+            {
+                pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
+            }catch(Exception)
+            {
+                this.lblError.ForeColor = Color.Red;
+                this.lblError.Text = "No se encontro el pasajero";
+            }
+            if(pasajeroBusqueda != null)
+            {
+                this.txtNombre.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[0];
+                this.txtApellido.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[1];
+                this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
+                this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
+                this.dtpFechaPasaporte.Value = pasajeroBusqueda.Pasaporte.FechaVencimiento - TimeSpan.FromDays(1460);
+                this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
+            }
         }
     }
 }

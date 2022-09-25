@@ -49,6 +49,7 @@ namespace VistaParcial
             this.btnEliminarPasajero = new System.Windows.Forms.Button();
             this.lstPasajeros = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblLugaresPremiumDisponible = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.lblPesoDisponible = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@ namespace VistaParcial
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
-            this.lblLugaresPremiumDisponible = new System.Windows.Forms.Label();
+            this.btnBuscarPasajero = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,6 +95,7 @@ namespace VistaParcial
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnBuscarPasajero);
             this.groupBox1.Controls.Add(this.chkEquipaje);
             this.groupBox1.Controls.Add(this.btnRegistrarPasajero);
             this.groupBox1.Controls.Add(this.label6);
@@ -277,6 +279,15 @@ namespace VistaParcial
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del crucero";
             // 
+            // lblLugaresPremiumDisponible
+            // 
+            this.lblLugaresPremiumDisponible.AutoSize = true;
+            this.lblLugaresPremiumDisponible.Location = new System.Drawing.Point(21, 47);
+            this.lblLugaresPremiumDisponible.Name = "lblLugaresPremiumDisponible";
+            this.lblLugaresPremiumDisponible.Size = new System.Drawing.Size(38, 15);
+            this.lblLugaresPremiumDisponible.TabIndex = 4;
+            this.lblLugaresPremiumDisponible.Text = "label7";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(52, 119);
@@ -384,14 +395,15 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
-            // lblLugaresPremiumDisponible
+            // btnBuscarPasajero
             // 
-            this.lblLugaresPremiumDisponible.AutoSize = true;
-            this.lblLugaresPremiumDisponible.Location = new System.Drawing.Point(21, 47);
-            this.lblLugaresPremiumDisponible.Name = "lblLugaresPremiumDisponible";
-            this.lblLugaresPremiumDisponible.Size = new System.Drawing.Size(38, 15);
-            this.lblLugaresPremiumDisponible.TabIndex = 4;
-            this.lblLugaresPremiumDisponible.Text = "label7";
+            this.btnBuscarPasajero.Location = new System.Drawing.Point(247, 225);
+            this.btnBuscarPasajero.Name = "btnBuscarPasajero";
+            this.btnBuscarPasajero.Size = new System.Drawing.Size(25, 22);
+            this.btnBuscarPasajero.TabIndex = 16;
+            this.btnBuscarPasajero.Text = "button1";
+            this.btnBuscarPasajero.UseVisualStyleBackColor = true;
+            this.btnBuscarPasajero.Click += new System.EventHandler(this.btnBuscarPasajero_Click);
             // 
             // FrmAltaPasajero
             // 
@@ -449,5 +461,6 @@ namespace VistaParcial
         private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblLugaresPremiumDisponible;
+        private System.Windows.Forms.Button btnBuscarPasajero;
     }
 }

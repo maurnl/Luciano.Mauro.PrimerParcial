@@ -139,6 +139,18 @@ namespace Parcial.Entities
                 return this.crucero.TienePiscina ? "SI" : "NO";
             }
         }
+        public Pasajero this[int indice]
+        {
+            get
+            {
+                Pasajero pasajero = null;
+                if (indice >= 0 && indice < this.pasajeros.Count)
+                {
+                    pasajero = this.pasajeros[indice];
+                }
+                return pasajero;
+            }
+        }
         static Viaje()
         {
             Viaje.random = new Random();

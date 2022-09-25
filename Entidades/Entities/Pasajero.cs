@@ -29,6 +29,13 @@ namespace Parcial.Entities
                 return (DateTime.Now - this.fechaNacimiento).Days / 365;
             }
         }
+        public DateTime FechaNacimiento
+        {
+            get
+            {
+                return this.fechaNacimiento;
+            }
+        }
         public Pasaporte Pasaporte
         {
             get
