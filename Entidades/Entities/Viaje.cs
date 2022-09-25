@@ -46,6 +46,8 @@ namespace Parcial.Entities
             set
             {
                 this.destino = value;
+                this.precioPasajePorHora = CalcularPrecioDeViaje(this.destino);
+                this.duracionEnHoras = CalcularDuracionDeViaje(this.destino);
             }
         }
         public Crucero Crucero

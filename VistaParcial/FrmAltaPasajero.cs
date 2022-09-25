@@ -38,8 +38,10 @@ namespace VistaParcial
         private void FrmAltaPasajero_Load(object sender, EventArgs e)
         {
             this.cboTipoPasajero.DataSource = Enum.GetValues(typeof(TipoPasajero));
+            this.lblError.Text = "";
             this.btnEliminarPasajero.Enabled = false;
             SetEquipajeControlsActivados(false);
+            ActualizarDatosDeViaje();
         }
 
         private void ActualizarEquipajes()
@@ -114,6 +116,7 @@ namespace VistaParcial
 
         private void btnRegistrarEquipaje_Click(object sender, EventArgs e)
         {
+            this.lblError.Text = "";
             float peso = (int)this.nudPeso.Value;
             bool esDeMano = this.chkEsDeMano.Checked;
             Equipaje nuevoEquipaje = new Equipaje(peso, esDeMano);
@@ -122,6 +125,7 @@ namespace VistaParcial
                 this.pasajeroActual += nuevoEquipaje;
             }catch(Exception agregarEquipajeEx)
             {
+                this.lblError.ForeColor = Color.Red;
                 this.lblError.Text = agregarEquipajeEx.Message;
             }
             ActualizarEquipajes();
@@ -138,6 +142,38 @@ namespace VistaParcial
             {
                 control.Enabled = valor;
             }
+        }
+
+        private void ActualizarDatosDeViaje()
+        {
+            float capacidadBodegaTotal = this.viaje.Crucero.PesoBodegaMaximo;
+            float capacidadBodegaActual = this.viaje.Crucero.PesoBodegaActual;
+
+            int capacidadPasajerosTurista = this.viaje.Crucero.CapacidadPasajerosTurista;
+            int pasajerosTuristaABordo = this.viaje.PasajerosTuristasABordo;
+
+            int capacidadPasajerosPremium = this.viaje.Crucero.CapacidadPasajerosPremium;
+            int pasajerosPremiumABordo = this.viaje.PasajerosPremiumABordo;
+
+            this.lblLugaresPremiumDisponible.ForeColor = Color.Green;
+            this.lblLugaresTuristaDisponibles.ForeColor = Color.Green;
+            this.lblPesoDisponible.ForeColor = Color.Green;
+            if (pasajerosTuristaABordo >= capacidadPasajerosTurista * 80 / 100)
+            {
+                this.lblLugaresTuristaDisponibles.ForeColor = Color.Orange;
+            }
+            if (pasajerosPremiumABordo >= capacidadPasajerosPremium * 80 / 100)
+            {
+                this.lblLugaresPremiumDisponible.ForeColor = Color.Orange;
+            }
+            if (capacidadBodegaActual >= capacidadBodegaTotal * 80 / 100)
+            {
+                this.lblPesoDisponible.ForeColor = Color.Orange;
+            }
+
+            this.lblLugaresPremiumDisponible.Text = $"Pasajeros Premium: {pasajerosPremiumABordo}/{capacidadPasajerosPremium}.";
+            this.lblLugaresTuristaDisponibles.Text = $"Pasajeros Turista: {pasajerosTuristaABordo}/{capacidadPasajerosTurista}.";
+            this.lblPesoDisponible.Text = $"Peso en bodega: {capacidadBodegaActual}/{capacidadBodegaTotal} kg";
         }
     }
 }

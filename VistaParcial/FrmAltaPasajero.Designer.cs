@@ -52,7 +52,7 @@ namespace VistaParcial
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.lblPesoDisponible = new System.Windows.Forms.Label();
-            this.lblLugaresDisponibles = new System.Windows.Forms.Label();
+            this.lblLugaresTuristaDisponibles = new System.Windows.Forms.Label();
             this.gpbEquipajes = new System.Windows.Forms.GroupBox();
             this.lblError = new System.Windows.Forms.Label();
             this.btnRegistrarEquipaje = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace VistaParcial
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
+            this.lblLugaresPremiumDisponible = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -264,10 +265,11 @@ namespace VistaParcial
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblLugaresPremiumDisponible);
             this.groupBox3.Controls.Add(this.btnCancelar);
             this.groupBox3.Controls.Add(this.btnRegistrarVenta);
             this.groupBox3.Controls.Add(this.lblPesoDisponible);
-            this.groupBox3.Controls.Add(this.lblLugaresDisponibles);
+            this.groupBox3.Controls.Add(this.lblLugaresTuristaDisponibles);
             this.groupBox3.Location = new System.Drawing.Point(3, 483);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(272, 167);
@@ -298,20 +300,20 @@ namespace VistaParcial
             // lblPesoDisponible
             // 
             this.lblPesoDisponible.AutoSize = true;
-            this.lblPesoDisponible.Location = new System.Drawing.Point(21, 30);
+            this.lblPesoDisponible.Location = new System.Drawing.Point(21, 17);
             this.lblPesoDisponible.Name = "lblPesoDisponible";
             this.lblPesoDisponible.Size = new System.Drawing.Size(38, 15);
             this.lblPesoDisponible.TabIndex = 1;
             this.lblPesoDisponible.Text = "label8";
             // 
-            // lblLugaresDisponibles
+            // lblLugaresTuristaDisponibles
             // 
-            this.lblLugaresDisponibles.AutoSize = true;
-            this.lblLugaresDisponibles.Location = new System.Drawing.Point(21, 45);
-            this.lblLugaresDisponibles.Name = "lblLugaresDisponibles";
-            this.lblLugaresDisponibles.Size = new System.Drawing.Size(38, 15);
-            this.lblLugaresDisponibles.TabIndex = 0;
-            this.lblLugaresDisponibles.Text = "label7";
+            this.lblLugaresTuristaDisponibles.AutoSize = true;
+            this.lblLugaresTuristaDisponibles.Location = new System.Drawing.Point(21, 32);
+            this.lblLugaresTuristaDisponibles.Name = "lblLugaresTuristaDisponibles";
+            this.lblLugaresTuristaDisponibles.Size = new System.Drawing.Size(38, 15);
+            this.lblLugaresTuristaDisponibles.TabIndex = 0;
+            this.lblLugaresTuristaDisponibles.Text = "label7";
             // 
             // gpbEquipajes
             // 
@@ -382,6 +384,15 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
+            // lblLugaresPremiumDisponible
+            // 
+            this.lblLugaresPremiumDisponible.AutoSize = true;
+            this.lblLugaresPremiumDisponible.Location = new System.Drawing.Point(21, 47);
+            this.lblLugaresPremiumDisponible.Name = "lblLugaresPremiumDisponible";
+            this.lblLugaresPremiumDisponible.Size = new System.Drawing.Size(38, 15);
+            this.lblLugaresPremiumDisponible.TabIndex = 4;
+            this.lblLugaresPremiumDisponible.Text = "label7";
+            // 
             // FrmAltaPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -428,7 +439,7 @@ namespace VistaParcial
         private System.Windows.Forms.Button btnEliminarPasajero;
         private System.Windows.Forms.ListBox lstPasajeros;
         private System.Windows.Forms.Label lblPesoDisponible;
-        private System.Windows.Forms.Label lblLugaresDisponibles;
+        private System.Windows.Forms.Label lblLugaresTuristaDisponibles;
         private System.Windows.Forms.Button btnRegistrarEquipaje;
         private System.Windows.Forms.CheckBox chkEsDeMano;
         private System.Windows.Forms.Label label9;
@@ -437,5 +448,6 @@ namespace VistaParcial
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblLugaresPremiumDisponible;
     }
 }
