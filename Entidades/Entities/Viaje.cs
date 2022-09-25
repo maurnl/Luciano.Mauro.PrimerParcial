@@ -18,17 +18,17 @@ namespace Parcial.Entities
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
         private DateTime fechaActual;
-        private bool viajeEstaFinalizado;
+        private EstadoDeViaje estadoDeViaje;
 
-        public bool ViajeEstaFinalizado
+        public EstadoDeViaje EstadoDeViaje
         {
             get
             {
-                return this.viajeEstaFinalizado;
+                return this.estadoDeViaje;
             }
             set
             {
-                this.viajeEstaFinalizado = value;
+                this.estadoDeViaje = value;
             }
         }
         public Puerto Origen
@@ -156,7 +156,7 @@ namespace Parcial.Entities
             }
             base.id = Viaje.contadorViaje;
             Viaje.contadorViaje++;
-            this.viajeEstaFinalizado = false;
+            this.estadoDeViaje = EstadoDeViaje.Abordando;
             this.origen = origen;
             this.destino = destino;
             this.crucero = crucero;
@@ -204,9 +204,13 @@ namespace Parcial.Entities
         public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
             viaje.fechaActual += tiempo;
-            if(viaje.fechaActual >= viaje.Llegada)
+            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
             {
-                viaje.viajeEstaFinalizado = true;
+                viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
+            }
+            else if(viaje.fechaActual >= viaje.Llegada)
+            {
+                viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
                 foreach (Pasajero pasajero in viaje.pasajeros)
                 {

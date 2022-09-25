@@ -70,24 +70,26 @@ namespace VistaParcial
 
         private void MostrarListado(string nombreListado)
         {
-            this.formListadoPasajeros.Hide();
-            this.formListadoVentas.Hide();
-            this.formListadoViajes.Hide();
+            FrmListadoBase formMostrado;
             switch (nombreListado)
             {
                 case "viajes":
-                    this.formListadoViajes.Show();
+                    formMostrado = formListadoViajes;
                     break;
                 case "pasajeros":
-                    this.formListadoPasajeros.Show();
+                    formMostrado = formListadoPasajeros;
                     break;
                 case "ventas":
-                    this.formListadoVentas.Show();
+                    formMostrado = formListadoVentas;
                     break;
                 default:
-                    this.formListadoViajes.Show();
+                    formMostrado = formListadoViajes;
                     break;
             }
+            formMostrado.Show();
+            formMostrado.Location = new Point(0, 0);
+            formMostrado.Activate();
+            formMostrado.ActualizarListado();
         }
 
         private void simularPasoDelTiempoToolStripMenuItem_Click(object sender, EventArgs e)

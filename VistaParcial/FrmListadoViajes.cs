@@ -92,17 +92,20 @@ namespace VistaParcial
             DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
             if (filaActual.DataBoundItem is Viaje viaje)
             {
-                if (viaje.ViajeEstaFinalizado)
+                if (viaje.EstadoDeViaje == EstadoDeViaje.Finalizado)
                 {
                     filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
                 }
-                else
+                else if(viaje.EstadoDeViaje == EstadoDeViaje.EnCurso)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.Yellow;
+                } else 
                 {
                     filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
                 }
                 if (viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
                 {
-                    filaActual.DefaultCellStyle.BackColor = Color.Yellow;
+                    filaActual.DefaultCellStyle.BackColor = Color.OrangeRed;
                 }
             }
         }
