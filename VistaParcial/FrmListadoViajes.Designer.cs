@@ -50,12 +50,16 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Size = new System.Drawing.Size(264, 23);
+            this.cboCombobox.Size = new System.Drawing.Size(271, 23);
             // 
-            // btnFiltroUno
+            // btnAccionUno
             // 
-            this.btnAccionUno.Location = new System.Drawing.Point(26, 12);
+            this.btnAccionUno.Location = new System.Drawing.Point(30, 12);
             this.btnAccionUno.Click += new System.EventHandler(this.btnFiltroUno_Click);
+            // 
+            // btnAccionDos
+            // 
+            this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);
             // 
             // btnReiniciarFiltros
             // 
@@ -90,6 +94,7 @@ namespace VistaParcial
             this.ClientSize = new System.Drawing.Size(1186, 611);
             this.Name = "FrmListadoViajes";
             this.Text = "FrmListadoViajes";
+            this.Load += new System.EventHandler(this.FrmListadoViajes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

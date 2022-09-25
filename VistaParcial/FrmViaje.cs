@@ -13,6 +13,7 @@ namespace VistaParcial
 {
     public partial class FrmViaje : Form
     {
+        private bool estaEditando;
         private Viaje viajeNuevo;
         public Viaje Viaje
         {
@@ -24,6 +25,7 @@ namespace VistaParcial
         public FrmViaje()
         {
             InitializeComponent();
+            this.estaEditando = false;
             this.Text = "Registro de viaje";
             this.lblError.ForeColor = Color.Red;
             this.lblError.Text = "";
@@ -37,8 +39,19 @@ namespace VistaParcial
             this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
 
             this.cboOrigen.DataSource = new List<Puerto>(puertos);
-            this.cboOrigen.SelectedIndex = 0;
             this.cboOrigen.Enabled = false;
+        }
+
+        public FrmViaje(List<Crucero> cruceros, List<Puerto> puertos, Viaje viaje) : this(cruceros, puertos)
+        {
+            this.viajeNuevo = viaje;
+            this.estaEditando = true;
+            this.cboCrucero.SelectedItem = viaje.Crucero;
+            this.cboOrigen.SelectedItem = viaje.Origen;
+            this.cboDestino.SelectedItem = viaje.Destino;
+            this.dtpFechaSalida.Value = viaje.Salida;
+            viaje.Crucero.EstaEnViaje = false;
+            this.btnAceptar.Text = "Aplicar cambios";
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -49,7 +62,14 @@ namespace VistaParcial
             DateTime fechaSalida = this.dtpFechaSalida.Value;
             try
             {
-                this.viajeNuevo = new Viaje(origen, destino, crucero, fechaSalida);
+                if (estaEditando)
+                {
+                    this.viajeNuevo.Salida = this.dtpFechaSalida.Value;
+                }
+                else
+                {
+                    this.viajeNuevo = new Viaje(origen, destino, crucero, fechaSalida);
+                }
                 this.DialogResult = DialogResult.OK;
             }catch(Exception viajeEx)
             {
@@ -59,6 +79,10 @@ namespace VistaParcial
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            if (estaEditando)
+            {
+                this.viajeNuevo.Crucero.EstaEnViaje = true;
+            }
             this.DialogResult = DialogResult.Cancel;
         }
     }

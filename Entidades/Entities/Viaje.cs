@@ -106,6 +106,10 @@ namespace Parcial.Entities
             {
                 return this.fechaSalida;
             }
+            set
+            {
+                this.fechaSalida = value;
+            }
         }
         public DateTime Llegada
         {

@@ -13,14 +13,6 @@ namespace VistaParcial
 {
     public partial class FrmListadoViajes : FrmListadoBase
     {
-        private Viaje viajeSeleccionado;
-        public Viaje ViajeSeleccionado
-        {
-            get
-            {
-                return (Viaje) this.fuenteDeDatos.Current;
-            }
-        }
         public FrmListadoViajes()
         {
             InitializeComponent();
@@ -33,8 +25,7 @@ namespace VistaParcial
             }
             base.fuenteDeDatos.DataSource = listaEntidades;
             base.btnAccionUno.Text = "Agregar pasajero...";
-            this.MdiParent.Click
-            ActualizarListado();
+            base.ActualizarListado();
         }
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
@@ -57,7 +48,7 @@ namespace VistaParcial
                     //this.lblError.Text = agregarPasajerosEx.Message;
                 }
             }
-            this.ActualizarListado();
+            base.ActualizarListado();
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
@@ -90,7 +81,7 @@ namespace VistaParcial
             }
         }
 
-        protected internal override void LimpiarFiltros()
+        protected override void LimpiarFiltros()
         {
             base.LimpiarFiltros();
             this.chkFiltroUno.Enabled = true;            
@@ -122,8 +113,22 @@ namespace VistaParcial
 
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)
         {
-            base.LimpiarFiltros();
             LimpiarFiltros();
+        }
+
+        private void btnAccionDos_Click(object sender, EventArgs e)
+        {
+            Viaje viajeAEditar = ((Viaje)base.fuenteDeDatos.Current);
+            FrmViaje formEditarViaje = new FrmViaje(new List<Crucero> { viajeAEditar.Crucero }, new List<Puerto> { viajeAEditar.Origen, viajeAEditar.Destino }, viajeAEditar); ;
+            if (formEditarViaje.ShowDialog() == DialogResult.OK)
+            {
+                base.ActualizarListado();
+            }
+        }
+
+        private void FrmListadoViajes_Load(object sender, EventArgs e)
+        {
+            this.btnAccionDos.Text = "Editar viaje...";
         }
     }
 }

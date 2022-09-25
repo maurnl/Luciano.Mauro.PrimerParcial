@@ -32,7 +32,7 @@ namespace VistaParcial
             this.dgvListado.ReadOnly = true;
         }
 
-        protected internal virtual void LimpiarFiltros()
+        protected virtual void LimpiarFiltros()
         {
             foreach (DataGridViewRow fila in this.dgvListado.Rows)
             {
