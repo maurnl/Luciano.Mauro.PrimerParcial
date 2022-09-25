@@ -48,16 +48,6 @@ namespace VistaParcial
             this.formListadoPasajeros.Show();
         }
 
-        private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmViaje formViaje = new FrmViaje();
-            if (formViaje.ShowDialog() == DialogResult.OK)
-            {
-                SistemaCruceros.Viajes.Add(formViaje.Viaje);
-                ActualizarFormListados();
-            }
-        }
-
         private void ActualizarFormListados()
         {
             formListadoPasajeros.ActualizarListado();

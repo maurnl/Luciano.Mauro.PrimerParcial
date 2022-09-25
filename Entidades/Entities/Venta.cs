@@ -59,14 +59,30 @@ namespace Parcial.Entities
         {
             Venta.contadorVenta = 0;
         }
-        public Venta(DateTime fecha, Viaje viaje, float precioBruto, List<Pasajero> clientes)
+        public Venta(Viaje viaje, List<Pasajero> clientes)
         {
             base.id = Venta.contadorVenta;
             Venta.contadorVenta++;
-            this.fecha = fecha;
             this.viaje = viaje;
-            this.precioBruto = precioBruto;
             this.clientes = clientes;
+            this.fecha = DateTime.Now;
+            this.precioBruto = CalcularPrecioBruto();
+        }
+
+        private float CalcularPrecioBruto()
+        {
+            float acumuladorPrecios = 0;
+            foreach (Pasajero pasajero in this.clientes)
+            {
+                if(pasajero.TipoPasajero == TipoPasajero.Premium)
+                {
+                    acumuladorPrecios += this.viaje.PrecioPremium;
+                } else
+                {
+                    acumuladorPrecios += this.viaje.PrecioTurista;
+                }
+            }
+            return acumuladorPrecios;
         }
 
         public override string ToString()

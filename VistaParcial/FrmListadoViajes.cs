@@ -33,10 +33,14 @@ namespace VistaParcial
             {
                 try
                 {
+                    List<Pasajero> clientes = new List<Pasajero>();
                     foreach (Pasajero pasajeroPosible in formAltaPasajero.PasajerosPosibles)
                     {
                         viajeSeleccionado += pasajeroPosible;
+                        clientes.Add(pasajeroPosible);
                     }
+                    Venta venta = new Venta(viajeSeleccionado, clientes);
+                    SistemaCruceros.Ventas.Add(venta);
                 }
                 catch (Exception agregarPasajerosEx)
                 {

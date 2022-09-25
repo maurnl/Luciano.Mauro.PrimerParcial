@@ -63,7 +63,6 @@ namespace VistaParcial
             this.nuevoViajeToolStripMenuItem.Name = "nuevoViajeToolStripMenuItem";
             this.nuevoViajeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.nuevoViajeToolStripMenuItem.Text = "Nuevo viaje...";
-            this.nuevoViajeToolStripMenuItem.Click += new System.EventHandler(this.nuevoViajeToolStripMenuItem_Click);
             // 
             // pasajerosToolStripMenuItem
             // 
