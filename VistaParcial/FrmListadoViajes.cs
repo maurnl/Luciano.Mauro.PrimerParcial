@@ -95,7 +95,6 @@ namespace VistaParcial
                 if (viaje.ViajeEstaFinalizado)
                 {
                     filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
-                    filaActual.Visible = false;
                 }
                 else
                 {

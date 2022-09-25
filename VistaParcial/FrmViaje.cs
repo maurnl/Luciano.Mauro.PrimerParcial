@@ -15,7 +15,7 @@ namespace VistaParcial
     {
         private bool estaEditando;
         private Viaje viajeDelForm;
-        public Viaje Viaje
+        public Viaje ViajeDelForm
         {
             get
             {

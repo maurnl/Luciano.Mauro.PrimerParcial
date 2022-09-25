@@ -57,6 +57,17 @@ namespace Parcial.Entities
                 return this.equipaje.Count;
             }
         }
+        public bool EstaViajando
+        {
+            get
+            {
+                return this.estaViajando;
+            }
+            set
+            {
+                this.estaViajando = value;
+            }
+        }
 
         public Equipaje this[int indice]
         {

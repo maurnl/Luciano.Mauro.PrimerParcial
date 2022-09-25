@@ -17,6 +17,7 @@ namespace Parcial.Entities
         private float duracionEnHoras;
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
+        private DateTime fechaActual;
         private bool viajeEstaFinalizado;
 
         public bool ViajeEstaFinalizado
@@ -161,6 +162,7 @@ namespace Parcial.Entities
             this.crucero = crucero;
             this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
+            this.fechaActual = fechaSalida;
             this.pasajeros = new List<Pasajero>();
             this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
@@ -197,6 +199,24 @@ namespace Parcial.Entities
 
             viaje.pasajeros.Add(pasajero);
 
+            return viaje;
+        }
+        public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
+        {
+            viaje.fechaActual += tiempo;
+            if(viaje.fechaActual >= viaje.Llegada)
+            {
+                viaje.viajeEstaFinalizado = true;
+                viaje.crucero.EstaEnViaje = false;
+                foreach (Pasajero pasajero in viaje.pasajeros)
+                {
+                    for (int i = 0; i < pasajero.CantidadEquipaje; i++)
+                    {
+                        viaje.crucero += (-pasajero[i].Peso);
+                    }
+                    pasajero.EstaViajando = false;
+                }
+            }
             return viaje;
         }
 

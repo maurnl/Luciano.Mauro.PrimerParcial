@@ -89,5 +89,25 @@ namespace VistaParcial
                     break;
             }
         }
+
+        private void simularPasoDelTiempoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSimularTiempo frmSimularTiempo = new FrmSimularTiempo();
+            if(frmSimularTiempo.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Tiempo actualizado!");
+            }
+            MostrarListado("viajes");
+        }
+
+        private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmViaje formViaje = new FrmViaje();
+            if(formViaje.ShowDialog() == DialogResult.OK)
+            {
+                SistemaCruceros.Viajes.Add(formViaje.ViajeDelForm);
+            }
+            MostrarListado("viajes");
+        }
     }
 }
