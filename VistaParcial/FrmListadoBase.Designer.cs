@@ -96,7 +96,6 @@ namespace VistaParcial
             // 
             // btnAccionUno
             // 
-            this.btnAccionUno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAccionUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnAccionUno.Location = new System.Drawing.Point(10, 12);
             this.btnAccionUno.Name = "btnAccionUno";
