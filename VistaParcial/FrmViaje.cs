@@ -44,8 +44,8 @@ namespace VistaParcial
 
         public FrmViaje(List<Crucero> cruceros, List<Puerto> puertos, Viaje viaje) : this(cruceros, puertos)
         {
-            this.viajeNuevo = viaje;
             this.estaEditando = true;
+            this.viajeNuevo = viaje;
             this.cboCrucero.SelectedItem = viaje.Crucero;
             this.cboOrigen.SelectedItem = viaje.Origen;
             this.cboDestino.SelectedItem = viaje.Destino;
