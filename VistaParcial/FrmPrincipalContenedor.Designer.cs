@@ -29,6 +29,7 @@ namespace VistaParcial
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalContenedor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.viajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,11 +40,13 @@ namespace VistaParcial
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vuelosTerminadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viajesToolStripMenuItem,
             this.pasajerosToolStripMenuItem,
@@ -116,19 +119,34 @@ namespace VistaParcial
             this.informarToolStripMenuItem.Name = "informarToolStripMenuItem";
             this.informarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.informarToolStripMenuItem.Text = "Informar";
+            this.informarToolStripMenuItem.Click += new System.EventHandler(this.informarToolStripMenuItem_Click);
             // 
             // vuelosTerminadosToolStripMenuItem
             // 
             this.vuelosTerminadosToolStripMenuItem.Name = "vuelosTerminadosToolStripMenuItem";
-            this.vuelosTerminadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vuelosTerminadosToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.vuelosTerminadosToolStripMenuItem.Text = "Viajes terminados...";
-            this.vuelosTerminadosToolStripMenuItem.Click += new System.EventHandler(this.vuelosTerminadosToolStripMenuItem_Click);
+            // 
+            // lblBienvenido
+            // 
+            this.lblBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBienvenido.AutoSize = true;
+            this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
+            this.lblBienvenido.Font = new System.Drawing.Font("Harlow Solid Italic", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblBienvenido.Location = new System.Drawing.Point(0, 595);
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
+            this.lblBienvenido.TabIndex = 1;
+            this.lblBienvenido.Text = "label1";
             // 
             // FrmPrincipalContenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1108, 666);
+            this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipalContenedor";
@@ -136,6 +154,7 @@ namespace VistaParcial
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipalContenedor_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipalContenedor_FormClosed);
             this.Load += new System.EventHandler(this.FrmPrincipalContenedor_Load);
+            this.Resize += new System.EventHandler(this.FrmPrincipalContenedor_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -155,5 +174,6 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem otroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vuelosTerminadosToolStripMenuItem;
+        private System.Windows.Forms.Label lblBienvenido;
     }
 }

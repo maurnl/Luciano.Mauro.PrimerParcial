@@ -35,6 +35,7 @@ namespace VistaParcial
         private void FrmPrincipalContenedor_Load(object sender, EventArgs e)
         {
             this.Text = $"Operador conectado ID {this.user.Id}: {this.user.NombreCompleto}";
+            this.lblBienvenido.Text = $"Bienvenido, {this.user.NombreCompleto}";
             this.IsMdiContainer = true;
             this.formListadoPasajeros.MdiParent = this;
             this.formListadoViajes.MdiParent = this;
@@ -74,6 +75,7 @@ namespace VistaParcial
         private void MostrarListado(string nombreListado)
         {
             FrmListadoBase formMostrado;
+            this.lblBienvenido.Visible = false;
             switch (nombreListado)
             {
                 case "viajes":
@@ -120,10 +122,6 @@ namespace VistaParcial
             }
             MostrarListado("viajes");
         }
-        private void vuelosTerminadosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListado("historial");
-        }
 
         private void otroToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -133,6 +131,16 @@ namespace VistaParcial
                 MessageBox.Show("Tiempo actualizado!");
             }
             MostrarListado("viajes");
+        }
+
+        private void informarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarListado("historial");
+        }
+
+        private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }
