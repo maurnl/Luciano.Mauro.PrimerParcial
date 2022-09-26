@@ -222,6 +222,7 @@ namespace Parcial.Entities
             }
             else if(viaje.fechaActual >= viaje.Llegada)
             {
+                SistemaCruceros.HistorialViajes.Add(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
                 foreach (Pasajero pasajero in viaje.pasajeros)

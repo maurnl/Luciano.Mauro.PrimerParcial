@@ -30,8 +30,8 @@ namespace VistaParcial
             this.dgvListado.DataSource = this.fuenteDeDatos;
             this.dgvListado.ScrollBars = ScrollBars.Both;
             this.dgvListado.ReadOnly = true;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             this.lblError.Text = "";
         }
 

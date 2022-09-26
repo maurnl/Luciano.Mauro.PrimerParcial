@@ -10,9 +10,10 @@ namespace Parcial.Entities
     public static class SistemaCruceros
     {
         private static List<Crucero> flota;
+        private static List<Viaje> historialViajes;
         private static List<Viaje> viajes;
-        private static List<Venta> ventas;
         private static List<Puerto> puertos;
+        private static List<Venta> ventas;
         
         public static List<Crucero> Flota
         {
@@ -57,6 +58,13 @@ namespace Parcial.Entities
                 return baseDeDatosPasajeros;
             }
         }
+        public static List<Viaje> HistorialViajes
+        {
+            get
+            {
+                return SistemaCruceros.historialViajes;
+            }
+        }
 
         static SistemaCruceros()
         {
@@ -64,6 +72,7 @@ namespace Parcial.Entities
             SistemaCruceros.viajes = new List<Viaje>();
             SistemaCruceros.ventas = new List<Venta>();
             SistemaCruceros.puertos = new List<Puerto>();
+            SistemaCruceros.historialViajes = new List<Viaje>();
         }
 
         public static Pasajero ObtenerPasajeroEnSistema(int dni)

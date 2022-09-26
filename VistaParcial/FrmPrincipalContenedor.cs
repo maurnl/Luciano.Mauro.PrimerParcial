@@ -19,6 +19,7 @@ namespace VistaParcial
         private FrmListadoViajes formListadoViajes;
         private FrmListadoPasajeros formListadoPasajeros;
         private FrmListadoVentas formListadoVentas;
+        private FrmListadoHistorial formListadoHistorial;
 
         public FrmPrincipalContenedor(Usuario user, FrmLogin login)
         {
@@ -28,6 +29,7 @@ namespace VistaParcial
             this.formListadoViajes = new FrmListadoViajes();
             this.formListadoPasajeros = new FrmListadoPasajeros();
             this.formListadoVentas = new FrmListadoVentas();
+            this.formListadoHistorial = new FrmListadoHistorial();
         }
 
         private void FrmPrincipalContenedor_Load(object sender, EventArgs e)
@@ -37,6 +39,7 @@ namespace VistaParcial
             this.formListadoPasajeros.MdiParent = this;
             this.formListadoViajes.MdiParent = this;
             this.formListadoVentas.MdiParent = this;
+            this.formListadoHistorial.MdiParent = this;
         }
 
         private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +85,9 @@ namespace VistaParcial
                 case "ventas":
                     formMostrado = formListadoVentas;
                     break;
+                case "historial":
+                    formMostrado = formListadoHistorial;
+                    break;
                 default:
                     formMostrado = formListadoViajes;
                     break;
@@ -113,6 +119,10 @@ namespace VistaParcial
                 SistemaCruceros.Viajes[i] += TimeSpan.FromDays(5);
             }
             MostrarListado("viajes");
+        }
+        private void vuelosTerminadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarListado("historial");
         }
 
         private void otroToolStripMenuItem_Click(object sender, EventArgs e)
