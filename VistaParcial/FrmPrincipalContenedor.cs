@@ -90,6 +90,10 @@ namespace VistaParcial
             formMostrado.Location = new Point(0, 0);
             formMostrado.Activate();
             formMostrado.ActualizarListado();
+            if(formMostrado is FrmListadoViajes frmPasajeros)
+            {
+                frmPasajeros.PintarFilas();
+            }
         }
 
         private void nuevoViajeToolStripMenuItem_Click(object sender, EventArgs e)

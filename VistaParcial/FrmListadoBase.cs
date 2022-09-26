@@ -30,8 +30,8 @@ namespace VistaParcial
             this.dgvListado.DataSource = this.fuenteDeDatos;
             this.dgvListado.ScrollBars = ScrollBars.Both;
             this.dgvListado.ReadOnly = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
             this.lblError.Text = "";
         }
 
@@ -46,10 +46,6 @@ namespace VistaParcial
         protected internal void ActualizarListado()
         {
             this.fuenteDeDatos.ResetBindings(false);
-        }
-
-        protected virtual void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
         }
 
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)

@@ -136,7 +136,6 @@ namespace VistaParcial
             this.dgvListado.RowTemplate.Height = 25;
             this.dgvListado.Size = new System.Drawing.Size(1165, 495);
             this.dgvListado.TabIndex = 0;
-            this.dgvListado.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvListado_RowPrePaint);
             // 
             // FrmListadoBase
             // 

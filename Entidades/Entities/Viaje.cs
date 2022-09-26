@@ -204,10 +204,10 @@ namespace Parcial.Entities
                 throw new Exception("No hay mas asientos Turista");
             }
 
-            foreach (Equipaje valija in pasajero.Equipaje)
-            {
-                viaje.crucero += valija.Peso;
-            }
+            ///foreach (Equipaje valija in pasajero.equipaje)
+            //{
+            //    viaje.crucero += valija.Peso;
+            //}
 
             viaje.pasajeros.Add(pasajero);
 

@@ -30,20 +30,29 @@ namespace VistaParcial
         private void InitializeComponent()
         {
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Size = new System.Drawing.Size(1195, 66);
             // 
             // cboCombobox
             // 
-            this.cboCombobox.SelectedIndexChanged += new System.EventHandler(this.cboCombobox_SelectedIndexChanged);
+            this.cboCombobox.Size = new System.Drawing.Size(268, 23);
+            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
             // 
             // FrmListadoPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 611);
+            this.ClientSize = new System.Drawing.Size(1195, 611);
             this.Name = "FrmListadoPasajeros";
             this.Text = "FrmListadoPasajeros";
+            this.Load += new System.EventHandler(this.FrmListadoPasajeros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

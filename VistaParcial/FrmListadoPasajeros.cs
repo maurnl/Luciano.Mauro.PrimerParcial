@@ -1,4 +1,5 @@
 ﻿using Parcial.Entities;
+using Parcial.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,38 +14,39 @@ namespace VistaParcial
 {
     public partial class FrmListadoPasajeros : FrmListadoBase
     {
-        public Viaje ViajeSeleccionado
-        {
-            set
-            {
-                this.fuenteDeDatos.DataSource = value.Pasajeros;
-            }
-        }
-
         public FrmListadoPasajeros()
         {
             InitializeComponent();
+        }
+        private void FrmListadoPasajeros_Load(object sender, EventArgs e)
+        {
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = SistemaCruceros.Viajes;
-            this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
-            base.ActualizarListado();
         }
 
-        private void cboCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        private void PintarListado(int cantFilas)
         {
-            this.fuenteDeDatos.DataSource = ((Viaje)this.cboCombobox.SelectedItem).Pasajeros;
-            base.ActualizarListado();
-        }
-        protected override void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
-        {
-            DataGridViewRow filaActual = base.dgvListado.Rows[e.RowIndex];
-            Pasajero pasajero = (Pasajero) filaActual.DataBoundItem;
-            filaActual.DefaultCellStyle.BackColor = Color.LightBlue;
-            if (pasajero.TipoPasajero == TipoPasajero.Premium)
+            for (int i = 0; i < cantFilas; i++)
             {
-                filaActual.DefaultCellStyle.BackColor = Color.Goldenrod;
+                DataGridViewRow filaActual = base.dgvListado.Rows[i];
+                if (filaActual.DataBoundItem is Pasajero pasajero)
+                {
+                    filaActual.DefaultCellStyle.BackColor = Color.LightBlue;
+                    if (pasajero.TipoPasajero == TipoPasajero.Premium)
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.DarkGoldenrod;
+                    }
+                }
             }
+        }
+
+        private void cboCombobox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            List<Pasajero> pasajeros = SistemaCruceros.Viajes[this.cboCombobox.SelectedIndex].Pasajeros;
+            base.fuenteDeDatos.DataSource = pasajeros;
+            base.ActualizarListado();
+            PintarListado(pasajeros.Count);
         }
     }
 }

@@ -31,5 +31,10 @@ namespace Parcial.Entities
             this.dni = dni;
             this.fechaExpedido = fechaExpedido;
         }
+
+        public override string ToString()
+        {
+            return $"Fecha de vencimiento: {this.FechaVencimiento}";
+        }
     }
 }

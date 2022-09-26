@@ -18,7 +18,13 @@ namespace VistaParcial
             InitializeComponent();
             base.fuenteDeDatos.DataSource = SistemaCruceros.Viajes;
             base.btnAccionUno.Text = "Agregar pasajero...";
+        }
+
+        private void FrmListadoViajes_Load(object sender, EventArgs e)
+        {
+            this.btnAccionDos.Text = "Editar viaje...";
             base.ActualizarListado();
+            PintarFilas();
         }
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
@@ -46,6 +52,7 @@ namespace VistaParcial
                 }
             }
             base.ActualizarListado();
+            PintarFilas();
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
@@ -86,30 +93,32 @@ namespace VistaParcial
             this.chkFiltroUno.Checked = false;
             this.chkFiltroDos.Checked = false;
         }
-
-        protected override void dgvListado_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        public void PintarFilas()
         {
-            DataGridViewRow filaActual = this.dgvListado.Rows[e.RowIndex];
-            if (filaActual.DataBoundItem is Viaje viaje)
+            for (int i = 0; i < SistemaCruceros.Viajes.Count; i++)
             {
-                if (viaje.EstadoDeViaje == EstadoDeViaje.Finalizado)
+                DataGridViewRow filaActual = base.dgvListado.Rows[i];
+                if (filaActual.DataBoundItem is Viaje viaje)
                 {
-                    filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
-                }
-                else if(viaje.EstadoDeViaje == EstadoDeViaje.EnCurso)
-                {
-                    filaActual.DefaultCellStyle.BackColor = Color.Yellow;
-                } else 
-                {
-                    filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
-                }
-                if (viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
-                {
-                    filaActual.DefaultCellStyle.BackColor = Color.OrangeRed;
+                    if (viaje.EstadoDeViaje == EstadoDeViaje.Finalizado)
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
+                    }
+                    else if (viaje.EstadoDeViaje == EstadoDeViaje.EnCurso)
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                    if (viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.OrangeRed;
+                    }
                 }
             }
         }
-
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)
         {
             LimpiarFiltros();
@@ -117,17 +126,14 @@ namespace VistaParcial
 
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
-            Viaje viajeAEditar = ((Viaje)base.fuenteDeDatos.Current);
+            Viaje viajeAEditar = (Viaje)base.fuenteDeDatos.Current;
             FrmViaje formEditarViaje = new FrmViaje(viajeAEditar);
             if (formEditarViaje.ShowDialog() == DialogResult.OK)
             {
                 base.ActualizarListado();
+                PintarFilas();
             }
         }
 
-        private void FrmListadoViajes_Load(object sender, EventArgs e)
-        {
-            this.btnAccionDos.Text = "Editar viaje...";
-        }
     }
 }
