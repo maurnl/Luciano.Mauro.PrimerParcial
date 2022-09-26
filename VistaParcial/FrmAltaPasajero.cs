@@ -54,7 +54,7 @@ namespace VistaParcial
                 this.lstEquipajes.Items.Clear();
                 for (int i = 0; i < cantidadEquipajes; i++)
                 {
-                    this.lstEquipajes.Items.Add(Equipaje.Mostrar(this.pasajeroActual[i]));
+                    this.lstEquipajes.Items.Add(this.pasajeroActual[i].ToString());
                 }
             }
         }

@@ -54,7 +54,7 @@ namespace VistaParcial
             this.informarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1108, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1431, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -133,7 +133,7 @@ namespace VistaParcial
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
             this.lblBienvenido.Font = new System.Drawing.Font("Harlow Solid Italic", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lblBienvenido.Location = new System.Drawing.Point(0, 595);
+            this.lblBienvenido.Location = new System.Drawing.Point(0, 702);
             this.lblBienvenido.Name = "lblBienvenido";
             this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
             this.lblBienvenido.TabIndex = 1;
@@ -145,7 +145,7 @@ namespace VistaParcial
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1108, 666);
+            this.ClientSize = new System.Drawing.Size(1431, 773);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

@@ -78,8 +78,9 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
+            this.lblCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblCombobox.AutoSize = true;
-            this.lblCombobox.Location = new System.Drawing.Point(848, 24);
+            this.lblCombobox.Location = new System.Drawing.Point(777, 24);
             this.lblCombobox.Name = "lblCombobox";
             this.lblCombobox.Size = new System.Drawing.Size(80, 15);
             this.lblCombobox.TabIndex = 4;
@@ -87,9 +88,9 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cboCombobox.FormattingEnabled = true;
-            this.cboCombobox.Location = new System.Drawing.Point(934, 21);
+            this.cboCombobox.Location = new System.Drawing.Point(863, 21);
             this.cboCombobox.Name = "cboCombobox";
             this.cboCombobox.Size = new System.Drawing.Size(236, 23);
             this.cboCombobox.TabIndex = 3;

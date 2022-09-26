@@ -35,14 +35,19 @@ namespace Parcial.Entities
                 this.peso = 0;
             }
         }
-        private string Mostrar()
+
+        public override string ToString()
         {
             return $"Peso: {this.peso} kg. Es equipaje de mano: {(this.esDeMano ? "Si" : "No")}";
         }
 
-        public static string Mostrar(Equipaje equipaje)
+        public override bool Equals(object obj)
         {
-            return equipaje.Mostrar();
+            if(obj is not Equipaje)
+            {
+                return false;
+            }
+            return ((Equipaje)obj).peso == this.peso && ((Equipaje)obj).esDeMano == this.esDeMano;
         }
     }
 }

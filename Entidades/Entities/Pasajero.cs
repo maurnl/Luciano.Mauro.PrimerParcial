@@ -139,9 +139,15 @@ namespace Parcial.Entities
             return pasajero;
         }
 
+        public static Pasajero operator -(Pasajero pasajero, Equipaje equipaje)
+        {
+            pasajero.equipaje.Remove(equipaje);
+            return pasajero;
+        }
+
         public static Pasajero operator +(Pasajero pasajero, int cantidadViajes)
         {
-            pasajero.cantidadViajesRealizados++;
+            pasajero.cantidadViajesRealizados += cantidadViajes;
             return pasajero;
         }
 

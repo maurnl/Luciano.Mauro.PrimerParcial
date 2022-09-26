@@ -41,6 +41,19 @@ namespace VistaParcial
             this.formListadoViajes.MdiParent = this;
             this.formListadoVentas.MdiParent = this;
             this.formListadoHistorial.MdiParent = this;
+            CargarForms();
+        }
+
+        private void CargarForms()
+        {
+            viajesToolStripMenuItem_Click(this, new EventArgs());
+            pasajerosToolStripMenuItem_Click(this, new EventArgs());
+            ventasToolStripMenuItem_Click(this, new EventArgs());
+            informarToolStripMenuItem_Click(this, new EventArgs());
+            this.formListadoHistorial.Visible = false;
+            this.formListadoPasajeros.Hide();
+            this.formListadoVentas.Hide();
+            this.formListadoViajes.Hide();
         }
 
         private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,14 +102,15 @@ namespace VistaParcial
                     break;
                 case "historial":
                     formMostrado = formListadoHistorial;
+                    formMostrado.Visible = true;
                     break;
                 default:
                     formMostrado = formListadoViajes;
                     break;
             }
             formMostrado.Show();
-            formMostrado.Location = new Point(0, 0);
             formMostrado.Activate();
+            formMostrado.Location = new Point(0, 30);
             formMostrado.ActualizarListado();
             if(formMostrado is FrmListadoViajes frmPasajeros)
             {

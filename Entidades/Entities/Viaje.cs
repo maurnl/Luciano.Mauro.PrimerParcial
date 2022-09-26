@@ -226,11 +226,14 @@ namespace Parcial.Entities
                 SistemaCruceros.historialViajes.Add(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
-                foreach (Pasajero pasajero in viaje.pasajeros)
+                for (int i = 0; i < viaje.pasajeros.Count; i++)
                 {
-                    for (int i = 0; i < pasajero.CantidadEquipaje; i++)
+                    Pasajero pasajero = viaje.pasajeros[i];
+                    for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
                     {
-                        viaje.crucero += (-pasajero[i].Peso);
+                        viaje.crucero += (-pasajero[j].Peso);
+                        pasajero -= pasajero[i];
+
                     }
                     pasajero.EstaViajando = false;
                 }
