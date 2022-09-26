@@ -26,13 +26,13 @@ namespace VistaParcial
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
-            Hardcoder.HardcodearFlota(SistemaCruceros.Flota);
-            Hardcoder.HardcodearPuertos(SistemaCruceros.Puertos);
-            Hardcoder.HardcodearViajes(SistemaCruceros.Viajes, SistemaCruceros.Puertos, SistemaCruceros.Flota);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.Ventas, SistemaCruceros.Viajes[0], TipoPasajero.Premium, 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.Ventas, SistemaCruceros.Viajes[0], TipoPasajero.Turista, 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.Ventas, SistemaCruceros.Viajes[1], TipoPasajero.Premium, 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.Ventas, SistemaCruceros.Viajes[1], TipoPasajero.Turista, 30);
+            Hardcoder.HardcodearFlota(SistemaCruceros.flota);
+            Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
+            Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], TipoPasajero.Premium, 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], TipoPasajero.Turista, 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], TipoPasajero.Premium, 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], TipoPasajero.Turista, 30);
             this.Text = "Inicio de sesion";
             this.lblError.Text = "";
         }

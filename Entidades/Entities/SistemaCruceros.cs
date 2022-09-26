@@ -9,40 +9,12 @@ namespace Parcial.Entities
 {
     public static class SistemaCruceros
     {
-        private static List<Crucero> flota;
-        private static List<Viaje> historialViajes;
-        private static List<Viaje> viajes;
-        private static List<Puerto> puertos;
-        private static List<Venta> ventas;
-        
-        public static List<Crucero> Flota
-        {
-            get
-            {
-                return SistemaCruceros.flota;
-            }
-        }
-        public static List<Viaje> Viajes
-        {
-            get
-            {
-                return SistemaCruceros.viajes;
-            }
-        }
-        public static List<Venta> Ventas
-        {
-            get
-            {
-                return SistemaCruceros.ventas;
-            }
-        }
-        public static List<Puerto> Puertos
-        {
-            get
-            {
-                return SistemaCruceros.puertos;
-            }
-        }
+        public static List<Crucero> flota;
+        public static List<Viaje> historialViajes;
+        public static List<Viaje> viajes;
+        public static List<Venta> ventas;
+        public static List<Puerto> puertos;
+        public static Dictionary<Puerto, float> contadorRecaudacionDestinos;
         public static List<Pasajero> BaseDeDatosPasajeros
         {
             get
@@ -58,13 +30,6 @@ namespace Parcial.Entities
                 return baseDeDatosPasajeros;
             }
         }
-        public static List<Viaje> HistorialViajes
-        {
-            get
-            {
-                return SistemaCruceros.historialViajes;
-            }
-        }
 
         static SistemaCruceros()
         {
@@ -73,6 +38,7 @@ namespace Parcial.Entities
             SistemaCruceros.ventas = new List<Venta>();
             SistemaCruceros.puertos = new List<Puerto>();
             SistemaCruceros.historialViajes = new List<Viaje>();
+            SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
         }
 
         public static Pasajero ObtenerPasajeroEnSistema(int dni)
@@ -88,5 +54,6 @@ namespace Parcial.Entities
             }
             return pasajeroEncontrado;
         }
+
     }
 }

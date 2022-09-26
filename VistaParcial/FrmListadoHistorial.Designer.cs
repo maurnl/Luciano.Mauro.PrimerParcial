@@ -29,17 +29,55 @@ namespace VistaParcial
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnGanancias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnGanancias);
+            this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
+            this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
+            this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
+            this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
+            this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
+            this.panel1.Controls.SetChildIndex(this.btnGanancias, 0);
+            // 
+            // cboCombobox
+            // 
+            this.cboCombobox.Size = new System.Drawing.Size(252, 23);
+            // 
+            // btnAccionUno
+            // 
+            this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
+            // 
+            // btnAccionDos
+            // 
+            this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);
+            // 
+            // btnReiniciarFiltros
+            // 
+            this.btnReiniciarFiltros.Click += new System.EventHandler(this.btnReiniciarFiltros_Click);
+            // 
+            // btnGanancias
+            // 
+            this.btnGanancias.Location = new System.Drawing.Point(570, 12);
+            this.btnGanancias.Name = "btnGanancias";
+            this.btnGanancias.Size = new System.Drawing.Size(161, 39);
+            this.btnGanancias.TabIndex = 7;
+            this.btnGanancias.Text = "button1";
+            this.btnGanancias.UseVisualStyleBackColor = true;
+            this.btnGanancias.Click += new System.EventHandler(this.btnGanancias_Click);
             // 
             // FrmListadoHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 450);
+            this.ClientSize = new System.Drawing.Size(1195, 450);
             this.Name = "FrmListadoHistorial";
             this.Text = "FrmListadoHistorial";
+            this.Load += new System.EventHandler(this.FrmListadoHistorial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -48,5 +86,7 @@ namespace VistaParcial
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnGanancias;
     }
 }

@@ -9,6 +9,7 @@ namespace Parcial.Entities
     public sealed class Pasajero : PersonaBase
     {
         private static int contadorPasajero;
+        private int cantidadViajesRealizados;
         private bool estaViajando;
         private Pasaporte pasaporte;
         private DateTime fechaNacimiento;
@@ -66,6 +67,13 @@ namespace Parcial.Entities
             set
             {
                 this.estaViajando = value;
+            }
+        }
+        public int CantidadViajesRealizados
+        {
+            get
+            {
+                return this.cantidadViajesRealizados;
             }
         }
 
@@ -128,6 +136,12 @@ namespace Parcial.Entities
             }
 
             pasajero.equipaje.Add(equipaje);
+            return pasajero;
+        }
+
+        public static Pasajero operator +(Pasajero pasajero, int cantidadViajes)
+        {
+            pasajero.cantidadViajesRealizados++;
             return pasajero;
         }
 

@@ -23,9 +23,9 @@ namespace VistaParcial
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < SistemaCruceros.Viajes.Count; i++)
+            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
-                SistemaCruceros.Viajes[i] += TimeSpan.FromDays((double)this.nudDias.Value);
+                SistemaCruceros.viajes[i] += TimeSpan.FromDays((double)this.nudDias.Value);
             }
             this.DialogResult = DialogResult.OK;
         }

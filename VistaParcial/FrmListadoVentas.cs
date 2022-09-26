@@ -16,7 +16,7 @@ namespace VistaParcial
         public FrmListadoVentas()
         {
             InitializeComponent();
-            base.fuenteDeDatos.DataSource = SistemaCruceros.Ventas;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.ventas;
         }
     }
 }

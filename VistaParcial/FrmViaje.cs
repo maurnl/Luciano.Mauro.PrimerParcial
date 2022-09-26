@@ -29,11 +29,12 @@ namespace VistaParcial
             this.Text = "Registro de viaje";
             this.lblError.ForeColor = Color.Red;
             this.lblError.Text = "";
-            this.cboCrucero.DataSource = SistemaCruceros.Flota;
-            this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
-            this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
+            this.cboCrucero.DataSource = SistemaCruceros.flota;
+            this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.puertos);
+            this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.puertos);
             this.cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboCrucero.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboOrigen.Enabled = false;
         }
 

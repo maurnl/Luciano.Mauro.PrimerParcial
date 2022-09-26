@@ -16,7 +16,7 @@ namespace VistaParcial
         public FrmListadoViajes()
         {
             InitializeComponent();
-            base.fuenteDeDatos.DataSource = SistemaCruceros.Viajes;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.viajes;
             base.btnAccionUno.Text = "Agregar pasajero...";
         }
 
@@ -43,7 +43,7 @@ namespace VistaParcial
                         clientes.Add(pasajeroPosible);
                     }
                     Venta venta = new Venta(viajeSeleccionado, clientes);
-                    SistemaCruceros.Ventas.Add(venta);
+                    SistemaCruceros.ventas.Add(venta);
                 }
                 catch (Exception agregarPasajerosEx)
                 {
@@ -95,7 +95,7 @@ namespace VistaParcial
         }
         public void PintarFilas()
         {
-            for (int i = 0; i < SistemaCruceros.Viajes.Count; i++)
+            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
                 DataGridViewRow filaActual = base.dgvListado.Rows[i];
                 if (filaActual.DataBoundItem is Viaje viaje)

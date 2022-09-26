@@ -22,7 +22,7 @@ namespace VistaParcial
         {
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboCombobox.DataSource = SistemaCruceros.Viajes;
+            this.cboCombobox.DataSource = SistemaCruceros.viajes;
         }
 
         private void PintarListado(int cantFilas)
@@ -43,7 +43,7 @@ namespace VistaParcial
 
         private void cboCombobox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            List<Pasajero> pasajeros = SistemaCruceros.Viajes[this.cboCombobox.SelectedIndex].Pasajeros;
+            List<Pasajero> pasajeros = SistemaCruceros.viajes[this.cboCombobox.SelectedIndex].Pasajeros;
             base.fuenteDeDatos.DataSource = pasajeros;
             base.ActualizarListado();
             PintarListado(pasajeros.Count);

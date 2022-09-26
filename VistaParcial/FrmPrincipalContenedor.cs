@@ -107,16 +107,16 @@ namespace VistaParcial
             FrmViaje formViaje = new FrmViaje();
             if(formViaje.ShowDialog() == DialogResult.OK)
             {
-                SistemaCruceros.Viajes.Add(formViaje.ViajeDelForm);
+                SistemaCruceros.viajes.Add(formViaje.ViajeDelForm);
             }
             MostrarListado("viajes");
         }
 
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < SistemaCruceros.Viajes.Count; i++)
+            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
-                SistemaCruceros.Viajes[i] += TimeSpan.FromDays(5);
+                SistemaCruceros.viajes[i] += TimeSpan.FromDays(5);
             }
             MostrarListado("viajes");
         }

@@ -204,11 +204,12 @@ namespace Parcial.Entities
                 throw new Exception("No hay mas asientos Turista");
             }
 
-            ///foreach (Equipaje valija in pasajero.equipaje)
-            //{
-            //    viaje.crucero += valija.Peso;
-            //}
+            for (int i = 0; i < pasajero.CantidadEquipaje; i++)
+            {
+                viaje.crucero += pasajero[i].Peso;
+            }
 
+            pasajero += 1;
             viaje.pasajeros.Add(pasajero);
 
             return viaje;
@@ -222,7 +223,7 @@ namespace Parcial.Entities
             }
             else if(viaje.fechaActual >= viaje.Llegada)
             {
-                SistemaCruceros.HistorialViajes.Add(viaje);
+                SistemaCruceros.historialViajes.Add(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
                 foreach (Pasajero pasajero in viaje.pasajeros)

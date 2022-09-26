@@ -47,6 +47,13 @@ namespace Parcial.Entities
                 return this.viaje.ToString();
             }
         }
+        public bool EsServicioRegional
+        {
+            get
+            {
+                return this.viaje.Destino.EsDestinoRegional;
+            }
+        }
         public int CantidadPasajes
         {
             get
@@ -67,6 +74,14 @@ namespace Parcial.Entities
             this.clientes = clientes;
             this.fecha = DateTime.Now;
             this.precioBruto = CalcularPrecioBruto();
+            if (SistemaCruceros.contadorRecaudacionDestinos.ContainsKey(viaje.Destino))
+            {
+                SistemaCruceros.contadorRecaudacionDestinos[viaje.Destino] += this.PrecioNeto;
+            }
+            else
+            {
+                SistemaCruceros.contadorRecaudacionDestinos.Add(viaje.Destino, this.PrecioNeto);
+            }
         }
 
         private float CalcularPrecioBruto()
