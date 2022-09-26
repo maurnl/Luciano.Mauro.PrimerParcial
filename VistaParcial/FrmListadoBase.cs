@@ -32,6 +32,7 @@ namespace VistaParcial
             this.dgvListado.ReadOnly = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.lblError.Text = "";
         }
 
