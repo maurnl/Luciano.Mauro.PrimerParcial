@@ -42,8 +42,7 @@ namespace VistaParcial
                         viajeSeleccionado += pasajeroPosible;
                         clientes.Add(pasajeroPosible);
                     }
-                    Venta venta = new Venta(viajeSeleccionado, clientes);
-                    SistemaCruceros.ventas.Add(venta);
+                    SistemaCruceros.ventas.Add(new Venta(viajeSeleccionado, clientes));
                 }
                 catch (Exception agregarPasajerosEx)
                 {

@@ -77,6 +77,10 @@ namespace VistaParcial
         {
             FrmListadoBase formMostrado;
             this.lblBienvenido.Visible = false;
+            formListadoVentas.Hide();
+            formListadoViajes.Hide();
+            formListadoPasajeros.Hide();
+            formListadoHistorial.Hide();
             switch (nombreListado)
             {
                 case "viajes":
@@ -90,7 +94,6 @@ namespace VistaParcial
                     break;
                 case "historial":
                     formMostrado = formListadoHistorial;
-                    formMostrado.Visible = true;
                     break;
                 default:
                     formMostrado = formListadoViajes;
@@ -98,7 +101,7 @@ namespace VistaParcial
             }
             formMostrado.Show();
             formMostrado.Activate();
-            formMostrado.Location = new Point(0, 30);
+            formMostrado.Location = new Point(0, 0);
             formMostrado.ActualizarListado();
         }
 

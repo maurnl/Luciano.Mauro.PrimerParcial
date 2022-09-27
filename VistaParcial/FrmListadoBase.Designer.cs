@@ -54,33 +54,37 @@ namespace VistaParcial
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1179, 66);
+            this.panel1.Size = new System.Drawing.Size(1250, 65);
             this.panel1.TabIndex = 0;
             // 
             // btnReiniciarFiltros
             // 
-            this.btnReiniciarFiltros.Location = new System.Drawing.Point(382, 12);
+            this.btnReiniciarFiltros.BackColor = System.Drawing.Color.SlateGray;
+            this.btnReiniciarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReiniciarFiltros.Location = new System.Drawing.Point(385, 7);
             this.btnReiniciarFiltros.Name = "btnReiniciarFiltros";
-            this.btnReiniciarFiltros.Size = new System.Drawing.Size(161, 39);
+            this.btnReiniciarFiltros.Size = new System.Drawing.Size(161, 48);
             this.btnReiniciarFiltros.TabIndex = 6;
             this.btnReiniciarFiltros.Text = "Eliminar filtros";
-            this.btnReiniciarFiltros.UseVisualStyleBackColor = true;
+            this.btnReiniciarFiltros.UseVisualStyleBackColor = false;
             this.btnReiniciarFiltros.Click += new System.EventHandler(this.btnReiniciarFiltros_Click);
             // 
             // btnAccionDos
             // 
-            this.btnAccionDos.Location = new System.Drawing.Point(196, 12);
+            this.btnAccionDos.BackColor = System.Drawing.Color.SlateGray;
+            this.btnAccionDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccionDos.Location = new System.Drawing.Point(198, 7);
             this.btnAccionDos.Name = "btnAccionDos";
-            this.btnAccionDos.Size = new System.Drawing.Size(161, 39);
+            this.btnAccionDos.Size = new System.Drawing.Size(161, 48);
             this.btnAccionDos.TabIndex = 5;
             this.btnAccionDos.Text = "Boton 2";
-            this.btnAccionDos.UseVisualStyleBackColor = true;
+            this.btnAccionDos.UseVisualStyleBackColor = false;
             // 
             // lblCombobox
             // 
             this.lblCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblCombobox.AutoSize = true;
-            this.lblCombobox.Location = new System.Drawing.Point(777, 24);
+            this.lblCombobox.Location = new System.Drawing.Point(848, 23);
             this.lblCombobox.Name = "lblCombobox";
             this.lblCombobox.Size = new System.Drawing.Size(80, 15);
             this.lblCombobox.TabIndex = 4;
@@ -90,7 +94,7 @@ namespace VistaParcial
             // 
             this.cboCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cboCombobox.FormattingEnabled = true;
-            this.cboCombobox.Location = new System.Drawing.Point(863, 21);
+            this.cboCombobox.Location = new System.Drawing.Point(934, 20);
             this.cboCombobox.Name = "cboCombobox";
             this.cboCombobox.Size = new System.Drawing.Size(236, 23);
             this.cboCombobox.TabIndex = 3;
@@ -98,12 +102,14 @@ namespace VistaParcial
             // btnAccionUno
             // 
             this.btnAccionUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAccionUno.Location = new System.Drawing.Point(10, 12);
+            this.btnAccionUno.BackColor = System.Drawing.Color.SlateGray;
+            this.btnAccionUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccionUno.Location = new System.Drawing.Point(12, 7);
             this.btnAccionUno.Name = "btnAccionUno";
-            this.btnAccionUno.Size = new System.Drawing.Size(161, 39);
+            this.btnAccionUno.Size = new System.Drawing.Size(161, 48);
             this.btnAccionUno.TabIndex = 0;
             this.btnAccionUno.Text = "Boton 1";
-            this.btnAccionUno.UseVisualStyleBackColor = true;
+            this.btnAccionUno.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -114,7 +120,7 @@ namespace VistaParcial
             this.panel2.Controls.Add(this.dgvListado);
             this.panel2.Location = new System.Drawing.Point(2, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1174, 565);
+            this.panel2.Size = new System.Drawing.Size(1245, 610);
             this.panel2.TabIndex = 1;
             // 
             // lblError
@@ -131,18 +137,19 @@ namespace VistaParcial
             this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Location = new System.Drawing.Point(3, 26);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.RowTemplate.Height = 25;
-            this.dgvListado.Size = new System.Drawing.Size(1165, 495);
+            this.dgvListado.Size = new System.Drawing.Size(1236, 540);
             this.dgvListado.TabIndex = 0;
             // 
             // FrmListadoBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 649);
+            this.ClientSize = new System.Drawing.Size(1250, 694);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1195, 350);

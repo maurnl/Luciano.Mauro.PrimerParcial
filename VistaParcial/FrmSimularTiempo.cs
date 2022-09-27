@@ -19,6 +19,7 @@ namespace VistaParcial
             this.Text = "Avanzar tiempo";
             this.label1.Text = "Ingrese cantidad de dias a avanzar:";
             this.btnAceptar.Text = "Avanzar dias";
+            this.button1.Text = "Cancelar";
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

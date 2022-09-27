@@ -16,13 +16,6 @@ namespace VistaParcial
     public partial class FrmListadoBase : Form
     {
         protected BindingSource fuenteDeDatos;
-        public bool TieneDatosCargados
-        {
-            get
-            {
-                return this.fuenteDeDatos.Count > 0;
-            }
-        }
         public FrmListadoBase()
         {
             InitializeComponent();
@@ -34,6 +27,7 @@ namespace VistaParcial
             this.WindowState = FormWindowState.Maximized;
             this.dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.lblError.Text = "";
+            this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         protected virtual void LimpiarFiltros()
@@ -61,7 +55,7 @@ namespace VistaParcial
             {
                 DataGridViewRow filaActual = this.dgvListado.Rows[i];
                 {
-                    if (i % 2 == 0)
+                    if (i%2 == 0)
                     {
                         filaActual.DefaultCellStyle.BackColor = Color.LightGray;
                     }
