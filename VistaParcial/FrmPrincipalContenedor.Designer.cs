@@ -39,21 +39,22 @@ namespace VistaParcial
             this.pasajerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblBienvenido = new System.Windows.Forms.Label();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viajesToolStripMenuItem,
             this.pasajerosToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.informarToolStripMenuItem,
             this.fechaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 740);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1431, 33);
             this.menuStrip1.TabIndex = 0;
@@ -120,18 +121,6 @@ namespace VistaParcial
             this.informarToolStripMenuItem.Text = "Informar";
             this.informarToolStripMenuItem.Click += new System.EventHandler(this.informarToolStripMenuItem_Click);
             // 
-            // lblBienvenido
-            // 
-            this.lblBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblBienvenido.AutoSize = true;
-            this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
-            this.lblBienvenido.Font = new System.Drawing.Font("Harlow Solid Italic", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.lblBienvenido.Location = new System.Drawing.Point(0, 702);
-            this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
-            this.lblBienvenido.TabIndex = 1;
-            this.lblBienvenido.Text = "label1";
-            // 
             // fechaToolStripMenuItem
             // 
             this.fechaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -139,6 +128,18 @@ namespace VistaParcial
             this.fechaToolStripMenuItem.Name = "fechaToolStripMenuItem";
             this.fechaToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
             this.fechaToolStripMenuItem.Text = "fecha";
+            // 
+            // lblBienvenido
+            // 
+            this.lblBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblBienvenido.AutoSize = true;
+            this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
+            this.lblBienvenido.Font = new System.Drawing.Font("Harlow Solid Italic", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblBienvenido.Location = new System.Drawing.Point(0, 689);
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
+            this.lblBienvenido.TabIndex = 1;
+            this.lblBienvenido.Text = "label1";
             // 
             // FrmPrincipalContenedor
             // 

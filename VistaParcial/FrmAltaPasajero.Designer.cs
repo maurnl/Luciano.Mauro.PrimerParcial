@@ -29,9 +29,10 @@ namespace VistaParcial
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAltaPasajero));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkEquipaje = new System.Windows.Forms.CheckBox();
+            this.btnBuscarPasajero = new System.Windows.Forms.Button();
             this.btnRegistrarPasajero = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,7 +62,7 @@ namespace VistaParcial
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
-            this.btnBuscarPasajero = new System.Windows.Forms.Button();
+            this.lblErrorBusqueda = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,6 +76,8 @@ namespace VistaParcial
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel1.BackgroundImage")));
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.84906F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.15094F));
@@ -95,8 +98,8 @@ namespace VistaParcial
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lblErrorBusqueda);
             this.groupBox1.Controls.Add(this.btnBuscarPasajero);
-            this.groupBox1.Controls.Add(this.chkEquipaje);
             this.groupBox1.Controls.Add(this.btnRegistrarPasajero);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -117,15 +120,17 @@ namespace VistaParcial
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del pasajero";
             // 
-            // chkEquipaje
+            // btnBuscarPasajero
             // 
-            this.chkEquipaje.AutoSize = true;
-            this.chkEquipaje.Location = new System.Drawing.Point(78, 377);
-            this.chkEquipaje.Name = "chkEquipaje";
-            this.chkEquipaje.Size = new System.Drawing.Size(119, 19);
-            this.chkEquipaje.TabIndex = 15;
-            this.chkEquipaje.Text = "No tiene equipaje";
-            this.chkEquipaje.UseVisualStyleBackColor = true;
+            this.btnBuscarPasajero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscarPasajero.BackgroundImage")));
+            this.btnBuscarPasajero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscarPasajero.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBuscarPasajero.Location = new System.Drawing.Point(216, 60);
+            this.btnBuscarPasajero.Name = "btnBuscarPasajero";
+            this.btnBuscarPasajero.Size = new System.Drawing.Size(25, 23);
+            this.btnBuscarPasajero.TabIndex = 16;
+            this.btnBuscarPasajero.UseVisualStyleBackColor = true;
+            this.btnBuscarPasajero.Click += new System.EventHandler(this.btnBuscarPasajero_Click);
             // 
             // btnRegistrarPasajero
             // 
@@ -140,7 +145,8 @@ namespace VistaParcial
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(29, 321);
+            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.Location = new System.Drawing.Point(29, 340);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 15);
             this.label6.TabIndex = 13;
@@ -149,7 +155,8 @@ namespace VistaParcial
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 263);
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Location = new System.Drawing.Point(29, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 15);
             this.label5.TabIndex = 12;
@@ -157,7 +164,7 @@ namespace VistaParcial
             // 
             // dtpFechaPasaporte
             // 
-            this.dtpFechaPasaporte.Location = new System.Drawing.Point(29, 281);
+            this.dtpFechaPasaporte.Location = new System.Drawing.Point(29, 303);
             this.dtpFechaPasaporte.Name = "dtpFechaPasaporte";
             this.dtpFechaPasaporte.Size = new System.Drawing.Size(212, 23);
             this.dtpFechaPasaporte.TabIndex = 11;
@@ -165,7 +172,8 @@ namespace VistaParcial
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 206);
+            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.Location = new System.Drawing.Point(29, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 15);
             this.label4.TabIndex = 10;
@@ -174,7 +182,8 @@ namespace VistaParcial
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 152);
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(29, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 15);
             this.label3.TabIndex = 9;
@@ -183,7 +192,8 @@ namespace VistaParcial
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 98);
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Location = new System.Drawing.Point(29, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 15);
             this.label2.TabIndex = 8;
@@ -192,7 +202,8 @@ namespace VistaParcial
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 44);
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(29, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 7;
@@ -200,7 +211,7 @@ namespace VistaParcial
             // 
             // dtpFechaNacimiento
             // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(29, 170);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(29, 242);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(212, 23);
             this.dtpFechaNacimiento.TabIndex = 6;
@@ -208,34 +219,35 @@ namespace VistaParcial
             // cboTipoPasajero
             // 
             this.cboTipoPasajero.FormattingEnabled = true;
-            this.cboTipoPasajero.Location = new System.Drawing.Point(29, 339);
+            this.cboTipoPasajero.Location = new System.Drawing.Point(29, 358);
             this.cboTipoPasajero.Name = "cboTipoPasajero";
             this.cboTipoPasajero.Size = new System.Drawing.Size(212, 23);
             this.cboTipoPasajero.TabIndex = 5;
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(29, 224);
+            this.txtDni.Location = new System.Drawing.Point(29, 61);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(212, 23);
+            this.txtDni.Size = new System.Drawing.Size(157, 23);
             this.txtDni.TabIndex = 2;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(29, 116);
+            this.txtApellido.Location = new System.Drawing.Point(29, 181);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(212, 23);
             this.txtApellido.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(29, 62);
+            this.txtNombre.Location = new System.Drawing.Point(29, 119);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(212, 23);
             this.txtNombre.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.btnEliminarPasajero);
             this.groupBox2.Controls.Add(this.lstPasajeros);
             this.groupBox2.Location = new System.Drawing.Point(281, 3);
@@ -282,6 +294,7 @@ namespace VistaParcial
             // lblLugaresPremiumDisponible
             // 
             this.lblLugaresPremiumDisponible.AutoSize = true;
+            this.lblLugaresPremiumDisponible.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblLugaresPremiumDisponible.Location = new System.Drawing.Point(21, 47);
             this.lblLugaresPremiumDisponible.Name = "lblLugaresPremiumDisponible";
             this.lblLugaresPremiumDisponible.Size = new System.Drawing.Size(38, 15);
@@ -311,6 +324,7 @@ namespace VistaParcial
             // lblPesoDisponible
             // 
             this.lblPesoDisponible.AutoSize = true;
+            this.lblPesoDisponible.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblPesoDisponible.Location = new System.Drawing.Point(21, 17);
             this.lblPesoDisponible.Name = "lblPesoDisponible";
             this.lblPesoDisponible.Size = new System.Drawing.Size(38, 15);
@@ -320,6 +334,7 @@ namespace VistaParcial
             // lblLugaresTuristaDisponibles
             // 
             this.lblLugaresTuristaDisponibles.AutoSize = true;
+            this.lblLugaresTuristaDisponibles.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblLugaresTuristaDisponibles.Location = new System.Drawing.Point(21, 32);
             this.lblLugaresTuristaDisponibles.Name = "lblLugaresTuristaDisponibles";
             this.lblLugaresTuristaDisponibles.Size = new System.Drawing.Size(38, 15);
@@ -344,6 +359,7 @@ namespace VistaParcial
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblError.Location = new System.Drawing.Point(39, 101);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(38, 15);
@@ -395,15 +411,14 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
-            // btnBuscarPasajero
+            // lblErrorBusqueda
             // 
-            this.btnBuscarPasajero.Location = new System.Drawing.Point(247, 225);
-            this.btnBuscarPasajero.Name = "btnBuscarPasajero";
-            this.btnBuscarPasajero.Size = new System.Drawing.Size(25, 22);
-            this.btnBuscarPasajero.TabIndex = 16;
-            this.btnBuscarPasajero.Text = "button1";
-            this.btnBuscarPasajero.UseVisualStyleBackColor = true;
-            this.btnBuscarPasajero.Click += new System.EventHandler(this.btnBuscarPasajero_Click);
+            this.lblErrorBusqueda.AutoSize = true;
+            this.lblErrorBusqueda.Location = new System.Drawing.Point(44, 23);
+            this.lblErrorBusqueda.Name = "lblErrorBusqueda";
+            this.lblErrorBusqueda.Size = new System.Drawing.Size(38, 15);
+            this.lblErrorBusqueda.TabIndex = 17;
+            this.lblErrorBusqueda.Text = "label7";
             // 
             // FrmAltaPasajero
             // 
@@ -447,7 +462,6 @@ namespace VistaParcial
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRegistrarPasajero;
-        private System.Windows.Forms.CheckBox chkEquipaje;
         private System.Windows.Forms.Button btnEliminarPasajero;
         private System.Windows.Forms.ListBox lstPasajeros;
         private System.Windows.Forms.Label lblPesoDisponible;
@@ -462,5 +476,6 @@ namespace VistaParcial
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblLugaresPremiumDisponible;
         private System.Windows.Forms.Button btnBuscarPasajero;
+        private System.Windows.Forms.Label lblErrorBusqueda;
     }
 }

@@ -13,7 +13,7 @@ namespace VistaParcial
 {
     public partial class FrmAltaPasajero : Form
     {
-        private Pasajero? pasajeroActual;
+        private Pasajero pasajeroActual;
         private Viaje viaje;
         private List<Pasajero> pasajerosPosibles;
 
@@ -39,8 +39,13 @@ namespace VistaParcial
         {
             this.cboTipoPasajero.DataSource = Enum.GetValues(typeof(TipoPasajero));
             this.lblError.Text = "";
+            this.lblErrorBusqueda.Text = "";
             this.btnEliminarPasajero.Enabled = false;
-            SetEquipajeControlsActivados(false);
+            this.groupBox1.BackColor = Color.FromArgb(150, 209, 209, 209);
+            this.groupBox2.BackColor = Color.FromArgb(150, 209, 209, 209);
+            this.groupBox3.BackColor = Color.FromArgb(150, 209, 209, 209);
+            this.gpbEquipajes.BackColor = Color.FromArgb(150, 209, 209, 209);
+            SetEquipajeControls(false);
             ActualizarDatosDeViaje();
         }
 
@@ -77,6 +82,7 @@ namespace VistaParcial
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());
             this.pasajeroActual = nuevoPasajero;
             this.btnEliminarPasajero.Enabled = true;
+            this.lblErrorBusqueda.Text = "";
             ActualizarEquipajes();
         }
         private void lstPasajeros_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,11 +91,11 @@ namespace VistaParcial
             {
                 this.pasajeroActual = this.pasajerosPosibles[this.lstPasajeros.SelectedIndex];
                 ActualizarEquipajes();
-                SetEquipajeControlsActivados(true);
+                SetEquipajeControls(true);
             }
             else
             {
-                SetEquipajeControlsActivados(false);
+                SetEquipajeControls(false);
             }
         }
 
@@ -136,7 +142,7 @@ namespace VistaParcial
             ActualizarEquipajes();
         }
 
-        private void SetEquipajeControlsActivados(bool valor)
+        private void SetEquipajeControls(bool valor)
         {
             this.lstEquipajes.BackColor = Color.LightGray;
             if(valor)
@@ -184,23 +190,21 @@ namespace VistaParcial
         private void btnBuscarPasajero_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroBusqueda = null;
-            try
+            pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
+            if(pasajeroBusqueda == null)
             {
-                pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
-            }catch(Exception)
-            {
-                this.lblError.ForeColor = Color.Red;
-                this.lblError.Text = "No se encontro el pasajero";
+                this.lblErrorBusqueda.ForeColor = Color.Red;
+                this.lblErrorBusqueda.Text = "No se encontro el pasajero";
+                return;
             }
-            if(pasajeroBusqueda != null)
-            {
-                this.txtNombre.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[0];
-                this.txtApellido.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[1];
-                this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
-                this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
-                this.dtpFechaPasaporte.Value = pasajeroBusqueda.Pasaporte.FechaVencimiento - TimeSpan.FromDays(1460);
-                this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
-            }
+            this.lblErrorBusqueda.ForeColor = Color.Green;
+            this.lblErrorBusqueda.Text = "Pasajero encontrado y cargado";
+            this.txtNombre.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[0];
+            this.txtApellido.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[1];
+            this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
+            this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
+            this.dtpFechaPasaporte.Value = pasajeroBusqueda.Pasaporte.FechaVencimiento - TimeSpan.FromDays(1460);
+            this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
         }
     }
 }
