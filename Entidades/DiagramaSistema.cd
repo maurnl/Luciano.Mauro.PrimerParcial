@@ -1,107 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Parcial.Login.SistemaUsuarios">
-    <Position X="8.75" Y="8" Width="1.5" />
+    <Position X="15.25" Y="8" Width="2.25" />
     <TypeIdentifier>
       <HashCode>IAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAIIAAAAAAAA=</HashCode>
       <FileName>Login\SistemaUsuarios.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Login.Usuario">
-    <Position X="8.75" Y="4.75" Width="1.5" />
+    <Position X="12.75" Y="4.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAQAgAAEAAAAAAAACAAAAAgAAAAA=</HashCode>
       <FileName>Login\Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Util.Hardcoder">
-    <Position X="10.5" Y="4.25" Width="1.5" />
+    <Position X="15.25" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAACAAAAAEAAAAAAAAAABAAAAEAAAA=</HashCode>
       <FileName>Util\Hardcoder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Util.Hasher">
-    <Position X="10.5" Y="3" Width="1.5" />
+    <Position X="15.25" Y="3" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Util\Hasher.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Util.Validador">
-    <Position X="10.5" Y="6.5" Width="1.5" />
+    <Position X="15.25" Y="6.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAIAAAEAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Util\Validador.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.Crucero">
-    <Position X="3" Y="4.75" Width="1.5" />
+    <Position X="3" Y="4.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>kAAwBAEAWAAAAQCEQAIAoAACAAAAAQEAUAQAAAAAAiA=</HashCode>
       <FileName>Entities\Crucero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.EntidadBase" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Entities\EntidadBase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Parcial.Entities.Equipaje" Collapsed="true">
-    <Position X="6.5" Y="5.75" Width="1.5" />
+  <Class Name="Parcial.Entities.Equipaje">
+    <Position X="6.25" Y="13" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAABAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAABAAAAEgAAAAAAAAgAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Equipaje.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.Pasajero">
-    <Position X="6.5" Y="4.75" Width="1.5" />
+    <Position X="10" Y="4.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>ACEABAAgAAQAAAAEQAAAAAAAAAACAgAAEAEAABABAiA=</HashCode>
+      <HashCode>ECEABAAwAAQAEAAESAEAQAAAAEACAgAAEAEAABAAAiA=</HashCode>
       <FileName>Entities\Pasajero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.Pasaporte">
-    <Position X="6.5" Y="9.75" Width="1.5" />
+    <Position X="12.75" Y="7.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAEAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAEAAAABAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Entities\Pasaporte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.PersonaBase">
-    <Position X="7.75" Y="1.5" Width="1.5" />
+    <Position X="11.5" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAACEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\PersonaBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.Puerto">
-    <Position X="1.25" Y="8.75" Width="1.5" />
+    <Position X="0.5" Y="9.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAgAEAAAIAAAACAAAAgAAAAAAAAAAAiA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAgAEgAAIAAAACAAAAgAAAAAAAAAAAiA=</HashCode>
       <FileName>Entities\Puerto.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Parcial.Entities.SistemaApp">
-    <Position X="10.5" Y="8.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAABAAAAAABAAAAAUAAAABAAAAgAAAAIA=</HashCode>
-      <FileName>Entities\SistemaApp.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Parcial.Entities.Venta">
-    <Position X="1.25" Y="4.75" Width="1.5" />
+    <Position X="0.5" Y="4.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAEEAAACBAAAAEQAIAAAAAAQAAAAQAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAEEAAAGBAAAAEQAIAAIAABQAAAAQAA=</HashCode>
       <FileName>Entities\Venta.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Parcial.Entities.Viaje">
-    <Position X="4.75" Y="4.75" Width="1.5" />
+    <Position X="6.25" Y="4.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AQIgUAAAYJAAQAAEQAABgggBACAAAAACgAYAEgAKgAI=</HashCode>
+      <HashCode>AQIgUAAAYJAAQAAESAABgggBgCAAAAACgAYAFgACgAI=</HashCode>
       <FileName>Entities\Viaje.cs</FileName>
     </TypeIdentifier>
   </Class>
