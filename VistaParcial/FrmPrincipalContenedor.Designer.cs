@@ -40,6 +40,7 @@ namespace VistaParcial
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBienvenido = new System.Windows.Forms.Label();
+            this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +51,11 @@ namespace VistaParcial
             this.viajesToolStripMenuItem,
             this.pasajerosToolStripMenuItem,
             this.ventasToolStripMenuItem,
-            this.informarToolStripMenuItem});
+            this.informarToolStripMenuItem,
+            this.fechaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1431, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1431, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,7 +65,7 @@ namespace VistaParcial
             this.nuevoViajeToolStripMenuItem,
             this.simularPasoDelTiempoToolStripMenuItem});
             this.viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
-            this.viajesToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.viajesToolStripMenuItem.Size = new System.Drawing.Size(49, 29);
             this.viajesToolStripMenuItem.Text = "Viajes";
             this.viajesToolStripMenuItem.Click += new System.EventHandler(this.viajesToolStripMenuItem_Click);
             // 
@@ -100,21 +102,21 @@ namespace VistaParcial
             // pasajerosToolStripMenuItem
             // 
             this.pasajerosToolStripMenuItem.Name = "pasajerosToolStripMenuItem";
-            this.pasajerosToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.pasajerosToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
             this.pasajerosToolStripMenuItem.Text = "Pasajeros";
             this.pasajerosToolStripMenuItem.Click += new System.EventHandler(this.pasajerosToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
             // informarToolStripMenuItem
             // 
             this.informarToolStripMenuItem.Name = "informarToolStripMenuItem";
-            this.informarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.informarToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.informarToolStripMenuItem.Text = "Informar";
             this.informarToolStripMenuItem.Click += new System.EventHandler(this.informarToolStripMenuItem_Click);
             // 
@@ -129,6 +131,14 @@ namespace VistaParcial
             this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
             this.lblBienvenido.TabIndex = 1;
             this.lblBienvenido.Text = "label1";
+            // 
+            // fechaToolStripMenuItem
+            // 
+            this.fechaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fechaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.fechaToolStripMenuItem.Name = "fechaToolStripMenuItem";
+            this.fechaToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
+            this.fechaToolStripMenuItem.Text = "fecha";
             // 
             // FrmPrincipalContenedor
             // 
@@ -165,5 +175,6 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem otroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informarToolStripMenuItem;
         private System.Windows.Forms.Label lblBienvenido;
+        private System.Windows.Forms.ToolStripMenuItem fechaToolStripMenuItem;
     }
 }

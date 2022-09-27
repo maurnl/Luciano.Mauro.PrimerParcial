@@ -23,10 +23,12 @@ namespace VistaParcial
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            TimeSpan tiempoASimular = TimeSpan.FromDays((double)this.nudDias.Value);
             for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
-                SistemaCruceros.viajes[i] += TimeSpan.FromDays((double)this.nudDias.Value);
+                SistemaCruceros.viajes[i] += tiempoASimular;
             }
+            SistemaCruceros.fechaDelSistema += tiempoASimular;
             this.DialogResult = DialogResult.OK;
         }
 

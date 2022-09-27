@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace Parcial.Entities
     {
         private static int contadorViaje;
         private static Random random;
-        private static DateTime fechaActual;
+        private DateTime fechaActual;
         private Puerto origen;
         private Puerto destino;
         private Crucero crucero;
@@ -174,7 +174,7 @@ namespace Parcial.Entities
             this.crucero = crucero;
             this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
-            Viaje.fechaActual = fechaSalida;
+            this.fechaActual = SistemaCruceros.fechaDelSistema;
             this.pasajeros = new List<Pasajero>();
             this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
@@ -216,12 +216,12 @@ namespace Parcial.Entities
         }
         public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
-            Viaje.fechaActual += tiempo;
-            if(Viaje.fechaActual >= viaje.fechaSalida && Viaje.fechaActual < viaje.Llegada)
+            viaje.fechaActual += tiempo;
+            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
             {
                 viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
             }
-            else if(Viaje.fechaActual >= viaje.Llegada)
+            else if(viaje.fechaActual >= viaje.Llegada)
             {
                 SistemaCruceros.historialViajes.Add(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;

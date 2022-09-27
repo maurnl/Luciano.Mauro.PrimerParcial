@@ -9,6 +9,7 @@ namespace Parcial.Entities
 {
     public static class SistemaCruceros
     {
+        public static DateTime fechaDelSistema;
         public static List<Crucero> flota;
         public static List<Viaje> historialViajes;
         public static List<Viaje> viajes;
@@ -39,6 +40,7 @@ namespace Parcial.Entities
             SistemaCruceros.puertos = new List<Puerto>();
             SistemaCruceros.historialViajes = new List<Viaje>();
             SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
+            SistemaCruceros.fechaDelSistema = DateTime.Now;
         }
 
         public static Pasajero ObtenerPasajeroEnSistema(int dni)

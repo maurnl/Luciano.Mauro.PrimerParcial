@@ -41,6 +41,7 @@ namespace VistaParcial
             this.formListadoViajes.MdiParent = this;
             this.formListadoVentas.MdiParent = this;
             this.formListadoHistorial.MdiParent = this;
+            ActualizarLabelFecha();
         }
 
         private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,7 +114,13 @@ namespace VistaParcial
 
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SistemaCruceros.viajes[0] += TimeSpan.FromDays(5);
+            TimeSpan tiempoASimular = TimeSpan.FromDays(5);
+            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
+            {
+                SistemaCruceros.viajes[i] += tiempoASimular;
+            }
+            SistemaCruceros.fechaDelSistema += tiempoASimular;
+            ActualizarLabelFecha();
             MostrarListado("viajes");
         }
 
@@ -124,12 +131,18 @@ namespace VistaParcial
             {
                 MessageBox.Show("Tiempo actualizado!");
             }
+            ActualizarLabelFecha();
             MostrarListado("viajes");
         }
 
         private void informarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MostrarListado("historial");
+        }
+
+        private void ActualizarLabelFecha()
+        {
+            this.fechaToolStripMenuItem.Text = SistemaCruceros.fechaDelSistema.ToString();
         }
 
         private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)
