@@ -10,6 +10,7 @@ namespace Parcial.Entities
     {
         private static int contadorViaje;
         private static Random random;
+        private static DateTime fechaActual;
         private Puerto origen;
         private Puerto destino;
         private Crucero crucero;
@@ -17,7 +18,6 @@ namespace Parcial.Entities
         private float duracionEnHoras;
         private List<Pasajero> pasajeros;
         private DateTime fechaSalida;
-        private DateTime fechaActual;
         private EstadoDeViaje estadoDeViaje;
 
         public EstadoDeViaje EstadoDeViaje
@@ -174,7 +174,7 @@ namespace Parcial.Entities
             this.crucero = crucero;
             this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
-            this.fechaActual = fechaSalida;
+            Viaje.fechaActual = fechaSalida;
             this.pasajeros = new List<Pasajero>();
             this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
@@ -216,12 +216,12 @@ namespace Parcial.Entities
         }
         public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
-            viaje.fechaActual += tiempo;
-            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
+            Viaje.fechaActual += tiempo;
+            if(Viaje.fechaActual >= viaje.fechaSalida && Viaje.fechaActual < viaje.Llegada)
             {
                 viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
             }
-            else if(viaje.fechaActual >= viaje.Llegada)
+            else if(Viaje.fechaActual >= viaje.Llegada)
             {
                 SistemaCruceros.historialViajes.Add(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;

@@ -39,7 +39,6 @@ namespace VistaParcial
             this.pasajerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vuelosTerminadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,18 +113,10 @@ namespace VistaParcial
             // 
             // informarToolStripMenuItem
             // 
-            this.informarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vuelosTerminadosToolStripMenuItem});
             this.informarToolStripMenuItem.Name = "informarToolStripMenuItem";
             this.informarToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.informarToolStripMenuItem.Text = "Informar";
             this.informarToolStripMenuItem.Click += new System.EventHandler(this.informarToolStripMenuItem_Click);
-            // 
-            // vuelosTerminadosToolStripMenuItem
-            // 
-            this.vuelosTerminadosToolStripMenuItem.Name = "vuelosTerminadosToolStripMenuItem";
-            this.vuelosTerminadosToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.vuelosTerminadosToolStripMenuItem.Text = "Viajes terminados...";
             // 
             // lblBienvenido
             // 
@@ -173,7 +164,6 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem unaHoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vuelosTerminadosToolStripMenuItem;
         private System.Windows.Forms.Label lblBienvenido;
     }
 }

@@ -47,6 +47,26 @@ namespace VistaParcial
         protected internal void ActualizarListado()
         {
             this.fuenteDeDatos.ResetBindings(false);
+            this.PintarFilas();
+        }
+
+        public virtual void PintarFilas()
+        {
+            if(this.dgvListado.DataSource == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < this.dgvListado.RowCount; i++)
+            {
+                DataGridViewRow filaActual = this.dgvListado.Rows[i];
+                {
+                    if (i % 2 == 0)
+                    {
+                        filaActual.DefaultCellStyle.BackColor = Color.LightGray;
+                    }
+                }
+            }
         }
 
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)

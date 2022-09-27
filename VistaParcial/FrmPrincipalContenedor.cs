@@ -41,19 +41,6 @@ namespace VistaParcial
             this.formListadoViajes.MdiParent = this;
             this.formListadoVentas.MdiParent = this;
             this.formListadoHistorial.MdiParent = this;
-            CargarForms();
-        }
-
-        private void CargarForms()
-        {
-            viajesToolStripMenuItem_Click(this, new EventArgs());
-            pasajerosToolStripMenuItem_Click(this, new EventArgs());
-            ventasToolStripMenuItem_Click(this, new EventArgs());
-            informarToolStripMenuItem_Click(this, new EventArgs());
-            this.formListadoHistorial.Visible = false;
-            this.formListadoPasajeros.Hide();
-            this.formListadoVentas.Hide();
-            this.formListadoViajes.Hide();
         }
 
         private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,10 +117,7 @@ namespace VistaParcial
 
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
-            {
-                SistemaCruceros.viajes[i] += TimeSpan.FromDays(5);
-            }
+            SistemaCruceros.viajes[0] += TimeSpan.FromDays(5);
             MostrarListado("viajes");
         }
 
