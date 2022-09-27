@@ -65,15 +65,17 @@ namespace Parcial.Entities
 
         public override bool Equals(object obj)
         {
-            if(obj is not Puerto)
-            {
-                return false;
-            }
-            return this == (Puerto)obj;
+            Puerto puerto = obj as Puerto;
+            return puerto is not null && this == (Puerto)obj;
         }
         public override string ToString()
         {
             return $"{(EsDestinoRegional ? "Regional: " : "Extraregional: ")}{this.provincia}, {this.pais}";
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.pais, this.provincia, this.esDestinoRegional).GetHashCode();
         }
     }
 }

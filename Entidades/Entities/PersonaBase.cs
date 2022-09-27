@@ -33,5 +33,10 @@ namespace Parcial.Entities
         {
             return $"Nombre: {NombreCompleto}.";
         }
+
+        public override int GetHashCode()
+        {
+            return (this.nombre, this.apellido).GetHashCode();
+        }
     }
 }

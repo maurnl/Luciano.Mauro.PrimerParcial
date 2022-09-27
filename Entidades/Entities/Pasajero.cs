@@ -15,7 +15,6 @@ namespace Parcial.Entities
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
-
         public int Dni
         {
             get
@@ -203,6 +202,17 @@ namespace Parcial.Entities
         public override string ToString()
         {
             return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. DNI: {Pasaporte.Dni}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Pasajero pasajero = obj as Pasajero;
+            return pasajero is not null && pasajero == this;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode() + (this.id, this.pasaporte).GetHashCode();
         }
     }
 }

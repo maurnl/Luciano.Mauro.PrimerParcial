@@ -36,5 +36,10 @@ namespace Parcial.Entities
         {
             return $"Fecha de vencimiento: {this.FechaVencimiento}";
         }
+
+        public override int GetHashCode()
+        {
+            return (this.dni, this.fechaExpedido).GetHashCode();
+        }
     }
 }

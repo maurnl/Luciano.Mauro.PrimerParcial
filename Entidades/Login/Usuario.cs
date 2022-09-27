@@ -50,5 +50,16 @@ namespace Parcial.Login
         {
             return $"{base.ToString()} Usuario: {this.username}";
         }
+
+        public override bool Equals(object obj)
+        {
+            Usuario usuario = obj as Usuario;
+            return usuario is not null && usuario.id == this.id;
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.id, this.username, this.password).GetHashCode();
+        }
     }
 }

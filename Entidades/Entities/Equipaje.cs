@@ -43,11 +43,13 @@ namespace Parcial.Entities
 
         public override bool Equals(object obj)
         {
-            if(obj is not Equipaje)
-            {
-                return false;
-            }
-            return ((Equipaje)obj).peso == this.peso && ((Equipaje)obj).esDeMano == this.esDeMano;
+            Equipaje equipaje = obj as Equipaje;
+            return equipaje is not null && equipaje.peso == this.peso && equipaje.esDeMano == this.esDeMano;
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.peso, this.esDeMano).GetHashCode();
         }
     }
 }
