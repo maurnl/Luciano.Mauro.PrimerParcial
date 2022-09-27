@@ -44,13 +44,13 @@ namespace VistaParcial
             }
         }
         
-        protected internal void ActualizarListado()
+        public void ActualizarListado()
         {
             this.fuenteDeDatos.ResetBindings(false);
             this.PintarFilas();
         }
 
-        public virtual void PintarFilas()
+        protected virtual void PintarFilas()
         {
             if(this.dgvListado.DataSource == null)
             {

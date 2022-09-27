@@ -33,13 +33,22 @@ namespace VistaParcial
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // cboCombobox
+            // 
+            this.cboCombobox.Location = new System.Drawing.Point(879, 21);
+            // 
+            // lblCombobox
+            // 
+            this.lblCombobox.Location = new System.Drawing.Point(793, 24);
+            // 
             // FrmListadoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 634);
+            this.ClientSize = new System.Drawing.Size(1195, 634);
             this.Name = "FrmListadoVentas";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.FrmListadoVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

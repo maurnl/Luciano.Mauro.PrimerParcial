@@ -22,9 +22,9 @@ namespace VistaParcial
 
         private void FrmListadoViajes_Load(object sender, EventArgs e)
         {
+            this.Text = "Listado de viajes";
             this.btnAccionDos.Text = "Editar viaje...";
             base.ActualizarListado();
-            PintarFilas();
         }
 
         private void btnFiltroUno_Click(object sender, EventArgs e)
@@ -52,7 +52,6 @@ namespace VistaParcial
                 }
             }
             base.ActualizarListado();
-            PintarFilas();
         }
 
         private void chkFiltroUno_CheckedChanged(object sender, EventArgs e)
@@ -93,7 +92,7 @@ namespace VistaParcial
             this.chkFiltroUno.Checked = false;
             this.chkFiltroDos.Checked = false;
         }
-        public void PintarFilas()
+        protected override void PintarFilas()
         {
             for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
@@ -131,7 +130,6 @@ namespace VistaParcial
             if (formEditarViaje.ShowDialog() == DialogResult.OK)
             {
                 base.ActualizarListado();
-                PintarFilas();
             }
         }
 

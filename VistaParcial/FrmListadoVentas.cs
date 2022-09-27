@@ -18,5 +18,10 @@ namespace VistaParcial
             InitializeComponent();
             base.fuenteDeDatos.DataSource = SistemaCruceros.ventas;
         }
+
+        private void FrmListadoVentas_Load(object sender, EventArgs e)
+        {
+            this.Text = "Listado de ventas";
+        }
     }
 }

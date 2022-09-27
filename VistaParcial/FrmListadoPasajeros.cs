@@ -20,14 +20,15 @@ namespace VistaParcial
         }
         private void FrmListadoPasajeros_Load(object sender, EventArgs e)
         {
+            this.Text = "Listado de pasajeros";
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = SistemaCruceros.viajes;
         }
 
-        private void PintarListado(int cantFilas)
+        protected override void PintarFilas()
         {
-            for (int i = 0; i < cantFilas; i++)
+            for (int i = 0; i < this.dgvListado.RowCount; i++)
             {
                 DataGridViewRow filaActual = base.dgvListado.Rows[i];
                 if (filaActual.DataBoundItem is Pasajero pasajero)
@@ -46,7 +47,6 @@ namespace VistaParcial
             List<Pasajero> pasajeros = SistemaCruceros.viajes[this.cboCombobox.SelectedIndex].Pasajeros;
             base.fuenteDeDatos.DataSource = pasajeros;
             base.ActualizarListado();
-            PintarListado(pasajeros.Count);
         }
     }
 }

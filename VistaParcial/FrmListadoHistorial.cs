@@ -20,6 +20,7 @@ namespace VistaParcial
         }
         private void FrmListadoHistorial_Load(object sender, EventArgs e)
         {
+            this.Text = "Informes";
             this.btnAccionUno.Text = "Ver viajes finalizados";
             this.btnAccionDos.Text = "Ver recaudacion por destinos";
             this.btnReiniciarFiltros.Text = "Calcular recaudacion del viaje";
@@ -29,6 +30,7 @@ namespace VistaParcial
         private void btnAccionUno_Click(object sender, EventArgs e)
         {
             base.fuenteDeDatos.DataSource = SistemaCruceros.historialViajes;
+            base.ActualizarListado();
             this.btnAccionUno.Enabled = true;
             this.btnReiniciarFiltros.Enabled = true;
         }
@@ -68,6 +70,7 @@ namespace VistaParcial
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
             base.fuenteDeDatos.DataSource = SistemaCruceros.contadorRecaudacionDestinos.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value).Reverse();
+            base.ActualizarListado();
             this.btnReiniciarFiltros.Enabled = false;
         }
 
