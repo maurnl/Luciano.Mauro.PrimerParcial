@@ -46,7 +46,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 611);
+            this.ClientSize = new System.Drawing.Size(1195, 634);
             this.Name = "FrmListadoPasajeros";
             this.Text = "FrmListadoPasajeros";
             this.Load += new System.EventHandler(this.FrmListadoPasajeros_Load);

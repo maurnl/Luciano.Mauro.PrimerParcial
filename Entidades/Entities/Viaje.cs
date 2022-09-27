@@ -214,6 +214,12 @@ namespace Parcial.Entities
 
             return viaje;
         }
+
+        public static Viaje operator -(Viaje viaje, Pasajero pasajero)
+        {
+            viaje.pasajeros.RemoveAt(viaje.ObtenerIndicePasajero(pasajero));
+            return viaje;
+        }
         public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
             viaje.fechaActual += tiempo;
@@ -235,6 +241,7 @@ namespace Parcial.Entities
                         pasajero -= pasajero[i];
 
                     }
+                    viaje -= pasajero;
                     pasajero.EstaViajando = false;
                 }
             }

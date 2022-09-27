@@ -42,11 +42,13 @@ namespace VistaParcial
                         viajeSeleccionado += pasajeroPosible;
                         clientes.Add(pasajeroPosible);
                     }
-                    SistemaCruceros.ventas.Add(new Venta(viajeSeleccionado, clientes));
+                    Venta venta = new Venta(viajeSeleccionado, clientes);
+                    SistemaCruceros.ventas.Add(venta);
+                    MessageBox.Show($"Precio bruto: ${venta.PrecioBruto}.\nTotal a cobrar: ${venta.PrecioNeto}", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception agregarPasajerosEx)
                 {
-                    base.lblError.ForeColor = Color.Red;
+                    base.lblError.ForeColor = Color.Red; 
                     base.lblError.Text = agregarPasajerosEx.Message;
                 }
             }

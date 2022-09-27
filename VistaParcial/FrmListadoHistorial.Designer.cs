@@ -37,6 +37,7 @@ namespace VistaParcial
             // panel1
             // 
             this.panel1.Controls.Add(this.btnGanancias);
+            this.panel1.Size = new System.Drawing.Size(1195, 65);
             this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
             this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
             this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
@@ -46,11 +47,16 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
+            this.cboCombobox.Location = new System.Drawing.Point(879, 20);
             this.cboCombobox.Size = new System.Drawing.Size(252, 23);
             // 
             // btnAccionUno
             // 
             this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
+            // 
+            // lblCombobox
+            // 
+            this.lblCombobox.Location = new System.Drawing.Point(793, 23);
             // 
             // btnAccionDos
             // 
@@ -74,7 +80,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 450);
+            this.ClientSize = new System.Drawing.Size(1195, 634);
             this.Name = "FrmListadoHistorial";
             this.Text = "FrmListadoHistorial";
             this.Load += new System.EventHandler(this.FrmListadoHistorial_Load);

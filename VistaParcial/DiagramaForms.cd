@@ -1,90 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="VistaParcial.Properties.Resources" Collapsed="true">
-    <Position X="14.5" Y="3.5" Width="1.5" />
+    <Position X="15" Y="1.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmAltaPasajero" Collapsed="true">
-    <Position X="12.75" Y="1.5" Width="1.5" />
+    <Position X="8" Y="10.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>CBIggAAA0GBgCZEGICCwBBACACRwAAAAACQAgIggBCQ=</HashCode>
+      <HashCode>CBIggAAA0GBgC5EGIACwBBACACRQAAAAACQAgIgiBCQ=</HashCode>
       <FileName>FrmAltaPasajero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmListadoBase">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EACAAAgAAiAABAAAAACAAAQCAAIgAgABAAAAEYAAAAQ=</HashCode>
+      <HashCode>EACAAAgAAiAABAAAAACAAAQCAAIgAAABAAAAEYAAAAQ=</HashCode>
       <FileName>FrmListadoBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmListadoHistorial">
-    <Position X="9.75" Y="6.25" Width="1.5" />
+    <Position X="11.25" Y="6.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AACAAACAACAAAgAGAACAAAACAAAAAAAACAAAAAAAIEA=</HashCode>
       <FileName>FrmListadoHistorial.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmListadoPasajeros">
-    <Position X="3.75" Y="6.25" Width="1.5" />
+    <Position X="2.25" Y="6.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAACAAAAAAAACAAAACAAIAAAABAAAAAAAAAAA=</HashCode>
       <FileName>FrmListadoPasajeros.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmListadoVentas">
-    <Position X="5.75" Y="6.25" Width="1.5" />
+    <Position X="5.5" Y="6.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAACAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FrmListadoVentas.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmListadoViajes">
-    <Position X="7.75" Y="6.25" Width="1.5" />
+    <Position X="8" Y="6.25" Width="3" />
     <TypeIdentifier>
       <HashCode>GCCAAAAEACQAAgAAgIKAAAACAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FrmListadoViajes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmLogin" Collapsed="true">
-    <Position X="14.5" Y="1.5" Width="1.5" />
+    <Position X="12.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAggAAAAACAAABAAAACAIgACAAAACAAAABAAAQBgKEQ=</HashCode>
       <FileName>FrmLogin.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmPrincipalContenedor" Collapsed="true">
-    <Position X="16.25" Y="1.5" Width="1.5" />
+    <Position X="9.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AQAIAABAACAACAQQAACgAAAGAAEJAAwGwAAFggkoEQA=</HashCode>
+      <HashCode>AQAIAABAACAACAQQAACgAAAGAAEJAAwGwABHggkoEQA=</HashCode>
       <FileName>FrmPrincipalContenedor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmRegister" Collapsed="true">
-    <Position X="12.75" Y="2.5" Width="1.5" />
+    <Position X="12.25" Y="1.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAiAAAAAACAAABEAAUCAAENCAAAAAAACADAAAgAgAEQ=</HashCode>
       <FileName>FrmRegister.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmSimularTiempo" Collapsed="true">
-    <Position X="14.5" Y="2.5" Width="1.5" />
+    <Position X="9.5" Y="1.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACIAABgABACAAAACAAAIAAAAAEAAAAAAAAA=</HashCode>
       <FileName>FrmSimularTiempo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.FrmViaje" Collapsed="true">
-    <Position X="16.25" Y="2.5" Width="1.5" />
+    <Position X="8" Y="11.25" Width="3" />
     <TypeIdentifier>
       <HashCode>QAAAQEQAACAAAJgABACBAAACAABAAAAAACgAAQAAAAY=</HashCode>
       <FileName>FrmViaje.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="VistaParcial.Program" Collapsed="true">
-    <Position X="12.75" Y="3.5" Width="1.5" />
+    <Position X="15" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>

@@ -10,7 +10,6 @@ namespace Parcial.Entities
     {
         private string nombre;
         private string apellido;
-
         public string NombreCompleto
         {
             get

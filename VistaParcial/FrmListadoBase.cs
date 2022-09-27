@@ -24,7 +24,6 @@ namespace VistaParcial
             this.dgvListado.ScrollBars = ScrollBars.Both;
             this.dgvListado.ReadOnly = true;
             this.FormBorderStyle = FormBorderStyle.None;
-            this.dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.lblError.Text = "";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.WindowState = FormWindowState.Maximized;

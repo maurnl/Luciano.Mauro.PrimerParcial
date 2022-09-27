@@ -33,6 +33,14 @@ namespace Parcial.Entities
                 return this.fecha.ToShortDateString();
             }
         }
+
+        public float PrecioBruto
+        {
+            get
+            {
+                return this.precioBruto;
+            }
+        }
         public float PrecioNeto
         {
             get
