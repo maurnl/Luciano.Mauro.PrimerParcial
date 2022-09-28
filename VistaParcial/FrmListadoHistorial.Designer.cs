@@ -47,7 +47,7 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(879, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(824, 20);
             this.cboCombobox.Size = new System.Drawing.Size(252, 23);
             // 
             // btnAccionUno
@@ -56,7 +56,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(793, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(738, 23);
             // 
             // btnAccionDos
             // 
@@ -68,12 +68,14 @@ namespace VistaParcial
             // 
             // btnGanancias
             // 
-            this.btnGanancias.Location = new System.Drawing.Point(570, 12);
+            this.btnGanancias.BackColor = System.Drawing.Color.SlateGray;
+            this.btnGanancias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGanancias.Location = new System.Drawing.Point(571, 7);
             this.btnGanancias.Name = "btnGanancias";
-            this.btnGanancias.Size = new System.Drawing.Size(161, 39);
+            this.btnGanancias.Size = new System.Drawing.Size(161, 48);
             this.btnGanancias.TabIndex = 7;
             this.btnGanancias.Text = "button1";
-            this.btnGanancias.UseVisualStyleBackColor = true;
+            this.btnGanancias.UseVisualStyleBackColor = false;
             this.btnGanancias.Click += new System.EventHandler(this.btnGanancias_Click);
             // 
             // FrmListadoHistorial

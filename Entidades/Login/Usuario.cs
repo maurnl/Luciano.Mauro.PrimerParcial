@@ -7,6 +7,14 @@ namespace Parcial.Login
         private static int contadorUsuario;
         private string username;
         private string password;
+
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
         public string Username
         {
             get

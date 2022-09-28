@@ -15,6 +15,13 @@ namespace Parcial.Entities
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
         public int Dni
         {
             get

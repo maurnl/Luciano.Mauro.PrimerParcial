@@ -41,13 +41,13 @@ namespace VistaParcial
             this.cboCrucero.DropDownStyle = ComboBoxStyle.DropDownList;
             this.estaEditando = true;
             this.cboOrigen.Enabled = false;
+            this.viajeDelForm = viaje;
             this.cboOrigen.SelectedItem = viaje.Origen;
             this.cboDestino.SelectedItem = viaje.Destino;
             this.cboCrucero.SelectedItem = viaje.Crucero;
             this.dtpFechaSalida.Value = viaje.Salida;
             this.viajeDelForm.Crucero.EstaEnViaje = false;
             this.btnAceptar.Text = "Aplicar cambios";
-            this.viajeDelForm = viaje;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

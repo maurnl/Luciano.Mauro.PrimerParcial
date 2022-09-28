@@ -11,10 +11,10 @@ namespace Parcial.Entities
     {
         public static DateTime fechaDelSistema;
         public static List<Crucero> flota;
-        public static List<Viaje> historialViajes;
-        public static List<Viaje> viajes;
         public static List<Venta> ventas;
         public static List<Puerto> puertos;
+        public static List<Viaje> viajes;
+        public static List<Viaje> historialViajes;
         public static Dictionary<Puerto, float> contadorRecaudacionDestinos;
         public static List<Pasajero> BaseDeDatosPasajeros
         {

@@ -9,12 +9,9 @@ namespace Parcial.Entities
     public abstract class EntidadBase
     {
         protected int id;
-        public int Id
+        public abstract int Id
         {
-            get
-            {
-                return this.id;
-            }
+            get;
         }
     }
 }

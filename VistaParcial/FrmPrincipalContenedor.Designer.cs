@@ -47,14 +47,13 @@ namespace VistaParcial
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viajesToolStripMenuItem,
             this.pasajerosToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.informarToolStripMenuItem,
             this.fechaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 740);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1431, 33);
             this.menuStrip1.TabIndex = 0;
