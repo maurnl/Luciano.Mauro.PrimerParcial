@@ -61,7 +61,7 @@ namespace Parcial.Util
             for (int i = 0; i < cantidad; i++)
             {
                 dni = random.Next(2000000, 5000000);
-                Pasajero pasajero = new Pasajero("Pepito Pepe", new Pasaporte(dni, DateTime.Parse("12/07/2020")), DateTime.Parse("12/07/1970"), tipo);
+                Pasajero pasajero = new Pasajero("Pepito Pepe", dni, DateTime.Parse("12/07/1970"), tipo);
                 viaje += pasajero;
                 ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
             }

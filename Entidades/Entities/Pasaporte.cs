@@ -26,10 +26,15 @@ namespace Parcial.Entities
             }
         }
 
-        public Pasaporte(int dni, DateTime fechaExpedido)
+        private Pasaporte(int dni, DateTime fechaExpedido)
         {
             this.dni = dni;
             this.fechaExpedido = fechaExpedido;
+        }
+
+        public static implicit operator Pasaporte(int dni)
+        {
+            return new Pasaporte(dni, DateTime.Now);
         }
 
         public override string ToString()

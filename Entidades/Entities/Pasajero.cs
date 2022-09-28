@@ -101,15 +101,15 @@ namespace Parcial.Entities
             Pasajero.contadorPasajero = 1000;
         }
 
-        private Pasajero(string nombreCompleto, Pasaporte pasaporte) : base(nombreCompleto)
+        private Pasajero(string nombreCompleto) : base(nombreCompleto)
         {
             base.id = Pasajero.contadorPasajero;
             Pasajero.contadorPasajero++;
-            this.pasaporte = pasaporte;
         }
 
-        public Pasajero(string nombreCompleto, Pasaporte pasaporte, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto, pasaporte)
+        public Pasajero(string nombreCompleto, Pasaporte pasaporte, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto)
         {
+            this.pasaporte = pasaporte;
             this.fechaNacimiento = fechaNacimiento;
             this.tipoPasajero = tipoPasajero;
             this.estaViajando = true;

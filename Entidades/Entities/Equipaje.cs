@@ -36,9 +36,13 @@ namespace Parcial.Entities
             }
         }
 
+        public static explicit operator string(Equipaje equipaje)
+        {
+            return $"Peso: {equipaje.peso} kg. Es equipaje de mano: {(equipaje.esDeMano ? "Si" : "No")}";
+        }
         public override string ToString()
         {
-            return $"Peso: {this.peso} kg. Es equipaje de mano: {(this.esDeMano ? "Si" : "No")}";
+            return (string)this;
         }
 
         public override bool Equals(object obj)

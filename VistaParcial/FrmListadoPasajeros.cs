@@ -44,7 +44,12 @@ namespace VistaParcial
 
         private void cboCombobox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            List<Pasajero> pasajeros = SistemaCruceros.viajes[this.cboCombobox.SelectedIndex].Pasajeros;
+            Viaje viajeSeleccionado = SistemaCruceros.viajes[this.cboCombobox.SelectedIndex];
+            List<Pasajero> pasajeros = new List<Pasajero>();
+            for (int i = 0; i < viajeSeleccionado.PasajerosABordo; i++)
+            {
+                pasajeros.Add(viajeSeleccionado[i]);
+            }
             base.fuenteDeDatos.DataSource = pasajeros;
             base.ActualizarListado();
         }

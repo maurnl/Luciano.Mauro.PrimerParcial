@@ -32,22 +32,22 @@ namespace VistaParcial
             this.cboCrucero.DataSource = SistemaCruceros.flota;
             this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.puertos);
             this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.puertos);
-            this.cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboCrucero.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboOrigen.Enabled = false;
         }
 
         public FrmViaje(Viaje viaje) : this()
         {
+            this.cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cboCrucero.DropDownStyle = ComboBoxStyle.DropDownList;
             this.estaEditando = true;
-            this.viajeDelForm = viaje;
-            this.cboCrucero.SelectedItem = viaje.Crucero;
+            this.cboOrigen.Enabled = false;
             this.cboOrigen.SelectedItem = viaje.Origen;
             this.cboDestino.SelectedItem = viaje.Destino;
+            this.cboCrucero.SelectedItem = viaje.Crucero;
             this.dtpFechaSalida.Value = viaje.Salida;
             this.viajeDelForm.Crucero.EstaEnViaje = false;
             this.btnAceptar.Text = "Aplicar cambios";
+            this.viajeDelForm = viaje;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

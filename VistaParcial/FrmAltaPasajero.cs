@@ -70,13 +70,12 @@ namespace VistaParcial
             string nombreCompleto = this.txtNombre.Text + " " + this.txtApellido.Text;
             string dni = this.txtDni.Text;
             DateTime fechaNacimiento = this.dtpFechaNacimiento.Value;
-            DateTime fechaExpedido = this.dtpFechaPasaporte.Value;
             TipoPasajero tipo = (TipoPasajero)this.cboTipoPasajero.SelectedItem;
 
             Pasajero nuevoPasajero = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(dni));
             if (nuevoPasajero == null)
             {
-                nuevoPasajero = new Pasajero(nombreCompleto, new Pasaporte(int.Parse(dni), fechaExpedido), fechaNacimiento, tipo);
+                nuevoPasajero = new Pasajero(nombreCompleto, int.Parse(dni), fechaNacimiento, tipo);
             }
             this.pasajerosPosibles.Add(nuevoPasajero);
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());
@@ -203,7 +202,6 @@ namespace VistaParcial
             this.txtApellido.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[1];
             this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
             this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
-            this.dtpFechaPasaporte.Value = pasajeroBusqueda.Pasaporte.FechaVencimiento - TimeSpan.FromDays(1460);
             this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
         }
     }

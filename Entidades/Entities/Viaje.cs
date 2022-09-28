@@ -100,13 +100,6 @@ namespace Parcial.Entities
                 return ContarPasajerosPorTipo(TipoPasajero.Premium);
             }
         }
-        public List<Pasajero> Pasajeros
-        {
-            get
-            {
-                return this.pasajeros;
-            }
-        }
         public DateTime Salida
         {
             get
@@ -182,7 +175,7 @@ namespace Parcial.Entities
 
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
         {
-            if(viaje.ObtenerIndicePasajero(pasajero) != -1)
+            if(viaje == pasajero)
             {
                 throw new Exception("Este pasajero ya esta a bordo.");
             }
@@ -213,6 +206,16 @@ namespace Parcial.Entities
             viaje.pasajeros.Add(pasajero);
 
             return viaje;
+        }
+
+        public static bool operator ==(Viaje viaje, Pasajero pasajero)
+        {
+            return viaje.ObtenerIndicePasajero(pasajero) != -1;
+        }
+
+        public static bool operator !=(Viaje viaje, Pasajero pasajero)
+        {
+            return !(viaje == pasajero);
         }
 
         public static Viaje operator -(Viaje viaje, Pasajero pasajero)

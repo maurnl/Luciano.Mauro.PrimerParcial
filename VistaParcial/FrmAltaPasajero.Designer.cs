@@ -32,11 +32,10 @@ namespace VistaParcial
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAltaPasajero));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblErrorBusqueda = new System.Windows.Forms.Label();
             this.btnBuscarPasajero = new System.Windows.Forms.Button();
             this.btnRegistrarPasajero = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpFechaPasaporte = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,7 +61,6 @@ namespace VistaParcial
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
-            this.lblErrorBusqueda = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -102,8 +100,6 @@ namespace VistaParcial
             this.groupBox1.Controls.Add(this.btnBuscarPasajero);
             this.groupBox1.Controls.Add(this.btnRegistrarPasajero);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dtpFechaPasaporte);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -120,6 +116,15 @@ namespace VistaParcial
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del pasajero";
             // 
+            // lblErrorBusqueda
+            // 
+            this.lblErrorBusqueda.AutoSize = true;
+            this.lblErrorBusqueda.Location = new System.Drawing.Point(44, 23);
+            this.lblErrorBusqueda.Name = "lblErrorBusqueda";
+            this.lblErrorBusqueda.Size = new System.Drawing.Size(38, 15);
+            this.lblErrorBusqueda.TabIndex = 17;
+            this.lblErrorBusqueda.Text = "label7";
+            // 
             // btnBuscarPasajero
             // 
             this.btnBuscarPasajero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscarPasajero.BackgroundImage")));
@@ -134,7 +139,7 @@ namespace VistaParcial
             // 
             // btnRegistrarPasajero
             // 
-            this.btnRegistrarPasajero.Location = new System.Drawing.Point(52, 402);
+            this.btnRegistrarPasajero.Location = new System.Drawing.Point(52, 377);
             this.btnRegistrarPasajero.Name = "btnRegistrarPasajero";
             this.btnRegistrarPasajero.Size = new System.Drawing.Size(168, 42);
             this.btnRegistrarPasajero.TabIndex = 14;
@@ -146,28 +151,11 @@ namespace VistaParcial
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(29, 340);
+            this.label6.Location = new System.Drawing.Point(29, 281);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 15);
             this.label6.TabIndex = 13;
             this.label6.Text = "Tipo de pasajero:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(29, 285);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Fecha expedicion pasaporte:";
-            // 
-            // dtpFechaPasaporte
-            // 
-            this.dtpFechaPasaporte.Location = new System.Drawing.Point(29, 303);
-            this.dtpFechaPasaporte.Name = "dtpFechaPasaporte";
-            this.dtpFechaPasaporte.Size = new System.Drawing.Size(212, 23);
-            this.dtpFechaPasaporte.TabIndex = 11;
             // 
             // label4
             // 
@@ -219,7 +207,7 @@ namespace VistaParcial
             // cboTipoPasajero
             // 
             this.cboTipoPasajero.FormattingEnabled = true;
-            this.cboTipoPasajero.Location = new System.Drawing.Point(29, 358);
+            this.cboTipoPasajero.Location = new System.Drawing.Point(29, 316);
             this.cboTipoPasajero.Name = "cboTipoPasajero";
             this.cboTipoPasajero.Size = new System.Drawing.Size(212, 23);
             this.cboTipoPasajero.TabIndex = 5;
@@ -411,15 +399,6 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
-            // lblErrorBusqueda
-            // 
-            this.lblErrorBusqueda.AutoSize = true;
-            this.lblErrorBusqueda.Location = new System.Drawing.Point(44, 23);
-            this.lblErrorBusqueda.Name = "lblErrorBusqueda";
-            this.lblErrorBusqueda.Size = new System.Drawing.Size(38, 15);
-            this.lblErrorBusqueda.TabIndex = 17;
-            this.lblErrorBusqueda.Text = "label7";
-            // 
             // FrmAltaPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -457,8 +436,6 @@ namespace VistaParcial
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpFechaPasaporte;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRegistrarPasajero;
