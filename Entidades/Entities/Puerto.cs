@@ -8,7 +8,6 @@ namespace Parcial.Entities
 {
     public class Puerto
     {
-        private int cantidadDeViajes;
         private Pais pais;
         private Provincia provincia;
         private bool esDestinoRegional;
@@ -47,12 +46,6 @@ namespace Parcial.Entities
             this.provincia = provincia;
             this.pais = pais;
             this.esDestinoRegional = esDestinoRegional;
-        }
-
-        public static Puerto operator +(Puerto puerto, int viajes)
-        {
-            puerto.cantidadDeViajes += viajes;
-            return puerto;
         }
 
         public static bool operator ==(Puerto puertoA, Puerto puertoB)
