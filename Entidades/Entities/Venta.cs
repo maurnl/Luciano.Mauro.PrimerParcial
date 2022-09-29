@@ -14,6 +14,14 @@ namespace Parcial.Entities
         private Viaje viaje;
         private float precioBruto;
 
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
+
         public string Clientes
         {
             get
@@ -48,11 +56,11 @@ namespace Parcial.Entities
                 return this.precioBruto + (this.precioBruto * 21 / 100);
             }
         }
-        public string Viaje
+        public Viaje Viaje
         {
             get
             {
-                return this.viaje.ToString();
+                return this.viaje;
             }
         }
         public bool EsServicioRegional

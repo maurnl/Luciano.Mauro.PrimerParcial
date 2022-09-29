@@ -8,6 +8,7 @@ namespace Parcial.Entities
 {
     public class Puerto
     {
+        private int cantidadDeViajes;
         private Pais pais;
         private Provincia provincia;
         private bool esDestinoRegional;
@@ -33,12 +34,25 @@ namespace Parcial.Entities
                 return this.esDestinoRegional;
             }
         }
+        public int CantidadDeViajes
+        {
+            get
+            {
+                return this.CantidadDeViajes;
+            }
+        }
 
         public Puerto(Provincia provincia, Pais pais, bool esDestinoRegional)
         {
             this.provincia = provincia;
             this.pais = pais;
             this.esDestinoRegional = esDestinoRegional;
+        }
+
+        public static Puerto operator +(Puerto puerto, int viajes)
+        {
+            puerto.cantidadDeViajes += viajes;
+            return puerto;
         }
 
         public static bool operator ==(Puerto puertoA, Puerto puertoB)
@@ -66,7 +80,7 @@ namespace Parcial.Entities
         public override bool Equals(object obj)
         {
             Puerto puerto = obj as Puerto;
-            return puerto is not null && this == (Puerto)obj;
+            return puerto is not null && this == puerto;
         }
         public override string ToString()
         {

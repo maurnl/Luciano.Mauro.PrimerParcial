@@ -38,7 +38,7 @@ namespace VistaParcial
         private void CalcularRecaudacionDeViaje()
         {
             Viaje viajeSeleccionado = (Viaje)base.fuenteDeDatos.Current;
-            if(viajeSeleccionado == null)
+            if(viajeSeleccionado is null)
             {
                 return;
             }

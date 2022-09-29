@@ -33,13 +33,26 @@ namespace VistaParcial
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel1
+            // 
+            this.panel1.Size = new System.Drawing.Size(1195, 65);
+            // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(879, 21);
+            this.cboCombobox.Location = new System.Drawing.Point(714, 21);
+            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
+            // 
+            // btnAccionUno
+            // 
+            this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(793, 24);
+            this.lblCombobox.Location = new System.Drawing.Point(628, 24);
+            // 
+            // btnAccionDos
+            // 
+            this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);
             // 
             // FrmListadoVentas
             // 

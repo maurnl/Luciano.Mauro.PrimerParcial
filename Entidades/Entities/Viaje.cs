@@ -20,6 +20,13 @@ namespace Parcial.Entities
         private DateTime fechaSalida;
         private EstadoDeViaje estadoDeViaje;
 
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
         public EstadoDeViaje EstadoDeViaje
         {
             get
@@ -132,6 +139,7 @@ namespace Parcial.Entities
                 return this.crucero.TienePiscina ? "SI" : "NO";
             }
         }
+
         public Pasajero this[int indice]
         {
             get
@@ -204,8 +212,17 @@ namespace Parcial.Entities
 
             pasajero += 1;
             viaje.pasajeros.Add(pasajero);
-
             return viaje;
+        }
+
+        public static bool operator ==(Viaje viajeA, Viaje viajeB)
+        {
+            return viajeA.id == viajeB.id;
+        }
+
+        public static bool operator !=(Viaje viajeA, Viaje viajeB)
+        {
+            return !(viajeA == viajeB);
         }
 
         public static bool operator ==(Viaje viaje, Pasajero pasajero)
@@ -233,20 +250,21 @@ namespace Parcial.Entities
             else if(viaje.fechaActual >= viaje.Llegada)
             {
                 SistemaCruceros.historialViajes.Add(viaje);
+                //SistemaCruceros.viajes.Remove(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
-                for (int i = 0; i < viaje.pasajeros.Count; i++)
+                int cantidadPasajeros = viaje.pasajeros.Count;
+                for (int i = cantidadPasajeros - 1; i >= 0; i--)
                 {
                     Pasajero pasajero = viaje.pasajeros[i];
                     for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
                     {
                         viaje.crucero += (-pasajero[j].Peso);
-                        pasajero -= pasajero[i];
-
+                        pasajero -= pasajero[j];
                     }
-                    viaje -= pasajero;
                     pasajero.EstaViajando = false;
                 }
+                viaje.destino += 1;
             }
             return viaje;
         }
@@ -308,5 +326,11 @@ namespace Parcial.Entities
         {
             return $"Viaje Id {this.id}. De {this.origen} a {this.destino} el dia {this.fechaSalida}";
         }
-    }
+
+        public override bool Equals(object obj)
+        {
+            Viaje viaje = obj as Viaje;
+            return viaje is not null && this == viaje;
+        }
+    }   
 }

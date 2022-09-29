@@ -32,13 +32,17 @@ namespace VistaParcial
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalContenedor));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.viajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verListadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoViajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simularPasoDelTiempoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unaHoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasajerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verListadoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verListadoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verListadoToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -62,12 +66,19 @@ namespace VistaParcial
             // viajesToolStripMenuItem
             // 
             this.viajesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verListadoToolStripMenuItem,
             this.nuevoViajeToolStripMenuItem,
             this.simularPasoDelTiempoToolStripMenuItem});
             this.viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
             this.viajesToolStripMenuItem.Size = new System.Drawing.Size(49, 29);
             this.viajesToolStripMenuItem.Text = "Viajes";
-            this.viajesToolStripMenuItem.Click += new System.EventHandler(this.viajesToolStripMenuItem_Click);
+            // 
+            // verListadoToolStripMenuItem
+            // 
+            this.verListadoToolStripMenuItem.Name = "verListadoToolStripMenuItem";
+            this.verListadoToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.verListadoToolStripMenuItem.Text = "Ver viajes";
+            this.verListadoToolStripMenuItem.Click += new System.EventHandler(this.verListadoToolStripMenuItem_Click);
             // 
             // nuevoViajeToolStripMenuItem
             // 
@@ -101,24 +112,48 @@ namespace VistaParcial
             // 
             // pasajerosToolStripMenuItem
             // 
+            this.pasajerosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verListadoToolStripMenuItem1});
             this.pasajerosToolStripMenuItem.Name = "pasajerosToolStripMenuItem";
             this.pasajerosToolStripMenuItem.Size = new System.Drawing.Size(68, 29);
             this.pasajerosToolStripMenuItem.Text = "Pasajeros";
-            this.pasajerosToolStripMenuItem.Click += new System.EventHandler(this.pasajerosToolStripMenuItem_Click);
+            // 
+            // verListadoToolStripMenuItem1
+            // 
+            this.verListadoToolStripMenuItem1.Name = "verListadoToolStripMenuItem1";
+            this.verListadoToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.verListadoToolStripMenuItem1.Text = "Ver pasajeros";
+            this.verListadoToolStripMenuItem1.Click += new System.EventHandler(this.verListadoToolStripMenuItem1_Click);
             // 
             // ventasToolStripMenuItem
             // 
+            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verListadoToolStripMenuItem2});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
             this.ventasToolStripMenuItem.Text = "Ventas";
-            this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
+            // 
+            // verListadoToolStripMenuItem2
+            // 
+            this.verListadoToolStripMenuItem2.Name = "verListadoToolStripMenuItem2";
+            this.verListadoToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
+            this.verListadoToolStripMenuItem2.Text = "Ver ventas";
+            this.verListadoToolStripMenuItem2.Click += new System.EventHandler(this.verListadoToolStripMenuItem2_Click);
             // 
             // informarToolStripMenuItem
             // 
+            this.informarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verListadoToolStripMenuItem3});
             this.informarToolStripMenuItem.Name = "informarToolStripMenuItem";
-            this.informarToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
-            this.informarToolStripMenuItem.Text = "Informar";
-            this.informarToolStripMenuItem.Click += new System.EventHandler(this.informarToolStripMenuItem_Click);
+            this.informarToolStripMenuItem.Size = new System.Drawing.Size(67, 29);
+            this.informarToolStripMenuItem.Text = "Historico";
+            // 
+            // verListadoToolStripMenuItem3
+            // 
+            this.verListadoToolStripMenuItem3.Name = "verListadoToolStripMenuItem3";
+            this.verListadoToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.verListadoToolStripMenuItem3.Text = "Ver historico";
+            this.verListadoToolStripMenuItem3.Click += new System.EventHandler(this.verListadoToolStripMenuItem3_Click);
             // 
             // fechaToolStripMenuItem
             // 
@@ -176,5 +211,9 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem informarToolStripMenuItem;
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.ToolStripMenuItem fechaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem3;
     }
 }

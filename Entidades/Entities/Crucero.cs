@@ -18,6 +18,13 @@ namespace Parcial.Entities
         private bool estaEnViaje;
         private List<Salon> salones;
 
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
         public string Matricula
         {
             get

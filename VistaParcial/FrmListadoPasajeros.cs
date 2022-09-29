@@ -14,16 +14,22 @@ namespace VistaParcial
 {
     public partial class FrmListadoPasajeros : FrmListadoBase
     {
+        List<Pasajero> listaPasajerosFiltrada;
         public FrmListadoPasajeros()
         {
             InitializeComponent();
+            this.listaPasajerosFiltrada = new List<Pasajero>();
         }
         private void FrmListadoPasajeros_Load(object sender, EventArgs e)
         {
+            this.btnAccionUno.Text = "Ver informacion detallada...";
             this.Text = "Listado de pasajeros";
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = SistemaCruceros.viajes;
+            this.cboCombobox.SelectedIndex = 0;
+            MostrarPasajerosDelViaje();
+            base.fuenteDeDatos.DataSource = listaPasajerosFiltrada;
         }
 
         protected override void PintarFilas()
@@ -44,14 +50,18 @@ namespace VistaParcial
 
         private void cboCombobox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Viaje viajeSeleccionado = SistemaCruceros.viajes[this.cboCombobox.SelectedIndex];
-            List<Pasajero> pasajeros = new List<Pasajero>();
+            MostrarPasajerosDelViaje();
+            base.ActualizarListado();
+        }
+
+        private void MostrarPasajerosDelViaje()
+        {
+            this.listaPasajerosFiltrada.Clear();
+            Viaje viajeSeleccionado = (Viaje)this.cboCombobox.SelectedItem;
             for (int i = 0; i < viajeSeleccionado.PasajerosABordo; i++)
             {
-                pasajeros.Add(viajeSeleccionado[i]);
+                listaPasajerosFiltrada.Add(viajeSeleccionado[i]);
             }
-            base.fuenteDeDatos.DataSource = pasajeros;
-            base.ActualizarListado();
         }
     }
 }

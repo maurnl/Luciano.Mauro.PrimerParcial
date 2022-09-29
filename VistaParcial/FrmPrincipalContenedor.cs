@@ -44,16 +44,6 @@ namespace VistaParcial
             ActualizarLabelFecha();
         }
 
-        private void viajesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListado("viajes");
-        }
-
-        private void pasajerosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListado("pasajeros");
-        }
-
         private void FrmPrincipalContenedor_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea cerrar sesion?", "Cerrar sesion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)
@@ -66,11 +56,6 @@ namespace VistaParcial
         private void FrmPrincipalContenedor_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.login.Show();
-        }
-
-        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListado("ventas");
         }
 
         private void MostrarListado(string nombreListado)
@@ -88,7 +73,7 @@ namespace VistaParcial
                 case "ventas":
                     formMostrado = formListadoVentas;
                     break;
-                case "historial":
+                case "historico":
                     formMostrado = formListadoHistorial;
                     break;
                 default:
@@ -113,6 +98,7 @@ namespace VistaParcial
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeSpan tiempoASimular = TimeSpan.FromDays(5);
+
             for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
             {
                 SistemaCruceros.viajes[i] += tiempoASimular;
@@ -133,11 +119,6 @@ namespace VistaParcial
             MostrarListado("viajes");
         }
 
-        private void informarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListado("historial");
-        }
-
         private void ActualizarLabelFecha()
         {
             this.fechaToolStripMenuItem.Text = SistemaCruceros.fechaDelSistema.ToString();
@@ -146,6 +127,26 @@ namespace VistaParcial
         private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)
         {
             this.Refresh();
+        }
+
+        private void verListadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarListado("viajes");
+        }
+
+        private void verListadoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MostrarListado("pasajeros");
+        }
+
+        private void verListadoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MostrarListado("ventas");
+        }
+
+        private void verListadoToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            MostrarListado("historico");
         }
     }
 }
