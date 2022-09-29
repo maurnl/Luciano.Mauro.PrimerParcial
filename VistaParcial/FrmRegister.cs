@@ -9,37 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FluentValidation;
 
 namespace VistaParcial
 {
     public partial class FrmRegister : Form
     {
-        private string nombreCompleto;
-        private string username;
-        private string password;
+        private Usuario usuarioDelForm;
 
-        public string NombreCompleto
+        public Usuario UsuarioDelForm
         {
             get
             {
-                return this.nombreCompleto;
+                return this.usuarioDelForm;
             }
         }
-        public string Username
-        {
-            get
-            {
-                return this.username;
-            }
-        }
-        public string Password
-        {
-            get
-            {
-                return this.password;
-            }
-        }
-
         public FrmRegister()
         {
             InitializeComponent();
@@ -58,14 +42,9 @@ namespace VistaParcial
 
             try
             {
-                Validador.ValidarStringAlfabetica(nombreCompleto);
-                Validador.ValidarStringVacia(username);
-                Validador.ValidarStringVacia(password);
-
-                this.username = username;
-                this.password = password;
-                this.nombreCompleto = nombreCompleto;
-
+                usuarioDelForm = new Usuario(nombreCompleto, username, password);
+                ValidadorUsuario validador = new ValidadorUsuario();
+                validador.ValidateAndThrow(usuarioDelForm);
                 this.DialogResult = DialogResult.OK;
             } catch (Exception datosRegistroEx)
             {

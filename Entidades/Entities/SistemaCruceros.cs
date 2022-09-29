@@ -16,6 +16,7 @@ namespace Parcial.Entities
         public static List<Viaje> viajes;
         public static List<Viaje> historialViajes;
         public static Dictionary<Puerto, float> contadorRecaudacionDestinos;
+
         public static List<Pasajero> BaseDeDatosPasajeros
         {
             get
@@ -43,6 +44,21 @@ namespace Parcial.Entities
             SistemaCruceros.fechaDelSistema = DateTime.Now;
         }
 
+        public static void ActualizarViajesActivos()
+        {
+            int cantidad = SistemaCruceros.viajes.Count;
+            int j = 1;
+            for (int i = cantidad - j; i >= 0; i--)
+            {
+                if (SistemaCruceros.viajes[i].EstadoDeViaje == EstadoDeViaje.Finalizado)
+                {
+                    SistemaCruceros.historialViajes.Add(SistemaCruceros.viajes[i]);
+                    SistemaCruceros.viajes.Remove(SistemaCruceros.viajes[i]);
+                    j++;
+                }
+            }
+        }
+
         public static Pasajero ObtenerPasajeroEnSistema(int dni)
         {
             Pasajero pasajeroEncontrado = null;
@@ -60,24 +76,17 @@ namespace Parcial.Entities
         public static Puerto ObtenerDestinoMasDemandado()
         {
             Puerto puertoMasDemandado = null;
-            int cantidadDemandasActual = 0;
-            int cantidadDemandasMaxima = 0;
-            bool primeraVuelta = true;
-            foreach (Viaje viaje in SistemaCruceros.viajes)
+            int cantidadActual = 0;
+            int cantidadMaxima = 0;
+            bool banderaPrimero = true;
+            foreach (Puerto puerto in SistemaCruceros.puertos)
             {
-                cantidadDemandasActual = 0;
-                foreach (Venta venta in SistemaCruceros.ventas)
+                cantidadActual = puerto.CantidadPasajerosArribados;
+                if((banderaPrimero || cantidadActual > cantidadMaxima) && puerto != SistemaCruceros.puertos[0])
                 {
-                    if(venta.Viaje == viaje)
-                    {
-                        cantidadDemandasActual += venta.CantidadPasajes;
-                    }
-                }
-                if (primeraVuelta || cantidadDemandasActual > cantidadDemandasMaxima)
-                {
-                    primeraVuelta = false;
-                    puertoMasDemandado = venta.Viaje.Destino;
-                    cantidadDemandasMaxima = cantidadDemandasActual;
+                    puertoMasDemandado = puerto;
+                    banderaPrimero = false;
+                    cantidadMaxima = cantidadActual;
                 }
             }
             return puertoMasDemandado;

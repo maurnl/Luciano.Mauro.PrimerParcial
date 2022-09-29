@@ -47,22 +47,31 @@ namespace VistaParcial
             // 
             // txtUsername
             // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Location = new System.Drawing.Point(38, 37);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(163, 23);
+            this.txtUsername.Size = new System.Drawing.Size(220, 23);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(38, 93);
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Location = new System.Drawing.Point(36, 93);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(163, 23);
+            this.txtPassword.Size = new System.Drawing.Size(222, 23);
             this.txtPassword.TabIndex = 1;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.lblError);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtLastName);
@@ -74,15 +83,16 @@ namespace VistaParcial
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 290);
+            this.groupBox1.Size = new System.Drawing.Size(296, 290);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
             // 
             // lblError
             // 
+            this.lblError.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(6, 272);
+            this.lblError.Location = new System.Drawing.Point(6, 253);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(38, 15);
             this.lblError.TabIndex = 9;
@@ -90,8 +100,9 @@ namespace VistaParcial
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 192);
+            this.label4.Location = new System.Drawing.Point(35, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 7;
@@ -99,15 +110,19 @@ namespace VistaParcial
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(38, 210);
+            this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLastName.Location = new System.Drawing.Point(36, 210);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(163, 23);
+            this.txtLastName.Size = new System.Drawing.Size(222, 23);
             this.txtLastName.TabIndex = 6;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 134);
+            this.label3.Location = new System.Drawing.Point(35, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 5;
@@ -115,8 +130,9 @@ namespace VistaParcial
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 75);
+            this.label2.Location = new System.Drawing.Point(35, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 15);
             this.label2.TabIndex = 4;
@@ -124,8 +140,9 @@ namespace VistaParcial
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 19);
+            this.label1.Location = new System.Drawing.Point(36, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 3;
@@ -133,14 +150,18 @@ namespace VistaParcial
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(38, 152);
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Location = new System.Drawing.Point(36, 152);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(163, 23);
+            this.txtName.Size = new System.Drawing.Size(222, 23);
             this.txtName.TabIndex = 2;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(12, 308);
+            this.btnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRegister.Location = new System.Drawing.Point(12, 327);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(111, 38);
             this.btnRegister.TabIndex = 3;
@@ -150,7 +171,8 @@ namespace VistaParcial
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(151, 308);
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(197, 327);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 38);
             this.btnCancel.TabIndex = 8;
@@ -163,7 +185,7 @@ namespace VistaParcial
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(274, 358);
+            this.ClientSize = new System.Drawing.Size(320, 377);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.groupBox1);

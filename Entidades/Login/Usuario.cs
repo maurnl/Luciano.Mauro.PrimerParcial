@@ -1,4 +1,6 @@
 ﻿using Parcial.Entities;
+using Parcial.Util;
+using System.Security.Cryptography;
 
 namespace Parcial.Login
 {

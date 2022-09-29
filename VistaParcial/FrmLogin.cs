@@ -1,4 +1,5 @@
-﻿using Parcial.Entities;
+﻿using FluentValidation;
+using Parcial.Entities;
 using Parcial.Login;
 using Parcial.Util;
 using System;
@@ -15,17 +16,15 @@ namespace VistaParcial
 {
     public partial class FrmLogin : Form
     {
-        private SistemaUsuarios sistemaUsuarios;
         public FrmLogin()
         {
             InitializeComponent();
-            this.sistemaUsuarios = new SistemaUsuarios();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            Hardcoder.HardcodearUsuarios(this.sistemaUsuarios);
+            SistemaUsuarios.AgregarUsuario(new Usuario("Mauro Luciano", "maurnl", "contrasenia123"));
             Hardcoder.HardcodearFlota(SistemaCruceros.flota);
             Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
             Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
@@ -43,14 +42,14 @@ namespace VistaParcial
             string password = this.txtPassword.Text;
 
 
-            if (!sistemaUsuarios.VerificarPassword(username, password))
+            if (!SistemaUsuarios.VerificarPassword(username, password))
             {
                 this.lblError.ForeColor = Color.Red;
                 this.lblError.Text = "Credenciales invalidas! Reintente...";
                 return;
             }
 
-            Usuario user = sistemaUsuarios.BuscarPorNombreDeUsuario(username);
+            Usuario user = SistemaUsuarios.BuscarPorNombreDeUsuario(username);
             FrmPrincipalContenedor app = new FrmPrincipalContenedor(user, this);
             app.Show();
             this.Hide();
@@ -59,19 +58,20 @@ namespace VistaParcial
         private void btnRegister_Click(object sender, EventArgs e)
         {
             FrmRegister formRegister = new FrmRegister();
-            if(formRegister.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
+                if (formRegister.ShowDialog() == DialogResult.OK)
                 {
-                    this.sistemaUsuarios.TryCrearUsuario(formRegister.NombreCompleto, formRegister.Username, formRegister.Password);
+                    //this.sistemaUsuarios.TryCrearUsuario(formRegister.NombreCompleto, formRegister.Username, formRegister.Password);
                     this.lblError.ForeColor = Color.DarkGreen;
                     this.lblError.Text = "Registrado correctamente!";
+                    SistemaUsuarios.AgregarUsuario(formRegister.UsuarioDelForm);
                 }
-                catch (Exception nuevoUsuarioEx)
-                {
-                    this.lblError.ForeColor = Color.Red;
-                    this.lblError.Text = nuevoUsuarioEx.Message;
-                }
+            }
+            catch (Exception nuevoUsuarioEx)
+            {
+                this.lblError.ForeColor = Color.Red;
+                this.lblError.Text = nuevoUsuarioEx.Message;
             }
         }
 

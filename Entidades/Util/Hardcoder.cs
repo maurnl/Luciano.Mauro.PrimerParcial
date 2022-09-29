@@ -10,11 +10,6 @@ namespace Parcial.Util
 {
     public static class Hardcoder
     {
-        public static void HardcodearUsuarios(SistemaUsuarios userManager)
-        {
-            userManager.TryCrearUsuario("Mauro Luciano", "maurnl", "contrasenia123");
-        }
-
         public static void HardcodearFlota(List<Crucero> flota)
         {
             flota.Add(new Crucero("AXCK1000", "Popeye", 100, 1000));
@@ -58,10 +53,14 @@ namespace Parcial.Util
         {
             Random random = new Random();
             int dni;
+            DateTime fechaMinima = new DateTime(1995, 1, 1);
+            int range = (DateTime.Today - fechaMinima).Days;
+            string[] nombres = { ""};
+            string[] apellidos = { };
             for (int i = 0; i < cantidad; i++)
             {
                 dni = random.Next(2000000, 5000000);
-                Pasajero pasajero = new Pasajero("Pepito Pepe", dni, DateTime.Parse("12/07/1970"), tipo);
+                Pasajero pasajero = new Pasajero("Pepito Pepe", dni, fechaMinima.AddDays(random.Next(range)), tipo);
                 viaje += pasajero;
                 ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
             }

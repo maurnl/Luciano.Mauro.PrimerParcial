@@ -98,12 +98,13 @@ namespace VistaParcial
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeSpan tiempoASimular = TimeSpan.FromDays(5);
-
-            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
+            int cantidadViajes = SistemaCruceros.viajes.Count;
+            for (int i = cantidadViajes - 1; i >= 0; i--)
             {
                 SistemaCruceros.viajes[i] += tiempoASimular;
             }
             SistemaCruceros.fechaDelSistema += tiempoASimular;
+            SistemaCruceros.ActualizarViajesActivos();
             ActualizarLabelFecha();
             MostrarListado("viajes");
         }

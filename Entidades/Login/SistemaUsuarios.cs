@@ -5,43 +5,33 @@ using System.Security.Cryptography;
 
 namespace Parcial.Login
 {
-    public class SistemaUsuarios
+    public static class SistemaUsuarios
     {
-        private List<Usuario> users;
+        private static List<Usuario> users;
 
-        public List<Usuario> Users {
+        public static List<Usuario> Users {
             get
             {
                 return users;
             }
         }
 
-        public SistemaUsuarios()
+        static SistemaUsuarios()
         {
-            this.users = new List<Usuario>();
+            SistemaUsuarios.users = new List<Usuario>();
         }
 
-        public Usuario TryCrearUsuario(string nombreCompleto, string username, string password)
+        public static void AgregarUsuario(Usuario user)
         {
-            Validador.ValidarStringVacia(username);
-            Validador.ValidarStringVacia(password);
-            Validador.ValidarStringAlfabetica(nombreCompleto);
-
-            if(BuscarPorNombreDeUsuario(username)!=null)
+            if(BuscarPorNombreDeUsuario(user.Username) !=null)
             {
                 throw new Exception("El nombre de usuario ingresado esta en uso.");
             }
 
-            string hashedPassword = Hasher.HashText(password, SHA512.Create());
-
-            Usuario nuevoUsuario = new Usuario(nombreCompleto, username, hashedPassword);
-
-            this.users.Add(nuevoUsuario);
-
-            return nuevoUsuario;
+            SistemaUsuarios.users.Add(user);
         }
 
-        public bool VerificarPassword(string username, string password)
+        public static bool VerificarPassword(string username, string password)
         {
             Usuario user = BuscarPorNombreDeUsuario(username);
 
@@ -50,14 +40,13 @@ namespace Parcial.Login
                 return false;
             }
 
-            string hashedPassword = Hasher.HashText(password, SHA512.Create());
-            return hashedPassword == user.Password;
+            return password == user.Password;
         }
 
-        public Usuario BuscarPorNombreDeUsuario(string username)
+        public static Usuario BuscarPorNombreDeUsuario(string username)
         {
             Usuario userMatch = null;
-            foreach (Usuario user in this.users)
+            foreach (Usuario user in SistemaUsuarios.users)
             {
                 if (user.Username == username)
                 {

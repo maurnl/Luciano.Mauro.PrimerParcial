@@ -249,8 +249,6 @@ namespace Parcial.Entities
             }
             else if(viaje.fechaActual >= viaje.Llegada)
             {
-                SistemaCruceros.historialViajes.Add(viaje);
-                //SistemaCruceros.viajes.Remove(viaje);
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
                 int cantidadPasajeros = viaje.pasajeros.Count;
