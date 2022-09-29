@@ -94,7 +94,7 @@ namespace VistaParcial
             // 
             this.cboCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cboCombobox.FormattingEnabled = true;
-            this.cboCombobox.Location = new System.Drawing.Point(934, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(1002, 20);
             this.cboCombobox.Name = "cboCombobox";
             this.cboCombobox.Size = new System.Drawing.Size(236, 23);
             this.cboCombobox.TabIndex = 3;

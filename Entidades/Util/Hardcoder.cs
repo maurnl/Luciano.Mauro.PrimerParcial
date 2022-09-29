@@ -12,17 +12,38 @@ namespace Parcial.Util
     {
         public static void HardcodearFlota(List<Crucero> flota)
         {
-            flota.Add(new Crucero("AXCK1000", "Popeye", 100, 1000));
+            flota.Add(new Crucero("AXCK1000", "Popeye", 25, 1000));
+            flota[0] += Salon.Comedor;
             flota[0] += Salon.Gimnasio;
             flota.Add(new Crucero("CLKF1349", "Barba Negra", 100, 1000));
+            flota[1] += Salon.Comedor;
             flota[1] += Salon.Piscina;
-            flota.Add(new Crucero("VOLF4931", "La Sirena", 100, 1000));
+            flota.Add(new Crucero("VOLF4931", "La Sirena", 110, 1000));
+            flota[2] += Salon.Comedor;
             flota[2] += Salon.Gimnasio;
             flota[2] += Salon.Piscina;
-            flota.Add(new Crucero("CSBV1593", "Alto Barco", 100, 1000));
-            flota.Add(new Crucero("GGHB3555", "El choca puertos", 100, 1000));
-            flota.Add(new Crucero("CASC1314", "La langosta", 100, 1000));
+            flota.Add(new Crucero("CSBV1593", "Alto Barco", 350, 1000));
+            flota[3] += Salon.Comedor;
+            flota[3] += Salon.Comedor;
+            flota[3] += Salon.Gimnasio;
+            flota[3] += Salon.Piscina;
+            flota.Add(new Crucero("GGHB3555", "El choca puertos", 200, 1000));
+            flota[4] += Salon.Comedor;
+            flota.Add(new Crucero("CASC1314", "Tres Patitos", 222, 1000));
+            flota[5] += Salon.Comedor;
             flota.Add(new Crucero("TITAN1C0", "El Titanic", 1000, 1000));
+            flota[6] += Salon.Gimnasio;
+            flota[6] += Salon.Gimnasio;
+            flota[6] += Salon.Piscina;
+            flota[6] += Salon.Piscina;
+            flota[6] += Salon.Comedor;
+            flota[6] += Salon.Comedor;
+            flota[6] += Salon.Teatro;
+            flota[6] += Salon.Teatro;
+            flota[6] += Salon.Teatro;
+            flota[6] += Salon.Casino;
+            flota[6] += Salon.Casino;
+
         }
 
         public static void HardcodearPuertos(List<Puerto> puertos)
@@ -49,18 +70,19 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Bangkok, Pais.Tailandia, false));
         }
 
-        public static void HardcodearPasajeros(List<Venta> ventas, Viaje viaje, TipoPasajero tipo, int cantidad)
+        public static void HardcodearPasajeros(List<Venta> ventas, Viaje viaje, int cantidad)
         {
             Random random = new Random();
             int dni;
             DateTime fechaMinima = new DateTime(1995, 1, 1);
             int range = (DateTime.Today - fechaMinima).Days;
-            string[] nombres = { ""};
-            string[] apellidos = { };
+            string[] nombres = { "Daphne", "Hilliard", "Garvy", "Arnold",  "Corilla", "Davine", "Frankie", "Alfie", "Tuck",
+                "Jethro", "Keri", "Pepillo", "Roxanne", "Daniella", "Ethelind" };
+            string[] apellidos = { "Godsmark","Makiver", "McCallister", "Denison", "Drewell", "Owers", "Enser", "Benneyworth", "Wickstead" };
             for (int i = 0; i < cantidad; i++)
             {
                 dni = random.Next(2000000, 5000000);
-                Pasajero pasajero = new Pasajero("Pepito Pepe", dni, fechaMinima.AddDays(random.Next(range)), tipo);
+                Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), random.Next(0,2) == 0 ? TipoPasajero.Premium : TipoPasajero.Turista);
                 viaje += pasajero;
                 ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
             }

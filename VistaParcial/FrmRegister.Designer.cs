@@ -52,7 +52,7 @@ namespace VistaParcial
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Location = new System.Drawing.Point(38, 37);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(220, 23);
+            this.txtUsername.Size = new System.Drawing.Size(234, 23);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
@@ -63,7 +63,7 @@ namespace VistaParcial
             this.txtPassword.Location = new System.Drawing.Point(36, 93);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(222, 23);
+            this.txtPassword.Size = new System.Drawing.Size(236, 23);
             this.txtPassword.TabIndex = 1;
             // 
             // groupBox1
@@ -83,7 +83,7 @@ namespace VistaParcial
             this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 290);
+            this.groupBox1.Size = new System.Drawing.Size(310, 290);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del usuario";
@@ -115,7 +115,7 @@ namespace VistaParcial
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLastName.Location = new System.Drawing.Point(36, 210);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(222, 23);
+            this.txtLastName.Size = new System.Drawing.Size(236, 23);
             this.txtLastName.TabIndex = 6;
             // 
             // label3
@@ -155,13 +155,13 @@ namespace VistaParcial
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(36, 152);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(222, 23);
+            this.txtName.Size = new System.Drawing.Size(236, 23);
             this.txtName.TabIndex = 2;
             // 
             // btnRegister
             // 
             this.btnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRegister.Location = new System.Drawing.Point(12, 327);
+            this.btnRegister.Location = new System.Drawing.Point(12, 317);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(111, 38);
             this.btnRegister.TabIndex = 3;
@@ -172,7 +172,7 @@ namespace VistaParcial
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(197, 327);
+            this.btnCancel.Location = new System.Drawing.Point(211, 317);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(111, 38);
             this.btnCancel.TabIndex = 8;
@@ -185,10 +185,11 @@ namespace VistaParcial
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(320, 377);
+            this.ClientSize = new System.Drawing.Size(334, 367);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(350, 400);
             this.Name = "FrmRegister";
             this.Text = "FrmRegister";
             this.Load += new System.EventHandler(this.FrmRegister_Load);

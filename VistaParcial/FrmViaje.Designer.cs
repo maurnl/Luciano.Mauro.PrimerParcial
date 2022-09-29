@@ -207,6 +207,7 @@ namespace VistaParcial
             this.MinimumSize = new System.Drawing.Size(387, 559);
             this.Name = "FrmViaje";
             this.Text = "FrmViaje";
+            this.Load += new System.EventHandler(this.FrmViaje_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

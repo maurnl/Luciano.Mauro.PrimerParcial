@@ -9,25 +9,18 @@ namespace Parcial.Login
     {
         private static List<Usuario> users;
 
-        public static List<Usuario> Users {
-            get
-            {
-                return users;
-            }
-        }
-
         static SistemaUsuarios()
         {
             SistemaUsuarios.users = new List<Usuario>();
+            SistemaUsuarios.AgregarUsuario(new Usuario("Mauro Luciano", "maurnl", "contrasenia123"));
         }
 
         public static void AgregarUsuario(Usuario user)
         {
-            if(BuscarPorNombreDeUsuario(user.Username) !=null)
+            if(BuscarPorNombreDeUsuario(user.Username) != null)
             {
                 throw new Exception("El nombre de usuario ingresado esta en uso.");
             }
-
             SistemaUsuarios.users.Add(user);
         }
 

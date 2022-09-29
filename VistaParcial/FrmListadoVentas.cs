@@ -13,23 +13,28 @@ namespace VistaParcial
 {
     public partial class FrmListadoVentas : FrmListadoBase
     {
+        List<Viaje> viajesEnSistema;
         List<Venta> ventasFiltradas;
         public FrmListadoVentas()
         {
             InitializeComponent();
             this.ventasFiltradas = new List<Venta>();
+            this.viajesEnSistema = new List<Viaje>();
         }
 
         private void FrmListadoVentas_Load(object sender, EventArgs e)
         {
             this.btnAccionUno.Text = "Calcular recaudacion";
             this.btnAccionDos.Text = "Mostrar destino mas demandado";
-            this.cboCombobox.DataSource = SistemaCruceros.viajes;
+            this.viajesEnSistema.AddRange(SistemaCruceros.viajes);  
+            this.viajesEnSistema.AddRange(SistemaCruceros.historialViajes);
+            this.cboCombobox.DataSource = viajesEnSistema;
             this.cboCombobox.SelectedIndex = 0;
             MostrarVentasDelViaje();
             base.fuenteDeDatos.DataSource = ventasFiltradas;
             ActualizarListado();
             this.Text = "Listado de ventas";
+            this.lblCombobox.Text = "Mostrar viaje...";
         }
 
         private void MostrarVentasDelViaje()

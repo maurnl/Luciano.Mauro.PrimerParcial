@@ -1,4 +1,5 @@
-﻿using Parcial.Util;
+﻿using Parcial.Login;
+using Parcial.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace Parcial.Entities
             SistemaCruceros.historialViajes = new List<Viaje>();
             SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
             SistemaCruceros.fechaDelSistema = DateTime.Now;
+            Hardcoder.HardcodearFlota(SistemaCruceros.flota);
+            Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
+            Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 30);
         }
 
         public static void ActualizarViajesActivos()

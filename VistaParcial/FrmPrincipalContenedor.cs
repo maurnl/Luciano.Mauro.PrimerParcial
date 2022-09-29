@@ -122,7 +122,7 @@ namespace VistaParcial
 
         private void ActualizarLabelFecha()
         {
-            this.fechaToolStripMenuItem.Text = SistemaCruceros.fechaDelSistema.ToString();
+            this.fechaToolStripMenuItem.Text = SistemaCruceros.fechaDelSistema.ToShortDateString();
         }
 
         private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)
