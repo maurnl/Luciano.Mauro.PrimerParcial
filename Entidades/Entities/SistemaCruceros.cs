@@ -57,5 +57,30 @@ namespace Parcial.Entities
             return pasajeroEncontrado;
         }
 
+        public static Puerto ObtenerDestinoMasDemandado()
+        {
+            Puerto puertoMasDemandado = null;
+            int cantidadDemandasActual = 0;
+            int cantidadDemandasMaxima = 0;
+            bool primeraVuelta = true;
+            foreach (Viaje viaje in SistemaCruceros.viajes)
+            {
+                cantidadDemandasActual = 0;
+                foreach (Venta venta in SistemaCruceros.ventas)
+                {
+                    if(venta.Viaje == viaje)
+                    {
+                        cantidadDemandasActual += venta.CantidadPasajes;
+                    }
+                }
+                if (primeraVuelta || cantidadDemandasActual > cantidadDemandasMaxima)
+                {
+                    primeraVuelta = false;
+                    puertoMasDemandado = venta.Viaje.Destino;
+                    cantidadDemandasMaxima = cantidadDemandasActual;
+                }
+            }
+            return puertoMasDemandado;
+        }
     }
 }

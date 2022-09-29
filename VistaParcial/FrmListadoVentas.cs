@@ -73,30 +73,11 @@ namespace VistaParcial
         {
             MessageBox.Show($"Destino mas demandado: {puerto}", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private Puerto CalcularDestinoMasDemandado()
-        {
-            Puerto puertoMasDemandado = null;
-            int cantidadDemandasActual = 0;
-            int cantidadDemandasMaxima = 0;
-            bool primeraVuelta = true;
-            foreach (Viaje viaje in SistemaCruceros.viajes)
-            {
-                foreach (Venta venta in SistemaCruceros.ventas)
-                {
-                    if(primeraVuelta || cantidadDemandasActual > cantidadDemandasMaxima)
-                    {
-                        primeraVuelta = false;
-                        puertoMasDemandado = venta.Viaje.Destino;
-                        cantidadDemandasMaxima = cantidadDemandasActual;
-                    }
-                }
-            }
-            return puertoMasDemandado;
-        }
+
 
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
-            MostrarDestinoMasDemandado(CalcularDestinoMasDemandado());
+            MostrarDestinoMasDemandado(SistemaCruceros.ObtenerDestinoMasDemandado());
         }
     }
 }

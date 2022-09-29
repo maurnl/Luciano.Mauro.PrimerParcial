@@ -11,6 +11,7 @@ namespace Parcial.Entities
         private Pais pais;
         private Provincia provincia;
         private bool esDestinoRegional;
+        private int cantidadPasajerosArribados;
 
         public Pais Pais
         {
@@ -33,11 +34,11 @@ namespace Parcial.Entities
                 return this.esDestinoRegional;
             }
         }
-        public int CantidadDeViajes
+        public int CantidadPasajerosArribados
         {
             get
             {
-                return this.CantidadDeViajes;
+                return this.cantidadPasajerosArribados;
             }
         }
 
@@ -46,6 +47,12 @@ namespace Parcial.Entities
             this.provincia = provincia;
             this.pais = pais;
             this.esDestinoRegional = esDestinoRegional;
+        }
+
+        public static Puerto operator +(Puerto puerto, int pasajeros)
+        {
+            puerto.cantidadPasajerosArribados += pasajeros;
+            return puerto;
         }
 
         public static bool operator ==(Puerto puertoA, Puerto puertoB)

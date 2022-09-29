@@ -264,6 +264,7 @@ namespace Parcial.Entities
                     }
                     pasajero.EstaViajando = false;
                 }
+                viaje.destino += viaje.PasajerosABordo;
             }
             return viaje;
         }
