@@ -159,7 +159,7 @@ namespace Parcial.Entities
         }
         public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
         {
-            if(origen == destino)
+            if(origen.Equals(destino))
             {
                 throw new Exception("El origen y el destino no deben coincidir.");
             }

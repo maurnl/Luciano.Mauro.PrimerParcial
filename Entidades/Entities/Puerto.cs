@@ -57,20 +57,7 @@ namespace Parcial.Entities
 
         public static bool operator ==(Puerto puertoA, Puerto puertoB)
         {
-            bool returnAux;
-            if (puertoA is null)
-            {
-                returnAux = puertoB is null;
-            }
-            else if (puertoB is null)
-            {
-                returnAux = puertoA is null;
-            }
-            else
-            {
-                returnAux = puertoA.Pais == puertoB.Pais && puertoA.Provincia == puertoB.Provincia;
-            }
-            return returnAux;
+            return puertoA.Pais == puertoB.Pais && puertoA.Provincia == puertoB.Provincia;
         }
         public static bool operator !=(Puerto puertoA, Puerto puertoB)
         {
