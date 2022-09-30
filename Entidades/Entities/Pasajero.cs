@@ -15,6 +15,25 @@ namespace Parcial.Entities
         private DateTime fechaNacimiento;
         private TipoPasajero tipoPasajero;
         private List<Equipaje> equipaje;
+
+        static Pasajero()
+        {
+            Pasajero.contadorPasajero = 1000;
+        }
+        private Pasajero(string nombreCompleto) : base(nombreCompleto)
+        {
+            base.id = Pasajero.contadorPasajero;
+            Pasajero.contadorPasajero++;
+        }
+        public Pasajero(string nombreCompleto, Pasaporte pasaporte, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto)
+        {
+            this.pasaporte = pasaporte;
+            this.fechaNacimiento = fechaNacimiento;
+            this.tipoPasajero = tipoPasajero;
+            this.estaViajando = true;
+            this.equipaje = new List<Equipaje>();
+        }
+
         public override int Id
         {
             get
@@ -83,6 +102,44 @@ namespace Parcial.Entities
             }
         }
 
+        private int ContarCantidadValijas()
+        {
+            int cantidad = 0;
+            foreach (Equipaje equipaje in this.equipaje)
+            {
+                if (!equipaje.EsDeMano)
+                {
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        }
+        private float CalcularPesoDeValijas()
+        {
+            float acumuladorPeso = 0;
+            foreach (Equipaje equipaje in this.equipaje)
+            {
+                if(!equipaje.EsDeMano)
+                {
+                    acumuladorPeso += equipaje.Peso;
+                }
+            }
+            return acumuladorPeso;
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. DNI: {Pasaporte.Dni}";
+        }
+        public override bool Equals(object obj)
+        {
+            Pasajero pasajero = obj as Pasajero;
+            return pasajero is not null && pasajero == this;
+        }
+        public override int GetHashCode()
+        {
+            return (this.id, this.pasaporte).GetHashCode();
+        }
+
         public Equipaje this[int indice]
         {
             get
@@ -102,27 +159,6 @@ namespace Parcial.Entities
                 }
             }
         }
-
-        static Pasajero()
-        {
-            Pasajero.contadorPasajero = 1000;
-        }
-
-        private Pasajero(string nombreCompleto) : base(nombreCompleto)
-        {
-            base.id = Pasajero.contadorPasajero;
-            Pasajero.contadorPasajero++;
-        }
-
-        public Pasajero(string nombreCompleto, Pasaporte pasaporte, DateTime fechaNacimiento, TipoPasajero tipoPasajero) : this(nombreCompleto)
-        {
-            this.pasaporte = pasaporte;
-            this.fechaNacimiento = fechaNacimiento;
-            this.tipoPasajero = tipoPasajero;
-            this.estaViajando = true;
-            this.equipaje = new List<Equipaje>();
-        }
-
         public static Pasajero operator +(Pasajero pasajero, Equipaje equipaje)
         {
             if (!equipaje.EsDeMano && (pasajero.TipoPasajero == TipoPasajero.Turista && pasajero.ContarCantidadValijas() >= 1
@@ -144,69 +180,24 @@ namespace Parcial.Entities
             pasajero.equipaje.Add(equipaje);
             return pasajero;
         }
-
-        public static Pasajero operator -(Pasajero pasajero, Equipaje equipaje)
-        {
-            pasajero.equipaje.Remove(equipaje);
-            return pasajero;
-        }
-
         public static Pasajero operator +(Pasajero pasajero, int cantidadViajes)
         {
             pasajero.cantidadViajesRealizados += cantidadViajes;
             return pasajero;
         }
-
+        public static Pasajero operator -(Pasajero pasajero, Equipaje equipaje)
+        {
+            pasajero.equipaje.Remove(equipaje);
+            return pasajero;
+        }
         public static bool operator ==(Pasajero pasajeroA, Pasajero pasajeroB)
         {
             return pasajeroA.Pasaporte.Dni == pasajeroB.Pasaporte.Dni;
         }
-
         public static bool operator !=(Pasajero pasajeroA, Pasajero pasajeroB)
         {
             return !(pasajeroA == pasajeroB);
         }
 
-        private int ContarCantidadValijas()
-        {
-            int cantidad = 0;
-            foreach (Equipaje equipaje in this.equipaje)
-            {
-                if (!equipaje.EsDeMano)
-                {
-                    cantidad++;
-                }
-            }
-            return cantidad;
-        }
-
-        private float CalcularPesoDeValijas()
-        {
-            float acumuladorPeso = 0;
-            foreach (Equipaje equipaje in this.equipaje)
-            {
-                if(!equipaje.EsDeMano)
-                {
-                    acumuladorPeso += equipaje.Peso;
-                }
-            }
-            return acumuladorPeso;
-        }
-
-        public override string ToString()
-        {
-            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. DNI: {Pasaporte.Dni}";
-        }
-
-        public override bool Equals(object obj)
-        {
-            Pasajero pasajero = obj as Pasajero;
-            return pasajero is not null && pasajero == this;
-        }
-
-        public override int GetHashCode()
-        {
-            return (this.id, this.pasaporte).GetHashCode();
-        }
     }
 }

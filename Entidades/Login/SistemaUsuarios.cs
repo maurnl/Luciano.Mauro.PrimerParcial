@@ -23,7 +23,6 @@ namespace Parcial.Login
             }
             SistemaUsuarios.users.Add(user);
         }
-
         public static bool VerificarPassword(string username, string password)
         {
             Usuario user = BuscarPorNombreDeUsuario(username);
@@ -35,7 +34,6 @@ namespace Parcial.Login
 
             return password == user.Password;
         }
-
         public static Usuario BuscarPorNombreDeUsuario(string username)
         {
             Usuario userMatch = null;

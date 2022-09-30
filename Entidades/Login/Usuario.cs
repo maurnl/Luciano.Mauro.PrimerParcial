@@ -10,6 +10,21 @@ namespace Parcial.Login
         private string username;
         private string password;
 
+        static Usuario()
+        {
+            Usuario.contadorUsuario = 100;
+        }
+        private Usuario(string nombreCompleto) : base(nombreCompleto)
+        {   
+            base.id = Usuario.contadorUsuario;
+            Usuario.contadorUsuario++;
+        }
+        public Usuario(string nombreCompleto,string username, string password) : this(nombreCompleto)
+        {
+            this.username = username;
+            this.password = password;
+        }
+
         public override int Id
         {
             get
@@ -40,33 +55,15 @@ namespace Parcial.Login
             }
         }
 
-        static Usuario()
-        {
-            Usuario.contadorUsuario = 100;
-        }
-        private Usuario(string nombreCompleto) : base(nombreCompleto)
-        {   
-            base.id = Usuario.contadorUsuario;
-            Usuario.contadorUsuario++;
-        }
-
-        public Usuario(string nombreCompleto,string username, string password) : this(nombreCompleto)
-        {
-            this.username = username;
-            this.password = password;
-        }
-
         public override string ToString()
         {
             return $"{base.ToString()} Usuario: {this.username}";
         }
-
         public override bool Equals(object obj)
         {
             Usuario usuario = obj as Usuario;
             return usuario is not null && usuario.id == this.id;
         }
-
         public override int GetHashCode()
         {
             return (this.id, this.username, this.password).GetHashCode();

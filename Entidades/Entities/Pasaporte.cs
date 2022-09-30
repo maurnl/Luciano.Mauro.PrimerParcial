@@ -11,6 +11,12 @@ namespace Parcial.Entities
         private int dni;
         private DateTime fechaExpedido;
 
+        private Pasaporte(int dni, DateTime fechaExpedido)
+        {
+            this.dni = dni;
+            this.fechaExpedido = fechaExpedido;
+        }
+
         public int Dni
         {
             get
@@ -26,25 +32,18 @@ namespace Parcial.Entities
             }
         }
 
-        private Pasaporte(int dni, DateTime fechaExpedido)
+        public override string ToString()
         {
-            this.dni = dni;
-            this.fechaExpedido = fechaExpedido;
+            return $"Fecha de vencimiento: {this.FechaVencimiento}";
+        }
+        public override int GetHashCode()
+        {
+            return (this.dni, this.fechaExpedido).GetHashCode();
         }
 
         public static implicit operator Pasaporte(int dni)
         {
             return new Pasaporte(dni, DateTime.Now);
-        }
-
-        public override string ToString()
-        {
-            return $"Fecha de vencimiento: {this.FechaVencimiento}";
-        }
-
-        public override int GetHashCode()
-        {
-            return (this.dni, this.fechaExpedido).GetHashCode();
         }
     }
 }

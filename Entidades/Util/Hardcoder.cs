@@ -44,7 +44,6 @@ namespace Parcial.Util
             flota[6] += Salon.Casino;
             flota[6] += Salon.Casino;
         }
-
         public static void HardcodearPuertos(List<Puerto> puertos)
         {
             puertos.Add(new Puerto(Provincia.BuenosAires, Pais.Argentina, true));
@@ -68,7 +67,6 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Acapulco, Pais.Mexico, false));
             puertos.Add(new Puerto(Provincia.Bangkok, Pais.Tailandia, false));
         }
-
         public static void HardcodearPasajeros(List<Venta> ventas, Viaje viaje, int cantidad)
         {
             Random random = new Random();
@@ -86,7 +84,6 @@ namespace Parcial.Util
                 ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
             }
         }
-
         public static void HardcodearViajes(List<Viaje> viajes, List<Puerto> puertos, List<Crucero> cruceros)
         {
             viajes.Add(new Viaje(puertos[0], puertos[1], cruceros[0], DateTime.Now));

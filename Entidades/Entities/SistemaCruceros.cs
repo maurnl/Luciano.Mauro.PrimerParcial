@@ -18,6 +18,24 @@ namespace Parcial.Entities
         public static List<Viaje> historialViajes;
         public static Dictionary<Puerto, float> contadorRecaudacionDestinos;
 
+        static SistemaCruceros()
+        {
+            SistemaCruceros.flota = new List<Crucero>();
+            SistemaCruceros.viajes = new List<Viaje>();
+            SistemaCruceros.ventas = new List<Venta>();
+            SistemaCruceros.puertos = new List<Puerto>();
+            SistemaCruceros.historialViajes = new List<Viaje>();
+            SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
+            SistemaCruceros.fechaDelSistema = DateTime.Now;
+            Hardcoder.HardcodearFlota(SistemaCruceros.flota);
+            Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
+            Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 10);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 30);
+        }
+
         public static List<Pasajero> BaseDeDatosPasajeros
         {
             get
@@ -41,24 +59,6 @@ namespace Parcial.Entities
             }
         }
 
-        static SistemaCruceros()
-        {
-            SistemaCruceros.flota = new List<Crucero>();
-            SistemaCruceros.viajes = new List<Viaje>();
-            SistemaCruceros.ventas = new List<Venta>();
-            SistemaCruceros.puertos = new List<Puerto>();
-            SistemaCruceros.historialViajes = new List<Viaje>();
-            SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
-            SistemaCruceros.fechaDelSistema = DateTime.Now;
-            Hardcoder.HardcodearFlota(SistemaCruceros.flota);
-            Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
-            Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 30);
-        }
-
         public static void ActualizarViajesActivos()
         {
             int cantidad = SistemaCruceros.viajes.Count;
@@ -73,7 +73,6 @@ namespace Parcial.Entities
                 }
             }
         }
-
         public static Pasajero ObtenerPasajeroEnSistema(int dni)
         {
             Pasajero pasajeroEncontrado = null;
@@ -87,7 +86,6 @@ namespace Parcial.Entities
             }
             return pasajeroEncontrado;
         }
-
         public static Puerto ObtenerDestinoMasDemandado()
         {
             Puerto puertoMasDemandado = null;

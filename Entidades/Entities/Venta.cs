@@ -9,74 +9,10 @@ namespace Parcial.Entities
     public class Venta : EntidadBase
     {
         private static int contadorVenta;
-        private List<Pasajero> clientes;
-        private DateTime fecha;
-        private Viaje viaje;
         private float precioBruto;
-
-        public override int Id
-        {
-            get
-            {
-                return base.id;
-            }
-        }
-
-        public string Clientes
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (Pasajero cliente in this.clientes)
-                {
-                    sb.Append(cliente.ToString() + " / ");
-                }
-                return sb.ToString();
-            }
-        }
-        public string Fecha
-        {
-            get
-            {
-                return this.fecha.ToShortDateString();
-            }
-        }
-
-        public float PrecioBruto
-        {
-            get
-            {
-                return this.precioBruto;
-            }
-        }
-        public float PrecioNeto
-        {
-            get
-            {
-                return this.precioBruto + (this.precioBruto * 21 / 100);
-            }
-        }
-        public Viaje Viaje
-        {
-            get
-            {
-                return this.viaje;
-            }
-        }
-        public bool EsServicioRegional
-        {
-            get
-            {
-                return this.viaje.Destino.EsDestinoRegional;
-            }
-        }
-        public int CantidadPasajes
-        {
-            get
-            {
-                return this.clientes.Count;
-            }
-        }
+        private Viaje viaje;
+        private DateTime fecha;
+        private List<Pasajero> clientes;
 
         static Venta()
         {
@@ -100,6 +36,68 @@ namespace Parcial.Entities
             }
         }
 
+        public override int Id
+        {
+            get
+            {
+                return base.id;
+            }
+        }
+        public int CantidadPasajes
+        {
+            get
+            {
+                return this.clientes.Count;
+            }
+        }
+        public string Clientes
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (Pasajero cliente in this.clientes)
+                {
+                    sb.Append(cliente.ToString() + " / ");
+                }
+                return sb.ToString();
+            }
+        }
+        public string Fecha
+        {
+            get
+            {
+                return this.fecha.ToShortDateString();
+            }
+        }
+        public float PrecioBruto
+        {
+            get
+            {
+                return this.precioBruto;
+            }
+        }
+        public float PrecioNeto
+        {
+            get
+            {
+                return this.precioBruto + (this.precioBruto * 21 / 100);
+            }
+        }
+        public bool EsServicioRegional
+        {
+            get
+            {
+                return this.viaje.Destino.EsDestinoRegional;
+            }
+        }
+        public Viaje Viaje
+        {
+            get
+            {
+                return this.viaje;
+            }
+        }
+
         private float CalcularPrecioBruto()
         {
             float acumuladorPrecios = 0;
@@ -115,7 +113,6 @@ namespace Parcial.Entities
             }
             return acumuladorPrecios;
         }
-
         public override string ToString()
         {
             return $"Fecha: {Fecha}. Importe bruto: {this.precioBruto}. Precio neto (+IVA 21%): {PrecioNeto}";

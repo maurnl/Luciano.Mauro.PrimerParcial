@@ -20,6 +20,35 @@ namespace Parcial.Entities
         private DateTime fechaSalida;
         private EstadoDeViaje estadoDeViaje;
 
+        static Viaje()
+        {
+            Viaje.random = new Random();
+            Viaje.contadorViaje = 5000;
+        }
+        public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
+        {
+            if(origen.Equals(destino))
+            {
+                throw new Exception("El origen y el destino no deben coincidir.");
+            }
+            if (crucero.EstaEnViaje)
+            {
+                throw new Exception("El crucero elegido esta en viaje.");
+            }
+            base.id = Viaje.contadorViaje;
+            Viaje.contadorViaje++;
+            this.estadoDeViaje = EstadoDeViaje.Abordando;
+            this.origen = origen;
+            this.destino = destino;
+            this.crucero = crucero;
+            this.crucero.EstaEnViaje = true;
+            this.fechaSalida = fechaSalida;
+            this.fechaActual = SistemaCruceros.fechaDelSistema;
+            this.pasajeros = new List<Pasajero>();
+            this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
+            this.duracionEnHoras = CalcularDuracionDeViaje(destino);
+        }
+
         public override int Id
         {
             get
@@ -152,35 +181,32 @@ namespace Parcial.Entities
                 return pasajero;
             }
         }
-        static Viaje()
+        public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
-            Viaje.random = new Random();
-            Viaje.contadorViaje = 5000;
-        }
-        public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
-        {
-            if(origen.Equals(destino))
+            viaje.fechaActual += tiempo;
+            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
             {
-                throw new Exception("El origen y el destino no deben coincidir.");
+                viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
             }
-            if (crucero.EstaEnViaje)
+            else if(viaje.fechaActual >= viaje.Llegada)
             {
-                throw new Exception("El crucero elegido esta en viaje.");
+                viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
+                viaje.crucero.EstaEnViaje = false;
+                int cantidadPasajeros = viaje.pasajeros.Count;
+                for (int i = cantidadPasajeros - 1; i >= 0; i--)
+                {
+                    Pasajero pasajero = viaje.pasajeros[i];
+                    for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
+                    {
+                        viaje.crucero += (-pasajero[j].Peso);
+                        pasajero -= pasajero[j];
+                    }
+                    pasajero.EstaViajando = false;
+                }
+                viaje.destino += viaje.PasajerosABordo;
             }
-            base.id = Viaje.contadorViaje;
-            Viaje.contadorViaje++;
-            this.estadoDeViaje = EstadoDeViaje.Abordando;
-            this.origen = origen;
-            this.destino = destino;
-            this.crucero = crucero;
-            this.crucero.EstaEnViaje = true;
-            this.fechaSalida = fechaSalida;
-            this.fechaActual = SistemaCruceros.fechaDelSistema;
-            this.pasajeros = new List<Pasajero>();
-            this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
-            this.duracionEnHoras = CalcularDuracionDeViaje(destino);
+            return viaje;
         }
-
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
         {
             if(viaje == pasajero)
@@ -214,57 +240,26 @@ namespace Parcial.Entities
             viaje.pasajeros.Add(pasajero);
             return viaje;
         }
-
-        public static bool operator ==(Viaje viajeA, Viaje viajeB)
-        {
-            return viajeA.id == viajeB.id;
-        }
-
-        public static bool operator !=(Viaje viajeA, Viaje viajeB)
-        {
-            return !(viajeA == viajeB);
-        }
-
-        public static bool operator ==(Viaje viaje, Pasajero pasajero)
-        {
-            return viaje.ObtenerIndicePasajero(pasajero) != -1;
-        }
-
-        public static bool operator !=(Viaje viaje, Pasajero pasajero)
-        {
-            return !(viaje == pasajero);
-        }
-
         public static Viaje operator -(Viaje viaje, Pasajero pasajero)
         {
             viaje.pasajeros.RemoveAt(viaje.ObtenerIndicePasajero(pasajero));
             return viaje;
         }
-        public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
+        public static bool operator ==(Viaje viajeA, Viaje viajeB)
         {
-            viaje.fechaActual += tiempo;
-            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
-            {
-                viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
-            }
-            else if(viaje.fechaActual >= viaje.Llegada)
-            {
-                viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
-                viaje.crucero.EstaEnViaje = false;
-                int cantidadPasajeros = viaje.pasajeros.Count;
-                for (int i = cantidadPasajeros - 1; i >= 0; i--)
-                {
-                    Pasajero pasajero = viaje.pasajeros[i];
-                    for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
-                    {
-                        viaje.crucero += (-pasajero[j].Peso);
-                        pasajero -= pasajero[j];
-                    }
-                    pasajero.EstaViajando = false;
-                }
-                viaje.destino += viaje.PasajerosABordo;
-            }
-            return viaje;
+            return viajeA.id == viajeB.id;
+        }
+        public static bool operator ==(Viaje viaje, Pasajero pasajero)
+        {
+            return viaje.ObtenerIndicePasajero(pasajero) != -1;
+        }
+        public static bool operator !=(Viaje viajeA, Viaje viajeB)
+        {
+            return !(viajeA == viajeB);
+        }
+        public static bool operator !=(Viaje viaje, Pasajero pasajero)
+        {
+            return !(viaje == pasajero);
         }
 
         private int ContarPasajerosPorTipo(TipoPasajero tipoParam)
@@ -278,6 +273,20 @@ namespace Parcial.Entities
                 }
             }
             return contador;
+        }
+        private int ObtenerIndicePasajero(Pasajero pasajero)
+        {
+            int returnAux = -1;
+            for (int i = 0; i < this.pasajeros.Count; i++)
+            {
+                if(pasajero == this.pasajeros[i])
+                {
+                    returnAux = i;
+                    break;
+                }
+
+            }
+            return returnAux;
         }
         private float CalcularPrecioDeViaje(Puerto destino)
         {
@@ -305,30 +314,19 @@ namespace Parcial.Entities
             }
             return cantidadHorasAleatoria;
         }
-        private int ObtenerIndicePasajero(Pasajero pasajero)
-        {
-            int returnAux = -1;
-            for (int i = 0; i < this.pasajeros.Count; i++)
-            {
-                if(pasajero == this.pasajeros[i])
-                {
-                    returnAux = i;
-                    break;
-                }
-
-            }
-            return returnAux;
-        }
 
         public override string ToString()
         {
             return $"Viaje Id {this.id}. De {this.origen} a {this.destino} el dia {this.fechaSalida}";
         }
-
         public override bool Equals(object obj)
         {
             Viaje viaje = obj as Viaje;
             return viaje is not null && this == viaje;
+        }
+        public override int GetHashCode()
+        {
+            return (this.crucero, this.id, this.origen, this.destino, this.precioPasajePorHora).GetHashCode();
         }
     }   
 }

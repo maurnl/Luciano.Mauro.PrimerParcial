@@ -8,11 +8,32 @@ namespace Parcial.Entities
 {
     public class Puerto
     {
+        private int cantidadPasajerosArribados;
+        private bool esDestinoRegional;
         private Pais pais;
         private Provincia provincia;
-        private bool esDestinoRegional;
-        private int cantidadPasajerosArribados;
 
+        public Puerto(Provincia provincia, Pais pais, bool esDestinoRegional)
+        {
+            this.provincia = provincia;
+            this.pais = pais;
+            this.esDestinoRegional = esDestinoRegional;
+        }
+
+        public int CantidadPasajerosArribados
+        {
+            get
+            {
+                return this.cantidadPasajerosArribados;
+            }
+        }
+        public bool EsDestinoRegional
+        {
+            get
+            {
+                return this.esDestinoRegional;
+            }
+        }
         public Pais Pais
         {
             get
@@ -27,42 +48,6 @@ namespace Parcial.Entities
                 return this.provincia;
             }
         }
-        public bool EsDestinoRegional
-        {
-            get
-            {
-                return this.esDestinoRegional;
-            }
-        }
-        public int CantidadPasajerosArribados
-        {
-            get
-            {
-                return this.cantidadPasajerosArribados;
-            }
-        }
-
-        public Puerto(Provincia provincia, Pais pais, bool esDestinoRegional)
-        {
-            this.provincia = provincia;
-            this.pais = pais;
-            this.esDestinoRegional = esDestinoRegional;
-        }
-
-        public static Puerto operator +(Puerto puerto, int pasajeros)
-        {
-            puerto.cantidadPasajerosArribados += pasajeros;
-            return puerto;
-        }
-
-        public static bool operator ==(Puerto puertoA, Puerto puertoB)
-        {
-            return puertoA.Pais == puertoB.Pais && puertoA.Provincia == puertoB.Provincia;
-        }
-        public static bool operator !=(Puerto puertoA, Puerto puertoB)
-        {
-            return !(puertoA == puertoB);
-        }
 
         public override bool Equals(object obj)
         {
@@ -73,10 +58,23 @@ namespace Parcial.Entities
         {
             return $"{(EsDestinoRegional ? "Regional: " : "Extraregional: ")}{this.provincia}, {this.pais}";
         }
-
         public override int GetHashCode()
         {
             return (this.pais, this.provincia, this.esDestinoRegional).GetHashCode();
+        }
+
+        public static Puerto operator +(Puerto puerto, int pasajeros)
+        {
+            puerto.cantidadPasajerosArribados += pasajeros;
+            return puerto;
+        }
+        public static bool operator ==(Puerto puertoA, Puerto puertoB)
+        {
+            return puertoA.Pais == puertoB.Pais && puertoA.Provincia == puertoB.Provincia;
+        }
+        public static bool operator !=(Puerto puertoA, Puerto puertoB)
+        {
+            return !(puertoA == puertoB);
         }
     }
 }

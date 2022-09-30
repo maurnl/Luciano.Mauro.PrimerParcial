@@ -10,6 +10,12 @@ namespace Parcial.Entities
     {
         private string nombre;
         private string apellido;
+
+        public PersonaBase(string nombreCompleto)
+        {
+            this.NombreCompleto = nombreCompleto;
+        }
+
         public string NombreCompleto
         {
             get
@@ -24,15 +30,10 @@ namespace Parcial.Entities
             }
         }
 
-        public PersonaBase(string nombreCompleto)
-        {
-            this.NombreCompleto = nombreCompleto;
-        }
         public override string ToString()
         {
             return $"Nombre: {NombreCompleto}.";
         }
-
         public override int GetHashCode()
         {
             return (this.nombre, this.apellido).GetHashCode();
