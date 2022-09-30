@@ -152,20 +152,7 @@ namespace Parcial.Entities
 
         public static bool operator ==(Crucero cruceroA, Crucero cruceroB)
         {
-            bool returnAux;
-            if(cruceroA is null)
-            {
-                returnAux = cruceroB is null;
-            }
-            else if (cruceroB is null)
-            {
-                returnAux = cruceroA is null;
-            }
-            else
-            {
-                returnAux = cruceroA.Matricula == cruceroB.Matricula;
-            }
-            return returnAux;
+            return cruceroA.Matricula == cruceroB.Matricula;
         }
 
         public static bool operator !=(Crucero cruceroA, Crucero cruceroB)
@@ -211,6 +198,17 @@ namespace Parcial.Entities
         {
             return $"[{(this.EstaEnViaje ? "OCUPADO" : "DISPONIBLE")}] '{this.nombre}'. " +
                 $"Capacidad: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg. Salones: {this.MostrarSalones()}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Crucero crucero = obj as Crucero;
+            return crucero is not null && this == crucero;
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.id, this.matricula, this.nombre).GetHashCode();
         }
     }
 }
