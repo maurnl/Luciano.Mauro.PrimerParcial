@@ -61,12 +61,12 @@ namespace Parcial.Entities
         {
             get
             {
-                return (this.cantidadCamarotesPremium + this.cantidadCamarotesTurista) * 4;
+                return this.CapacidadPasajerosPremium + this.CapacidadPasajerosTurista;
             }
             set
             {
-                this.cantidadCamarotesPremium = value * 35 / 100;
                 this.cantidadCamarotesTurista = value * 65 / 100;
+                this.cantidadCamarotesPremium = value - this.cantidadCamarotesTurista;
             }
         }
         public int CantidadSalones
@@ -189,7 +189,7 @@ namespace Parcial.Entities
         public override string ToString()
         {
             return $"[{(this.EstaEnViaje ? "OCUPADO" : "DISPONIBLE")}] Crucero '{this.nombre}'. " +
-                $"Capacidad Total: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg.";
+                $"Capacidad: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg.";
         }
     }
 }

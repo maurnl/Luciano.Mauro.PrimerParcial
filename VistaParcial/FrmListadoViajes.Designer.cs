@@ -50,8 +50,8 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(833, 20);
-            this.cboCombobox.Size = new System.Drawing.Size(278, 23);
+            //this.cboCombobox.Location = new System.Drawing.Point(833, 20);
+            //this.cboCombobox.Size = new System.Drawing.Size(278, 23);
             // 
             // btnAccionUno
             // 

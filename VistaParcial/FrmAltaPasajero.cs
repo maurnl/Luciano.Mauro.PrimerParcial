@@ -73,7 +73,7 @@ namespace VistaParcial
             TipoPasajero tipo = (TipoPasajero)this.cboTipoPasajero.SelectedItem;
 
             Pasajero nuevoPasajero = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(dni));
-            if (nuevoPasajero == null)
+            if (nuevoPasajero is null)
             {
                 nuevoPasajero = new Pasajero(nombreCompleto, int.Parse(dni), fechaNacimiento, tipo);
             }

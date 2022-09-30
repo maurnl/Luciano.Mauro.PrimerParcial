@@ -30,6 +30,13 @@ namespace Parcial.Entities
                         baseDeDatosPasajeros.Add(viaje[i]);
                     }
                 }
+                foreach (Viaje viaje in SistemaCruceros.historialViajes)
+                {
+                    for (int i = 0; i < viaje.PasajerosABordo; i++)
+                    {
+                        baseDeDatosPasajeros.Add(viaje[i]);
+                    }
+                }
                 return baseDeDatosPasajeros;
             }
         }

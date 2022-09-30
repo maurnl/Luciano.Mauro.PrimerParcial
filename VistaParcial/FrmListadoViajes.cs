@@ -30,6 +30,11 @@ namespace VistaParcial
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
             Viaje viajeSeleccionado = (Viaje)this.fuenteDeDatos.Current;
+            if(viajeSeleccionado is not null && viajeSeleccionado.EstadoDeViaje != EstadoDeViaje.Abordando)
+            {
+                MessageBox.Show("No se pueden agregar pasajeros a un viaje en curso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero(viajeSeleccionado);
             if (formAltaPasajero.ShowDialog() == DialogResult.OK)
             {

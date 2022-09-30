@@ -22,13 +22,17 @@ namespace VistaParcial
         }
         private void FrmListadoPasajeros_Load(object sender, EventArgs e)
         {
+            this.btnAccionDos.Text = "Base de datos de pasajeros";
             this.btnAccionUno.Text = "Ver informacion detallada...";
             this.Text = "Listado de pasajeros";
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = SistemaCruceros.viajes;
-            this.cboCombobox.SelectedIndex = 0;
-            MostrarPasajerosDelViaje();
+            if(SistemaCruceros.viajes.Count != 0)
+            {
+                this.cboCombobox.SelectedIndex = 0;
+            }
+            LlenarListadoPorViaje();
             base.fuenteDeDatos.DataSource = listaPasajerosFiltrada;
         }
 
@@ -50,11 +54,11 @@ namespace VistaParcial
 
         private void cboCombobox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            MostrarPasajerosDelViaje();
+            LlenarListadoPorViaje();
             base.ActualizarListado();
         }
 
-        private void MostrarPasajerosDelViaje()
+        private void LlenarListadoPorViaje()
         {
             this.listaPasajerosFiltrada.Clear();
             Viaje viajeSeleccionado = (Viaje)this.cboCombobox.SelectedItem;
@@ -62,6 +66,13 @@ namespace VistaParcial
             {
                 listaPasajerosFiltrada.Add(viajeSeleccionado[i]);
             }
+            base.fuenteDeDatos.DataSource = this.listaPasajerosFiltrada;
+        }
+
+        private void btnAccionDos_Click(object sender, EventArgs e)
+        {
+            base.fuenteDeDatos.DataSource = SistemaCruceros.BaseDeDatosPasajeros;
+            base.ActualizarListado();
         }
     }
 }

@@ -43,7 +43,6 @@ namespace Parcial.Util
             flota[6] += Salon.Teatro;
             flota[6] += Salon.Casino;
             flota[6] += Salon.Casino;
-
         }
 
         public static void HardcodearPuertos(List<Puerto> puertos)
@@ -74,8 +73,8 @@ namespace Parcial.Util
         {
             Random random = new Random();
             int dni;
-            DateTime fechaMinima = new DateTime(1995, 1, 1);
-            int range = (DateTime.Today - fechaMinima).Days;
+            DateTime fechaMinima = new DateTime(1970, 1, 1);
+            int range = (new DateTime(2004, 1, 1) - fechaMinima).Days;
             string[] nombres = { "Daphne", "Hilliard", "Garvy", "Arnold",  "Corilla", "Davine", "Frankie", "Alfie", "Tuck",
                 "Jethro", "Keri", "Pepillo", "Roxanne", "Daniella", "Ethelind" };
             string[] apellidos = { "Godsmark","Makiver", "McCallister", "Denison", "Drewell", "Owers", "Enser", "Benneyworth", "Wickstead" };

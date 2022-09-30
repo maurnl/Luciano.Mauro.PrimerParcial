@@ -39,8 +39,12 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Size = new System.Drawing.Size(268, 23);
+            //this.cboCombobox.Size = new System.Drawing.Size(268, 23);
             this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
+            // 
+            // btnAccionDos
+            // 
+            this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);
             // 
             // FrmListadoPasajeros
             // 
