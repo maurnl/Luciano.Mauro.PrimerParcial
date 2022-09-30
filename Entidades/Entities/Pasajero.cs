@@ -159,20 +159,7 @@ namespace Parcial.Entities
 
         public static bool operator ==(Pasajero pasajeroA, Pasajero pasajeroB)
         {
-            bool returnAux;
-            if (pasajeroA is null)
-            {
-                returnAux = pasajeroB is null;
-            }
-            else if (pasajeroB is null)
-            {
-                returnAux = pasajeroA is null;
-            }
-            else
-            {
-                returnAux = pasajeroA.Pasaporte.Dni == pasajeroB.Pasaporte.Dni;
-            }
-            return returnAux;
+            return pasajeroA.Pasaporte.Dni == pasajeroB.Pasaporte.Dni;
         }
 
         public static bool operator !=(Pasajero pasajeroA, Pasajero pasajeroB)
@@ -219,7 +206,7 @@ namespace Parcial.Entities
 
         public override int GetHashCode()
         {
-            return base.GetHashCode() + (this.id, this.pasaporte).GetHashCode();
+            return (this.id, this.pasaporte).GetHashCode();
         }
     }
 }
