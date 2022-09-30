@@ -11,6 +11,16 @@ namespace Parcial.Entities
         private float peso;
         private bool esDeMano;
 
+        public Equipaje(float peso, bool esDeMano)
+        {
+            this.peso = peso;
+            this.esDeMano = esDeMano;
+            if (this.esDeMano)
+            {
+                this.peso = 0;
+            }
+        }
+
         public float Peso
         {
             get
@@ -26,20 +36,11 @@ namespace Parcial.Entities
             }
         }
 
-        public Equipaje(float peso, bool esDeMano)
-        {
-            this.peso = peso;
-            this.esDeMano = esDeMano;
-            if (this.esDeMano)
-            {
-                this.peso = 0;
-            }
-        }
-
         public static explicit operator string(Equipaje equipaje)
         {
             return $"Peso: {equipaje.peso} kg. Es equipaje de mano: {(equipaje.esDeMano ? "Si" : "No")}";
         }
+
         public override string ToString()
         {
             return (string)this;

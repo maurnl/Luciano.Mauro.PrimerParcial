@@ -134,33 +134,6 @@ namespace Parcial.Entities
             }
         }
 
-
-        public static Crucero operator +(Crucero crucero, Salon salon)
-        {
-            crucero.salones.Add(salon);
-            return crucero;
-        }
-
-        public static Crucero operator +(Crucero crucero, float pesoCarga)
-        {
-            if (crucero.pesoBodegaActual + pesoCarga > crucero.pesoBodegaMaximo)
-            {
-                throw new Exception("El crucero no tiene mas capacidad en la bodega.");
-            }
-            crucero.pesoBodegaActual += pesoCarga;
-            return crucero;
-        }
-
-        public static bool operator ==(Crucero cruceroA, Crucero cruceroB)
-        {
-            return cruceroA.Matricula == cruceroB.Matricula;
-        }
-
-        public static bool operator !=(Crucero cruceroA, Crucero cruceroB)
-        {
-            return !(cruceroA == cruceroB);
-        }
-
         private int ContarSalonesPorTipo(Salon salonParam)
         {
             int returnAux = 0;
@@ -173,7 +146,6 @@ namespace Parcial.Entities
             }
             return returnAux;
         }
-
         private string MostrarSalones()
         {
             string salones = "";
@@ -194,22 +166,42 @@ namespace Parcial.Entities
             }
             return salones;
         }
-
         public override string ToString()
         {
             return $"[{(this.EstaEnViaje ? "OCUPADO" : "DISPONIBLE")}] '{this.nombre}'. " +
                 $"Capacidad: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg. Salones: {this.MostrarSalones()}";
         }
-
         public override bool Equals(object obj)
         {
             Crucero crucero = obj as Crucero;
             return crucero is not null && this == crucero;
         }
-
         public override int GetHashCode()
         {
             return (this.id, this.matricula, this.nombre).GetHashCode();
+        }
+
+        public static Crucero operator +(Crucero crucero, Salon salon)
+        {
+            crucero.salones.Add(salon);
+            return crucero;
+        }
+        public static Crucero operator +(Crucero crucero, float pesoCarga)
+        {
+            if (crucero.pesoBodegaActual + pesoCarga > crucero.pesoBodegaMaximo)
+            {
+                throw new Exception("El crucero no tiene mas capacidad en la bodega.");
+            }
+            crucero.pesoBodegaActual += pesoCarga;
+            return crucero;
+        }
+        public static bool operator ==(Crucero cruceroA, Crucero cruceroB)
+        {
+            return cruceroA.Matricula == cruceroB.Matricula;
+        }
+        public static bool operator !=(Crucero cruceroA, Crucero cruceroB)
+        {
+            return !(cruceroA == cruceroB);
         }
     }
 }
