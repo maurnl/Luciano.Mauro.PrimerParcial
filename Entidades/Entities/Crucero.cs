@@ -186,10 +186,31 @@ namespace Parcial.Entities
             return returnAux;
         }
 
+        private string MostrarSalones()
+        {
+            string salones = "";
+            for (int i = 0; i < this.salones.Count; i++)
+            {
+                if(i == 0)
+                {
+                    salones += $"{this.salones[i]}";
+                }
+                else if (i < this.salones.Count - 1)
+                {
+                    salones += $", {this.salones[i]}";
+                }
+                else
+                {
+                    salones += $" y {this.salones[i]}.";
+                }
+            }
+            return salones;
+        }
+
         public override string ToString()
         {
-            return $"[{(this.EstaEnViaje ? "OCUPADO" : "DISPONIBLE")}] Crucero '{this.nombre}'. " +
-                $"Capacidad: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg.";
+            return $"[{(this.EstaEnViaje ? "OCUPADO" : "DISPONIBLE")}] '{this.nombre}'. " +
+                $"Capacidad: {this.CapacidadPasajeros} personas. Bodega: {this.PesoBodegaActual}/{this.PesoBodegaMaximo} kg. Salones: {this.MostrarSalones()}";
         }
     }
 }

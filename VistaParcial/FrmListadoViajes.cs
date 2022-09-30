@@ -30,6 +30,11 @@ namespace VistaParcial
         private void btnFiltroUno_Click(object sender, EventArgs e)
         {
             Viaje viajeSeleccionado = (Viaje)this.fuenteDeDatos.Current;
+            if(viajeSeleccionado is null)
+            {
+                MessageBox.Show("No hay viajes activos. Cree un nuevo viaje y reintente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if(viajeSeleccionado is not null && viajeSeleccionado.EstadoDeViaje != EstadoDeViaje.Abordando)
             {
                 MessageBox.Show("No se pueden agregar pasajeros a un viaje en curso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -132,6 +137,10 @@ namespace VistaParcial
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
             Viaje viajeAEditar = (Viaje)base.fuenteDeDatos.Current;
+            if(viajeAEditar is null)
+            {
+                return;
+            }
             FrmViaje formEditarViaje = new FrmViaje(viajeAEditar);
             if (formEditarViaje.ShowDialog() == DialogResult.OK)
             {
