@@ -43,7 +43,7 @@ namespace VistaParcial
             this.ventasFiltradas.Clear();
             foreach (Venta ventaEnSistema in SistemaCruceros.ventas)
             {
-                if (viajeSeleccionado == ventaEnSistema.Viaje)
+                if (viajeSeleccionado.Equals(ventaEnSistema.Viaje))
                 {
                     ventasFiltradas.Add(ventaEnSistema);
                 }
