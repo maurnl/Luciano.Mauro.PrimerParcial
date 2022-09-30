@@ -22,6 +22,11 @@ namespace VistaParcial
         }
         private void FrmListadoPasajeros_Load(object sender, EventArgs e)
         {
+            this.cboFiltro.Items.Add("DNI"); 
+            this.cboFiltro.Items.Add("Nombre y apellido"); 
+            this.cboFiltro.Items.Add("Edad");
+            this.cboFiltro.SelectedIndex = 0;
+            this.cboFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             this.btnAccionDos.Text = "Base de datos de pasajeros";
             this.btnAccionUno.Text = "Ver informacion detallada...";
             this.Text = "Listado de pasajeros";
@@ -73,6 +78,41 @@ namespace VistaParcial
         {
             base.fuenteDeDatos.DataSource = SistemaCruceros.BaseDeDatosPasajeros;
             base.ActualizarListado();
+        }
+
+        private void AplicarFiltro(string valor, string propiedad)
+        {
+            base.LimpiarFiltros();
+            foreach (DataGridViewRow filaActual in base.dgvListado.Rows)
+            {
+                Pasajero pasajeroActual = (Pasajero)filaActual.DataBoundItem;
+                switch (propiedad)
+                {
+                    case "DNI":
+                        if (!pasajeroActual.Pasaporte.Dni.ToString().Contains(valor))
+                        {
+                            filaActual.Height = 0;
+                        }
+                        break;
+                    case "Nombre y apellido":
+                        if (!pasajeroActual.NombreCompleto.ToLower().Contains(valor))
+                        {
+                            filaActual.Height = 0;
+                        }
+                        break;
+                    case "Edad":
+                        if (!pasajeroActual.Edad.ToString().Contains(valor))
+                        {
+                            filaActual.Height = 0;
+                        }
+                        break;
+                }
+            }
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro(this.txtFiltro.Text, (string)this.cboFiltro.SelectedItem);
         }
     }
 }

@@ -38,6 +38,7 @@ namespace VistaParcial
         private void FrmAltaPasajero_Load(object sender, EventArgs e)
         {
             this.cboTipoPasajero.DataSource = Enum.GetValues(typeof(TipoPasajero));
+            this.cboTipoPasajero.DropDownStyle = ComboBoxStyle.DropDownList;
             this.lblError.Text = "";
             this.lblErrorBusqueda.Text = "";
             this.btnEliminarPasajero.Enabled = false;
@@ -82,6 +83,7 @@ namespace VistaParcial
             this.pasajeroActual = nuevoPasajero;
             this.btnEliminarPasajero.Enabled = true;
             this.lblErrorBusqueda.Text = "";
+            LimpiarDatosPasajero();
             ActualizarEquipajes();
         }
         private void lstPasajeros_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,10 +188,17 @@ namespace VistaParcial
             this.lblPesoDisponible.Text = $"Peso en bodega: {capacidadBodegaActual}/{capacidadBodegaTotal} kg";
         }
 
+        private void LimpiarDatosPasajero()
+        {
+            this.txtNombre.Text = "";
+            this.txtApellido.Text = "";
+            this.txtDni.Text = "";
+            this.dtpFechaNacimiento.Value = SistemaCruceros.fechaDelSistema;
+        }
+
         private void btnBuscarPasajero_Click(object sender, EventArgs e)
         {
-            Pasajero pasajeroBusqueda = null;
-            pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
+            Pasajero pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
             if(pasajeroBusqueda == null)
             {
                 this.lblErrorBusqueda.ForeColor = Color.Red;
