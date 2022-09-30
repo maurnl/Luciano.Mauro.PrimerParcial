@@ -45,10 +45,20 @@ namespace Parcial.Entities
             return (string)this;
         }
 
+        public static bool operator ==(Equipaje equipajeA, Equipaje equipajeB)
+        {
+            return equipajeA.peso == equipajeB.peso && equipajeA.esDeMano == equipajeB.esDeMano;
+        }
+
+        public static bool operator !=(Equipaje equipajeA, Equipaje equipajeB)
+        {
+            return !(equipajeA != equipajeB);
+        }
+
         public override bool Equals(object obj)
         {
             Equipaje equipaje = obj as Equipaje;
-            return equipaje is not null && equipaje.peso == this.peso && equipaje.esDeMano == this.esDeMano;
+            return equipaje is not null && this == equipaje;
         }
 
         public override int GetHashCode()
