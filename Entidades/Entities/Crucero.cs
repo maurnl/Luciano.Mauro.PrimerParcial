@@ -18,6 +18,24 @@ namespace Parcial.Entities
         private bool estaEnViaje;
         private List<Salon> salones;
 
+        static Crucero()
+        {
+            Crucero.contadorCrucero = 1000;
+        }
+        public Crucero(string matricula, string nombre, int capacidadPasajeros,
+            float capacidadBodega)
+        {
+            base.id = Crucero.contadorCrucero;
+            Crucero.contadorCrucero++;
+            this.matricula = matricula;
+            this.nombre = nombre;
+            this.CapacidadPasajeros = capacidadPasajeros;
+            this.pesoBodegaMaximo = capacidadBodega;
+            this.estaEnViaje = false;
+            this.salones = new List<Salon>();
+            this.salones.Add(Salon.Comedor);
+        }
+
         public override int Id
         {
             get
@@ -116,23 +134,6 @@ namespace Parcial.Entities
             }
         }
 
-        static Crucero()
-        {
-            Crucero.contadorCrucero = 1000;
-        }
-        public Crucero(string matricula, string nombre, int capacidadPasajeros,
-            float capacidadBodega)
-        {
-            base.id = Crucero.contadorCrucero;
-            Crucero.contadorCrucero++;
-            this.matricula = matricula;
-            this.nombre = nombre;
-            this.CapacidadPasajeros = capacidadPasajeros;
-            this.pesoBodegaMaximo = capacidadBodega;
-            this.estaEnViaje = false;
-            this.salones = new List<Salon>();
-            this.salones.Add(Salon.Comedor);
-        }
 
         public static Crucero operator +(Crucero crucero, Salon salon)
         {
