@@ -8,6 +8,8 @@
 **Resumen, diagrama de calses y justificación técnica:** Se encuentra en el pdf documentación.
 
 **Pros y contras:**
+
+
 **Pros:**
 - :heavy_check_mark: Estructura del programa y código fácil de entender.
 - :heavy_check_mark: Lógica de negocio debilmente acoplada a la vista.
