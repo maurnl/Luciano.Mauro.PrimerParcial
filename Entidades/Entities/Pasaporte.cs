@@ -41,6 +41,10 @@ namespace Parcial.Entities
             return (this.dni, this.fechaExpedido).GetHashCode();
         }
 
+        /// <summary>
+        /// Convierte implicitamente un valor entero a un objeto Pasaporte.
+        /// </summary>
+        /// <param name="dni">Valor de dni del pasaporte a crear</param>
         public static implicit operator Pasaporte(int dni)
         {
             return new Pasaporte(dni, DateTime.Now);

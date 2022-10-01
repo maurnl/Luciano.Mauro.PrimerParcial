@@ -76,11 +76,17 @@ namespace Parcial.Util
             string[] nombres = { "Daphne", "Hilliard", "Garvy", "Arnold",  "Corilla", "Davine", "Frankie", "Alfie", "Tuck",
                 "Jethro", "Keri", "Pepillo", "Roxanne", "Daniella", "Ethelind" };
             string[] apellidos = { "Godsmark","Makiver", "McCallister", "Denison", "Drewell", "Owers", "Enser", "Benneyworth", "Wickstead" };
+            Equipaje equipaje = new Equipaje(random.Next(1, 20), false);
             for (int i = 0; i < cantidad; i++)
             {
                 dni = random.Next(2000000, 5000000);
-                Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), random.Next(0,2) == 0 ? TipoPasajero.Premium : TipoPasajero.Turista);
+                Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), random.Next(0,2) == 0 ? TipoPasajero.Premium : TipoPasajero.Turista, random.Next(0,2) == 0? Genero.Femenino : Genero.Masculino);
                 viaje += pasajero;
+                pasajero += equipaje;
+                if(i%2==0)
+                {
+                    pasajero += new Equipaje(1, true);
+                }
                 ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
             }
         }

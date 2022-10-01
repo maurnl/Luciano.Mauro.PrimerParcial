@@ -122,7 +122,7 @@ namespace VistaParcial
 
         private void ActualizarLabelFecha()
         {
-            this.fechaToolStripMenuItem.Text = SistemaCruceros.fechaDelSistema.ToShortDateString();
+            this.fechaToolStripMenuItem.Text = "Fecha del sistema: " + SistemaCruceros.fechaDelSistema.ToShortDateString();
         }
 
         private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)
@@ -148,6 +148,11 @@ namespace VistaParcial
         private void verListadoToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             MostrarListado("historico");
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

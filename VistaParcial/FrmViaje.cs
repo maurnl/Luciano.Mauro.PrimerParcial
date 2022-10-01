@@ -37,7 +37,7 @@ namespace VistaParcial
             this.cboDestino.SelectedItem = viaje.Destino;
             this.cboCrucero.SelectedItem = viaje.Crucero;
             this.cboCrucero.Enabled = false;
-            this.dtpFechaSalida.Value = viaje.Salida;
+            this.dtpFechaSalida.Value = viaje.FechaSalida;
             this.viajeDelForm.Crucero.EstaEnViaje = false;
             this.btnAceptar.Text = "Aplicar cambios";
         }
@@ -65,7 +65,7 @@ namespace VistaParcial
             {
                 if (estaEditando)
                 {
-                    this.viajeDelForm.Salida = this.dtpFechaSalida.Value;
+                    this.viajeDelForm.FechaSalida = this.dtpFechaSalida.Value;
                     this.viajeDelForm.Destino = (Puerto)this.cboDestino.SelectedItem;
                     this.viajeDelForm.Crucero.EstaEnViaje = true;
                 }

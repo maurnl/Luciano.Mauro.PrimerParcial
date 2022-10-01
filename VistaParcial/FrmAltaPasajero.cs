@@ -46,6 +46,8 @@ namespace VistaParcial
             this.groupBox2.BackColor = Color.FromArgb(150, 209, 209, 209);
             this.groupBox3.BackColor = Color.FromArgb(150, 209, 209, 209);
             this.gpbEquipajes.BackColor = Color.FromArgb(150, 209, 209, 209);
+            this.cboGenero.DataSource = Enum.GetValues(typeof(Genero));
+            this.cboGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             SetEquipajeControls(false);
             ActualizarDatosDeViaje();
         }
@@ -72,11 +74,11 @@ namespace VistaParcial
             string dni = this.txtDni.Text;
             DateTime fechaNacimiento = this.dtpFechaNacimiento.Value;
             TipoPasajero tipo = (TipoPasajero)this.cboTipoPasajero.SelectedItem;
-
+            Genero genero = (Genero)this.cboGenero.SelectedItem;
             Pasajero nuevoPasajero = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(dni));
             if (nuevoPasajero is null)
             {
-                nuevoPasajero = new Pasajero(nombreCompleto, int.Parse(dni), fechaNacimiento, tipo);
+                nuevoPasajero = new Pasajero(nombreCompleto, int.Parse(dni), fechaNacimiento, tipo, genero);
             }
             this.pasajerosPosibles.Add(nuevoPasajero);
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());

@@ -58,6 +58,10 @@ namespace VistaParcial
             // 
             this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
             // 
+            // btnAccionUno
+            // 
+            this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
+            // 
             // btnAccionDos
             // 
             this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);

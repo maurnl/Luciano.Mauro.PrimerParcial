@@ -104,5 +104,18 @@ namespace Parcial.Entities
             }
             return puertoMasDemandado;
         }
+
+        public static Venta RealizarUnaVenta(Viaje viaje, List<Pasajero> pasajerosPosibles)
+        {
+            List<Pasajero> clientes = new List<Pasajero>();
+            foreach (Pasajero pasajeroPosible in pasajerosPosibles)
+            {
+                viaje += pasajeroPosible;
+                clientes.Add(pasajeroPosible);
+            }
+            Venta venta = new Venta(viaje, clientes);
+            SistemaCruceros.ventas.Add(venta);
+            return venta;
+        }
     }
 }

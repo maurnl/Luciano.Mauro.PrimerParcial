@@ -45,6 +45,7 @@ namespace VistaParcial
             this.verListadoToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBienvenido = new System.Windows.Forms.Label();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,8 @@ namespace VistaParcial
             this.pasajerosToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.informarToolStripMenuItem,
-            this.fechaToolStripMenuItem});
+            this.fechaToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1431, 33);
@@ -151,7 +153,7 @@ namespace VistaParcial
             // verListadoToolStripMenuItem3
             // 
             this.verListadoToolStripMenuItem3.Name = "verListadoToolStripMenuItem3";
-            this.verListadoToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.verListadoToolStripMenuItem3.Size = new System.Drawing.Size(139, 22);
             this.verListadoToolStripMenuItem3.Text = "Ver historico";
             this.verListadoToolStripMenuItem3.Click += new System.EventHandler(this.verListadoToolStripMenuItem3_Click);
             // 
@@ -174,6 +176,13 @@ namespace VistaParcial
             this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
             this.lblBienvenido.TabIndex = 1;
             this.lblBienvenido.Text = "label1";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 29);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // FrmPrincipalContenedor
             // 
@@ -215,5 +224,6 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

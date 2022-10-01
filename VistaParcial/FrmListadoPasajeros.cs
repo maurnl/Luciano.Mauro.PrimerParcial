@@ -114,5 +114,16 @@ namespace VistaParcial
         {
             AplicarFiltro(this.txtFiltro.Text, (string)this.cboFiltro.SelectedItem);
         }
+
+        private void btnAccionUno_Click(object sender, EventArgs e)
+        {
+            Pasajero pasajeroSeleccionado = (Pasajero)base.fuenteDeDatos.Current;
+            if(pasajeroSeleccionado is null)
+            {
+                return;
+            }
+            FrmInfoPasajero formInfoPasajero = new FrmInfoPasajero(pasajeroSeleccionado);
+            formInfoPasajero.ShowDialog();
+        }
     }
 }

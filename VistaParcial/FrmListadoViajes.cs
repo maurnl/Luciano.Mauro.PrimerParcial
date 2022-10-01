@@ -46,14 +46,7 @@ namespace VistaParcial
                 try
                 {
                     lblError.Text = "";
-                    List<Pasajero> clientes = new List<Pasajero>();
-                    foreach (Pasajero pasajeroPosible in formAltaPasajero.PasajerosPosibles)
-                    {
-                        viajeSeleccionado += pasajeroPosible;
-                        clientes.Add(pasajeroPosible);
-                    }
-                    Venta venta = new Venta(viajeSeleccionado, clientes);
-                    SistemaCruceros.ventas.Add(venta);
+                    Venta venta = SistemaCruceros.RealizarUnaVenta(viajeSeleccionado, formAltaPasajero.PasajerosPosibles);
                     MessageBox.Show($"Precio bruto: ${venta.PrecioBruto}.\nTotal a cobrar: ${venta.PrecioNeto}", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception agregarPasajerosEx)

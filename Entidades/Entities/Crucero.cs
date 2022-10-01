@@ -22,14 +22,14 @@ namespace Parcial.Entities
         {
             Crucero.contadorCrucero = 1000;
         }
-        public Crucero(string matricula, string nombre, int capacidadPasajeros,
+        public Crucero(string matricula, string nombre, int cantidadCamarotes,
             float capacidadBodega)
         {
             base.id = Crucero.contadorCrucero;
             Crucero.contadorCrucero++;
             this.matricula = matricula;
             this.nombre = nombre;
-            this.CapacidadPasajeros = capacidadPasajeros;
+            this.CapacidadPasajeros = cantidadCamarotes;
             this.pesoBodegaMaximo = capacidadBodega;
             this.estaEnViaje = false;
             this.salones = new List<Salon>();
@@ -48,10 +48,6 @@ namespace Parcial.Entities
             get
             {
                 return this.matricula;
-            }
-            private set
-            {
-                this.matricula = value;
             }
         }
         public string Nombre
@@ -180,7 +176,13 @@ namespace Parcial.Entities
         {
             return (this.id, this.matricula, this.nombre).GetHashCode();
         }
-
+        
+        /// <summary>
+        /// Agrega el Salon sumado a la lista de salones del crucero.
+        /// </summary>
+        /// <param name="crucero"></param>
+        /// <param name="salon">El Salon a agregar</param>
+        /// <returns></returns>
         public static Crucero operator +(Crucero crucero, Salon salon)
         {
             crucero.salones.Add(salon);
@@ -197,7 +199,7 @@ namespace Parcial.Entities
         }
         public static bool operator ==(Crucero cruceroA, Crucero cruceroB)
         {
-            return cruceroA.Matricula == cruceroB.Matricula;
+            return cruceroA.matricula == cruceroB.matricula;
         }
         public static bool operator !=(Crucero cruceroA, Crucero cruceroB)
         {

@@ -63,9 +63,15 @@ namespace Parcial.Entities
             return (this.pais, this.provincia, this.esDestinoRegional).GetHashCode();
         }
 
-        public static Puerto operator +(Puerto puerto, int pasajeros)
+        /// <summary>
+        /// Suma una cantidad de pasajeros al total de pasajeros arribados en este puerto.
+        /// </summary>
+        /// <param name="puerto"></param>
+        /// <param name="pasajerosArribados">Cantidad de pasajeros a sumar</param>
+        /// <returns></returns>
+        public static Puerto operator +(Puerto puerto, int pasajerosArribados)
         {
-            puerto.cantidadPasajerosArribados += pasajeros;
+            puerto.cantidadPasajerosArribados += pasajerosArribados;
             return puerto;
         }
         public static bool operator ==(Puerto puertoA, Puerto puertoB)

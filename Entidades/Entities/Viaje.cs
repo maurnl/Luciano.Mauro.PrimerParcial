@@ -27,7 +27,7 @@ namespace Parcial.Entities
         }
         public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
         {
-            if(origen.Equals(destino))
+            if (origen.Equals(destino))
             {
                 throw new Exception("El origen y el destino no deben coincidir.");
             }
@@ -49,6 +49,23 @@ namespace Parcial.Entities
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
         }
 
+        /// <summary>
+        /// Indexador para Viaje. Retorna el pasajero correspondiente al indice de la lista de pasajeros.
+        /// </summary>
+        /// <param name="indice"></param>
+        /// <returns></returns>
+        public Pasajero this[int indice]
+        {
+            get
+            {
+                Pasajero pasajero = null;
+                if (indice >= 0 && indice < this.pasajeros.Count)
+                {
+                    pasajero = this.pasajeros[indice];
+                }
+                return pasajero;
+            }
+        }
         public override int Id
         {
             get
@@ -136,7 +153,7 @@ namespace Parcial.Entities
                 return ContarPasajerosPorTipo(TipoPasajero.Premium);
             }
         }
-        public DateTime Salida
+        public DateTime FechaSalida
         {
             get
             {
@@ -147,7 +164,7 @@ namespace Parcial.Entities
                 this.fechaSalida = value;
             }
         }
-        public DateTime Llegada
+        public DateTime FechaLlegada
         {
             get
             {
@@ -169,26 +186,20 @@ namespace Parcial.Entities
             }
         }
 
-        public Pasajero this[int indice]
-        {
-            get
-            {
-                Pasajero pasajero = null;
-                if (indice >= 0 && indice < this.pasajeros.Count)
-                {
-                    pasajero = this.pasajeros[indice];
-                }
-                return pasajero;
-            }
-        }
+        /// <summary>
+        /// Suma un lapso de tiempo a la instancia de Viaje y actualiza la informacion del viaje
+        /// </summary>
+        /// <param name="viaje"></param>
+        /// <param name="tiempo">Lapso de tiempo a sumar</param>
+        /// <returns></returns>
         public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
         {
             viaje.fechaActual += tiempo;
-            if(viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.Llegada)
+            if (viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.FechaLlegada)
             {
                 viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
             }
-            else if(viaje.fechaActual >= viaje.Llegada)
+            else if (viaje.fechaActual >= viaje.FechaLlegada)
             {
                 viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
                 viaje.crucero.EstaEnViaje = false;
@@ -207,25 +218,31 @@ namespace Parcial.Entities
             }
             return viaje;
         }
+        /// <summary>
+        /// Agrega el Pasajero a la lista de pasajeros del viaje.
+        /// </summary>
+        /// <param name="viaje"></param>
+        /// <param name="pasajero"></param>
+        /// <returns></returns>
         public static Viaje operator +(Viaje viaje, Pasajero pasajero)
         {
-            if(viaje == pasajero)
+            if (viaje == pasajero)
             {
                 throw new Exception("Este pasajero ya esta a bordo.");
             }
 
-            if(viaje.PasajerosABordo + 1 > viaje.crucero.CapacidadPasajeros)
+            if (viaje.PasajerosABordo + 1 > viaje.crucero.CapacidadPasajeros)
             {
                 throw new Exception("Este crucero esta lleno.");
-            } 
+            }
 
-            if(pasajero.TipoPasajero == TipoPasajero.Premium
+            if (pasajero.TipoPasajero == TipoPasajero.Premium
                 && viaje.PasajerosPremiumABordo + 1 > viaje.crucero.CapacidadPasajerosPremium)
             {
                 throw new Exception("No hay mas asientos Premium");
             }
 
-            if(pasajero.TipoPasajero == TipoPasajero.Turista
+            if (pasajero.TipoPasajero == TipoPasajero.Turista
                 && viaje.PasajerosTuristasABordo + 1 > viaje.crucero.CapacidadPasajerosTurista)
             {
                 throw new Exception("No hay mas asientos Turista");
@@ -240,6 +257,12 @@ namespace Parcial.Entities
             viaje.pasajeros.Add(pasajero);
             return viaje;
         }
+        /// <summary>
+        /// Elimina el pasajero de la lista de pasajeros del viaje.
+        /// </summary>
+        /// <param name="viaje"></param>
+        /// <param name="pasajero">El pasajero a eliminar</param>
+        /// <returns></returns>
         public static Viaje operator -(Viaje viaje, Pasajero pasajero)
         {
             viaje.pasajeros.RemoveAt(viaje.ObtenerIndicePasajero(pasajero));
@@ -267,7 +290,7 @@ namespace Parcial.Entities
             int contador = 0;
             foreach (Pasajero pasajero in this.pasajeros)
             {
-                if(pasajero.TipoPasajero == tipoParam)
+                if (pasajero.TipoPasajero == tipoParam)
                 {
                     contador++;
                 }
@@ -279,7 +302,7 @@ namespace Parcial.Entities
             int returnAux = -1;
             for (int i = 0; i < this.pasajeros.Count; i++)
             {
-                if(pasajero == this.pasajeros[i])
+                if (pasajero == this.pasajeros[i])
                 {
                     returnAux = i;
                     break;
@@ -291,7 +314,7 @@ namespace Parcial.Entities
         private float CalcularPrecioDeViaje(Puerto destino)
         {
             float precioViaje;
-            if(destino.EsDestinoRegional)
+            if (destino.EsDestinoRegional)
             {
                 precioViaje = 57;
             }
