@@ -11,7 +11,6 @@
 
 
 **Pros:**
-- :heavy_check_mark: Estructura del programa y código fácil de entender.
 - :heavy_check_mark: Lógica de negocio debilmente acoplada a la vista.
 - :heavy_check_mark: Interfaz sencilla.
 
