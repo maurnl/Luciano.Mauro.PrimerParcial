@@ -19,14 +19,18 @@ namespace VistaParcial
         public FrmListadoBase()
         {
             InitializeComponent();
+            this.dgvListado.ScrollBars = ScrollBars.Both;
             this.fuenteDeDatos = new BindingSource();
             this.dgvListado.DataSource = this.fuenteDeDatos;
-            this.dgvListado.ScrollBars = ScrollBars.Both;
             this.dgvListado.ReadOnly = true;
-            this.FormBorderStyle = FormBorderStyle.None;
             this.lblError.Text = "";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.WindowState = FormWindowState.Maximized;
+        }
+        private void FrmListadoBase_Load(object sender, EventArgs e)
+        {
+            //this.WindowState = FormWindowState.Maximized;
+            this.Dock = DockStyle.Fill;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         protected virtual void LimpiarFiltros()
@@ -66,5 +70,6 @@ namespace VistaParcial
         {
             LimpiarFiltros();
         }
+
     }
 }

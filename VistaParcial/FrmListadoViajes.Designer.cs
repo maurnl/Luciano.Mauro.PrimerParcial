@@ -39,7 +39,7 @@ namespace VistaParcial
             // 
             this.panel1.Controls.Add(this.chkFiltroDos);
             this.panel1.Controls.Add(this.chkFiltroUno);
-            this.panel1.Size = new System.Drawing.Size(1195, 66);
+            this.panel1.Size = new System.Drawing.Size(1277, 66);
             this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
             this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
             this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
@@ -50,8 +50,7 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            //this.cboCombobox.Location = new System.Drawing.Point(833, 20);
-            //this.cboCombobox.Size = new System.Drawing.Size(278, 23);
+            this.cboCombobox.Location = new System.Drawing.Point(961, 20);
             // 
             // btnAccionUno
             // 
@@ -59,7 +58,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(747, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(829, 23);
             // 
             // btnAccionDos
             // 
@@ -95,7 +94,8 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 634);
+            this.ClientSize = new System.Drawing.Size(1277, 723);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoViajes";
             this.Text = "FrmListadoViajes";
             this.Load += new System.EventHandler(this.FrmListadoViajes_Load);

@@ -231,6 +231,11 @@ namespace Parcial.Entities
                 throw new Exception("Este pasajero ya esta a bordo.");
             }
 
+            if (pasajero.EstaViajando)
+            {
+                throw new Exception("Este pasajero ya esta en algun viaje.");
+            }
+
             if (viaje.PasajerosABordo + 1 > viaje.crucero.CapacidadPasajeros)
             {
                 throw new Exception("Este crucero esta lleno.");
@@ -255,6 +260,7 @@ namespace Parcial.Entities
 
             pasajero += 1;
             viaje.pasajeros.Add(pasajero);
+            pasajero.EstaViajando = true;
             return viaje;
         }
         /// <summary>

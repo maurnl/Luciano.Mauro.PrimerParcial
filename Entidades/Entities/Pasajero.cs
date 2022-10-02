@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Parcial.Entities
 {
-    public sealed class Pasajero : PersonaBase
+    public class Pasajero : PersonaBase
     {
         private static int contadorPasajero;
         private int cantidadViajesRealizados;
@@ -31,7 +31,7 @@ namespace Parcial.Entities
             this.pasaporte = pasaporte;
             this.fechaNacimiento = fechaNacimiento;
             this.tipoPasajero = tipoPasajero;
-            this.estaViajando = true;
+            this.estaViajando = false;
             this.genero = genero;
             this.equipaje = new List<Equipaje>();
         }

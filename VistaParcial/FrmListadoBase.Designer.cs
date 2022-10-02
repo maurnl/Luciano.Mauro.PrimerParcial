@@ -86,9 +86,9 @@ namespace VistaParcial
             this.lblCombobox.AutoSize = true;
             this.lblCombobox.Location = new System.Drawing.Point(848, 23);
             this.lblCombobox.Name = "lblCombobox";
-            this.lblCombobox.Size = new System.Drawing.Size(80, 15);
+            this.lblCombobox.Size = new System.Drawing.Size(32, 15);
             this.lblCombobox.TabIndex = 4;
-            this.lblCombobox.Text = "Ordenar por...";
+            this.lblCombobox.Text = "label";
             // 
             // cboCombobox
             // 
@@ -154,7 +154,9 @@ namespace VistaParcial
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(1195, 350);
             this.Name = "FrmListadoBase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "9";
+            this.Load += new System.EventHandler(this.FrmListadoBase_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

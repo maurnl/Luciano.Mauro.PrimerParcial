@@ -43,6 +43,7 @@ namespace VistaParcial
         }
         private void FrmViaje_Load(object sender, EventArgs e)
         {
+            this.cboOrigen.Enabled = false;
             this.cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCrucero.DropDownStyle = ComboBoxStyle.DropDownList;

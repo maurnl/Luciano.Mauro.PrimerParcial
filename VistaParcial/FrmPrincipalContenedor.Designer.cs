@@ -44,8 +44,8 @@ namespace VistaParcial
             this.informarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verListadoToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblBienvenido = new System.Windows.Forms.Label();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,6 +165,13 @@ namespace VistaParcial
             this.fechaToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
             this.fechaToolStripMenuItem.Text = "fecha";
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 29);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
             // lblBienvenido
             // 
             this.lblBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -177,13 +184,6 @@ namespace VistaParcial
             this.lblBienvenido.TabIndex = 1;
             this.lblBienvenido.Text = "label1";
             // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 29);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
             // FrmPrincipalContenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -194,6 +194,7 @@ namespace VistaParcial
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1300, 800);
             this.Name = "FrmPrincipalContenedor";
             this.Text = "FrmPrincipalContenedor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipalContenedor_FormClosing);

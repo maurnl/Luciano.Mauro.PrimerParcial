@@ -201,7 +201,7 @@ namespace VistaParcial
         private void btnBuscarPasajero_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
-            if(pasajeroBusqueda == null)
+            if(pasajeroBusqueda.Equals(null))
             {
                 this.lblErrorBusqueda.ForeColor = Color.Red;
                 this.lblErrorBusqueda.Text = "No se encontro el pasajero";

@@ -14,7 +14,7 @@ namespace Parcial.Util
         {
             RuleFor(usuario => usuario.Username).NotEmpty().NotNull().WithMessage("Ingrese un nombre de usuario valido");
             RuleFor(usuario => usuario.Password).NotEmpty().NotNull().WithMessage("Ingrese una contraseña valida");
-            RuleFor(usuario => usuario.NombreCompleto).NotEmpty().NotNull().Matches("[|]").WithMessage("Ingrese un nombre valido");
+            RuleFor(usuario => usuario.NombreCompleto).NotEmpty().NotNull().WithMessage("Ingrese un nombre valido");
         }
     }
 }
