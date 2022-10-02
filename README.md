@@ -15,10 +15,9 @@
 - :heavy_check_mark: Interfaz sencilla.
 
 **Contras:**
-- :x: Hay un bug visual que no pude solucionar, y quedará así hasta el final de los tiempos.
 - :x: Como se pensó para que los datos se muestren a traves de las propiedades, se repite código para entidades que mantienen una relación de composición
 - :x: Como se eligió el tipo de dato BindingSource en la jerarquía de herencia de los formularios para contener las listas a mostrar, este tipo de dato al no tener implementación de ordenamiento y filtro, los métodos utilizados para ordenar y filtrar son rebuscados.
 
-**Propuesta de valor agregado para promoción:** Se implementó un manejo del tiempo para los viajes, para poder simular el viaje de los cruceros y darle un aporte de realismo al programa. Se agregó a la lógica del negocio la posibilidad de editar un viaje, pudiendo cambiar la fecha de salida y el destino del viaje.
+**Propuesta de valor agregado para promoción:** Se agregó a la lógica del negocio la posibilidad de editar un viaje, pudiendo cambiar la fecha de salida y el destino del viaje.
 
 **Hecho con :heart: por maurnl.**
