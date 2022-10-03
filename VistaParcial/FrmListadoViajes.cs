@@ -22,6 +22,8 @@ namespace VistaParcial
 
         private void FrmListadoViajes_Load(object sender, EventArgs e)
         {
+            this.cboCombobox.Visible = false;
+            this.lblCombobox.Text = "";
             this.Text = "Listado de viajes";
             this.btnAccionDos.Text = "Editar viaje...";
             base.ActualizarListado();

@@ -20,6 +20,8 @@ namespace VistaParcial
         }
         private void FrmListadoHistorial_Load(object sender, EventArgs e)
         {
+            this.cboCombobox.Visible = false;
+            this.lblCombobox.Text = "";
             this.Text = "Informes";
             this.btnAccionUno.Text = "Ver viajes finalizados";
             this.btnAccionDos.Text = "Ver recaudacion por destinos";
