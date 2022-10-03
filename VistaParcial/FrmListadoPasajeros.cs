@@ -82,6 +82,7 @@ namespace VistaParcial
 
         private void AplicarFiltro(string valor, string propiedad)
         {
+            OrdenarPorCantidadDeViajes();
             base.LimpiarFiltros();
             foreach (DataGridViewRow filaActual in base.dgvListado.Rows)
             {
@@ -124,6 +125,27 @@ namespace VistaParcial
             }
             FrmInfoPasajero formInfoPasajero = new FrmInfoPasajero(pasajeroSeleccionado);
             formInfoPasajero.ShowDialog();
+        }
+
+        private void OrdenarPorCantidadDeViajes()
+        {
+            bool estaDesordenado;
+            Pasajero aux;
+            var lista = this.listaPasajerosFiltrada;
+            do
+            {
+                estaDesordenado = false;
+                for (int i = 1; i < lista.Count; i++)
+                {
+                    if ((lista[i].CantidadViajesRealizados < lista[i - 1].CantidadViajesRealizados && true) || (lista[i].CantidadViajesRealizados > lista[i - 1].CantidadViajesRealizados && false))
+                    {
+                        aux = lista[i];
+                        lista[i] = lista[i - 1];
+                        lista[i - 1] = aux;
+                        estaDesordenado = true;
+                    }
+                }
+            } while (estaDesordenado);
         }
     }
 }

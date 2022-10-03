@@ -73,5 +73,13 @@ namespace VistaParcial
             this.txtUsername.Text = "maurnl";
             this.txtPassword.Text = "contrasenia123";
         }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MessageBox.Show("Esta seguro que desea salir?","Salir", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

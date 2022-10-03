@@ -156,9 +156,9 @@ namespace VistaParcial
             this.Close();
         }
 
-        private void renunciarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void descansarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Esta seguro que desea renunciar de El Dorado?", "Confirme renuncia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if(MessageBox.Show("Esta seguro que desea tomarse un descanso?", "Confirme descanso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 Juego formJuego = new Juego();
                 formJuego.Show();

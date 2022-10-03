@@ -56,7 +56,7 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(879, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(1289, 20);
             this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
             // 
             // btnAccionUno
@@ -65,7 +65,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(793, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(1203, 23);
             // 
             // btnAccionDos
             // 

@@ -33,13 +33,13 @@ namespace VistaParcial
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.gpbLogin = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAutologin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.gpbLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,16 @@ namespace VistaParcial
             this.gpbLogin.TabIndex = 2;
             this.gpbLogin.TabStop = false;
             this.gpbLogin.Text = "Iniciar sesion";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(179, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(105, 68);
+            this.panel1.TabIndex = 6;
             // 
             // lblError
             // 
@@ -162,16 +172,6 @@ namespace VistaParcial
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(179, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(105, 68);
-            this.panel1.TabIndex = 6;
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -185,6 +185,7 @@ namespace VistaParcial
             this.Controls.Add(this.gpbLogin);
             this.Name = "FrmLogin";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.gpbLogin.ResumeLayout(false);
             this.gpbLogin.PerformLayout();

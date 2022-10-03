@@ -45,8 +45,8 @@ namespace VistaParcial
             this.verListadoToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblBienvenido = new System.Windows.Forms.Label();
             this.renunciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblBienvenido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +174,13 @@ namespace VistaParcial
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // renunciarToolStripMenuItem
+            // 
+            this.renunciarToolStripMenuItem.Name = "renunciarToolStripMenuItem";
+            this.renunciarToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
+            this.renunciarToolStripMenuItem.Text = "Descansar";
+            this.renunciarToolStripMenuItem.Click += new System.EventHandler(this.descansarToolStripMenuItem_Click);
+            // 
             // lblBienvenido
             // 
             this.lblBienvenido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -185,13 +192,6 @@ namespace VistaParcial
             this.lblBienvenido.Size = new System.Drawing.Size(121, 51);
             this.lblBienvenido.TabIndex = 1;
             this.lblBienvenido.Text = "label1";
-            // 
-            // renunciarToolStripMenuItem
-            // 
-            this.renunciarToolStripMenuItem.Name = "renunciarToolStripMenuItem";
-            this.renunciarToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
-            this.renunciarToolStripMenuItem.Text = "Renunciar";
-            this.renunciarToolStripMenuItem.Click += new System.EventHandler(this.renunciarToolStripMenuItem_Click);
             // 
             // FrmPrincipalContenedor
             // 
