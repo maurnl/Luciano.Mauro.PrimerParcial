@@ -26,13 +26,13 @@ namespace Parcial.Entities
             this.clientes = clientes;
             this.fecha = DateTime.Now;
             this.precioBruto = CalcularPrecioBruto();
-            if (SistemaCruceros.contadorRecaudacionDestinos.ContainsKey(viaje.Destino))
+            if (SistemaCruceros.diccionarioRecaudacionPorDestino.ContainsKey(viaje.Destino))
             {
-                SistemaCruceros.contadorRecaudacionDestinos[viaje.Destino] += this.PrecioNeto;
+                SistemaCruceros.diccionarioRecaudacionPorDestino[viaje.Destino] += this.PrecioNeto;
             }
             else
             {
-                SistemaCruceros.contadorRecaudacionDestinos.Add(viaje.Destino, this.PrecioNeto);
+                SistemaCruceros.diccionarioRecaudacionPorDestino.Add(viaje.Destino, this.PrecioNeto);
             }
         }
 

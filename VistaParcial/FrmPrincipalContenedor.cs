@@ -1,4 +1,5 @@
-﻿using Parcial.Entities;
+﻿using Jueguito;
+using Parcial.Entities;
 using Parcial.Login;
 using System;
 using System.Collections.Generic;
@@ -153,6 +154,15 @@ namespace VistaParcial
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void renunciarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Esta seguro que desea renunciar de El Dorado?", "Confirme renuncia", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                Juego formJuego = new Juego();
+                formJuego.Show();
+            }
         }
     }
 }

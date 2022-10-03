@@ -50,7 +50,7 @@ namespace VistaParcial
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(961, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(879, 20);
             // 
             // btnAccionUno
             // 
@@ -58,7 +58,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(829, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(793, 23);
             // 
             // btnAccionDos
             // 
@@ -94,7 +94,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 723);
+            this.ClientSize = new System.Drawing.Size(1277, 721);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoViajes";
             this.Text = "FrmListadoViajes";

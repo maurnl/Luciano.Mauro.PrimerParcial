@@ -69,7 +69,7 @@ namespace VistaParcial
 
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
-            base.fuenteDeDatos.DataSource = SistemaCruceros.contadorRecaudacionDestinos.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value).Reverse();
+            base.fuenteDeDatos.DataSource = SistemaCruceros.diccionarioRecaudacionPorDestino.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value).Reverse();
             base.ActualizarListado();
             this.btnReiniciarFiltros.Enabled = false;
         }

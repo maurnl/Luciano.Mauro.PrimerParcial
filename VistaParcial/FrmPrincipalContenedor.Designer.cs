@@ -46,6 +46,7 @@ namespace VistaParcial
             this.fechaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBienvenido = new System.Windows.Forms.Label();
+            this.renunciarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@ namespace VistaParcial
             this.ventasToolStripMenuItem,
             this.informarToolStripMenuItem,
             this.fechaToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.renunciarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1431, 33);
@@ -184,6 +186,13 @@ namespace VistaParcial
             this.lblBienvenido.TabIndex = 1;
             this.lblBienvenido.Text = "label1";
             // 
+            // renunciarToolStripMenuItem
+            // 
+            this.renunciarToolStripMenuItem.Name = "renunciarToolStripMenuItem";
+            this.renunciarToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
+            this.renunciarToolStripMenuItem.Text = "Renunciar";
+            this.renunciarToolStripMenuItem.Click += new System.EventHandler(this.renunciarToolStripMenuItem_Click);
+            // 
             // FrmPrincipalContenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,5 +235,6 @@ namespace VistaParcial
         private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem verListadoToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renunciarToolStripMenuItem;
     }
 }

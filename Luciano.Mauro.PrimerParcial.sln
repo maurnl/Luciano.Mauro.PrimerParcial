@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parcial", "Entidades\Parcial.csproj", "{F2406D8D-780A-4CB2-88C9-60B1BF85E0A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parcial", "Entidades\Parcial.csproj", "{F2406D8D-780A-4CB2-88C9-60B1BF85E0A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VistaParcial", "VistaParcial\VistaParcial.csproj", "{5ADBD632-8A67-4916-B814-EC112C44F781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VistaParcial", "VistaParcial\VistaParcial.csproj", "{5ADBD632-8A67-4916-B814-EC112C44F781}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jueguito", "Jueguito\Jueguito.csproj", "{55605A7D-694F-4261-B245-C17C0FA0F271}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5ADBD632-8A67-4916-B814-EC112C44F781}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ADBD632-8A67-4916-B814-EC112C44F781}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ADBD632-8A67-4916-B814-EC112C44F781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55605A7D-694F-4261-B245-C17C0FA0F271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55605A7D-694F-4261-B245-C17C0FA0F271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55605A7D-694F-4261-B245-C17C0FA0F271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55605A7D-694F-4261-B245-C17C0FA0F271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

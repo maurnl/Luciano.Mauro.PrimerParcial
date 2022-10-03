@@ -82,7 +82,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCombobox.AutoSize = true;
             this.lblCombobox.Location = new System.Drawing.Point(848, 23);
             this.lblCombobox.Name = "lblCombobox";

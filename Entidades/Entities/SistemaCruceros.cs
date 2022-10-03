@@ -16,7 +16,7 @@ namespace Parcial.Entities
         public static List<Puerto> puertos;
         public static List<Viaje> viajes;
         public static List<Viaje> historialViajes;
-        public static Dictionary<Puerto, float> contadorRecaudacionDestinos;
+        public static Dictionary<Puerto, float> diccionarioRecaudacionPorDestino;
 
         static SistemaCruceros()
         {
@@ -25,7 +25,7 @@ namespace Parcial.Entities
             SistemaCruceros.ventas = new List<Venta>();
             SistemaCruceros.puertos = new List<Puerto>();
             SistemaCruceros.historialViajes = new List<Viaje>();
-            SistemaCruceros.contadorRecaudacionDestinos = new Dictionary<Puerto, float>();
+            SistemaCruceros.diccionarioRecaudacionPorDestino = new Dictionary<Puerto, float>();
             SistemaCruceros.fechaDelSistema = DateTime.Now;
             Hardcoder.HardcodearFlota(SistemaCruceros.flota);
             Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
