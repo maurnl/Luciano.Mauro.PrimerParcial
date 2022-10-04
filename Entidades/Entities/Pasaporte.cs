@@ -8,20 +8,20 @@ namespace Parcial.Entities
 {
     public class Pasaporte
     {
-        private int dni;
+        private int numeroPasaporte;
         private DateTime fechaExpedido;
 
-        private Pasaporte(int dni, DateTime fechaExpedido)
+        private Pasaporte(int numeroPasaporte, DateTime fechaExpedido)
         {
-            this.dni = dni;
+            this.numeroPasaporte = numeroPasaporte;
             this.fechaExpedido = fechaExpedido;
         }
 
-        public int Dni
+        public int NumeroPasaporte
         {
             get
             {
-                return this.dni;
+                return this.numeroPasaporte;
             }
         }
         public DateTime FechaVencimiento
@@ -38,16 +38,16 @@ namespace Parcial.Entities
         }
         public override int GetHashCode()
         {
-            return (this.dni, this.fechaExpedido).GetHashCode();
+            return (this.numeroPasaporte, this.fechaExpedido).GetHashCode();
         }
 
         /// <summary>
         /// Convierte implicitamente un valor entero a un objeto Pasaporte.
         /// </summary>
-        /// <param name="dni">Valor de dni del pasaporte a crear</param>
-        public static implicit operator Pasaporte(int dni)
+        /// <param name="numeroPasaporte">Valor de numero del pasaporte a crear</param>
+        public static implicit operator Pasaporte(int numeroPasaporte)
         {
-            return new Pasaporte(dni, DateTime.Now);
+            return new Pasaporte(numeroPasaporte, DateTime.Now);
         }
     }
 }

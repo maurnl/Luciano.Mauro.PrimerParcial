@@ -90,7 +90,7 @@ namespace VistaParcial
                 switch (propiedad)
                 {
                     case "DNI":
-                        if (!pasajeroActual.Pasaporte.Dni.ToString().Contains(valor))
+                        if (!pasajeroActual.Pasaporte.NumeroPasaporte.ToString().Contains(valor))
                         {
                             filaActual.Height = 0;
                         }

@@ -26,6 +26,8 @@ namespace VistaParcial
 
         private void FrmInfoPasajero_Load(object sender, EventArgs e)
         {
+            this.button1.Text = "Volver";
+            this.BackColor = Color.LightBlue;
             CargarInfo(this.pasajeroAMostrar);
         }
 
@@ -36,8 +38,11 @@ namespace VistaParcial
             {
                 genero = "men";
             }
-            this.lblNombre.Text = pasajero.NombreCompleto;
-            this.lblDni.Text = pasajero.Pasaporte.Dni.ToString();
+            this.lblNombre.Text = "Nombre: " + pasajero.NombreCompleto;
+            this.lblDni.Text = "Nro Pasaporte: " + pasajero.Pasaporte.NumeroPasaporte.ToString();
+            this.lblCantidadViajes.Text = "Cantidad de valijas: " + pasajero.CantidadViajesRealizados.ToString();
+            this.lblEdad.Text = "Edad: " + pasajero.Edad.ToString();
+            this.lblGenero.Text = "Genero: " + pasajero.Genero.ToString();
             CargarEquipaje(pasajero);
             this.ptbFoto.Load(GenerarImagenRandom(genero));
         }

@@ -71,7 +71,7 @@ namespace Parcial.Entities
         {
             get
             {
-                return this.Pasaporte.Dni;
+                return this.Pasaporte.NumeroPasaporte;
             }
         }
         public int Edad
@@ -108,6 +108,10 @@ namespace Parcial.Entities
             get
             {
                 return this.tipoPasajero;
+            }
+            set
+            {
+                this.tipoPasajero = value;
             }
         }
         public int CantidadEquipaje
@@ -179,7 +183,7 @@ namespace Parcial.Entities
         }
         public override string ToString()
         {
-            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. DNI: {Pasaporte.Dni}.";
+            return $"{base.ToString()} Edad: {Edad}. Tipo: {TipoPasajero}. Nro Pasaporte: {Pasaporte.NumeroPasaporte}.";
         }
         public override bool Equals(object obj)
         {
@@ -243,7 +247,7 @@ namespace Parcial.Entities
         }
         public static bool operator ==(Pasajero pasajeroA, Pasajero pasajeroB)
         {
-            return pasajeroA.Pasaporte.Dni == pasajeroB.Pasaporte.Dni;
+            return pasajeroA.Pasaporte.NumeroPasaporte == pasajeroB.Pasaporte.NumeroPasaporte;
         }
         public static bool operator !=(Pasajero pasajeroA, Pasajero pasajeroB)
         {

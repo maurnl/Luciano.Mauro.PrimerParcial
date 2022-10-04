@@ -80,6 +80,7 @@ namespace VistaParcial
             {
                 nuevoPasajero = new Pasajero(nombreCompleto, int.Parse(dni), fechaNacimiento, tipo, genero);
             }
+            nuevoPasajero.TipoPasajero = tipo;
             this.pasajerosPosibles.Add(nuevoPasajero);
             this.lstPasajeros.Items.Add(nuevoPasajero.ToString());
             this.pasajeroActual = nuevoPasajero;

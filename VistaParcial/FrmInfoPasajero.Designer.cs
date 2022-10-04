@@ -34,6 +34,9 @@ namespace VistaParcial
             this.lblDni = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
+            this.lblGenero = new System.Windows.Forms.Label();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblCantidadViajes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,11 +86,41 @@ namespace VistaParcial
             this.lstEquipajes.Size = new System.Drawing.Size(236, 109);
             this.lstEquipajes.TabIndex = 4;
             // 
+            // lblGenero
+            // 
+            this.lblGenero.AutoSize = true;
+            this.lblGenero.Location = new System.Drawing.Point(171, 13);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(38, 15);
+            this.lblGenero.TabIndex = 5;
+            this.lblGenero.Text = "label1";
+            // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(171, 32);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(38, 15);
+            this.lblEdad.TabIndex = 6;
+            this.lblEdad.Text = "label1";
+            // 
+            // lblCantidadViajes
+            // 
+            this.lblCantidadViajes.AutoSize = true;
+            this.lblCantidadViajes.Location = new System.Drawing.Point(171, 57);
+            this.lblCantidadViajes.Name = "lblCantidadViajes";
+            this.lblCantidadViajes.Size = new System.Drawing.Size(38, 15);
+            this.lblCantidadViajes.TabIndex = 7;
+            this.lblCantidadViajes.Text = "label1";
+            // 
             // FrmInfoPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 464);
+            this.Controls.Add(this.lblCantidadViajes);
+            this.Controls.Add(this.lblEdad);
+            this.Controls.Add(this.lblGenero);
             this.Controls.Add(this.lstEquipajes);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblDni);
@@ -109,5 +142,8 @@ namespace VistaParcial
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lstEquipajes;
+        private System.Windows.Forms.Label lblGenero;
+        private System.Windows.Forms.Label lblEdad;
+        private System.Windows.Forms.Label lblCantidadViajes;
     }
 }
