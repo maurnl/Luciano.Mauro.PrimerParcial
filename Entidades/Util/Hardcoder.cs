@@ -81,13 +81,13 @@ namespace Parcial.Util
             {
                 dni = random.Next(2000000, 5000000);
                 Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), premium ? TipoPasajero.Premium : TipoPasajero.Turista, random.Next(0,2) == 0? Genero.Femenino : Genero.Masculino);
-                viaje += pasajero;
+                //viaje += pasajero;
                 pasajero += equipaje;
                 if(i%2==0)
                 {
                     pasajero += new Equipaje(1, true);
                 }
-                ventas.Add(new Venta(viaje, new List<Pasajero> { pasajero }));
+                SistemaCruceros.AltaDeVenta(viaje, new List<Pasajero> { pasajero });
             }
         }
         public static void HardcodearViajes(List<Viaje> viajes, List<Puerto> puertos, List<Crucero> cruceros)

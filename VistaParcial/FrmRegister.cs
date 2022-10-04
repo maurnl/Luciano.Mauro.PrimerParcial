@@ -30,6 +30,7 @@ namespace VistaParcial
         }
         private void FrmRegister_Load(object sender, EventArgs e)
         {
+            this.Text = "Registrarse";
             this.lblError.ForeColor = Color.Red;
             this.lblError.Text = "";
         }
@@ -39,10 +40,9 @@ namespace VistaParcial
             string username = this.txtUsername.Text;
             string password = this.txtPassword.Text;
             string nombreCompleto = this.txtName.Text + " " + this.txtLastName.Text;
-
             try
             {
-                usuarioDelForm = new Usuario(nombreCompleto, username, password);
+                this.usuarioDelForm = new Usuario(nombreCompleto, username, password);
                 ValidadorUsuario validador = new ValidadorUsuario();
                 validador.ValidateAndThrow(usuarioDelForm);
                 this.DialogResult = DialogResult.OK;
@@ -57,6 +57,5 @@ namespace VistaParcial
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
     }
 }

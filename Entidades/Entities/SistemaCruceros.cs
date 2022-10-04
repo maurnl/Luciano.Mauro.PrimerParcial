@@ -214,7 +214,6 @@ namespace Parcial.Entities
             {
                 throw new Exception("El crucero elegido esta en viaje.");
             }
-
             Viaje viaje = new Viaje(origen, destino, crucero, fechaSalida);
             return viaje;
         }

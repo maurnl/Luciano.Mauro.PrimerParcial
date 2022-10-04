@@ -62,7 +62,7 @@ namespace VistaParcial
             this.txtPassword.Location = new System.Drawing.Point(55, 150);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.PlaceholderText = "Ingrese contrasenia...";
+            this.txtPassword.PlaceholderText = "Ingrese contraseña...";
             this.txtPassword.Size = new System.Drawing.Size(172, 23);
             this.txtPassword.TabIndex = 1;
             // 
@@ -85,7 +85,7 @@ namespace VistaParcial
             this.gpbLogin.Size = new System.Drawing.Size(284, 325);
             this.gpbLogin.TabIndex = 2;
             this.gpbLogin.TabStop = false;
-            this.gpbLogin.Text = "Iniciar sesion";
+            this.gpbLogin.Text = "Iniciar sesión";
             // 
             // panel1
             // 
@@ -116,7 +116,7 @@ namespace VistaParcial
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 36);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Iniciar sesion";
+            this.btnLogin.Text = "Iniciar sesión";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -128,9 +128,9 @@ namespace VistaParcial
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(55, 132);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.Size = new System.Drawing.Size(70, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Contrasenia:";
+            this.label2.Text = "Contraseña:";
             // 
             // label1
             // 

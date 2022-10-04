@@ -81,6 +81,7 @@ namespace VistaParcial
                     formMostrado = formListadoViajes;
                     break;
             }
+            formMostrado.RemoverSeleccionDatagrid();
             formMostrado.Show();
             formMostrado.Activate();
             formMostrado.ActualizarListado();

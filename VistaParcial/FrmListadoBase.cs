@@ -28,7 +28,6 @@ namespace VistaParcial
         }
         private void FrmListadoBase_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Maximized;
             this.Dock = DockStyle.Fill;
             this.FormBorderStyle = FormBorderStyle.None;
         }
@@ -64,6 +63,11 @@ namespace VistaParcial
                     }
                 }
             }
+        }
+
+        public void RemoverSeleccionDatagrid()
+        {
+            this.dgvListado.ClearSelection();
         }
 
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)

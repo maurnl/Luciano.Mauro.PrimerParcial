@@ -175,15 +175,15 @@ namespace VistaParcial
             this.lblPesoDisponible.ForeColor = Color.Green;
             if (pasajerosTuristaABordo >= capacidadPasajerosTurista * 80 / 100)
             {
-                this.lblLugaresTuristaDisponibles.ForeColor = Color.Orange;
+                this.lblLugaresTuristaDisponibles.ForeColor = Color.Red;
             }
             if (pasajerosPremiumABordo >= capacidadPasajerosPremium * 80 / 100)
             {
-                this.lblLugaresPremiumDisponible.ForeColor = Color.Orange;
+                this.lblLugaresPremiumDisponible.ForeColor = Color.Red;
             }
             if (capacidadBodegaActual >= capacidadBodegaTotal * 80 / 100)
             {
-                this.lblPesoDisponible.ForeColor = Color.Orange;
+                this.lblPesoDisponible.ForeColor = Color.Red;
             }
 
             this.lblLugaresPremiumDisponible.Text = $"Pasajeros Premium: {pasajerosPremiumABordo}/{capacidadPasajerosPremium}.";
