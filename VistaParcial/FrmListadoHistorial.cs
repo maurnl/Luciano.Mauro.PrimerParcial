@@ -20,8 +20,6 @@ namespace VistaParcial
         }
         private void FrmListadoHistorial_Load(object sender, EventArgs e)
         {
-            this.cboCombobox.Visible = false;
-            this.lblCombobox.Text = "";
             this.Text = "Informes";
             this.btnAccionUno.Text = "Ver viajes finalizados";
             this.btnAccionDos.Text = "Ver recaudacion por destinos";
@@ -84,6 +82,14 @@ namespace VistaParcial
         private void btnGanancias_Click(object sender, EventArgs e)
         {
             CalcularRecaudacionPorServicio();
+        }
+
+        protected override string ObtenerAyuda()
+        {
+            return base.ObtenerAyuda() + "- Presione 'Ver viajes finalizados' para ver los viajes con estado FINALIZADO en el sistema.\n" +
+                "- Presione 'Ver recaudación por destinos' para ver los destinos y sus recaudaciones ordenados de mayor a menor.\n" +
+                "- Presione 'Calcular recaudación del viaje' para calcular la recaudación total del viaje seleccionado.\n" +
+                "- Presione 'Ver ganancias por servicio' para informar las ganancias de la empresa por servicio regional/extraregional.";
         }
     }
 }

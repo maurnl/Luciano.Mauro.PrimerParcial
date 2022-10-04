@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VistaParcial.Properties;
 
 namespace VistaParcial
 {
@@ -24,11 +25,14 @@ namespace VistaParcial
             this.dgvListado.DataSource = this.fuenteDeDatos;
             this.dgvListado.ReadOnly = true;
             this.lblError.Text = "";
-            this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.ClientSize = new Size(1395, 650);
+            this.ClientSize = new Size(1395, 850);
         }
         private void FrmListadoBase_Load(object sender, EventArgs e)
         {
+            this.btnAyuda.Text = "";
+            this.btnAyuda.BackgroundImage = (Image)Resources.ResourceManager.GetObject("ayuda_icon");
+            this.btnAyuda.BackgroundImageLayout = ImageLayout.Stretch;
+            this.btnAyuda.Location = new Point(30, this.Height - 125);
             this.Dock = DockStyle.Fill;
             this.FormBorderStyle = FormBorderStyle.None;
         }
@@ -66,6 +70,14 @@ namespace VistaParcial
             }
         }
 
+            
+
+        protected virtual string ObtenerAyuda()
+        {
+            return "- Presione 'Eliminar filtros' para eliminar los filtros actualmente aplicados al listado.\n" + 
+                "- Seleccione un elemento presionando en la celda libre a la izquierda del ID de cada elemento.\n";
+        }
+
         public void RemoverSeleccionDatagrid()
         {
             this.dgvListado.ClearSelection();
@@ -76,5 +88,9 @@ namespace VistaParcial
             LimpiarFiltros();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(ObtenerAyuda());
+        }
     }
 }

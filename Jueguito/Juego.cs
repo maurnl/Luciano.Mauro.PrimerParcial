@@ -23,13 +23,14 @@ namespace Jueguito
             InitializeComponent();
             this.Text = "Crucero que agarra parciales aprobados y esquiva tiburones";
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.jugador = new Jugador(new Point(this.Width / 2,this.Height / 2), 10, 100);
+            this.jugador = new Jugador(new Point(this.Width / 2,this.Height - 50), 10, 100);
             this.entidades = new List<Entidad>();
             this.entidades.Add(jugador);
             this.Controls.Add(jugador.RenderPictureBox);
             this.contadorPuntaje = 0;
             this.probabilidadProyectil = 5;
             this.contadorTicks = 0;
+            this.label1.Text = "Vida";
             this.barraVida.Value = jugador.PuntosDeVida;
             this.BackColor = Color.LightBlue;
         }

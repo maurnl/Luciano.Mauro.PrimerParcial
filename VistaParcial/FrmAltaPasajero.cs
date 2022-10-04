@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VistaParcial.Properties;
 
 namespace VistaParcial
 {
@@ -27,6 +28,8 @@ namespace VistaParcial
         public FrmAltaPasajero()
         {
             InitializeComponent();
+            this.btnAyuda.BackgroundImage = (Image)Resources.ResourceManager.GetObject("ayuda_icon");
+            this.btnAyuda.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         public FrmAltaPasajero(Viaje viaje) : this()
@@ -215,6 +218,14 @@ namespace VistaParcial
             this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
             this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
             this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("- Ingrese un numero de pasaporte y presione el botón de buscar. Si no se encuentra el pasajero, regístrelo." +
+                "- Presione 'Registrar pasajero' para agregar el pasajero a la lista de clientes de esta venta." +
+                "- Para registrar equipajes presione en un pasajero de la lista, complete los datos del equipaje y presione 'Registrar equipaje'."
+                + "- Una vez registrados todos los clientes, presione 'Registrar nueva venta' y se agregarán los pasajeros al viaje.");
         }
     }
 }

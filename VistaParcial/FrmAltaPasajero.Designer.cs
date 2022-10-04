@@ -32,6 +32,8 @@ namespace VistaParcial
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAltaPasajero));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboGenero = new System.Windows.Forms.ComboBox();
             this.lblErrorBusqueda = new System.Windows.Forms.Label();
             this.btnBuscarPasajero = new System.Windows.Forms.Button();
             this.btnRegistrarPasajero = new System.Windows.Forms.Button();
@@ -49,6 +51,7 @@ namespace VistaParcial
             this.btnEliminarPasajero = new System.Windows.Forms.Button();
             this.lstPasajeros = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.lblLugaresPremiumDisponible = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrarVenta = new System.Windows.Forms.Button();
@@ -61,8 +64,6 @@ namespace VistaParcial
             this.label9 = new System.Windows.Forms.Label();
             this.lstEquipajes = new System.Windows.Forms.ListBox();
             this.nudPeso = new System.Windows.Forms.NumericUpDown();
-            this.cboGenero = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -119,6 +120,24 @@ namespace VistaParcial
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del pasajero";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Location = new System.Drawing.Point(28, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 15);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Genero:";
+            // 
+            // cboGenero
+            // 
+            this.cboGenero.FormattingEnabled = true;
+            this.cboGenero.Location = new System.Drawing.Point(28, 122);
+            this.cboGenero.Name = "cboGenero";
+            this.cboGenero.Size = new System.Drawing.Size(213, 23);
+            this.cboGenero.TabIndex = 18;
             // 
             // lblErrorBusqueda
             // 
@@ -271,6 +290,7 @@ namespace VistaParcial
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAyuda);
             this.groupBox3.Controls.Add(this.lblLugaresPremiumDisponible);
             this.groupBox3.Controls.Add(this.btnCancelar);
             this.groupBox3.Controls.Add(this.btnRegistrarVenta);
@@ -282,6 +302,16 @@ namespace VistaParcial
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del crucero";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAyuda.Location = new System.Drawing.Point(0, 127);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(40, 40);
+            this.btnAyuda.TabIndex = 5;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // lblLugaresPremiumDisponible
             // 
@@ -403,24 +433,6 @@ namespace VistaParcial
             this.nudPeso.Size = new System.Drawing.Size(120, 23);
             this.nudPeso.TabIndex = 0;
             // 
-            // cboGenero
-            // 
-            this.cboGenero.FormattingEnabled = true;
-            this.cboGenero.Location = new System.Drawing.Point(28, 122);
-            this.cboGenero.Name = "cboGenero";
-            this.cboGenero.Size = new System.Drawing.Size(213, 23);
-            this.cboGenero.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(28, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 15);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Genero:";
-            // 
             // FrmAltaPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -478,5 +490,6 @@ namespace VistaParcial
         private System.Windows.Forms.Label lblErrorBusqueda;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboGenero;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

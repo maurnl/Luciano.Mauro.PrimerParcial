@@ -159,7 +159,10 @@ namespace VistaParcial
 
         private void descansarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Esta seguro que desea tomarse un descanso?", "Confirme descanso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if(MessageBox.Show("Esta seguro que desea tomarse un descanso?\n" +
+                "Movimiento: W-A-S-D.\n" +
+                "Objetivo: Recolectar 20 parciales aprobados.\n" +
+                "Cuidado con los tiburones!", "Confirme descanso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 Juego formJuego = new Juego();
                 formJuego.Show();

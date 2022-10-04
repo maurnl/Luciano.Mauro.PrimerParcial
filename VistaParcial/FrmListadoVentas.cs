@@ -28,13 +28,13 @@ namespace VistaParcial
             this.btnAccionDos.Text = "Mostrar destino mas demandado";
             this.viajesEnSistema.AddRange(SistemaCruceros.Viajes);  
             this.viajesEnSistema.AddRange(SistemaCruceros.HistorialViajes);
+            this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cboCombobox.DataSource = viajesEnSistema;
             this.cboCombobox.SelectedIndex = 0;
             MostrarVentasDelViaje();
             base.fuenteDeDatos.DataSource = ventasFiltradas;
             ActualizarListado();
             this.Text = "Listado de ventas";
-            this.lblCombobox.Text = "Mostrar viaje...";
         }
 
         private void MostrarVentasDelViaje()
@@ -63,7 +63,7 @@ namespace VistaParcial
 
         private void CalcularRecaudacionDeViaje()
         {
-            Viaje viajeSeleccionado = (Viaje)base.cboCombobox.SelectedItem;
+            Viaje viajeSeleccionado = (Viaje)this.cboCombobox.SelectedItem;
             if (viajeSeleccionado is null)
             {
                 return;
@@ -79,7 +79,11 @@ namespace VistaParcial
             MessageBox.Show($"Destino mas demandado: {puerto}", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
+        protected override string ObtenerAyuda()
+        {
+            return base.ObtenerAyuda() + "- Presione 'Calcular recaudación' para calcular la recaudación total del viaje seleccionado.\n" +
+                "- Presione 'Mostrar destino más demandado' para mostrar el destino con más ventas.";
+        }
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
             MostrarDestinoMasDemandado(SistemaCruceros.ObtenerDestinoMasDemandado());

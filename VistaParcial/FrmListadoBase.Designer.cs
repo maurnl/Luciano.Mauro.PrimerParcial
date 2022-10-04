@@ -30,10 +30,9 @@ namespace VistaParcial
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.btnReiniciarFiltros = new System.Windows.Forms.Button();
             this.btnAccionDos = new System.Windows.Forms.Button();
-            this.lblCombobox = new System.Windows.Forms.Label();
-            this.cboCombobox = new System.Windows.Forms.ComboBox();
             this.btnAccionUno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
@@ -47,8 +46,6 @@ namespace VistaParcial
             // 
             this.panel1.Controls.Add(this.btnReiniciarFiltros);
             this.panel1.Controls.Add(this.btnAccionDos);
-            this.panel1.Controls.Add(this.lblCombobox);
-            this.panel1.Controls.Add(this.cboCombobox);
             this.panel1.Controls.Add(this.btnAccionUno);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -56,6 +53,17 @@ namespace VistaParcial
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 65);
             this.panel1.TabIndex = 0;
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAyuda.Location = new System.Drawing.Point(10, 582);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(25, 25);
+            this.btnAyuda.TabIndex = 2;
+            this.btnAyuda.Text = "button2";
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnReiniciarFiltros
             // 
@@ -80,25 +88,6 @@ namespace VistaParcial
             this.btnAccionDos.Text = "Boton 2";
             this.btnAccionDos.UseVisualStyleBackColor = false;
             // 
-            // lblCombobox
-            // 
-            this.lblCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCombobox.AutoSize = true;
-            this.lblCombobox.Location = new System.Drawing.Point(810, 23);
-            this.lblCombobox.Name = "lblCombobox";
-            this.lblCombobox.Size = new System.Drawing.Size(32, 15);
-            this.lblCombobox.TabIndex = 4;
-            this.lblCombobox.Text = "label";
-            // 
-            // cboCombobox
-            // 
-            this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCombobox.FormattingEnabled = true;
-            this.cboCombobox.Location = new System.Drawing.Point(896, 20);
-            this.cboCombobox.Name = "cboCombobox";
-            this.cboCombobox.Size = new System.Drawing.Size(236, 23);
-            this.cboCombobox.TabIndex = 3;
-            // 
             // btnAccionUno
             // 
             this.btnAccionUno.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -116,6 +105,7 @@ namespace VistaParcial
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btnAyuda);
             this.panel2.Controls.Add(this.lblError);
             this.panel2.Controls.Add(this.dgvListado);
             this.panel2.Location = new System.Drawing.Point(2, 72);
@@ -156,7 +146,6 @@ namespace VistaParcial
             this.Text = "9";
             this.Load += new System.EventHandler(this.FrmListadoBase_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
@@ -169,11 +158,11 @@ namespace VistaParcial
         protected System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.DataGridView dgvListado;
-        protected System.Windows.Forms.ComboBox cboCombobox;
         protected System.Windows.Forms.Button btnAccionUno;
         protected System.Windows.Forms.Label lblError;
-        protected System.Windows.Forms.Label lblCombobox;
         protected System.Windows.Forms.Button btnAccionDos;
         protected System.Windows.Forms.Button btnReiniciarFiltros;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

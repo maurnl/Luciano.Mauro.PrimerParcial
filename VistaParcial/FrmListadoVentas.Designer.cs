@@ -29,36 +29,56 @@ namespace VistaParcial
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblCombobox = new System.Windows.Forms.Label();
+            this.cboCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cboCombobox);
+            this.panel1.Controls.Add(this.lblCombobox);
             this.panel1.Size = new System.Drawing.Size(1396, 65);
-            // 
-            // cboCombobox
-            // 
-            this.cboCombobox.Location = new System.Drawing.Point(1301, 20);
-            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
+            this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
+            this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
+            this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
+            this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
+            this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
             // 
             // btnAccionUno
             // 
             this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
             // 
-            // lblCombobox
-            // 
-            this.lblCombobox.Location = new System.Drawing.Point(1201, 25);
-            // 
             // btnAccionDos
             // 
             this.btnAccionDos.Click += new System.EventHandler(this.btnAccionDos_Click);
+            // 
+            // lblCombobox
+            // 
+            this.lblCombobox.AutoSize = true;
+            this.lblCombobox.Location = new System.Drawing.Point(777, 24);
+            this.lblCombobox.Name = "lblCombobox";
+            this.lblCombobox.Size = new System.Drawing.Size(157, 15);
+            this.lblCombobox.TabIndex = 7;
+            this.lblCombobox.Text = "Mostrando ventas del viaje...";
+            // 
+            // cboCombobox
+            // 
+            this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCombobox.FormattingEnabled = true;
+            this.cboCombobox.Location = new System.Drawing.Point(940, 21);
+            this.cboCombobox.Name = "cboCombobox";
+            this.cboCombobox.Size = new System.Drawing.Size(410, 23);
+            this.cboCombobox.TabIndex = 8;
+            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
             // 
             // FrmListadoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 647);
+            this.ClientSize = new System.Drawing.Size(1396, 799);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoVentas";
             this.Text = " ";
@@ -71,5 +91,8 @@ namespace VistaParcial
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox cboCombobox;
+        private System.Windows.Forms.Label lblCombobox;
     }
 }

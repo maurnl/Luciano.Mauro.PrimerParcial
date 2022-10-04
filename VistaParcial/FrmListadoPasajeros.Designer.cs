@@ -33,12 +33,16 @@ namespace VistaParcial
             this.label1 = new System.Windows.Forms.Label();
             this.cboFiltro = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblCombobox = new System.Windows.Forms.Label();
+            this.cboCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.fuenteDeDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cboCombobox);
+            this.panel1.Controls.Add(this.lblCombobox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.cboFiltro);
             this.panel1.Controls.Add(this.label1);
@@ -49,23 +53,14 @@ namespace VistaParcial
             this.panel1.Controls.SetChildIndex(this.cboFiltro, 0);
             this.panel1.Controls.SetChildIndex(this.label2, 0);
             this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
-            this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
-            this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
             this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
             this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
-            // 
-            // cboCombobox
-            // 
-            this.cboCombobox.Location = new System.Drawing.Point(1301, 20);
-            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
+            this.panel1.Controls.SetChildIndex(this.lblCombobox, 0);
+            this.panel1.Controls.SetChildIndex(this.cboCombobox, 0);
             // 
             // btnAccionUno
             // 
             this.btnAccionUno.Click += new System.EventHandler(this.btnAccionUno_Click);
-            // 
-            // lblCombobox
-            // 
-            this.lblCombobox.Location = new System.Drawing.Point(1201, 25);
             // 
             // btnAccionDos
             // 
@@ -104,11 +99,31 @@ namespace VistaParcial
             this.label2.TabIndex = 0;
             this.label2.Text = "Filtrar por:";
             // 
+            // lblCombobox
+            // 
+            this.lblCombobox.AutoSize = true;
+            this.lblCombobox.Location = new System.Drawing.Point(863, 24);
+            this.lblCombobox.Name = "lblCombobox";
+            this.lblCombobox.Size = new System.Drawing.Size(101, 15);
+            this.lblCombobox.TabIndex = 9;
+            this.lblCombobox.Text = "Mostrando viaje...";
+            // 
+            // cboCombobox
+            // 
+            this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCombobox.FormattingEnabled = true;
+            this.cboCombobox.Location = new System.Drawing.Point(970, 21);
+            this.cboCombobox.Name = "cboCombobox";
+            this.cboCombobox.Size = new System.Drawing.Size(383, 23);
+            this.cboCombobox.TabIndex = 10;
+            this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
+            // 
             // FrmListadoPasajeros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 647);
+            this.ClientSize = new System.Drawing.Size(1396, 799);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoPasajeros";
             this.Text = "FrmListadoPasajeros";
@@ -126,5 +141,7 @@ namespace VistaParcial
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboFiltro;
+        private System.Windows.Forms.ComboBox cboCombobox;
+        private System.Windows.Forms.Label lblCombobox;
     }
 }

@@ -22,8 +22,6 @@ namespace VistaParcial
 
         private void FrmListadoViajes_Load(object sender, EventArgs e)
         {
-            this.cboCombobox.Visible = false;
-            this.lblCombobox.Text = "";
             this.Text = "Listado de viajes";
             this.btnAccionDos.Text = "Editar viaje...";
             base.ActualizarListado();
@@ -118,13 +116,16 @@ namespace VistaParcial
                     {
                         filaActual.DefaultCellStyle.BackColor = Color.LightGreen;
                     }
-                    if (viaje.PasajerosABordo >= viaje.Crucero.CapacidadPasajeros)
-                    {
-                        filaActual.DefaultCellStyle.BackColor = Color.OrangeRed;
-                    }
                 }
             }
         }
+
+        protected override string ObtenerAyuda()
+        {
+            return base.ObtenerAyuda() + "- Presione 'Agregar pasajero' para registrar una nueva venta para el viaje seleccionado.\n" +
+                "- Presione 'Editar viaje' para cambiar el destino o la fecha de salida del viaje seleccionado.\n";
+        }
+
         private void btnReiniciarFiltros_Click(object sender, EventArgs e)
         {
             LimpiarFiltros();
@@ -133,7 +134,7 @@ namespace VistaParcial
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
             Viaje viajeAEditar = (Viaje)base.fuenteDeDatos.Current;
-            if(viajeAEditar is null)
+            if(viajeAEditar is null || viajeAEditar.EstadoDeViaje == EstadoDeViaje.EnCurso)
             {
                 return;
             }

@@ -35,7 +35,7 @@ namespace VistaParcial
             this.cboCombobox.DataSource = SistemaCruceros.Viajes;
             if(SistemaCruceros.Viajes.Count != 0)
             {
-                this.cboCombobox.SelectedIndex = 0;
+                //this.cboCombobox.SelectedIndex = 0;
             }
             LlenarListadoPorViaje();
             base.fuenteDeDatos.DataSource = listaPasajerosFiltrada;
@@ -72,6 +72,14 @@ namespace VistaParcial
                 listaPasajerosFiltrada.Add(viajeSeleccionado[i]);
             }
             base.fuenteDeDatos.DataSource = this.listaPasajerosFiltrada;
+        }
+
+        protected override string ObtenerAyuda()
+        {
+            return base.ObtenerAyuda() + "- Seleccione un pasajero presionando en la celda a la izquierda del ID.\n" +
+                "- Presione 'Ver información detallada' para ver información sobre el pasajero seleccionado.\n" +
+                "- Presione 'Base de datos de pasajeros' para ver TODOS los pasajeros registrados en el sistema.\n" +
+                "- Para filtrar, eliga el campo para usar de criterio y luego ingrese un valor.";
         }
 
         private void btnAccionDos_Click(object sender, EventArgs e)

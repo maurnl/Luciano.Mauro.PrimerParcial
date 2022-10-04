@@ -18,65 +18,6 @@ namespace Parcial.Entities
         private static List<Viaje> historialViajes;
         private static Dictionary<Puerto, float> diccionarioRecaudacionPorDestino;
 
-        public static DateTime FechaDelSistema
-        {
-            get
-            {
-                return SistemaCruceros.fechaDelSistema;
-            }
-            set
-            {
-                SistemaCruceros.fechaDelSistema = value;
-            }
-        }
-
-        public static List<Crucero> Flota
-        {
-            get
-            {
-                return SistemaCruceros.flota;
-            }
-        }
-
-        public static List<Venta> Ventas
-        {
-            get
-            {
-                return SistemaCruceros.ventas;
-            }
-        }
-
-        public static List<Puerto> Puertos
-        {
-            get
-            {
-                return SistemaCruceros.puertos;
-            }
-        }
-
-        public static List<Viaje> Viajes
-        {
-            get
-            {
-                return SistemaCruceros.viajes;
-            }
-        }
-
-        public static List<Viaje> HistorialViajes
-        {
-            get
-            {
-                return SistemaCruceros.historialViajes;
-            }
-        }
-
-        public static Dictionary<Puerto, float> DiccionarioRecaudacionPorDestino
-        {
-            get
-            {
-                return SistemaCruceros.diccionarioRecaudacionPorDestino;
-            }
-        }
         static SistemaCruceros()
         {
             SistemaCruceros.flota = new List<Crucero>();
@@ -89,6 +30,10 @@ namespace Parcial.Entities
             Hardcoder.HardcodearFlota(SistemaCruceros.flota);
             Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
             Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
+
+
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 12, true);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 12, true);
             try
             {
                 Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 300, true);
@@ -112,6 +57,59 @@ namespace Parcial.Entities
             Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[3], 3, false);
         }
 
+        public static DateTime FechaDelSistema
+        {
+            get
+            {
+                return SistemaCruceros.fechaDelSistema;
+            }
+            set
+            {
+                SistemaCruceros.fechaDelSistema = value;
+            }
+        }
+        public static List<Crucero> Flota
+        {
+            get
+            {
+                return SistemaCruceros.flota;
+            }
+        }
+        public static List<Venta> Ventas
+        {
+            get
+            {
+                return SistemaCruceros.ventas;
+            }
+        }
+        public static List<Puerto> Puertos
+        {
+            get
+            {
+                return SistemaCruceros.puertos;
+            }
+        }
+        public static List<Viaje> Viajes
+        {
+            get
+            {
+                return SistemaCruceros.viajes;
+            }
+        }
+        public static List<Viaje> HistorialViajes
+        {
+            get
+            {
+                return SistemaCruceros.historialViajes;
+            }
+        }
+        public static Dictionary<Puerto, float> DiccionarioRecaudacionPorDestino
+        {
+            get
+            {
+                return SistemaCruceros.diccionarioRecaudacionPorDestino;
+            }
+        }
         public static List<Pasajero> BaseDeDatosPasajeros
         {
             get
@@ -149,7 +147,6 @@ namespace Parcial.Entities
                 }
             }
         }
-
         public static Pasajero ObtenerPasajeroEnSistema(int dni)
         {
             Pasajero pasajeroEncontrado = null;
@@ -163,7 +160,6 @@ namespace Parcial.Entities
             }
             return pasajeroEncontrado;
         }
-
         public static Puerto ObtenerDestinoMasDemandado()
         {
             Puerto puertoMasDemandado = null;
@@ -182,7 +178,6 @@ namespace Parcial.Entities
             }
             return puertoMasDemandado;
         }
-
         public static Venta AltaDeVenta(Viaje viaje, List<Pasajero> pasajerosPosibles)
         {
             List<Pasajero> clientes = new List<Pasajero>();
@@ -203,7 +198,6 @@ namespace Parcial.Entities
             SistemaCruceros.ventas.Add(venta);
             return venta;
         }
-
         public static Viaje AltaDeViaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
         {
             if (origen.Equals(destino))
