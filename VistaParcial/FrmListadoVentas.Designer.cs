@@ -35,11 +35,11 @@ namespace VistaParcial
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(1323, 65);
+            this.panel1.Size = new System.Drawing.Size(1396, 65);
             // 
             // cboCombobox
             // 
-            this.cboCombobox.Location = new System.Drawing.Point(3572, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(1301, 20);
             this.cboCombobox.SelectionChangeCommitted += new System.EventHandler(this.cboCombobox_SelectionChangeCommitted);
             // 
             // btnAccionUno
@@ -48,7 +48,7 @@ namespace VistaParcial
             // 
             // lblCombobox
             // 
-            this.lblCombobox.Location = new System.Drawing.Point(3486, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(1201, 25);
             // 
             // btnAccionDos
             // 
@@ -58,7 +58,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 647);
+            this.ClientSize = new System.Drawing.Size(1396, 647);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoVentas";
             this.Text = " ";

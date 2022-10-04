@@ -25,6 +25,7 @@ namespace VistaParcial
             this.dgvListado.ReadOnly = true;
             this.lblError.Text = "";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.ClientSize = new Size(1395, 650);
         }
         private void FrmListadoBase_Load(object sender, EventArgs e)
         {

@@ -84,7 +84,7 @@ namespace VistaParcial
             // 
             this.lblCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCombobox.AutoSize = true;
-            this.lblCombobox.Location = new System.Drawing.Point(848, 23);
+            this.lblCombobox.Location = new System.Drawing.Point(810, 23);
             this.lblCombobox.Name = "lblCombobox";
             this.lblCombobox.Size = new System.Drawing.Size(32, 15);
             this.lblCombobox.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace VistaParcial
             // 
             this.cboCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboCombobox.FormattingEnabled = true;
-            this.cboCombobox.Location = new System.Drawing.Point(934, 20);
+            this.cboCombobox.Location = new System.Drawing.Point(896, 20);
             this.cboCombobox.Name = "cboCombobox";
             this.cboCombobox.Size = new System.Drawing.Size(236, 23);
             this.cboCombobox.TabIndex = 3;
@@ -136,10 +136,11 @@ namespace VistaParcial
             // 
             this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListado.Location = new System.Drawing.Point(3, 26);
+            this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListado.Location = new System.Drawing.Point(0, 0);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.RowTemplate.Height = 25;
-            this.dgvListado.Size = new System.Drawing.Size(1236, 540);
+            this.dgvListado.Size = new System.Drawing.Size(1245, 610);
             this.dgvListado.TabIndex = 0;
             // 
             // FrmListadoBase
