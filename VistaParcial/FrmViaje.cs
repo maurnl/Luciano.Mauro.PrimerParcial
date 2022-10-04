@@ -50,10 +50,10 @@ namespace VistaParcial
             this.Text = "Registro de viaje";
             this.lblError.ForeColor = Color.Red;
             this.lblError.Text = "";
-            this.cboCrucero.DataSource = SistemaCruceros.flota;
-            this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.puertos);
-            this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.puertos);
-            this.dtpFechaSalida.Value = SistemaCruceros.fechaDelSistema;
+            this.cboCrucero.DataSource = SistemaCruceros.Flota;
+            this.cboDestino.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
+            this.cboOrigen.DataSource = new List<Puerto>(SistemaCruceros.Puertos);
+            this.dtpFechaSalida.Value = SistemaCruceros.FechaDelSistema;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace VistaParcial
                 }
                 else
                 {
-                    this.viajeDelForm = new Viaje(origen, destino, crucero, fechaSalida);
+                    this.viajeDelForm = SistemaCruceros.AltaDeViaje(origen, destino, crucero, fechaSalida);
                 }
                 this.DialogResult = DialogResult.OK;
             }catch(Exception viajeEx)

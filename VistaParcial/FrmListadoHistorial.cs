@@ -16,7 +16,7 @@ namespace VistaParcial
         public FrmListadoHistorial()
         {
             InitializeComponent();
-            base.fuenteDeDatos.DataSource = SistemaCruceros.historialViajes;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.HistorialViajes;
         }
         private void FrmListadoHistorial_Load(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace VistaParcial
 
         private void btnAccionUno_Click(object sender, EventArgs e)
         {
-            base.fuenteDeDatos.DataSource = SistemaCruceros.historialViajes;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.HistorialViajes;
             base.ActualizarListado();
             this.btnAccionUno.Enabled = true;
             this.btnReiniciarFiltros.Enabled = true;
@@ -54,7 +54,7 @@ namespace VistaParcial
         {
             float acumuladorRegional = 0;
             float acumuladorExtraregional = 0;
-            foreach (Venta venta in SistemaCruceros.ventas)
+            foreach (Venta venta in SistemaCruceros.Ventas)
             {
                 if(venta.EsServicioRegional)
                 {
@@ -71,7 +71,7 @@ namespace VistaParcial
 
         private void btnAccionDos_Click(object sender, EventArgs e)
         {
-            base.fuenteDeDatos.DataSource = SistemaCruceros.diccionarioRecaudacionPorDestino.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value).Reverse();
+            base.fuenteDeDatos.DataSource = SistemaCruceros.DiccionarioRecaudacionPorDestino.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value).ToDictionary(pair => pair.Key, pair => pair.Value).Reverse();
             base.ActualizarListado();
             this.btnReiniciarFiltros.Enabled = false;
         }

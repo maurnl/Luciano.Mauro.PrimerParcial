@@ -26,14 +26,6 @@ namespace Parcial.Entities
             this.clientes = clientes;
             this.fecha = DateTime.Now;
             this.precioBruto = CalcularPrecioBruto();
-            if (SistemaCruceros.diccionarioRecaudacionPorDestino.ContainsKey(viaje.Destino))
-            {
-                SistemaCruceros.diccionarioRecaudacionPorDestino[viaje.Destino] += this.PrecioNeto;
-            }
-            else
-            {
-                SistemaCruceros.diccionarioRecaudacionPorDestino.Add(viaje.Destino, this.PrecioNeto);
-            }
         }
 
         public override int Id

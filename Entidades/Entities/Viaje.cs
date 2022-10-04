@@ -10,7 +10,7 @@ namespace Parcial.Entities
     {
         private static int contadorViaje;
         private static Random random;
-        private DateTime fechaActual;
+        private static DateTime fechaActual;
         private Puerto origen;
         private Puerto destino;
         private Crucero crucero;
@@ -27,14 +27,6 @@ namespace Parcial.Entities
         }
         public Viaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
         {
-            if (origen.Equals(destino))
-            {
-                throw new Exception("El origen y el destino no deben coincidir.");
-            }
-            if (crucero.EstaEnViaje)
-            {
-                throw new Exception("El crucero elegido esta en viaje.");
-            }
             base.id = Viaje.contadorViaje;
             Viaje.contadorViaje++;
             this.estadoDeViaje = EstadoDeViaje.Abordando;
@@ -43,7 +35,7 @@ namespace Parcial.Entities
             this.crucero = crucero;
             this.crucero.EstaEnViaje = true;
             this.fechaSalida = fechaSalida;
-            this.fechaActual = SistemaCruceros.fechaDelSistema;
+            Viaje.fechaActual = SistemaCruceros.FechaDelSistema;
             this.pasajeros = new List<Pasajero>();
             this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
@@ -187,36 +179,42 @@ namespace Parcial.Entities
         }
 
         /// <summary>
-        /// Suma un lapso de tiempo a la instancia de Viaje y actualiza la informacion del viaje
+        /// Elimina los pasajeros de la lista de pasajeros del viaje y los equipajes del crucero
+        /// asociado al viaje
         /// </summary>
-        /// <param name="viaje"></param>
-        /// <param name="tiempo">Lapso de tiempo a sumar</param>
-        /// <returns></returns>
-        public static Viaje operator +(Viaje viaje, TimeSpan tiempo)
+        private void DesenbarcarPasajeros()
         {
-            viaje.fechaActual += tiempo;
-            if (viaje.fechaActual >= viaje.fechaSalida && viaje.fechaActual < viaje.FechaLlegada)
+            int cantidadPasajeros = this.pasajeros.Count;
+            for (int i = cantidadPasajeros - 1; i >= 0; i--)
             {
-                viaje.estadoDeViaje = EstadoDeViaje.EnCurso;
-            }
-            else if (viaje.fechaActual >= viaje.FechaLlegada)
-            {
-                viaje.EstadoDeViaje = EstadoDeViaje.Finalizado;
-                viaje.crucero.EstaEnViaje = false;
-                int cantidadPasajeros = viaje.pasajeros.Count;
-                for (int i = cantidadPasajeros - 1; i >= 0; i--)
+                Pasajero pasajero = this.pasajeros[i];
+                for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
                 {
-                    Pasajero pasajero = viaje.pasajeros[i];
-                    for (int j = pasajero.CantidadEquipaje - 1; j >= 0; j--)
-                    {
-                        viaje.crucero += (-pasajero[j].Peso);
-                        pasajero -= pasajero[j];
-                    }
-                    pasajero.EstaViajando = false;
+                    this.crucero += (-pasajero[j].Peso);
+                    pasajero -= pasajero[j];
                 }
-                viaje.destino += viaje.PasajerosABordo;
+                pasajero.EstaViajando = false;
             }
-            return viaje;
+        }
+        /// <summary>
+        /// Actualiza el atributo de clase tiempoActual con la fecha de parametro
+        /// y calcula el estado actual del viaje.
+        /// </summary>
+        /// <param name="fechaAEstablecer">Fecha a establecer</param>
+        public void ActualizarEstadoDeViaje(DateTime fechaAEstablecer)
+        {
+            Viaje.fechaActual = fechaAEstablecer;
+            if (Viaje.fechaActual >= this.fechaSalida && Viaje.fechaActual < this.FechaLlegada)
+            {
+                this.estadoDeViaje = EstadoDeViaje.EnCurso;
+            }
+            else if (Viaje.fechaActual >= this.FechaLlegada)
+            {
+                this.EstadoDeViaje = EstadoDeViaje.Finalizado;
+                this.crucero.EstaEnViaje = false;
+                DesenbarcarPasajeros();
+                this.destino += this.PasajerosABordo;
+            }
         }
         /// <summary>
         /// Agrega el Pasajero a la lista de pasajeros del viaje.
@@ -238,6 +236,7 @@ namespace Parcial.Entities
 
             if (viaje.PasajerosABordo + 1 > viaje.crucero.CapacidadPasajeros)
             {
+                viaje.estadoDeViaje = EstadoDeViaje.Lleno;
                 throw new Exception("Este crucero esta lleno.");
             }
 

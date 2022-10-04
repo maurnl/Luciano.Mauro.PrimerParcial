@@ -67,7 +67,7 @@ namespace Parcial.Util
             puertos.Add(new Puerto(Provincia.Acapulco, Pais.Mexico, false));
             puertos.Add(new Puerto(Provincia.Bangkok, Pais.Tailandia, false));
         }
-        public static void HardcodearPasajeros(List<Venta> ventas, Viaje viaje, int cantidad)
+        public static void HardcodearPasajeros(List<Venta> ventas, Viaje viaje, int cantidad, bool premium)
         {
             Random random = new Random();
             int dni;
@@ -80,7 +80,7 @@ namespace Parcial.Util
             for (int i = 0; i < cantidad; i++)
             {
                 dni = random.Next(2000000, 5000000);
-                Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), random.Next(0,2) == 0 ? TipoPasajero.Premium : TipoPasajero.Turista, random.Next(0,2) == 0? Genero.Femenino : Genero.Masculino);
+                Pasajero pasajero = new Pasajero(nombres[random.Next(0, nombres.Length)]+" "+apellidos[random.Next(0, apellidos.Length)], dni, fechaMinima.AddDays(random.Next(range)), premium ? TipoPasajero.Premium : TipoPasajero.Turista, random.Next(0,2) == 0? Genero.Femenino : Genero.Masculino);
                 viaje += pasajero;
                 pasajero += equipaje;
                 if(i%2==0)

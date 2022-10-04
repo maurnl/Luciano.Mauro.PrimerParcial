@@ -16,7 +16,7 @@ namespace VistaParcial
         public FrmListadoViajes()
         {
             InitializeComponent();
-            base.fuenteDeDatos.DataSource = SistemaCruceros.viajes;
+            base.fuenteDeDatos.DataSource = SistemaCruceros.Viajes;
             base.btnAccionUno.Text = "Agregar pasajero...";
         }
 
@@ -37,9 +37,9 @@ namespace VistaParcial
                 MessageBox.Show("No hay viajes activos. Cree un nuevo viaje y reintente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(viajeSeleccionado is not null && viajeSeleccionado.EstadoDeViaje != EstadoDeViaje.Abordando)
+            if(viajeSeleccionado.EstadoDeViaje != EstadoDeViaje.Abordando)
             {
-                MessageBox.Show("No se pueden agregar pasajeros a un viaje en curso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No se pueden agregar pasajeros a este viaje (ESTADO: {viajeSeleccionado.EstadoDeViaje}).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             FrmAltaPasajero formAltaPasajero = new FrmAltaPasajero(viajeSeleccionado);
@@ -48,7 +48,7 @@ namespace VistaParcial
                 try
                 {
                     lblError.Text = "";
-                    Venta venta = SistemaCruceros.RealizarUnaVenta(viajeSeleccionado, formAltaPasajero.PasajerosPosibles);
+                    Venta venta = SistemaCruceros.AltaDeVenta(viajeSeleccionado, formAltaPasajero.PasajerosPosibles);
                     MessageBox.Show($"Precio bruto: ${venta.PrecioBruto}.\nTotal a cobrar: ${venta.PrecioNeto}", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception agregarPasajerosEx)
@@ -81,8 +81,9 @@ namespace VistaParcial
             {
                 foreach (DataGridViewRow fila in base.dgvListado.Rows)
                 {
-                    if(!((Viaje)fila.DataBoundItem).Crucero.TieneGimnasio && checkGimnasio
-                        || !((Viaje)fila.DataBoundItem).Crucero.TienePiscina && checkPiscina)
+                    Viaje viajeDeLaFila = (Viaje)fila.DataBoundItem;
+                    if(!viajeDeLaFila.Crucero.TieneGimnasio && checkGimnasio
+                        || !(viajeDeLaFila.Crucero.TienePiscina && checkPiscina))
                     {
                         fila.Height = 0;
                     }
@@ -100,12 +101,12 @@ namespace VistaParcial
         }
         protected override void PintarFilas()
         {
-            for (int i = 0; i < SistemaCruceros.viajes.Count; i++)
+            for (int i = 0; i < SistemaCruceros.Viajes.Count; i++)
             {
                 DataGridViewRow filaActual = base.dgvListado.Rows[i];
                 if (filaActual.DataBoundItem is Viaje viaje)
                 {
-                    if (viaje.EstadoDeViaje == EstadoDeViaje.Finalizado)
+                    if (viaje.EstadoDeViaje == EstadoDeViaje.Lleno)
                     {
                         filaActual.DefaultCellStyle.BackColor = Color.LightSalmon;
                     }
@@ -142,6 +143,5 @@ namespace VistaParcial
                 base.ActualizarListado();
             }
         }
-
     }
 }

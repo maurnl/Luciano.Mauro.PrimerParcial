@@ -188,6 +188,13 @@ namespace Parcial.Entities
             crucero.salones.Add(salon);
             return crucero;
         }
+        /// <summary>
+        /// Suma un peso en kg a la bodega del pasajero. Arroja una excepcion si no hay
+        /// espacio para el equipaje.
+        /// </summary>
+        /// <param name="crucero"></param>
+        /// <param name="pesoCarga"></param>
+        /// <returns>El Crucero con el peso sumado</returns>
         public static Crucero operator +(Crucero crucero, float pesoCarga)
         {
             if (crucero.pesoBodegaActual + pesoCarga > crucero.pesoBodegaMaximo)

@@ -91,7 +91,7 @@ namespace VistaParcial
             FrmViaje formViaje = new FrmViaje();
             if(formViaje.ShowDialog() == DialogResult.OK)
             {
-                SistemaCruceros.viajes.Add(formViaje.ViajeDelForm);
+                SistemaCruceros.Viajes.Add(formViaje.ViajeDelForm);
             }
             MostrarListado("viajes");
         }
@@ -99,12 +99,12 @@ namespace VistaParcial
         private void unaHoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TimeSpan tiempoASimular = TimeSpan.FromDays(5);
-            int cantidadViajes = SistemaCruceros.viajes.Count;
+            int cantidadViajes = SistemaCruceros.Viajes.Count;
+            SistemaCruceros.FechaDelSistema += tiempoASimular;
             for (int i = cantidadViajes - 1; i >= 0; i--)
             {
-                SistemaCruceros.viajes[i] += tiempoASimular;
+                SistemaCruceros.Viajes[i].ActualizarEstadoDeViaje(SistemaCruceros.FechaDelSistema);
             }
-            SistemaCruceros.fechaDelSistema += tiempoASimular;
             SistemaCruceros.ActualizarViajesActivos();
             ActualizarLabelFecha();
             MostrarListado("viajes");
@@ -123,7 +123,7 @@ namespace VistaParcial
 
         private void ActualizarLabelFecha()
         {
-            this.fechaToolStripMenuItem.Text = "Fecha del sistema: " + SistemaCruceros.fechaDelSistema.ToShortDateString();
+            this.fechaToolStripMenuItem.Text = "Fecha del sistema: " + SistemaCruceros.FechaDelSistema.ToShortDateString();
         }
 
         private void FrmPrincipalContenedor_Resize(object sender, EventArgs e)

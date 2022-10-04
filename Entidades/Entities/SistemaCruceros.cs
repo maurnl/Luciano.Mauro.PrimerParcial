@@ -10,14 +10,73 @@ namespace Parcial.Entities
 {
     public static class SistemaCruceros
     {
-        public static DateTime fechaDelSistema;
-        public static List<Crucero> flota;
-        public static List<Venta> ventas;
-        public static List<Puerto> puertos;
-        public static List<Viaje> viajes;
-        public static List<Viaje> historialViajes;
-        public static Dictionary<Puerto, float> diccionarioRecaudacionPorDestino;
+        private static DateTime fechaDelSistema;
+        private static List<Crucero> flota;
+        private static List<Venta> ventas;
+        private static List<Puerto> puertos;
+        private static List<Viaje> viajes;
+        private static List<Viaje> historialViajes;
+        private static Dictionary<Puerto, float> diccionarioRecaudacionPorDestino;
 
+        public static DateTime FechaDelSistema
+        {
+            get
+            {
+                return SistemaCruceros.fechaDelSistema;
+            }
+            set
+            {
+                SistemaCruceros.fechaDelSistema = value;
+            }
+        }
+
+        public static List<Crucero> Flota
+        {
+            get
+            {
+                return SistemaCruceros.flota;
+            }
+        }
+
+        public static List<Venta> Ventas
+        {
+            get
+            {
+                return SistemaCruceros.ventas;
+            }
+        }
+
+        public static List<Puerto> Puertos
+        {
+            get
+            {
+                return SistemaCruceros.puertos;
+            }
+        }
+
+        public static List<Viaje> Viajes
+        {
+            get
+            {
+                return SistemaCruceros.viajes;
+            }
+        }
+
+        public static List<Viaje> HistorialViajes
+        {
+            get
+            {
+                return SistemaCruceros.historialViajes;
+            }
+        }
+
+        public static Dictionary<Puerto, float> DiccionarioRecaudacionPorDestino
+        {
+            get
+            {
+                return SistemaCruceros.diccionarioRecaudacionPorDestino;
+            }
+        }
         static SistemaCruceros()
         {
             SistemaCruceros.flota = new List<Crucero>();
@@ -30,10 +89,27 @@ namespace Parcial.Entities
             Hardcoder.HardcodearFlota(SistemaCruceros.flota);
             Hardcoder.HardcodearPuertos(SistemaCruceros.puertos);
             Hardcoder.HardcodearViajes(SistemaCruceros.viajes, SistemaCruceros.puertos, SistemaCruceros.flota);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 10);
-            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 30);
+            try
+            {
+                Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 300, true);
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[0], 300, false);
+            }
+            catch (Exception)
+            {
+            }
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 10, true);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[1], 5, false);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[2], 12, true);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[2], 41, false);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[3], 22, true);
+            Hardcoder.HardcodearPasajeros(SistemaCruceros.ventas, SistemaCruceros.viajes[3], 3, false);
         }
 
         public static List<Pasajero> BaseDeDatosPasajeros
@@ -73,6 +149,7 @@ namespace Parcial.Entities
                 }
             }
         }
+
         public static Pasajero ObtenerPasajeroEnSistema(int dni)
         {
             Pasajero pasajeroEncontrado = null;
@@ -86,6 +163,7 @@ namespace Parcial.Entities
             }
             return pasajeroEncontrado;
         }
+
         public static Puerto ObtenerDestinoMasDemandado()
         {
             Puerto puertoMasDemandado = null;
@@ -105,7 +183,7 @@ namespace Parcial.Entities
             return puertoMasDemandado;
         }
 
-        public static Venta RealizarUnaVenta(Viaje viaje, List<Pasajero> pasajerosPosibles)
+        public static Venta AltaDeVenta(Viaje viaje, List<Pasajero> pasajerosPosibles)
         {
             List<Pasajero> clientes = new List<Pasajero>();
             foreach (Pasajero pasajeroPosible in pasajerosPosibles)
@@ -114,8 +192,31 @@ namespace Parcial.Entities
                 clientes.Add(pasajeroPosible);
             }
             Venta venta = new Venta(viaje, clientes);
+            if (SistemaCruceros.diccionarioRecaudacionPorDestino.ContainsKey(viaje.Destino))
+            {
+                SistemaCruceros.diccionarioRecaudacionPorDestino[viaje.Destino] += venta.PrecioNeto;
+            }
+            else
+            {
+                SistemaCruceros.diccionarioRecaudacionPorDestino.Add(viaje.Destino, venta.PrecioNeto);
+            }
             SistemaCruceros.ventas.Add(venta);
             return venta;
+        }
+
+        public static Viaje AltaDeViaje(Puerto origen, Puerto destino, Crucero crucero, DateTime fechaSalida)
+        {
+            if (origen.Equals(destino))
+            {
+                throw new Exception("El origen y el destino no deben coincidir.");
+            }
+            if (crucero.EstaEnViaje)
+            {
+                throw new Exception("El crucero elegido esta en viaje.");
+            }
+
+            Viaje viaje = new Viaje(origen, destino, crucero, fechaSalida);
+            return viaje;
         }
     }
 }

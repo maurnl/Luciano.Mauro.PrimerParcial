@@ -26,8 +26,8 @@ namespace VistaParcial
         {
             this.btnAccionUno.Text = "Calcular recaudacion";
             this.btnAccionDos.Text = "Mostrar destino mas demandado";
-            this.viajesEnSistema.AddRange(SistemaCruceros.viajes);  
-            this.viajesEnSistema.AddRange(SistemaCruceros.historialViajes);
+            this.viajesEnSistema.AddRange(SistemaCruceros.Viajes);  
+            this.viajesEnSistema.AddRange(SistemaCruceros.HistorialViajes);
             this.cboCombobox.DataSource = viajesEnSistema;
             this.cboCombobox.SelectedIndex = 0;
             MostrarVentasDelViaje();
@@ -41,7 +41,7 @@ namespace VistaParcial
         {
             Viaje viajeSeleccionado = (Viaje)cboCombobox.SelectedItem;
             this.ventasFiltradas.Clear();
-            foreach (Venta ventaEnSistema in SistemaCruceros.ventas)
+            foreach (Venta ventaEnSistema in SistemaCruceros.Ventas)
             {
                 if (viajeSeleccionado.Equals(ventaEnSistema.Viaje))
                 {

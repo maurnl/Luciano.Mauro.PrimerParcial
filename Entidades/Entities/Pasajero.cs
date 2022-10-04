@@ -218,6 +218,13 @@ namespace Parcial.Entities
             pasajero.equipaje.Add(equipaje);
             return pasajero;
         }
+
+        /// <summary>
+        /// Suma un valor a la cantidad de viajes realizados por el pasajero
+        /// </summary>
+        /// <param name="pasajero"></param>
+        /// <param name="cantidadViajes"></param>
+        /// <returns></returns>
         public static Pasajero operator +(Pasajero pasajero, int cantidadViajes)
         {
             pasajero.cantidadViajesRealizados += cantidadViajes;

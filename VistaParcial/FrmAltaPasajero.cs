@@ -195,13 +195,13 @@ namespace VistaParcial
             this.txtNombre.Text = "";
             this.txtApellido.Text = "";
             this.txtDni.Text = "";
-            this.dtpFechaNacimiento.Value = SistemaCruceros.fechaDelSistema;
+            this.dtpFechaNacimiento.Value = SistemaCruceros.FechaDelSistema;
         }
 
         private void btnBuscarPasajero_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroBusqueda = SistemaCruceros.ObtenerPasajeroEnSistema(int.Parse(this.txtDni.Text));
-            if(pasajeroBusqueda.Equals(null))
+            if(pasajeroBusqueda is null)
             {
                 this.lblErrorBusqueda.ForeColor = Color.Red;
                 this.lblErrorBusqueda.Text = "No se encontro el pasajero";

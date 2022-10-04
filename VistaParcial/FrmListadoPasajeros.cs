@@ -32,8 +32,8 @@ namespace VistaParcial
             this.Text = "Listado de pasajeros";
             this.lblCombobox.Text = "Mostrando viaje...";
             this.cboCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cboCombobox.DataSource = SistemaCruceros.viajes;
-            if(SistemaCruceros.viajes.Count != 0)
+            this.cboCombobox.DataSource = SistemaCruceros.Viajes;
+            if(SistemaCruceros.Viajes.Count != 0)
             {
                 this.cboCombobox.SelectedIndex = 0;
             }
