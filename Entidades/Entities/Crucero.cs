@@ -16,6 +16,7 @@ namespace Parcial.Entities
         private float pesoBodegaActual;
         private float pesoBodegaMaximo;
         private bool estaEnViaje;
+        private float horasDeViaje;
         private List<Salon> salones;
 
         static Crucero()
@@ -127,6 +128,18 @@ namespace Parcial.Entities
             set
             {
                 this.estaEnViaje = value;
+            }
+        }
+
+        public float HorasDeViaje
+        {
+            get
+            {
+                return this.horasDeViaje;
+            }
+            set
+            {
+                this.horasDeViaje = value;
             }
         }
 

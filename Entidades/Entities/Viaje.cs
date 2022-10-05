@@ -39,6 +39,7 @@ namespace Parcial.Entities
             this.pasajeros = new List<Pasajero>();
             this.precioPasajePorHora = CalcularPrecioDeViaje(destino);
             this.duracionEnHoras = CalcularDuracionDeViaje(destino);
+            this.crucero.HorasDeViaje += duracionEnHoras;
         }
 
         /// <summary>
