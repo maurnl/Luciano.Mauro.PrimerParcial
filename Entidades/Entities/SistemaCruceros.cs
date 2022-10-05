@@ -110,6 +110,17 @@ namespace Parcial.Entities
                 return SistemaCruceros.diccionarioRecaudacionPorDestino;
             }
         }
+
+        public static void SimularTiempo(TimeSpan tiempoASumar)
+        {
+            SistemaCruceros.FechaDelSistema += tiempoASumar;
+            int cantidadViajes = SistemaCruceros.Viajes.Count;
+            for (int i = cantidadViajes - 1; i >= 0; i--)
+            {
+                SistemaCruceros.Viajes[i].ActualizarEstadoDeViaje(SistemaCruceros.FechaDelSistema);
+            }
+            SistemaCruceros.ActualizarViajesActivos();
+        }
         public static List<Pasajero> BaseDeDatosPasajeros
         {
             get
@@ -152,7 +163,7 @@ namespace Parcial.Entities
             Pasajero pasajeroEncontrado = null;
             foreach (Pasajero pasajero in SistemaCruceros.BaseDeDatosPasajeros)
             {
-                if(pasajero.Dni == dni)
+                if(pasajero.NumeroPasaporte == dni)
                 {
                     pasajeroEncontrado = pasajero;
                     break;

@@ -90,7 +90,7 @@ namespace VistaParcial
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(ObtenerAyuda());
+            MessageBox.Show(ObtenerAyuda(), "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

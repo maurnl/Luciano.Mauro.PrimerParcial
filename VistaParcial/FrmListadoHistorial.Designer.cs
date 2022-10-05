@@ -37,7 +37,7 @@ namespace VistaParcial
             // panel1
             // 
             this.panel1.Controls.Add(this.btnGanancias);
-            this.panel1.Size = new System.Drawing.Size(1396, 65);
+            this.panel1.Size = new System.Drawing.Size(1292, 65);
             this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
             this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
             this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
@@ -71,7 +71,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 799);
+            this.ClientSize = new System.Drawing.Size(1292, 666);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoHistorial";
             this.Text = "FrmListadoHistorial";

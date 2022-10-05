@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parcial", "Entidades\Parcial.csproj", "{F2406D8D-780A-4CB2-88C9-60B1BF85E0A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{F2406D8D-780A-4CB2-88C9-60B1BF85E0A6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VistaParcial", "VistaParcial\VistaParcial.csproj", "{5ADBD632-8A67-4916-B814-EC112C44F781}"
 EndProject

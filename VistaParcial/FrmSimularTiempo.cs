@@ -24,14 +24,7 @@ namespace VistaParcial
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            TimeSpan tiempoASimular = TimeSpan.FromDays((double)this.nudDias.Value);
-            int cantidadViajes = SistemaCruceros.Viajes.Count;
-            SistemaCruceros.FechaDelSistema += tiempoASimular;
-            for (int i = cantidadViajes - 1; i >= 0; i--)
-            {
-                SistemaCruceros.Viajes[i].ActualizarEstadoDeViaje(SistemaCruceros.FechaDelSistema);
-            }
-            SistemaCruceros.ActualizarViajesActivos();
+            SistemaCruceros.SimularTiempo(TimeSpan.FromDays((double)this.nudDias.Value));
             this.DialogResult = DialogResult.OK;
         }
 

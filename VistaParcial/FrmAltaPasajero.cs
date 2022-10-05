@@ -215,17 +215,17 @@ namespace VistaParcial
             this.lblErrorBusqueda.Text = "Pasajero encontrado y cargado";
             this.txtNombre.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[0];
             this.txtApellido.Text = pasajeroBusqueda.NombreCompleto.Split(" ")[1];
-            this.txtDni.Text = pasajeroBusqueda.Dni.ToString();
+            this.txtDni.Text = pasajeroBusqueda.NumeroPasaporte.ToString();
             this.dtpFechaNacimiento.Value = pasajeroBusqueda.FechaNacimiento;
             this.cboTipoPasajero.SelectedItem = pasajeroBusqueda.TipoPasajero;
         }
 
         private void btnAyuda_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("- Ingrese un numero de pasaporte y presione el botón de buscar. Si no se encuentra el pasajero, regístrelo." +
-                "- Presione 'Registrar pasajero' para agregar el pasajero a la lista de clientes de esta venta." +
-                "- Para registrar equipajes presione en un pasajero de la lista, complete los datos del equipaje y presione 'Registrar equipaje'."
-                + "- Una vez registrados todos los clientes, presione 'Registrar nueva venta' y se agregarán los pasajeros al viaje.");
+            MessageBox.Show("- Ingrese un numero de pasaporte y presione el botón de buscar. Si no se encuentra el pasajero, regístrelo.\n" +
+                "- Presione 'Registrar pasajero' para agregar el pasajero a la lista de clientes de esta venta.\n" +
+                "- Para registrar equipajes presione en un pasajero de la lista, complete los datos del equipaje y presione 'Registrar equipaje'.\n"
+                + "- Una vez registrados todos los clientes, presione 'Registrar nueva venta' y se agregarán los pasajeros al viaje.\n", "Ayuda", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

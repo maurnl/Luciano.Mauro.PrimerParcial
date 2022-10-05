@@ -39,7 +39,7 @@ namespace VistaParcial
             // 
             this.panel1.Controls.Add(this.chkFiltroDos);
             this.panel1.Controls.Add(this.chkFiltroUno);
-            this.panel1.Size = new System.Drawing.Size(1396, 66);
+            this.panel1.Size = new System.Drawing.Size(1292, 66);
             this.panel1.Controls.SetChildIndex(this.btnAccionUno, 0);
             this.panel1.Controls.SetChildIndex(this.btnAccionDos, 0);
             this.panel1.Controls.SetChildIndex(this.btnReiniciarFiltros, 0);
@@ -84,7 +84,7 @@ namespace VistaParcial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 854);
+            this.ClientSize = new System.Drawing.Size(1292, 721);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoViajes";
             this.Text = "FrmListadoViajes";

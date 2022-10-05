@@ -35,7 +35,7 @@ namespace VistaParcial
             this.cboCombobox.DataSource = SistemaCruceros.Viajes;
             if(SistemaCruceros.Viajes.Count != 0)
             {
-                //this.cboCombobox.SelectedIndex = 0;
+                this.cboCombobox.SelectedIndex = 0;
             }
             LlenarListadoPorViaje();
             base.fuenteDeDatos.DataSource = listaPasajerosFiltrada;

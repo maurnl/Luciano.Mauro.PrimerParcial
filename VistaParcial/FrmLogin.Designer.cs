@@ -51,7 +51,7 @@ namespace VistaParcial
             this.txtUsername.Location = new System.Drawing.Point(55, 75);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PlaceholderText = "Ingrese usuario...";
-            this.txtUsername.Size = new System.Drawing.Size(172, 23);
+            this.txtUsername.Size = new System.Drawing.Size(173, 23);
             this.txtUsername.TabIndex = 0;
             // 
             // txtPassword
@@ -63,7 +63,7 @@ namespace VistaParcial
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "Ingrese contraseña...";
-            this.txtPassword.Size = new System.Drawing.Size(172, 23);
+            this.txtPassword.Size = new System.Drawing.Size(173, 23);
             this.txtPassword.TabIndex = 1;
             // 
             // gpbLogin
@@ -82,17 +82,18 @@ namespace VistaParcial
             this.gpbLogin.Controls.Add(this.txtUsername);
             this.gpbLogin.Location = new System.Drawing.Point(12, 12);
             this.gpbLogin.Name = "gpbLogin";
-            this.gpbLogin.Size = new System.Drawing.Size(284, 325);
+            this.gpbLogin.Size = new System.Drawing.Size(285, 324);
             this.gpbLogin.TabIndex = 2;
             this.gpbLogin.TabStop = false;
             this.gpbLogin.Text = "Iniciar sesión";
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(179, 1);
+            this.panel1.Location = new System.Drawing.Point(180, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(105, 68);
             this.panel1.TabIndex = 6;
@@ -151,7 +152,7 @@ namespace VistaParcial
             this.btnAutologin.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAutologin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAutologin.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAutologin.Location = new System.Drawing.Point(12, 399);
+            this.btnAutologin.Location = new System.Drawing.Point(12, 398);
             this.btnAutologin.Name = "btnAutologin";
             this.btnAutologin.Size = new System.Drawing.Size(105, 36);
             this.btnAutologin.TabIndex = 3;
@@ -164,7 +165,7 @@ namespace VistaParcial
             this.btnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegister.BackColor = System.Drawing.Color.SlateGray;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Location = new System.Drawing.Point(191, 399);
+            this.btnRegister.Location = new System.Drawing.Point(192, 398);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(105, 36);
             this.btnRegister.TabIndex = 4;
@@ -174,15 +175,13 @@ namespace VistaParcial
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(308, 447);
+            this.ClientSize = new System.Drawing.Size(309, 446);
             this.Controls.Add(this.btnAutologin);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.gpbLogin);
+            this.MinimumSize = new System.Drawing.Size(325, 485);
             this.Name = "FrmLogin";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);

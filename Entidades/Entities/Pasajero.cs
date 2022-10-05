@@ -67,7 +67,7 @@ namespace Parcial.Entities
                 return base.id;
             }
         }
-        public int Dni
+        public int NumeroPasaporte
         {
             get
             {

@@ -64,7 +64,7 @@ namespace VistaParcial
             }
             MessageBox.Show($"Recaudacion por servicios regionales: ${acumuladorRegional}.\n" +
                 $"Recaudacion por servicios extraregionales: ${acumuladorExtraregional}.\n" +
-                $"Total: ${acumuladorExtraregional + acumuladorRegional}");
+                $"Total: ${acumuladorExtraregional + acumuladorRegional}", "Informe recaudación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnAccionDos_Click(object sender, EventArgs e)
