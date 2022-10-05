@@ -7,12 +7,16 @@
 
 **Resumen, diagrama de calses y justificación técnica:** Se encuentra en el pdf documentación.
 
+**A tener en cuenta:**
+- Se implementó una funcionalidad de manejo de hora para simular el tiempo. La fecha del sistema es la fecha que comparten todos los viajes, para avanzar en el tiempo se debe ir a Viajes -> Simular paso del tiempo.
+
 **Pros y contras:**
 
 
 **Pros:**
 - :heavy_check_mark: Lógica de negocio debilmente acoplada a la vista.
 - :heavy_check_mark: Interfaz sencilla.
+- :heavy_check_mark: Tiene un jueguito.
 
 **Contras:**
 - :x: Como se pensó para que los datos se muestren a traves de las propiedades, se repite código para entidades que mantienen una relación de composición
