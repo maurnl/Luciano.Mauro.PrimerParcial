@@ -14,7 +14,6 @@
 
 
 **Pros:**
-- :heavy_check_mark: Lógica de negocio debilmente acoplada a la vista.
 - :heavy_check_mark: Interfaz sencilla.
 - :heavy_check_mark: Tiene un jueguito.
 
